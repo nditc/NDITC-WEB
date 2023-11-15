@@ -1,113 +1,164 @@
-import Image from 'next/image'
+import Image from "next/image";
+import BlogPost from "./Components/BlogPost";
 
 export default function Home() {
+  const blogPosts: BlogPost[] = [
+    {
+      title: "AMD Ryzen is G.O.A.T. I obviously use Ryzen 5700G",
+      date: "18h ago",
+    },
+    {
+      title: "AMD Ryzen is G.O.A.T. I obviously use Ryzen 5700G",
+      date: "18h ago",
+    },
+    {
+      title: "AMD Ryzen is G.O.A.T. I obviously use Ryzen 5700G",
+      date: "18h ago",
+    },
+    {
+      title: "AMD Ryzen is G.O.A.T. I obviously use Ryzen 5700G",
+      date: "18h ago",
+    },
+  ];
   return (
-    <main className="flex min-h-screen flex-col items-center justify-between p-24">
-      <div className="z-10 max-w-5xl w-full items-center justify-between font-mono text-sm lg:flex">
-        <p className="fixed left-0 top-0 flex w-full justify-center border-b border-gray-300 bg-gradient-to-b from-zinc-200 pb-6 pt-8 backdrop-blur-2xl dark:border-neutral-800 dark:bg-zinc-800/30 dark:from-inherit lg:static lg:w-auto  lg:rounded-xl lg:border lg:bg-gray-200 lg:p-4 lg:dark:bg-zinc-800/30">
-          Get started by editing&nbsp;
-          <code className="font-mono font-bold">src/app/page.tsx</code>
-        </p>
-        <div className="fixed bottom-0 left-0 flex h-48 w-full items-end justify-center bg-gradient-to-t from-white via-white dark:from-black dark:via-black lg:static lg:h-auto lg:w-auto lg:bg-none">
-          <a
-            className="pointer-events-none flex place-items-center gap-2 p-8 lg:pointer-events-auto lg:p-0"
-            href="https://vercel.com?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
+    <main className="flex min-h-screen flex-col items-center justify-between p-24 overflow-x-hidden">
+      <section className="relative w-screen flex flex-col md:flex-row justify-between">
+        <div className="flex flex-col p-10 md:mt-16 md:ml-10 items-center md:items-start">
+          <h1 className="font-ShareTechTown text-5xl text-black font-medium text-center md:text-left">
+            JOIN THE
+          </h1>
+          <h1 className="font-ShareTechTown text-5xl text-black font-medium text-center md:text-left">
+            COMMUNITY OF
+          </h1>
+          <h1 className="font-ShareTechTown text-5xl text-black font-medium text-center md:text-left">
+            TECH ENTHUSIASTS
+          </h1>
+          <p className="mt-3 text-sm text-black break-words w-[70vw] md:w-[30vw] text-center md:text-left">
+            Connect with like-minded individuals and expand your knowledge in
+            computer, programming, robotics, and design.
+          </p>
+          <button
+            type="button"
+            className="mt-5 py-2.5 font-ShareTechTown px-5 me-2 mb-2 text-sm font-medium text-gray-900 focus:outline-none bg-white rounded-lg border border-gray-200 hover:bg-gray-100 hover:text-blue-700 focus:z-10 focus:ring-4 focus:ring-gray-200 dark:focus:ring-gray-700 dark:bg-gray-800 dark:text-gray-400 dark:border-gray-600 dark:hover:text-white dark:hover:bg-gray-700"
           >
-            By{' '}
-            <Image
-              src="/vercel.svg"
-              alt="Vercel Logo"
-              className="dark:invert"
-              width={100}
-              height={24}
-              priority
-            />
-          </a>
+            OUR ACTIVITIES
+          </button>
         </div>
-      </div>
-
-      <div className="relative flex place-items-center before:absolute before:h-[300px] before:w-[480px] before:-translate-x-1/2 before:rounded-full before:bg-gradient-radial before:from-white before:to-transparent before:blur-2xl before:content-[''] after:absolute after:-z-20 after:h-[180px] after:w-[240px] after:translate-x-1/3 after:bg-gradient-conic after:from-sky-200 after:via-blue-200 after:blur-2xl after:content-[''] before:dark:bg-gradient-to-br before:dark:from-transparent before:dark:to-blue-700 before:dark:opacity-10 after:dark:from-sky-900 after:dark:via-[#0141ff] after:dark:opacity-40 before:lg:h-[360px] z-[-1]">
         <Image
-          className="relative dark:drop-shadow-[0_0_0.3rem_#ffffff70] dark:invert"
-          src="/next.svg"
-          alt="Next.js Logo"
-          width={180}
-          height={37}
-          priority
+          src={"/BigImg.png"}
+          alt={"Image"}
+          className="relative md:bottom-12 md:left-24"
+          width={600}
+          height={600}
+        />
+      </section>
+      <Image
+        src="/BigImg2.png"
+        alt={"Image"}
+        width={256}
+        height={256}
+        className="absolute left-0 z-[-1] top-[50rem] md:top-[30rem]"
+      />
+      <section className="mt-16 flex w-screen flex-col md:flex-row items-center justify-center">
+        <div className="flex flex-col items-center gap-3">
+          <Image src={"/Ellipse1.png"} alt={"Image"} width={100} height={100} />
+          <h6 className="text-black font-medium text-base text-center font-ShareTechTown">
+            NETWORK WITH PEERS AND MENTORS.
+          </h6>
+          <p className="text-black text-center text-sm">
+            TechClub provides a supportive community for members to network with
+            peers with similar interests and connect with mentors who can guide
+            them in their journey.
+          </p>
+        </div>
+        <div className="flex flex-col items-center gap-3">
+          <Image src={"/Ellipse2.png"} alt={"Image"} width={100} height={100} />
+          <h6 className="text-black font-medium text-base text-center font-ShareTechTown">
+            NETWORK WITH PEERS AND MENTORS.
+          </h6>
+          <p className="text-black text-center text-sm">
+            TechClub provides a supportive community for members to network with
+            peers with similar interests and connect with mentors who can guide
+            them in their journey.
+          </p>
+        </div>
+        <div className="flex flex-col items-center gap-3">
+          <Image src={"/Ellipse3.png"} alt={"Image"} width={100} height={100} />
+          <h6 className="text-black font-medium text-base text-center font-ShareTechTown">
+            NETWORK WITH PEERS AND MENTORS.
+          </h6>
+          <p className="text-black text-center text-sm">
+            TechClub provides a supportive community for members to network with
+            peers with similar interests and connect with mentors who can guide
+            them in their journey.
+          </p>
+        </div>
+      </section>
+      <section className="flex flex-col gap-7 items-center">
+        <h1 className="text-black font-ShareTechTown font-bold text-3xl mt-36">
+          CHECK OUT OUR BLOGS
+        </h1>
+        <div className="flex flex-col md:flex-row gap-3">
+          {blogPosts.map((e) => {
+            return <BlogPost title={e.title} date={e.date} key={e.title} />;
+          })}
+        </div>
+      </section>
+      <section className="flex flex-col gap-7 items-center">
+        <h1 className="text-black font-ShareTechTown font-bold text-3xl mt-36">
+          WE ORGANIZE EVENTS LIKE...
+        </h1>
+        <div className="flex flex-col md:flex-row gap-3">
+          <div className="w-[30rem] h-56 bg-[#2E2E2E] rounded flex">
+            <Image
+              src="/Cover.png"
+              alt={"Image"}
+              width={256}
+              height={256}
+              className="flex-1"
+            />
+            <div className="flex-1 flex flex-col justify-center gap-3">
+              <h1 className="p-1 font-Roboto font-bold text-sm w-[90%] break-words mt-1">
+                Inter College Programming Contest
+              </h1>
+              <p className="font-Roboto text-sm ml-1 mt-1 font-light">
+                19h ago
+              </p>
+            </div>
+          </div>
+          <div className="w-[30rem] h-56 bg-[#2E2E2E] rounded flex">
+            <Image
+              src="/Cover.png"
+              alt={"Image"}
+              width={256}
+              height={256}
+              className="flex-1"
+            />
+            <div className="flex-1 flex flex-col justify-center gap-3">
+              <h1 className="p-1 font-Roboto font-bold text-sm w-[90%] break-words mt-1">
+                Inter College Programming Contest
+              </h1>
+              <p className="font-Roboto text-sm ml-1 mt-1 font-light">
+                19h ago
+              </p>
+            </div>
+          </div>
+        </div>
+      </section>
+      <div className="w-screen mt-16">
+        <Image
+          src="/Sectors.png"
+          alt={"Sectors Image"}
+          width={1024}
+          height={1024}
+          className="w-full"
         />
       </div>
-
-      <div className="mb-32 grid text-center lg:max-w-5xl lg:w-full lg:mb-0 lg:grid-cols-4 lg:text-left">
-        <a
-          href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-          className="group rounded-lg border border-transparent px-5 py-4 transition-colors hover:border-gray-300 hover:bg-gray-100 hover:dark:border-neutral-700 hover:dark:bg-neutral-800/30"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <h2 className={`mb-3 text-2xl font-semibold`}>
-            Docs{' '}
-            <span className="inline-block transition-transform group-hover:translate-x-1 motion-reduce:transform-none">
-              -&gt;
-            </span>
-          </h2>
-          <p className={`m-0 max-w-[30ch] text-sm opacity-50`}>
-            Find in-depth information about Next.js features and API.
-          </p>
-        </a>
-
-        <a
-          href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          className="group rounded-lg border border-transparent px-5 py-4 transition-colors hover:border-gray-300 hover:bg-gray-100 hover:dark:border-neutral-700 hover:dark:bg-neutral-800/30"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <h2 className={`mb-3 text-2xl font-semibold`}>
-            Learn{' '}
-            <span className="inline-block transition-transform group-hover:translate-x-1 motion-reduce:transform-none">
-              -&gt;
-            </span>
-          </h2>
-          <p className={`m-0 max-w-[30ch] text-sm opacity-50`}>
-            Learn about Next.js in an interactive course with&nbsp;quizzes!
-          </p>
-        </a>
-
-        <a
-          href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-          className="group rounded-lg border border-transparent px-5 py-4 transition-colors hover:border-gray-300 hover:bg-gray-100 hover:dark:border-neutral-700 hover:dark:bg-neutral-800/30"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <h2 className={`mb-3 text-2xl font-semibold`}>
-            Templates{' '}
-            <span className="inline-block transition-transform group-hover:translate-x-1 motion-reduce:transform-none">
-              -&gt;
-            </span>
-          </h2>
-          <p className={`m-0 max-w-[30ch] text-sm opacity-50`}>
-            Explore starter templates for Next.js.
-          </p>
-        </a>
-
-        <a
-          href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-          className="group rounded-lg border border-transparent px-5 py-4 transition-colors hover:border-gray-300 hover:bg-gray-100 hover:dark:border-neutral-700 hover:dark:bg-neutral-800/30"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <h2 className={`mb-3 text-2xl font-semibold`}>
-            Deploy{' '}
-            <span className="inline-block transition-transform group-hover:translate-x-1 motion-reduce:transform-none">
-              -&gt;
-            </span>
-          </h2>
-          <p className={`m-0 max-w-[30ch] text-sm opacity-50`}>
-            Instantly deploy your Next.js site to a shareable URL with Vercel.
-          </p>
-        </a>
-      </div>
     </main>
-  )
+  );
+}
+
+interface BlogPost {
+  title: string;
+  date: string;
 }
