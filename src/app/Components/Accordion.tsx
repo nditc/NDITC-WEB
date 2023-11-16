@@ -19,6 +19,7 @@ const Accordion = () => {
             index={i}
             currentIndex={accordionIndex}
             setIndex={setAccordionIndex}
+            key={e.title}
           />
         );
       })}
