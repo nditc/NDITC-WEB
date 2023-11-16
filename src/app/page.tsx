@@ -1,5 +1,7 @@
 import Image from "next/image";
 import BlogPost from "./Components/BlogPost";
+import Accordion from "./Components/Accordion";
+import Contact from "./Components/Contact";
 
 export default function Home() {
   const blogPosts: BlogPost[] = [
@@ -47,7 +49,7 @@ export default function Home() {
         <Image
           src={"/BigImg.png"}
           alt={"Image"}
-          className="relative md:bottom-12 md:left-24"
+          className="relative md:bottom-7 md:left-24"
           width={600}
           height={600}
         />
@@ -95,7 +97,7 @@ export default function Home() {
         </div>
       </section>
       <section className="flex flex-col gap-7 items-center">
-        <h1 className="text-black font-ShareTechTown font-bold text-3xl mt-36">
+        <h1 className="text-black text-center md:text-left font-ShareTechTown font-bold text-3xl mt-36">
           CHECK OUT OUR BLOGS
         </h1>
         <div className="flex flex-col md:flex-row gap-3">
@@ -105,11 +107,11 @@ export default function Home() {
         </div>
       </section>
       <section className="flex flex-col gap-7 items-center">
-        <h1 className="text-black font-ShareTechTown font-bold text-3xl mt-36">
+        <h1 className="text-black font-ShareTechTown font-bold text-2xl md:text-3xl mt-36">
           WE ORGANIZE EVENTS LIKE...
         </h1>
         <div className="flex flex-col md:flex-row gap-3">
-          <div className="w-[30rem] h-56 bg-[#2E2E2E] rounded flex">
+          <div className="w-[90vw] md:w-[30rem] h-56 bg-[#2E2E2E] rounded flex">
             <Image
               src="/Cover.png"
               alt={"Image"}
@@ -126,7 +128,7 @@ export default function Home() {
               </p>
             </div>
           </div>
-          <div className="w-[30rem] h-56 bg-[#2E2E2E] rounded flex">
+          <div className="w-[90vw] md:w-[30rem] h-56 bg-[#2E2E2E] rounded flex">
             <Image
               src="/Cover.png"
               alt={"Image"}
@@ -154,6 +156,13 @@ export default function Home() {
           className="w-full"
         />
       </div>
+      <section className="md:self-start mt-20">
+        <h1 className="text-black text-3xl font-ShareTechTown mb-5 text-center md:text-left">
+          FREQUENTLY ASKED QUESTIONS...
+        </h1>
+        {<Accordion />}
+      </section>
+      <Contact />
     </main>
   );
 }
