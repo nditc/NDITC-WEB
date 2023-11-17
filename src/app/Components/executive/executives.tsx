@@ -3,7 +3,9 @@
 import React from "react";
 import ExecutiveData from "../../db/executives";
 import Image from "next/image";
+
 import Members from "./members";
+
 const Executives = () => {
   const [state, setState] = React.useState<number>(0);
   const [isOpen, setOpen] = React.useState<boolean>(false);
@@ -31,7 +33,10 @@ const Executives = () => {
                 }}
               >
                 <p>{session}</p>
-                <img
+                <Image
+                  width={48}
+                  height={48}
+                  alt={"Image"}
                   src="/image/la.svg"
                   className={
                     "w-[8px] absolute right-8 transition-all top-1/2 translate-y-[-50%]" +

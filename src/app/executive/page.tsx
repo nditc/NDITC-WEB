@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import Image from "next/image";
 import Members from "../Components/executive/members";
 import ExecutiveData from "../db/executives";
 import Executives from "../Components/executive/executives";
@@ -6,12 +7,16 @@ import Executives from "../Components/executive/executives";
 const Executive = () => {
   return (
     <div className="w-full min-h-[100vh] py-[125px] md:px-12 px-5 bg-slate-100 relative">
-      <img
+      <Image
+        width={96}
+        height={96}
         className="absolute right-0 top-1/4 z-[0]"
         src="/image/bg.svg"
         alt="bg"
       />
-      <img
+      <Image
+        width={96}
+        height={96}
         className="absolute left-0 top-3/4 z-[0]"
         src="/image/bg2.svg"
         alt="bg"
