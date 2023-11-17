@@ -31,3 +31,47 @@ body {
   -ms-overflow-style: none; /* IE and Edge */
   scrollbar-width: none; /* Firefox */
 }
+
+.card {
+  width: 22.50588rem;
+  height: 24.72719rem;
+  flex-shrink: 0;
+  border-radius: 1.16913rem;
+  background: #fff;
+  box-shadow: -11.96668px -9.57335px 37.09673px 0px rgba(255, 255, 255, 0.25),
+    8.37668px 11.96668px 37.09673px 0px rgba(0, 0, 0, 0.25);
+  margin: 0.5rem;
+}
+.card_banner {
+  width: 22.62275rem;
+  height: 11.86669rem;
+  border-radius: 1.16913rem 1.16913rem 0rem 0rem;
+  object-fit: cover;
+}
+.card p {
+  width: 20.05069rem;
+  color: #000;
+  font-size: 0.93531rem;
+  font-style: normal;
+  font-weight: 400;
+  line-height: normal;
+  margin: auto;
+}
+.card h4 {
+  color: #000;
+  font-size: 1.87063rem;
+  font-style: normal;
+  font-weight: 400;
+  line-height: normal;
+  margin: 1rem 5rem 1rem 5rem;
+  text-align: center;
+}
+
+.learn_more {
+  width: 6.4365rem;
+  height: 2.108rem;
+  flex-shrink: 0;
+  border-radius: 0.268rem;
+  background: #1a6eff;
+  margin: 1.8rem 8.4rem 1.8rem 8.4rem;
+}

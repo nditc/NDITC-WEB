@@ -119,7 +119,7 @@ export default function Home() {
               alt={"Image"}
               width={256}
               height={256}
-              className="flex-1"
+              className="flex-1 object-cover"
             />
             <div className="flex-1 flex flex-col justify-center gap-3">
               <h1 className="p-1 font-Roboto font-bold text-sm w-[90%] break-words mt-1">
@@ -136,7 +136,7 @@ export default function Home() {
               alt={"Image"}
               width={256}
               height={256}
-              className="flex-1"
+              className="flex-1 object-cover"
             />
             <div className="flex-1 flex flex-col justify-center gap-3">
               <h1 className="p-1 font-Roboto font-bold text-sm w-[90%] break-words mt-1">

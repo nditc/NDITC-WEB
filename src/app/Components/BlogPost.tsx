@@ -26,7 +26,7 @@ const BlogPost = ({ title, date, index }: Props) => {
         alt={"Image"}
         width={256}
         height={256}
-        className="w-full"
+        className="w-full object-cover"
       />
       <h1 className="p-1 font-Roboto font-medium text-sm w-[90%] break-words mt-1">
         {title}
