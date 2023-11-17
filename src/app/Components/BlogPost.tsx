@@ -1,13 +1,26 @@
+"use client";
+
+import { useInView } from "framer-motion";
 import Image from "next/image";
+import { useRef } from "react";
 
 interface Props {
   title: string;
   date: string;
+  index: number;
 }
 
-const BlogPost = ({ title, date }: Props) => {
+const BlogPost = ({ title, date, index }: Props) => {
+  const ref = useRef(null);
+
+  const inView = useInView(ref, { once: true });
   return (
-    <div className="w-60 h-72 bg-[#2E2E2E] shadow-xl rounded">
+    <div
+      ref={ref}
+      className={`w-60 h-72 bg-[#2E2E2E] shadow-xl rounded duration-1000 ${
+        inView ? "translate-x-0 opacity-100" : "-translate-x-96 opacity-0"
+      }`}
+    >
       <Image
         src="/Ryzen.jpg"
         alt={"Image"}

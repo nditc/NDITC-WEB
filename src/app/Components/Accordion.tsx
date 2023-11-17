@@ -66,6 +66,7 @@ const SingleAccordion = ({
             }
           }}
         >
+          <div className="w-5 h-5 rounded-full bg-slate-600" />
           <span>{title}</span>
           <svg
             data-accordion-icon

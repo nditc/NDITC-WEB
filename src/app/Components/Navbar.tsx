@@ -12,10 +12,10 @@ const Navbar = () => {
         <a href="/" className="flex items-center space-x-3 rtl:space-x-reverse">
           <Image
             src="/Logo.png"
-            className="h-9 mix-blend-difference"
+            className="h-12"
             alt="NDITC Logo"
-            width={99}
-            height={126}
+            width={128}
+            height={128}
           />
         </a>
         <div className="flex md:order-2 space-x-3 md:space-x-0 rtl:space-x-reverse">

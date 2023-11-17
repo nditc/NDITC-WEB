@@ -1,7 +1,5 @@
 "use client";
 
-import Image from "next/image";
-
 const Contact = () => {
   return (
     <div className="mt-36 flex flex-col items-center">
@@ -9,7 +7,7 @@ const Contact = () => {
         GET IN TOUCH WITH US
       </h1>
       <div className="w-screen flex flex-col mt-7 md:flex-row justify-center md:justify-between">
-        <div className="flex-1 flex flex-col items-center">
+        <div className="flex-1 flex flex-col items-center md:mt-10">
           <div className="mb-6 w-[96%] md:w-[70%]">
             <label
               htmlFor="default-input"
@@ -63,13 +61,13 @@ const Contact = () => {
           </button>
         </div>
 
-        <Image
-          src="/Map.png"
-          alt="Map Image"
-          width={512}
-          height={512}
-          className="md:w-[40%]"
-        />
+        <div className="md:w-[40%] md:mr-5">
+          <iframe
+            width="100%"
+            height="600"
+            src="https://maps.google.com/maps?width=100%25&amp;height=600&amp;hl=en&amp;q=notre%20dame%20college+(My%20Business%20Name)&amp;t=&amp;z=14&amp;ie=UTF8&amp;iwloc=B&amp;output=embed"
+          ></iframe>
+        </div>
       </div>
     </div>
   );
