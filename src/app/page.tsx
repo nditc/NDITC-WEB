@@ -37,7 +37,8 @@ export default function Home() {
           </h1>
           <p className="mt-3 text-sm  break-words w-[70vw] md:w-[30vw] text-center md:text-left">
             Connect with like-minded individuals and expand your knowledge in
-            computer, programming, robotics, and design.
+            computer, programming, robotics, and design. Let's be the best
+            together.
           </p>
           <button
             type="button"
@@ -49,7 +50,7 @@ export default function Home() {
         <Image
           src={"/BigImg.png"}
           alt={"Image"}
-          className="relative md:bottom-14 md:left-10 z-40"
+          className="relative md:bottom-14 md:left-10 z-30"
           width={660}
           height={660}
         />
@@ -63,7 +64,13 @@ export default function Home() {
       />
       <section className="mt-16 flex w-screen flex-col md:flex-row items-center justify-center">
         <div className="flex flex-col items-center gap-3">
-          <Image src={"/Ellipse1.png"} alt={"Image"} width={100} height={100} />
+          <Image
+            src={"/Ellipse1.png"}
+            alt={"Image"}
+            width={100}
+            height={100}
+            className="hover:scale-110 transition-all"
+          />
           <h6 className=" font-bold text-lg text-center font-ShareTechTown">
             NETWORK WITH PEERS AND MENTORS.
           </h6>
@@ -74,7 +81,13 @@ export default function Home() {
           </p>
         </div>
         <div className="flex flex-col items-center gap-3">
-          <Image src={"/Ellipse2.png"} alt={"Image"} width={100} height={100} />
+          <Image
+            src={"/Ellipse2.png"}
+            alt={"Image"}
+            width={100}
+            height={100}
+            className="hover:scale-110 transition-all"
+          />
           <h6 className=" font-bold text-lg text-center font-ShareTechTown">
             NETWORK WITH PEERS AND MENTORS.
           </h6>
@@ -85,7 +98,13 @@ export default function Home() {
           </p>
         </div>
         <div className="flex flex-col items-center gap-3">
-          <Image src={"/Ellipse3.png"} alt={"Image"} width={100} height={100} />
+          <Image
+            src={"/Ellipse3.png"}
+            alt={"Image"}
+            width={100}
+            height={100}
+            className="hover:scale-110 transition-all"
+          />
           <h6 className=" font-bold text-lg text-center font-ShareTechTown">
             NETWORK WITH PEERS AND MENTORS.
           </h6>
@@ -113,7 +132,7 @@ export default function Home() {
           WE ORGANIZE EVENTS LIKE...
         </h1>
         <div className="flex flex-col md:flex-row gap-3">
-          <div className="w-[90vw] md:w-[30rem] h-56 bg-[#2E2E2E] rounded flex">
+          <div className="w-[90vw] md:w-[30rem] h-56 bg-[#2E2E2E] rounded flex hover:scale-110 transition-all">
             <Image
               src="/Cover.png"
               alt={"Image"}
@@ -130,7 +149,7 @@ export default function Home() {
               </p>
             </div>
           </div>
-          <div className="w-[90vw] md:w-[30rem] h-56 bg-[#2E2E2E] rounded flex">
+          <div className="w-[90vw] md:w-[30rem] h-56 bg-[#2E2E2E] rounded flex hover:scale-110 transition-all">
             <Image
               src="/Cover.png"
               alt={"Image"}

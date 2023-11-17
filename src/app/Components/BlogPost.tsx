@@ -17,7 +17,7 @@ const BlogPost = ({ title, date, index }: Props) => {
   return (
     <div
       ref={ref}
-      className={`w-60 h-72 bg-[#2E2E2E] shadow-xl rounded duration-1000 ${
+      className={`w-60 h-72 bg-[#2E2E2E] shadow-xl hover:scale-110 rounded duration-1000 ${
         inView ? "translate-x-0 opacity-100" : "-translate-x-96 opacity-0"
       }`}
     >
