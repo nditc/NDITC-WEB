@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@300&family=Share+Tech+Mono&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=Roboto:wght@300&family=Share+Tech+Mono&display=swap");
 @import url(https://fonts.googleapis.com/css?family=Nunito:200,300,regular,500,600,700,800,900,200italic,300italic,italic,500italic,600italic,700italic,800italic,900italic);
 @import url(https://fonts.googleapis.com/css?family=Bebas+Neue:regular);
 
@@ -34,7 +34,6 @@ body {
   scrollbar-width: none; /* Firefox */
 }
 
-<<<<<<< HEAD
 .card {
   width: 22.50588rem;
   height: 24.72719rem;
@@ -77,7 +76,7 @@ body {
   border-radius: 0.268rem;
   background: #1a6eff;
   margin: 1.8rem 8.4rem 1.8rem 8.4rem;
-=======
+}
 h1,
 h3 {
   font-family: Bebas Neue;
@@ -118,5 +117,4 @@ p {
   .date-picker {
     @apply flex h-[20vw] flex-col text-xl gap-5;
   }
->>>>>>> 475bad76757305b76157ca27dac58d3c329748d3
 }

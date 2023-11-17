@@ -28,10 +28,12 @@ const BlogPost = ({ title, date, index }: Props) => {
         height={256}
         className="w-full object-cover"
       />
-      <h1 className="p-1 font-Roboto font-medium text-sm w-[90%] break-words mt-1">
+      <h1 className="p-1 font-Roboto text-white font-medium text-sm w-[90%] break-words mt-1">
         {title}
       </h1>
-      <p className="font-Roboto text-sm ml-1 mt-1 font-light">{date}</p>
+      <p className="font-Roboto text-sm text-white ml-1 mt-1 font-light">
+        {date}
+      </p>
     </div>
   );
 };
