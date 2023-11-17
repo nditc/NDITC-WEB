@@ -26,7 +26,7 @@ const Hover = ({ text, imageLink }: Props) => {
         onMouseEnter={() => setHover(true)}
         onMouseLeave={() => setHover(false)}
         id="dropdownHover"
-        className={`shadow-2xl flex transition-all duration-300 items-center w-64 justify-evenly absolute bg-white divide-y divide-gray-100 rounded-lg ${
+        className={`shadow-2xl right-0 flex transition-all duration-300 items-center w-64 justify-evenly absolute bg-white divide-y divide-gray-100 rounded-lg ${
           hover
             ? "blur-0 translate-y-0 opacity-100 z-50"
             : "blur-0 translate-y-[-9rem] opacity-0 z-[-1]"
