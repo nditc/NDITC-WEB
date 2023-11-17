@@ -49,9 +49,9 @@ export default function Home() {
         <Image
           src={"/BigImg.png"}
           alt={"Image"}
-          className="relative md:bottom-7 md:left-24"
-          width={600}
-          height={600}
+          className="relative md:bottom-14 md:left-10 z-40"
+          width={660}
+          height={660}
         />
       </section>
       <Image
@@ -64,7 +64,7 @@ export default function Home() {
       <section className="mt-16 flex w-screen flex-col md:flex-row items-center justify-center">
         <div className="flex flex-col items-center gap-3">
           <Image src={"/Ellipse1.png"} alt={"Image"} width={100} height={100} />
-          <h6 className="text-black font-medium text-base text-center font-ShareTechTown">
+          <h6 className="text-black font-bold text-lg text-center font-ShareTechTown">
             NETWORK WITH PEERS AND MENTORS.
           </h6>
           <p className="text-black text-center text-sm">
@@ -75,7 +75,7 @@ export default function Home() {
         </div>
         <div className="flex flex-col items-center gap-3">
           <Image src={"/Ellipse2.png"} alt={"Image"} width={100} height={100} />
-          <h6 className="text-black font-medium text-base text-center font-ShareTechTown">
+          <h6 className="text-black font-bold text-lg text-center font-ShareTechTown">
             NETWORK WITH PEERS AND MENTORS.
           </h6>
           <p className="text-black text-center text-sm">
@@ -86,7 +86,7 @@ export default function Home() {
         </div>
         <div className="flex flex-col items-center gap-3">
           <Image src={"/Ellipse3.png"} alt={"Image"} width={100} height={100} />
-          <h6 className="text-black font-medium text-base text-center font-ShareTechTown">
+          <h6 className="text-black font-bold text-lg text-center font-ShareTechTown">
             NETWORK WITH PEERS AND MENTORS.
           </h6>
           <p className="text-black text-center text-sm">
@@ -100,9 +100,11 @@ export default function Home() {
         <h1 className="text-black text-center md:text-left font-ShareTechTown font-bold text-3xl mt-36">
           CHECK OUT OUR BLOGS
         </h1>
-        <div className="flex flex-col md:flex-row gap-3">
-          {blogPosts.map((e) => {
-            return <BlogPost title={e.title} date={e.date} key={e.title} />;
+        <div className="flex mt-5 flex-col md:flex-row gap-3">
+          {blogPosts.map((e, i) => {
+            return (
+              <BlogPost title={e.title} date={e.date} index={i} key={e.title} />
+            );
           })}
         </div>
       </section>
@@ -151,8 +153,8 @@ export default function Home() {
         <Image
           src="/Sectors.png"
           alt={"Sectors Image"}
-          width={1024}
-          height={1024}
+          width={2048}
+          height={2048}
           className="w-full"
         />
       </div>

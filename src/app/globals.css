@@ -1,6 +1,5 @@
 @import url('https://fonts.googleapis.com/css2?family=Roboto:wght@300&family=Share+Tech+Mono&display=swap');
-@import url(https://fonts.googleapis.com/css?family=Bebas+Neue:regular);
-@import url(https://fonts.googleapis.com/css?family=Nunito:200,300,regular,500,600,700,800,900,200italic,300italic,italic,500italic,600italic,700italic,800italic,900italic);
+
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
@@ -18,13 +17,21 @@
     --background-end-rgb: 0, 0, 0;
   }
 } */
-h3,
-h1 {
-  font-family: Bebas Neue;
-}
+
 body {
   color: rgb(var(--foreground-rgb));
 }
+
+/* Hide scrollbar for Chrome, Safari and Opera */
+*::-webkit-scrollbar {
+  display: none;
+}
+
+* {
+  -ms-overflow-style: none; /* IE and Edge */
+  scrollbar-width: none; /* Firefox */
+}
+
 p {
   font-family: nunito;
 }
