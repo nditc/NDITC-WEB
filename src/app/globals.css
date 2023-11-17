@@ -1,5 +1,6 @@
-@import url("https://fonts.googleapis.com/css2?family=Roboto:wght@300&family=Share+Tech+Mono&display=swap");
-
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@300&family=Share+Tech+Mono&display=swap');
+@import url(https://fonts.googleapis.com/css?family=Bebas+Neue:regular);
+@import url(https://fonts.googleapis.com/css?family=Nunito:200,300,regular,500,600,700,800,900,200italic,300italic,italic,500italic,600italic,700italic,800italic,900italic);
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
@@ -10,14 +11,54 @@
   --background-end-rgb: 255, 255, 255;
 }
 
-@media (prefers-color-scheme: dark) {
+/* @media (prefers-color-scheme: dark) {
   :root {
     --foreground-rgb: 255, 255, 255;
     --background-start-rgb: 0, 0, 0;
     --background-end-rgb: 0, 0, 0;
   }
+} */
+h3,
+h1 {
+  font-family: Bebas Neue;
 }
-
 body {
   color: rgb(var(--foreground-rgb));
+}
+p {
+  font-family: nunito;
+}
+.grid-design {
+  display: grid;
+  align-items: center;
+  grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+  justify-items: center;
+  gap: 2rem;
+}
+
+.date-picker img {
+  display: none;
+}
+@media (max-width: 820px) {
+  .date-picker {
+    @apply overflow-hidden flex flex-col bg-white w-full rounded-xl mb-10 transition-all  h-[48px] z-10 shadow-lg;
+  }
+  .date-picker > .active-elem img {
+    display: block;
+  }
+  .date-picker > .list {
+    @apply order-2;
+  }
+  .open {
+    @apply h-[240px];
+  }
+
+  .date-picker > .active-elem {
+    @apply order-1;
+  }
+}
+@media (min-width: 820px) {
+  .date-picker {
+    @apply flex h-[20vw] flex-col text-xl gap-5;
+  }
 }
