@@ -5,8 +5,8 @@ import ExecutiveData from '../../db/executives';
 const Field = ({ title, desc }: { title: string; desc: React.ReactNode }) => {
   return (
     <div>
-      <p className="font-bold text-2xl">{title}</p>
-      <p className="text-xl mt-1">{desc}</p>
+      <p className="font-bold text-xl 2xl:text-2xl">{title}</p>
+      <p className="text-lg 2xl:text-xl 2xl:mt-1">{desc}</p>
     </div>
   );
 };
@@ -72,19 +72,19 @@ const Modal = ({
             <img className="" src="/image/vaiya.png" alt="" />
             {/* <p>{JSON.stringify(ExecutiveData.sessions[modalState[0]].members[modalState[1]])}</p> */}
             <div className="w-full pr-8 pb-8 flex flex-col justify-between h-full">
-              <div className="mt-[15vh]">
-                <h1 className="text-6xl">
+              <div className="mt-[12.1vh]">
+                <h1 className="text-5xl 2xl:text-6xl">
                   {firstName}
                   <span className="text-blue-500">{lastName}</span>
                 </h1>
-                <p className="text-3xl text-blue-500 font-bold">{data.post}</p>
+                <p className="text-2xl 2xl:text-3xl text-blue-500 font-bold">{data.post}</p>
                 {data.dept ? (
-                  <p className="text-2xl">
+                  <p className="text-xl 2xl:text-2xl">
                     Department of <span className="text-blue-500">{deptName}</span>
                   </p>
                 ) : null}
               </div>
-              <div className="text-right flex flex-col gap-3 justify-right align-bottom">
+              <div className="text-right flex flex-col gap-2 2xl:gap-3 justify-right align-bottom">
                 <Field title="Academic Life" desc="X School > Notre Dame College > X University" />
                 <Field title="Interest" desc="Graphics Design" />
                 <Field title="E-mail" desc="random@gmail.com" />

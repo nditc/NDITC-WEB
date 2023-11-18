@@ -1,10 +1,10 @@
 /* eslint-disable @next/next/no-img-element */
 'use client';
 import React, { useState } from 'react';
-import Member from '../Components/Executive/Member';
+import Member from '../Components/Executives/Member';
 import ExecutiveData from '../db/executives';
-import ExecutivePanel from '../Components/Executive/ExecutivePanel';
-import Modal from '../Components/Executive/Modal';
+import ExecutivePanel from '../Components/Executives/ExecutivePanel';
+import Modal from '../Components/Executives/Modal';
 
 const Executive = () => {
   const [modalState, setModalState] = useState<[number, number] | null>(null);
