@@ -3,7 +3,7 @@
 import React, { useState } from 'react';
 import Member from '../Components/Executive/Member';
 import ExecutiveData from '../db/executives';
-import Executives from '../Components/Executive/Executives';
+import Executives from '../Components/Executive/executives';
 import Modal from '../Components/Executive/Modal';
 
 const Executive = () => {
