@@ -3,7 +3,7 @@
 import React, { useState } from 'react';
 import Member from '../Components/Executive/Member';
 import ExecutiveData from '../db/executives';
-import Executives from '../Components/Executive/executives';
+import ExecutivePanel from '../Components/Executive/ExecutivePanel';
 import Modal from '../Components/Executive/Modal';
 
 const Executive = () => {
@@ -24,7 +24,7 @@ const Executive = () => {
           <h1 className="text-5xl mt-12">
             MEET THE <br /> <span className="text-blue-500">EXECUTIVES</span>
           </h1>
-          <Executives setModalState={setModalState} />
+          <ExecutivePanel setModalState={setModalState} />
         </div>
         <Modal modalState={modalState} setModalState={setModalState} />
       </div>

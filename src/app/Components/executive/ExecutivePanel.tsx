@@ -4,10 +4,10 @@ import Image from 'next/image';
 import React, { Dispatch, SetStateAction } from 'react';
 
 import ExecutiveData from '../../db/executives';
-import Modal from '../../Components/Executive/Modal';
+import Modal from './Modal';
 import Member from './Member';
 
-const Executives = ({
+const ExecutivePanel = ({
   setModalState,
 }: {
   setModalState: Dispatch<SetStateAction<[number, number] | null>>;
@@ -59,4 +59,4 @@ const Executives = ({
   );
 };
 
-export default Executives;
+export default ExecutivePanel;
