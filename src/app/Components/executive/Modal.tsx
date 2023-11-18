@@ -72,7 +72,7 @@ const Modal = ({
             <img className="" src="/image/vaiya.png" alt="" />
             {/* <p>{JSON.stringify(ExecutiveData.sessions[modalState[0]].members[modalState[1]])}</p> */}
             <div className="w-full pr-8 pb-8 flex flex-col justify-between h-full">
-              <div className="mt-36">
+              <div className="mt-[15vh]">
                 <h1 className="text-6xl">
                   {firstName}
                   <span className="text-blue-500">{lastName}</span>
