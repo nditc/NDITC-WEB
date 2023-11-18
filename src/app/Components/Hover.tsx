@@ -9,7 +9,7 @@ interface Props {
 const Hover = ({ text, imageLink }: Props) => {
   const [hover, setHover] = useState(false);
   return (
-    <div className="relative">
+    <div className="relative z-50">
       <button
         onMouseEnter={() => setHover(true)}
         onMouseLeave={() => setHover(false)}
@@ -26,16 +26,16 @@ const Hover = ({ text, imageLink }: Props) => {
         onMouseEnter={() => setHover(true)}
         onMouseLeave={() => setHover(false)}
         id="dropdownHover"
-        className={`shadow-2xl flex transition-all duration-300 items-center w-64 justify-evenly z-10 absolute bg-white divide-y divide-gray-100 rounded-lg ${
+        className={`shadow-2xl right-0 flex transition-all duration-300 items-center w-64 justify-evenly absolute bg-white divide-y divide-gray-100 rounded-lg ${
           hover
-            ? "blur-0 translate-y-0 opacity-100"
+            ? "blur-0 translate-y-0 opacity-100 z-50"
             : "blur-0 translate-y-[-9rem] opacity-0 z-[-1]"
         }`}
       >
         <Image
           src={imageLink}
           alt="Image"
-          className="w-[50%]  ml-2"
+          className="w-[50%] ml-2"
           width={256}
           height={256}
         />

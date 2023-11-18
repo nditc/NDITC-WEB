@@ -2,7 +2,10 @@ const SideBar = () => {
   return (
     <div className="fixed right-0 z-50 top-[50%] translate-y-[-50%]">
       <div className="h-32 w-8 rounded-full mr-1 flex flex-col bg-white items-center gap-3 justify-evenly shadow-2xl">
-        <a href="" className="mix-blend-difference mt-2">
+        <a
+          href=""
+          className="mix-blend-difference mt-2 hover:scale-125 transition-all"
+        >
           <svg
             className="w-6 h-6 text-gray-800 dark:text-white"
             aria-hidden="true"
@@ -14,7 +17,10 @@ const SideBar = () => {
           </svg>
         </a>
 
-        <a href="" className="mix-blend-difference">
+        <a
+          href=""
+          className="mix-blend-difference hover:scale-125 transition-all"
+        >
           <svg
             className="w-6 h-6 text-gray-800 dark:text-white"
             aria-hidden="true"
@@ -30,7 +36,10 @@ const SideBar = () => {
           </svg>
         </a>
 
-        <a href="" className="mix-blend-difference mb-2">
+        <a
+          href=""
+          className="mix-blend-difference mb-2 hover:scale-125 transition-all"
+        >
           <svg
             className="w-6 h-6 text-gray-800 dark:text-white"
             aria-hidden="true"

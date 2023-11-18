@@ -17,7 +17,7 @@ const BlogPost = ({ title, date, index }: Props) => {
   return (
     <div
       ref={ref}
-      className={`w-60 h-72 bg-[#2E2E2E] shadow-xl rounded duration-1000 ${
+      className={`w-60 h-72 bg-[#2E2E2E] shadow-xl hover:scale-110 rounded duration-1000 ${
         inView ? "translate-x-0 opacity-100" : "-translate-x-96 opacity-0"
       }`}
     >
@@ -26,12 +26,14 @@ const BlogPost = ({ title, date, index }: Props) => {
         alt={"Image"}
         width={256}
         height={256}
-        className="w-full"
+        className="w-full object-cover"
       />
-      <h1 className="p-1 font-Roboto font-medium text-sm w-[90%] break-words mt-1">
+      <h1 className="p-1 font-Roboto text-white font-medium text-sm w-[90%] break-words mt-1">
         {title}
       </h1>
-      <p className="font-Roboto text-sm ml-1 mt-1 font-light">{date}</p>
+      <p className="font-Roboto text-sm text-white ml-1 mt-1 font-light">
+        {date}
+      </p>
     </div>
   );
 };

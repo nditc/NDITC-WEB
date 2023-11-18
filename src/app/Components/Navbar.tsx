@@ -3,6 +3,7 @@
 import { useState } from "react";
 import Hover from "./Hover";
 import Image from "next/image";
+import Link from "next/link";
 
 const Navbar = () => {
   const [showOptions, setShowOptions] = useState(false);
@@ -69,6 +70,14 @@ const Navbar = () => {
             </li>
             <li>
               <Hover text="Activities" imageLink="/HoverImage1.png" />
+            </li>
+            <li>
+              <Link
+                href="/executive"
+                className="block py-2 px-3 text-gray-900 rounded hover:bg-gray-100 md:hover:bg-transparent md:hover:text-blue-700 md:p-0"
+              >
+                Executives
+              </Link>
             </li>
             <li>
               <a

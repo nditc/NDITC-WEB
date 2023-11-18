@@ -3,7 +3,7 @@
 const Contact = () => {
   return (
     <div className="mt-36 flex flex-col items-center">
-      <h1 className="text-black text-3xl font-ShareTechTown font-semibold mb-5 text-center md:text-left">
+      <h1 className="text-3xl font-ShareTechTown font-semibold mb-5 text-center md:text-left">
         GET IN TOUCH WITH US
       </h1>
       <div className="w-screen flex flex-col mt-7 md:flex-row justify-center md:justify-between">

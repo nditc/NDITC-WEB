@@ -1,6 +1,5 @@
-/* eslint-disable jsx-a11y/alt-text */
-/* eslint-disable @next/next/no-img-element */
 'use client';
+import Image from 'next/image';
 
 import React, { Dispatch, SetStateAction } from 'react';
 
@@ -33,7 +32,10 @@ const Executives = ({
                 }}
               >
                 <p>{session}</p>
-                <img
+                <Image
+                  width={48}
+                  height={48}
+                  alt={'Image'}
                   src="/image/la.svg"
                   className={
                     'w-[8px] absolute right-8 transition-all top-1/2 translate-y-[-50%]' +
