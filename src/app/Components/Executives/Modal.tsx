@@ -5,15 +5,15 @@ import ExecutiveData from '../../db/executives';
 const Field = ({ title, desc }: { title: string; desc: React.ReactNode }) => {
   return (
     <div>
-      <p className="font-bold text-xl 2xl:text-2xl">{title}</p>
-      <p className="text-lg 2xl:text-xl 2xl:mt-1">{desc}</p>
+      <p className="font-bold text-lg 2xl:text-2xl">{title}</p>
+      <p className="text-base 2xl:text-xl 2xl:mt-1">{desc}</p>
     </div>
   );
 };
 const Links = ({ img, href }: { img: string; href: string }) => {
   return (
     <a
-      className="w-[30px] h-[30px] hover:fill-blue-500 transition-opacity opacity-70 hover:opacity-100"
+      className="w-[35px] h-[35px] hover:fill-blue-500 transition-opacity opacity-70 hover:opacity-100"
       href={href}
     >
       <img src={'/image/links/' + img + '.svg'} alt="" />
@@ -49,18 +49,26 @@ const Modal = ({
       ></div>
       <div
         className={
-          'fixed left-1/2 top-1/2 translate-y-[-50%] translate-x-[-50%] w-4/5 h-4/5 rounded-2xl  bg-white z-[70] shadow-2xl transition' +
+          'fixed overflow-hidden left-1/2 top-1/2 translate-y-[-50%] translate-x-[-50%] w-4/5 h-4/5 rounded-2xl  bg-white z-[70] shadow-2xl transition' +
           ' ' +
           (modalState ? 'scale-1' : 'scale-0 pointer-events-none')
         }
       >
         <img
-          className="absolute left-0 bottom-0 -z-10 min-w-[55%]"
+          className="absolute left-0 bottom-0 -z-10 min-w-[55%] "
           src="/image/modalbg.svg"
           alt=""
         />
+        <div className={'absolute top-8 right-8 flex align-middle text-right'}>
+          <div>
+            <p className="font-bold text-sm 2xl:text-base">Executive Committee</p>
+            <h3 className="text-4xl 2xl:text-[2.825rem] leading-none text-blue-500">
+              {modalState ? ExecutiveData.sessions[modalState[0]].session : ''}
+            </h3>
+          </div>
+        </div>
         <button
-          className="absolute top-5 right-5 p-3 bg-slate-50 rounded-full hover:bg-blue-50  hover:fill-blue-500 transition"
+          className="absolute top-5 left-5 p-3 bg-slate-50 rounded-full hover:bg-blue-50  hover:fill-blue-500 transition"
           onClick={() => setModalState(null)}
         >
           <svg xmlns="http://www.w3.org/2000/svg" className="w-4" viewBox="0 0 384 512">
@@ -69,7 +77,7 @@ const Modal = ({
         </button>
         {modalState && data ? (
           <div className="flex align-bottom h-full">
-            <img className="" src="/image/vaiya.png" alt="" />
+            <img className="object-cover ml-12 mt-[12.1vh]" src="/image/vaiya.png" alt="" />
             {/* <p>{JSON.stringify(ExecutiveData.sessions[modalState[0]].members[modalState[1]])}</p> */}
             <div className="w-full pr-8 pb-8 flex flex-col justify-between h-full">
               <div className="mt-[12.1vh]">
