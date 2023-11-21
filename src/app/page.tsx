@@ -39,7 +39,7 @@ export default function Home() {
             Connect with like-minded individuals and expand your knowledge in
             computer, programming, robotics, and design. Let's be the best
             together and show the world what we really got. Because We Are Notre
-            Damians.
+            Damians
           </p>
           <button
             type="button"
