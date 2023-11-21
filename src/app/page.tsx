@@ -24,8 +24,8 @@ export default function Home() {
   ];
   return (
     <main className="flex min-h-screen flex-col items-center justify-between p-24 overflow-x-hidden">
-      <section className="relative w-screen flex flex-col md:flex-row justify-between">
-        <div className="flex flex-col p-10 md:mt-16 md:ml-10 items-center md:items-start">
+      <section className="relative w-screen flex flex-col md:flex-row justify-evenly">
+        <div className="flex flex-col p-10 md:mt-16 md:ml-10 items-center md:items-start md:pl-20 pl-0">
           <h1 className="font-ShareTechTown text-5xl  font-medium text-center md:text-left">
             JOIN THE
           </h1>
@@ -38,7 +38,8 @@ export default function Home() {
           <p className="mt-3 text-sm  break-words w-[70vw] md:w-[30vw] text-center md:text-left">
             Connect with like-minded individuals and expand your knowledge in
             computer, programming, robotics, and design. Let's be the best
-            together.
+            together and show the world what we really got. Because We Are Notre
+            Damians.
           </p>
           <button
             type="button"
@@ -74,7 +75,7 @@ export default function Home() {
           <h6 className=" font-bold text-lg text-center font-ShareTechTown">
             NETWORK WITH PEERS AND MENTORS.
           </h6>
-          <p className=" text-center text-sm">
+          <p className="w-[70%] text-center text-sm">
             TechClub provides a supportive community for members to network with
             peers with similar interests and connect with mentors who can guide
             them in their journey.
@@ -91,7 +92,7 @@ export default function Home() {
           <h6 className=" font-bold text-lg text-center font-ShareTechTown">
             NETWORK WITH PEERS AND MENTORS.
           </h6>
-          <p className=" text-center text-sm">
+          <p className="w-[70%] text-center text-sm">
             TechClub provides a supportive community for members to network with
             peers with similar interests and connect with mentors who can guide
             them in their journey.
@@ -108,7 +109,7 @@ export default function Home() {
           <h6 className=" font-bold text-lg text-center font-ShareTechTown">
             NETWORK WITH PEERS AND MENTORS.
           </h6>
-          <p className=" text-center text-sm">
+          <p className="w-[70%] text-center text-sm">
             TechClub provides a supportive community for members to network with
             peers with similar interests and connect with mentors who can guide
             them in their journey.
@@ -119,7 +120,7 @@ export default function Home() {
         <h1 className=" text-center md:text-left font-ShareTechTown font-bold text-3xl mt-36">
           CHECK OUT OUR BLOGS
         </h1>
-        <div className="flex mt-5 flex-col md:flex-row gap-3">
+        <div className="flex mt-5 flex-col md:flex-row gap-5">
           {blogPosts.map((e, i) => {
             return (
               <BlogPost title={e.title} date={e.date} index={i} key={e.title} />

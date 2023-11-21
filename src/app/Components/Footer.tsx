@@ -2,8 +2,15 @@ import Image from "next/image";
 
 const Footer = () => {
   return (
-    <footer className="bg-gray-900 text-xs md:text-base">
-      <div className="mx-auto w-full max-w-screen-xl p-4 py-6 lg:py-8 flex justify-evenly">
+    <footer className="bg-gray-900 text-xs md:text-base relative">
+      <span className="md:text-xs text-gray-500 text-xs sm:text-center mt-7 dark:text-gray-400 absolute bottom-3 left-3">
+        © 2023{" "}
+        <a href="https://flowbite.com/" className="hover:underline">
+          NDITC™
+        </a>
+        . All Rights Reserved.
+      </span>
+      <div className="mx-auto w-full max-w-screen-xl p-4 py-6 lg:py-8 flex justify-evenly gap-3">
         <div className="flex flex-col gap-3">
           <div className="text-gray-500 dark:text-gray-400 font-medium hover:underline cursor-pointer">
             Home
@@ -17,13 +24,6 @@ const Footer = () => {
           <div className="text-gray-500 dark:text-gray-400 font-medium hover:underline cursor-pointer">
             Events
           </div>
-          <span className="text-sm text-gray-500 sm:text-center mt-7 dark:text-gray-400">
-            © 2023{" "}
-            <a href="https://flowbite.com/" className="hover:underline">
-              NDITC™
-            </a>
-            . All Rights Reserved.
-          </span>
         </div>
         <div className="flex flex-col gap-3">
           <div className="text-gray-500 dark:text-gray-400 font-medium hover:underline cursor-pointer">

@@ -1,5 +1,6 @@
 import { useState } from "react";
 import Image from "next/image";
+import Link from "next/link";
 
 interface Props {
   text: string;
@@ -26,7 +27,7 @@ const Hover = ({ text, imageLink }: Props) => {
         onMouseEnter={() => setHover(true)}
         onMouseLeave={() => setHover(false)}
         id="dropdownHover"
-        className={`shadow-2xl right-0 flex transition-all duration-300 items-center w-64 justify-evenly absolute bg-white divide-y divide-gray-100 rounded-lg ${
+        className={`top-7 shadow-2xl right-0 flex transition-all duration-300 items-center w-64 justify-evenly absolute bg-white divide-y divide-gray-100 rounded-lg ${
           hover
             ? "blur-0 translate-y-0 opacity-100 z-50"
             : "blur-0 translate-y-[-9rem] opacity-0 z-[-1]"
@@ -50,12 +51,12 @@ const Hover = ({ text, imageLink }: Props) => {
             </h6>
           </li>
           <li>
-            <a
-              href="#"
+            <Link
+              href="/Events"
               className="block px-4 py-2 hover:bg-gray-100 hover:text-blue-500"
             >
               Events
-            </a>
+            </Link>
           </li>
           <li>
             <a

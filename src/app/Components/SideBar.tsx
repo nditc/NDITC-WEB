@@ -18,8 +18,9 @@ const SideBar = () => {
         </a>
 
         <a
-          href=""
+          href="https://www.youtube.com/@nditcofficial"
           className="mix-blend-difference hover:scale-125 transition-all"
+          target="_blank"
         >
           <svg
             className="w-6 h-6 text-gray-800 dark:text-white"
@@ -37,7 +38,8 @@ const SideBar = () => {
         </a>
 
         <a
-          href=""
+          href="https://www.facebook.com/nditc.official"
+          target="_blank"
           className="mix-blend-difference mb-2 hover:scale-125 transition-all"
         >
           <svg

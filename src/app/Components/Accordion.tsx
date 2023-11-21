@@ -1,6 +1,7 @@
 "use client";
 
 import { useState } from "react";
+import Image from "next/image";
 
 const Accordion = () => {
   const accordionData: AccordionData[] = [
@@ -10,19 +11,21 @@ const Accordion = () => {
   ];
   const [accordionIndex, setAccordionIndex] = useState(-1);
   return (
-    <div id="accordion-collapse" data-accordion="collapse">
-      {accordionData.map((e, i) => {
-        return (
-          <SingleAccordion
-            title={e.title}
-            answer={e.answer}
-            index={i}
-            currentIndex={accordionIndex}
-            setIndex={setAccordionIndex}
-            key={e.title}
-          />
-        );
-      })}
+    <div className="relative">
+      <div id="accordion-collapse" data-accordion="collapse">
+        {accordionData.map((e, i) => {
+          return (
+            <SingleAccordion
+              title={e.title}
+              answer={e.answer}
+              index={i}
+              currentIndex={accordionIndex}
+              setIndex={setAccordionIndex}
+              key={e.title}
+            />
+          );
+        })}
+      </div>
     </div>
   );
 };
