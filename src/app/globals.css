@@ -87,34 +87,37 @@ p {
 .grid-design {
   display: grid;
   align-items: center;
-  grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
-  justify-items: center;
+  grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+  justify-items: start;
   gap: 2rem;
 }
 
-.date-picker img {
+.session-selector img {
   display: none;
 }
-@media (max-width: 820px) {
-  .date-picker {
+@media (max-width: 765px) {
+  .grid-design {
+    grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+  }
+  .session-selector {
     @apply overflow-hidden flex flex-col bg-white w-full rounded-xl mb-10 transition-all  h-[48px] z-10 shadow-lg;
   }
-  .date-picker > .active-elem img {
+  .session-selector > .active-elem img {
     display: block;
   }
-  .date-picker > .list {
+  .session-selector > .session-list-item {
     @apply order-2;
   }
   .open {
     @apply h-[240px];
   }
 
-  .date-picker > .active-elem {
+  .session-selector > .active-elem {
     @apply order-1;
   }
 }
-@media (min-width: 820px) {
-  .date-picker {
+@media (min-width: 768px) {
+  .session-selector {
     @apply flex h-[20vw] flex-col text-xl gap-5;
   }
 }

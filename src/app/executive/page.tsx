@@ -1,44 +1,34 @@
-import React, { useState } from "react";
-import Image from "next/image";
-import Members from "../Components/executive/members";
-import ExecutiveData from "../db/executives";
-import Executives from "../Components/executive/executives";
+/* eslint-disable @next/next/no-img-element */
+'use client';
+import React, { useState } from 'react';
+import Member from '../Components/Executives/Member';
+import ExecutiveData from '../db/executives';
+import ExecutivePanel from '../Components/Executives/ExecutivePanel';
+import Modal from '../Components/Executives/Modal';
 
 const Executive = () => {
+  const [modalState, setModalState] = useState<[number, number] | null>(null);
   return (
-    <div className="w-full min-h-[100vh] py-[125px] md:px-12 px-5 bg-slate-100 relative">
-      <Image
-        width={96}
-        height={96}
-        className="absolute right-0 top-1/4 z-[0]"
-        src="/image/bg.svg"
-        alt="bg"
-      />
-      <Image
-        width={96}
-        height={96}
-        className="absolute left-0 top-3/4 z-[0]"
-        src="/image/bg2.svg"
-        alt="bg"
-      />
-      <div className="max-w-[1300px] mx-auto z-[3] relative">
-        <div className="flex flex-wrap gap-16 w-full justify-center">
-          {ExecutiveData.heads.map(({ image_url, name, post, dept }) => (
-            <Members
-              key=""
-              img={image_url}
-              name={name}
-              designation={post}
-              department={dept}
-            />
-          ))}
+    <>
+      <div className={'w-full min-h-[100vh] py-[125px] md:px-12 px-5 bg-slate-50 relative'}>
+        <img className="absolute right-0 top-1/4 z-0" src="/image/bg.svg" alt="bg" />
+        <img className="absolute left-0 top-3/4 z-0" src="/image/bg2.svg" alt="bg" />
+        <div className="max-w-[1300px] mx-auto relative z-10">
+          <div className={'grid place-items-center w-full'}>
+            <div className="flex flex-col md:flex-row md:flex-wrap gap-16 justify-start md:justify-center">
+              {ExecutiveData.heads.map(({ image_url, name, post, dept }) => (
+                <Member key="" img={image_url} name={name} designation={post} department={dept} />
+              ))}
+            </div>
+          </div>
+          <h1 className="text-5xl mt-12">
+            MEET THE <br /> <span className="text-blue-500">EXECUTIVES</span>
+          </h1>
+          <ExecutivePanel setModalState={setModalState} />
         </div>
-        <h1 className="text-5xl mt-12">
-          MEET THE <br /> <span className="text-blue-500">EXECUTIVES</span>
-        </h1>
-        <Executives />
+        <Modal modalState={modalState} setModalState={setModalState} />
       </div>
-    </div>
+    </>
   );
 };
 
