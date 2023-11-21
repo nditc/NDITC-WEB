@@ -1,4 +1,5 @@
 import Image from "next/image";
+import Link from "next/link";
 
 const Footer = () => {
   return (
@@ -12,32 +13,56 @@ const Footer = () => {
       </span>
       <div className="mx-auto w-full max-w-screen-xl p-4 py-6 lg:py-8 flex justify-evenly gap-3">
         <div className="flex flex-col gap-3">
-          <div className="text-gray-500 dark:text-gray-400 font-medium hover:underline cursor-pointer">
+          <Link
+            href="/"
+            className="text-gray-500 dark:text-gray-400 font-medium hover:underline cursor-pointer"
+          >
             Home
-          </div>
-          <div className="text-gray-500 dark:text-gray-400 font-medium hover:underline cursor-pointer">
+          </Link>
+          <Link
+            href="/activities"
+            className="text-gray-500 dark:text-gray-400 font-medium hover:underline cursor-pointer"
+          >
             Activities
-          </div>
-          <div className="text-gray-500 dark:text-gray-400 font-medium hover:underline cursor-pointer">
+          </Link>
+          <Link
+            href="/about"
+            className="text-gray-500 dark:text-gray-400 font-medium hover:underline cursor-pointer"
+          >
             About
-          </div>
-          <div className="text-gray-500 dark:text-gray-400 font-medium hover:underline cursor-pointer">
+          </Link>
+          <Link
+            href="/events"
+            className="text-gray-500 dark:text-gray-400 font-medium hover:underline cursor-pointer"
+          >
             Events
-          </div>
+          </Link>
         </div>
         <div className="flex flex-col gap-3">
-          <div className="text-gray-500 dark:text-gray-400 font-medium hover:underline cursor-pointer">
+          <Link
+            href="/"
+            className="text-gray-500 dark:text-gray-400 font-medium hover:underline cursor-pointer"
+          >
             Publication
-          </div>
-          <div className="text-gray-500 dark:text-gray-400 font-medium hover:underline cursor-pointer">
+          </Link>
+          <Link
+            href="/"
+            className="text-gray-500 dark:text-gray-400 font-medium hover:underline cursor-pointer"
+          >
             Resources
-          </div>
-          <div className="text-gray-500 dark:text-gray-400 font-medium hover:underline cursor-pointer">
+          </Link>
+          <Link
+            href="/executive"
+            className="text-gray-500 dark:text-gray-400 font-medium hover:underline cursor-pointer"
+          >
             Executives
-          </div>
-          <div className="text-gray-500 dark:text-gray-400 font-medium hover:underline cursor-pointer">
+          </Link>
+          <Link
+            href="/"
+            className="text-gray-500 dark:text-gray-400 font-medium hover:underline cursor-pointer"
+          >
             App
-          </div>
+          </Link>
         </div>
 
         <div className="flex flex-col items-center gap-3">

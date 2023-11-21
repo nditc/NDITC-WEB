@@ -24,8 +24,8 @@ export default function Home() {
   ];
   return (
     <main className="flex min-h-screen flex-col items-center justify-between p-24 overflow-x-hidden">
-      <section className="relative w-screen flex flex-col md:flex-row justify-evenly">
-        <div className="flex flex-col p-10 md:mt-16 md:ml-10 items-center md:items-start md:pl-20 pl-0">
+      <section className="relative w-screen flex flex-col md:flex-row justify-evenly md:gap-3">
+        <div className="flex flex-col p-10 md:mt-16 items-center md:items-start md:pl-20 pl-0">
           <h1 className="font-ShareTechTown text-5xl  font-medium text-center md:text-left">
             JOIN THE
           </h1>

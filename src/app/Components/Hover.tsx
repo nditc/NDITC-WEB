@@ -52,7 +52,7 @@ const Hover = ({ text, imageLink }: Props) => {
           </li>
           <li>
             <Link
-              href="/Events"
+              href="/events"
               className="block px-4 py-2 hover:bg-gray-100 hover:text-blue-500"
             >
               Events

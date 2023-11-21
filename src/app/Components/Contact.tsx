@@ -7,11 +7,11 @@ const Contact = () => {
         GET IN TOUCH WITH US
       </h1>
       <div className="w-screen flex flex-col mt-7 md:flex-row justify-center md:justify-between">
-        <div className="flex-1 flex flex-col items-center md:mt-10">
+        <div className="flex-1 flex flex-col items-center gap-5 md:mt-10">
           <div className="mb-6 w-[96%] md:w-[70%]">
             <label
               htmlFor="default-input"
-              className="block mb-2 text-sm font-medium text-gray-900"
+              className="block mb-2 text-lg font-medium text-gray-900"
             >
               Name
             </label>
@@ -27,7 +27,7 @@ const Contact = () => {
           <div className="mb-6 w-[96%] md:w-[70%]">
             <label
               htmlFor="default-input"
-              className="block mb-2 text-sm font-medium text-gray-900"
+              className="block mb-2 text-lg font-medium text-gray-900"
             >
               Email
             </label>
@@ -42,7 +42,7 @@ const Contact = () => {
           <div className="mb-6 w-[96%] md:w-[70%]">
             <label
               htmlFor="default-input"
-              className="block mb-2 text-sm font-medium text-gray-900"
+              className="block mb-2 text-lg font-medium text-gray-900"
             >
               Message
             </label>
