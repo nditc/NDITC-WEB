@@ -61,7 +61,7 @@ const Contact = () => {
           </button>
         </div>
 
-        <div className="md:w-[40%] md:mr-5 relative z-30">
+        <div className="md:w-[40%] md:mr-5 relative">
           <iframe
             width="100%"
             height="600"

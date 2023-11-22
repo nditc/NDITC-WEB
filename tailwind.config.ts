@@ -16,9 +16,11 @@ const config: Config = {
       fontFamily: {
         ShareTechTown: ["Share Tech Mono", "Mono"],
         Roboto: ["Roboto", "sans-serif"],
+        Bebas: ["Bebas Neue", "sans - serif"],
+        Nunito: ["Nunito", "sans-serif"],
       },
     },
   },
-  plugins: [],
+  plugins: [require("tailwind-gradient-mask-image")],
 };
 export default config;

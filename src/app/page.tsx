@@ -23,7 +23,7 @@ export default function Home() {
     },
   ];
   return (
-    <main className="flex min-h-screen flex-col items-center justify-between p-24 overflow-x-hidden">
+    <main className="flex min-h-screen flex-col items-center justify-between pt-24 pl-24 pr-24 overflow-x-hidden">
       <section className="relative w-screen flex flex-col md:flex-row justify-evenly md:gap-3">
         <div className="flex flex-col p-10 md:mt-16 items-center md:items-start md:pl-20 pl-0">
           <h1 className="font-ShareTechTown text-5xl  font-medium text-center md:text-left">
@@ -35,15 +35,14 @@ export default function Home() {
           <h1 className="font-ShareTechTown text-5xl  font-medium text-center md:text-left">
             TECH ENTHUSIASTS
           </h1>
-          <p className="mt-3 text-sm  break-words w-[70vw] md:w-[30vw] text-center md:text-left">
+          <p className="mt-3 text-base break-words w-[70vw] md:w-[30vw] text-center md:text-left">
             Connect with like-minded individuals and expand your knowledge in
             computer, programming, robotics, and design. Let's be the best
-            together and show the world what we really got. Because We Are Notre
-            Damians
+            together
           </p>
           <button
             type="button"
-            className="mt-5 py-2.5 font-ShareTechTown px-5 me-2 mb-2 text-sm font-medium text-gray-900 focus:outline-none bg-white rounded-lg border border-gray-200 hover:bg-gray-100 hover:text-blue-700 focus:z-10 focus:ring-4 focus:ring-gray-200 dark:focus:ring-gray-700 dark:bg-gray-800 dark:text-gray-400 dark:border-gray-600 dark:hover:text-white dark:hover:bg-gray-700"
+            className="mt-5 py-2.5 font-ShareTechTown px-5 me-2 mb-2 text-base font-medium text-gray-900 focus:outline-none bg-white rounded-lg border border-gray-200 hover:bg-gray-100 hover:text-blue-700 focus:z-10 focus:ring-4 focus:ring-gray-200 dark:focus:ring-gray-700 dark:bg-gray-800 dark:text-gray-400 dark:border-gray-600 dark:hover:text-white dark:hover:bg-gray-700"
           >
             OUR ACTIVITIES
           </button>
@@ -75,7 +74,7 @@ export default function Home() {
           <h6 className=" font-bold text-lg text-center font-ShareTechTown">
             NETWORK WITH PEERS AND MENTORS.
           </h6>
-          <p className="w-[70%] text-center text-sm">
+          <p className="w-[76%] text-center text-base">
             TechClub provides a supportive community for members to network with
             peers with similar interests and connect with mentors who can guide
             them in their journey.
@@ -92,7 +91,7 @@ export default function Home() {
           <h6 className=" font-bold text-lg text-center font-ShareTechTown">
             NETWORK WITH PEERS AND MENTORS.
           </h6>
-          <p className="w-[70%] text-center text-sm">
+          <p className="w-[76%] text-center text-base">
             TechClub provides a supportive community for members to network with
             peers with similar interests and connect with mentors who can guide
             them in their journey.
@@ -109,7 +108,7 @@ export default function Home() {
           <h6 className=" font-bold text-lg text-center font-ShareTechTown">
             NETWORK WITH PEERS AND MENTORS.
           </h6>
-          <p className="w-[70%] text-center text-sm">
+          <p className="w-[76%] text-center text-base">
             TechClub provides a supportive community for members to network with
             peers with similar interests and connect with mentors who can guide
             them in their journey.
@@ -122,9 +121,7 @@ export default function Home() {
         </h1>
         <div className="flex mt-5 flex-col md:flex-row gap-5">
           {blogPosts.map((e, i) => {
-            return (
-              <BlogPost title={e.title} date={e.date} index={i} key={e.title} />
-            );
+            return <BlogPost title={e.title} date={e.date} index={i} key={i} />;
           })}
         </div>
       </section>
@@ -142,10 +139,10 @@ export default function Home() {
               className="flex-1 object-cover"
             />
             <div className="flex-1 flex flex-col justify-center gap-3">
-              <h1 className="p-1 text-white font-Roboto font-bold text-sm w-[90%] break-words mt-1">
+              <h1 className="p-1 text-white font-Roboto font-bold text-base w-[90%] break-words mt-1">
                 Inter College Programming Contest
               </h1>
-              <p className="font-Roboto text-white text-sm ml-1 mt-1 font-light">
+              <p className="font-Roboto text-white text-base ml-1 mt-1 font-light">
                 19h ago
               </p>
             </div>
@@ -159,10 +156,10 @@ export default function Home() {
               className="flex-1 object-cover"
             />
             <div className="flex-1 flex flex-col justify-center gap-3">
-              <h1 className="p-1 text-white font-Roboto font-bold text-sm w-[90%] break-words mt-1">
+              <h1 className="p-1 text-white font-Roboto font-bold text-base w-[90%] break-words mt-1">
                 Inter College Programming Contest
               </h1>
-              <p className="font-Roboto text-white text-sm ml-1 mt-1 font-light">
+              <p className="font-Roboto text-white text-base ml-1 mt-1 font-light">
                 19h ago
               </p>
             </div>
