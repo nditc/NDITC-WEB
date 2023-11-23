@@ -1,4 +1,4 @@
-import Image from "next/image";
+import SingleNotification from "./SingleNotification";
 
 const Notifications = () => {
   const NotificationData: NotificationDataFormat[] = [
@@ -6,35 +6,44 @@ const Notifications = () => {
       title: "Father Tim memorial programming contest 3.0",
       description:
         "This is a paragraph with more information about something important. This something has many uses and is made of 100% recycled material.",
+      imgURL:
+        "https://images.pexels.com/photos/546819/pexels-photo-546819.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1",
     },
 
     {
       title: "Father Tim memorial programming contest 3.0",
       description:
         "This is a paragraph with more information about something important. This something has many uses and is made of 100% recycled material.",
+      imgURL:
+        "https://images.pexels.com/photos/459654/pexels-photo-459654.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1",
     },
 
     {
       title: "Father Tim memorial programming contest 3.0",
       description:
         "This is a paragraph with more information about something important. This something has many uses and is made of 100% recycled material.",
+      imgURL:
+        "https://images.pexels.com/photos/2582937/pexels-photo-2582937.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1",
     },
 
     {
       title: "Father Tim memorial programming contest 3.0",
       description:
         "This is a paragraph with more information about something important. This something has many uses and is made of 100% recycled material.",
+      imgURL:
+        "https://images.pexels.com/photos/982673/pexels-photo-982673.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1",
     },
 
     {
       title: "Father Tim memorial programming contest 3.0",
       description:
         "This is a paragraph with more information about something important. This something has many uses and is made of 100% recycled material.",
+      imgURL: "/Cover.png",
     },
   ];
 
   return (
-    <div className="mt-32 mb-10 overflow-x-hidden">
+    <div className="mt-32 pb-10 overflow-x-hidden">
       <div className="flex w-screen justify-center md:justify-start gap-3 md:ml-32 items-center">
         <div className="rounded-full w-16 h-16 shadow-[010px_20px_15px_10px_#00000024]">
           <svg
@@ -59,6 +68,7 @@ const Notifications = () => {
               <SingleNotification
                 title={e.title}
                 description={e.description}
+                imageURL={e.imgURL}
                 key={i}
               />
             );
@@ -72,33 +82,7 @@ const Notifications = () => {
 interface NotificationDataFormat {
   title: string;
   description: string;
+  imgURL: string;
 }
 
 export default Notifications;
-
-const SingleNotification = ({
-  title,
-  description,
-}: {
-  title: string;
-  description: string;
-}) => {
-  return (
-    <div className="w-full h-[7.9rem] md:h-[8.6rem] shadow-[020px_20px_20px_10px_#cbd5e0] transition-all duration-500 hover:scale-110 rounded-xl flex justify-between">
-      <div className="flex flex-col gap-1 flex-[6] ml-5 mt-2">
-        <h1 className="text-lg md:text-2xl">{title}</h1>
-        <p className="text-sm md:text-base break-words max-w-[90%] line-clamp-2">
-          {description}
-        </p>
-      </div>
-
-      <Image
-        src={"/Cover.png"}
-        alt="Image"
-        width={512}
-        height={512}
-        className="object-cover flex-[4.5] h-full rounded-r-xl gradient-mask-l-50"
-      />
-    </div>
-  );
-};
