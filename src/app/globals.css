@@ -96,6 +96,13 @@ p {
   gap: 2rem;
 }
 
+.grid-design-blogs {
+  display: grid;
+  align-items: center;
+  grid-template-columns: repeat(auto-fill, minmax(15rem, 1fr));
+  justify-items: center;
+  gap: 2rem;
+}
 .session-selector img {
   display: none;
 }

@@ -30,13 +30,13 @@ export default function Home() {
     <main className="flex container mx-auto flex-col items-center justify-center">
       <section className="relative w-full min-h-screen flex flex-col md:flex-row justify-center md:justify-between items-center gap-5 md:gap-0  pt-[75px]">
         <div className="flex flex-col items-center md:items-start md:gap-3 order-2 md:order-1">
-          <h1 className="font-ShareTechTown text-4xl md:text-5xl  font-medium text-center md:text-left">
+          <h1 className="font-ShareTechTown text-4xl lg:text-5xl  font-medium text-center md:text-left">
             JOIN THE
           </h1>
-          <h1 className="font-ShareTechTown text-4xl md:text-5xl  font-medium text-center md:text-left">
+          <h1 className="font-ShareTechTown text-4xl lg:text-5xl  font-medium text-center md:text-left">
             COMMUNITY OF
           </h1>
-          <h1 className="font-ShareTechTown text-4xl md:text-5xl  font-medium text-center md:text-left">
+          <h1 className="font-ShareTechTown text-4xl lg:text-5xl  font-medium text-center md:text-left">
             TECH ENTHUSIASTS
           </h1>
           <p className="mt-3 text-base break-words w-[70vw] md:w-[30vw] text-center md:text-left">
@@ -75,7 +75,7 @@ export default function Home() {
             height={150}
             className="hover:scale-110 transition-all"
           />
-          <h6 className=" font-bold text-lg text-center font-ShareTechTown">
+          <h6 className=" font-bold text-xl text-center font-ShareTechTown">
             NETWORK WITH PEERS AND MENTORS.
           </h6>
           <p className="text-center text-base">
@@ -91,7 +91,7 @@ export default function Home() {
             height={150}
             className="hover:scale-110 transition-all"
           />
-          <h6 className=" font-bold text-lg text-center font-ShareTechTown">
+          <h6 className=" font-bold text-xl text-center font-ShareTechTown">
             NETWORK WITH PEERS AND MENTORS.
           </h6>
           <p className="text-center text-base">
@@ -107,7 +107,7 @@ export default function Home() {
             height={150}
             className="hover:scale-110 transition-all"
           />
-          <h6 className=" font-bold text-lg text-center font-ShareTechTown">
+          <h6 className=" font-bold text-xl text-center font-ShareTechTown">
             NETWORK WITH PEERS AND MENTORS.
           </h6>
           <p className="text-center text-base">
@@ -116,11 +116,11 @@ export default function Home() {
           </p>
         </div>
       </section>
-      <section className="flex flex-col gap-7 items-start  justify-start">
-        <h1 className=" text-center md:text-left font-ShareTechTown font-bold text-3xl mt-36">
+      <section className="flex flex-col gap-7 items-start  justify-start w-full">
+        <h1 className="text-center mx-auto md:text-left font-ShareTechTown font-bold text-3xl mt-36">
           CHECK OUT OUR BLOGS
         </h1>
-        <div className="flex mt-5 flex-col md:flex-row gap-5">
+        <div className="mt-5 w-full justify-center grid-design-blogs">
           {blogPosts.map((e, i) => {
             return <BlogPost title={e.title} date={e.date} index={i} key={i} />;
           })}
