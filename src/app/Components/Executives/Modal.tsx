@@ -49,7 +49,7 @@ const Modal = ({
       ></div>
       <div
         className={
-          'fixed pb-24 md:pb-0 d:mb-0 left-1/2 top-1/2 translate-y-[-50%] translate-x-[-50%] w-full h-full lg:w-4/5 lg:h-4/5 rounded-2xl  bg-white z-[70] shadow-2xl transition' +
+          'fixed pb-24 md:pb-0 d:mb-0 left-1/2 top-1/2 translate-y-[-50%] translate-x-[-50%] w-full h-full lg:w-4/5 lg:h-4/5 md:rounded-2xl  bg-white z-[70] shadow-2xl transition' +
           ' ' +
           (modalState ? 'scale-1' : 'scale-0 pointer-events-none')
         }
