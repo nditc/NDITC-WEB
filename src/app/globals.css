@@ -1,6 +1,6 @@
-@import url("https://fonts.googleapis.com/css2?family=Roboto:wght@300&family=Share+Tech+Mono&display=swap");
-@import url("https://fonts.googleapis.com/css?family=Nunito:200,300,regular,500,600,700,800,900,200italic,300italic,italic,500italic,600italic,700italic,800italic,900italic");
-@import url("https://fonts.googleapis.com/css?family=Bebas+Neue:regular");
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@300&family=Share+Tech+Mono&display=swap');
+@import url('https://fonts.googleapis.com/css?family=Nunito:200,300,regular,500,600,700,800,900,200italic,300italic,italic,500italic,600italic,700italic,800italic,900italic');
+@import url('https://fonts.googleapis.com/css?family=Bebas+Neue:regular');
 
 @tailwind base;
 @tailwind components;
@@ -32,6 +32,10 @@ body {
 * {
   -ms-overflow-style: none; /* IE and Edge */
   scrollbar-width: none; /* Firefox */
+}
+
+.container {
+  @apply max-w-[90vw] xl:max-w-[80vw] 2xl:max-w-[75vw];
 }
 
 .card {
@@ -92,6 +96,13 @@ p {
   gap: 2rem;
 }
 
+.grid-design-blogs {
+  display: grid;
+  align-items: center;
+  grid-template-columns: repeat(auto-fill, minmax(15rem, 1fr));
+  justify-items: center;
+  gap: 2rem;
+}
 .session-selector img {
   display: none;
 }
