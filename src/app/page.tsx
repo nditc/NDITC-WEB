@@ -57,7 +57,7 @@ export default function Home() {
           width={760}
           height={760}
         />
-        <img src="/image/bg2.svg" className="absolute bottom-[5vh] right-0" />
+        <img src="/image/bg2.svg" className="absolute bottom-[5vh] right-0" alt="" />
       </section>
       <Image
         src="/BigImg2.png"
