@@ -53,9 +53,9 @@ export default function Home() {
         <Image
           src={'/BigImg.png'}
           alt={'Image'}
-          className="relative max-w-[95vw] sm:max-w-[80vw] md:max-w-[50vw] order-1 md:order-2"
-          width={760}
-          height={760}
+          className="relative aspect-square object-contain max-h-[80vh] md:mr-[-10vw] max-w-[95vw] sm:max-w-[80vw] md:max-w-[55vw] order-1 md:order-2"
+          width={850}
+          height={850}
         />
         <img src="/image/bg2.svg" className="absolute bottom-[5vh] right-0" alt="" />
       </section>
