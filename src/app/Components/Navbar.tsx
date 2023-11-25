@@ -1,9 +1,9 @@
-'use client';
+"use client";
 
-import { useState } from 'react';
-import Hover from './Hover';
-import Image from 'next/image';
-import Link from 'next/link';
+import { useState } from "react";
+import Hover from "./Hover";
+import Image from "next/image";
+import Link from "next/link";
 
 const Navbar = () => {
   const [showOptions, setShowOptions] = useState(false);
@@ -11,15 +11,22 @@ const Navbar = () => {
     <nav className="bg-white fixed w-full z-20 top-0 start-0 border-b border-gray-200 ">
       <div className="container flex flex-wrap items-center justify-between mx-auto py-4 px-1">
         <a href="/" className="flex items-center space-x-3 rtl:space-x-reverse">
-          <Image src="/Logo.png" className="h-12" alt="NDITC Logo" width={128} height={128} />
+          <Image
+            src="/Logo.png"
+            className="h-12"
+            alt="NDITC Logo"
+            width={128}
+            height={128}
+          />
         </a>
         <div className="flex md:order-2 space-x-3 md:space-x-0 rtl:space-x-reverse">
-          <button
+          <a
+            href="https://raw.githubusercontent.com/nditc/nditc_mobile_app/main/nditc.apk"
             type="button"
             className="text-white bg-[#252525] font-ShareTechTown hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-4 py-2 text-center"
           >
             TRY OUR APP
-          </button>
+          </a>
           <button
             onClick={() => setShowOptions(!showOptions)}
             data-collapse-toggle="navbar-sticky"
@@ -48,7 +55,7 @@ const Navbar = () => {
         </div>
         <div
           className={`items-center justify-between w-full md:flex md:w-auto md:order-1 ${
-            showOptions ? '' : 'hidden'
+            showOptions ? "" : "hidden"
           }`}
           id="navbar-sticky"
         >

@@ -52,35 +52,35 @@ const Hover = ({ text, imageLink }: Props) => {
           </li>
           <li>
             <Link
-              href="/activities"
+              href="/activities?type=event"
               className="block px-4 py-2 hover:bg-gray-100 hover:text-blue-500"
             >
               Events
             </Link>
           </li>
           <li>
-            <a
-              href="#"
+            <Link
+              href="/activities?type=publication"
               className="block px-4 py-2 hover:bg-gray-100 hover:text-blue-500"
             >
               Publication
-            </a>
+            </Link>
           </li>
           <li>
             <a
-              href="#"
+              href="https://raw.githubusercontent.com/nditc/nditc_mobile_app/main/nditc.apk"
               className="block px-4 py-2 hover:bg-gray-100 hover:text-blue-500"
             >
               App
             </a>
           </li>
           <li>
-            <a
-              href="#"
+            <Link
+              href="/activities?type=workshop"
               className="block px-4 py-2 hover:bg-gray-100 hover:text-blue-500"
             >
               Workshop
-            </a>
+            </Link>
           </li>
         </ul>
       </div>

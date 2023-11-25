@@ -1,15 +1,22 @@
-'use client';
+"use client";
 
 const Contact = () => {
   return (
     <div className="mt-36 flex flex-col items-center">
-      <h1 className="text-3xl font-ShareTechTown font-semibold mb-5 text-center md:text-left">
-        GET IN TOUCH WITH US
-      </h1>
+      <div className="flex gap-2 self-center">
+        <h1 className="text-5xl mb-5 text-center md:text-left text-blue-500">
+          GET IN TOUCH
+        </h1>
+        <h1 className="text-5xl mb-5 text-center md:text-left">WITH US</h1>
+      </div>
+
       <div className="w-screen flex flex-col mt-7 md:flex-row justify-center md:justify-between">
         <div className="flex-1 flex flex-col items-center justify-center py-10  bg-zinc-200">
           <div className="mb-6 w-[96%] md:w-[70%]">
-            <label htmlFor="default-input" className="block mb-2 text-lg font-medium text-gray-900">
+            <label
+              htmlFor="default-input"
+              className="block mb-2 text-lg font-medium text-gray-900"
+            >
               Name
             </label>
 
@@ -22,7 +29,10 @@ const Contact = () => {
           </div>
 
           <div className="mb-6 w-[96%] md:w-[70%]">
-            <label htmlFor="default-input" className="block mb-2 text-lg font-medium text-gray-900">
+            <label
+              htmlFor="default-input"
+              className="block mb-2 text-lg font-medium text-gray-900"
+            >
               Email
             </label>
 
@@ -34,7 +44,10 @@ const Contact = () => {
             />
           </div>
           <div className="mb-6 w-[96%] md:w-[70%]">
-            <label htmlFor="default-input" className="block mb-2 text-lg font-medium text-gray-900">
+            <label
+              htmlFor="default-input"
+              className="block mb-2 text-lg font-medium text-gray-900"
+            >
               Message
             </label>
 
