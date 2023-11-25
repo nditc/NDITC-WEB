@@ -1,6 +1,6 @@
-@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@300&family=Share+Tech+Mono&display=swap');
-@import url('https://fonts.googleapis.com/css?family=Nunito:200,300,regular,500,600,700,800,900,200italic,300italic,italic,500italic,600italic,700italic,800italic,900italic');
-@import url('https://fonts.googleapis.com/css?family=Bebas+Neue:regular');
+@import url("https://fonts.googleapis.com/css2?family=Roboto:wght@300&family=Share+Tech+Mono&display=swap");
+@import url("https://fonts.googleapis.com/css?family=Nunito:200,300,regular,500,600,700,800,900,200italic,300italic,italic,500italic,600italic,700italic,800italic,900italic");
+@import url("https://fonts.googleapis.com/css?family=Bebas+Neue:regular");
 
 @tailwind base;
 @tailwind components;
@@ -61,16 +61,8 @@ body {
   font-style: normal;
   font-weight: 400;
   line-height: normal;
+  font-family: nunito;
   margin: auto;
-}
-.card h4 {
-  color: #000;
-  font-size: 1.87063rem;
-  font-style: normal;
-  font-weight: 400;
-  line-height: normal;
-  margin: 1rem 5rem 1rem 5rem;
-  text-align: center;
 }
 
 .learn_more {
@@ -80,6 +72,7 @@ body {
   border-radius: 0.268rem;
   background: #1a6eff;
   margin: 1.8rem 8.4rem 1.8rem 8.4rem;
+  font-family: Bebas Neue;
 }
 h1,
 h3 {

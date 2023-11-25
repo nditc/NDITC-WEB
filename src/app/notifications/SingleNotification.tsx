@@ -12,7 +12,7 @@ const SingleNotification = ({
   imageURL: string;
 }) => {
   return (
-    <div className="w-full h-[7.9rem] md:h-[8.6rem] border border-gray-200 shadow-[0px_6px_50px_15px_#a0aec0] transition-all duration-500 hover:scale-110 rounded-xl flex justify-between">
+    <div className="hover:cursor-pointer w-full h-[7.9rem] md:h-[8.6rem] border border-gray-200 shadow-[5px_5px_30px_5px_#a0aec0] transition-all duration-500 hover:scale-110 rounded-xl flex justify-between">
       <div className="flex flex-col gap-1 flex-[6] mt-2 p-3">
         <h1 className="text-lg md:text-2xl">{title}</h1>
         <p className="text-sm md:text-base break-words max-w-[90%] line-clamp-2">
