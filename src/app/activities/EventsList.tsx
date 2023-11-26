@@ -56,35 +56,56 @@ const EventsList = () => {
   const type = useSearchParams().get('type');
 
   useEffect(() => {
+<<<<<<< Updated upstream
     if (type != 'events' && type != 'publication' && type != 'workshop') {
       setTypeString('event');
+=======
+    if (
+      type != "events" &&
+      type != "project" &&
+      type != "publication" &&
+      type != "workshop"
+    ) {
+      setTypeString("event");
+>>>>>>> Stashed changes
     } else {
       setTypeString(type);
     }
   }, [type]);
 
   return (
+<<<<<<< Updated upstream
     <section className="w-full">
       <div className="flex gap-3 w-full">
+=======
+    <section>
+      <div className="flex gap-3 mb-9">
+>>>>>>> Stashed changes
         <Link
           href="/activities?type=event"
           type="button"
-          className="text-gray-900 bg-white border font-Nunito font-bold border-gray-300 focus:outline-none hover:bg-gray-100 focus:ring-4 focus:ring-gray-200 rounded-lg text-sm px-5 py-2.5 me-2 mb-2 shadow-[10px_10px_20px_10px_#00000024]"
+          className={`bg-white border font-Nunito font-bold border-gray-300 focus:outline-none hover:bg-gray-100 focus:ring-4 focus:ring-gray-200 rounded-xl text-sm px-5 py-2.5 me-2 mb-2 shadow-[10px_10px_20px_10px_#00000024] transition-all hover:scale-105 ${
+            type == "event" ? "text-blue-500" : "text-black"
+          }`}
         >
           Events
         </Link>
         <Link
           href="/activities?type=workshop"
           type="button"
-          className="text-gray-900 bg-white border font-Nunito font-bold border-gray-300 focus:outline-none hover:bg-gray-100 focus:ring-4 focus:ring-gray-200 rounded-lg text-sm px-5 py-2.5 me-2 mb-2 shadow-[10px_10px_20px_10px_#00000024]"
+          className={`bg-white border font-Nunito font-bold border-gray-300 focus:outline-none hover:bg-gray-100 focus:ring-4 focus:ring-gray-200 rounded-xl text-sm px-5 py-2.5 me-2 mb-2 shadow-[10px_10px_20px_10px_#00000024] transition-all hover:scale-105 ${
+            type == "workshop" ? "text-blue-500" : "text-black"
+          }`}
         >
-          Workshops
+          Workshop
         </Link>
 
         <Link
           href="/activities?type=project"
           type="button"
-          className="text-gray-900 bg-white border font-Nunito font-bold border-gray-300 focus:outline-none hover:bg-gray-100 focus:ring-4 focus:ring-gray-200 rounded-lg text-sm px-5 py-2.5 me-2 mb-2 shadow-[10px_10px_20px_10px_#00000024]"
+          className={`bg-white border font-Nunito font-bold border-gray-300 focus:outline-none hover:bg-gray-100 focus:ring-4 focus:ring-gray-200 rounded-xl text-sm px-5 py-2.5 me-2 mb-2 shadow-[10px_10px_20px_10px_#00000024] transition-all hover:scale-105 ${
+            type == "project" ? "text-blue-500" : "text-black"
+          }`}
         >
           Projects
         </Link>
@@ -92,7 +113,9 @@ const EventsList = () => {
         <Link
           href="/activities?type=publication"
           type="button"
-          className="text-gray-900 bg-white border font-Nunito font-bold border-gray-300 focus:outline-none hover:bg-gray-100 focus:ring-4 focus:ring-gray-200 rounded-lg text-sm px-5 py-2.5 me-2 mb-2 shadow-[10px_10px_20px_10px_#00000024]"
+          className={`bg-white border font-Nunito font-bold border-gray-300 focus:outline-none hover:bg-gray-100 focus:ring-4 focus:ring-gray-200 rounded-xl text-sm px-5 py-2.5 me-2 mb-2 shadow-[10px_10px_20px_10px_#00000024] transition-all hover:scale-105 ${
+            type == "publication" ? "text-blue-500" : "text-black"
+          }`}
         >
           Publication
         </Link>
