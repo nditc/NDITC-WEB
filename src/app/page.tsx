@@ -1,38 +1,12 @@
 import Image from 'next/image';
-import BlogPost from './Components/BlogPost';
 import Accordion from './Components/Accordion';
 import Contact from './Components/Contact';
+import BlogPostsCont from './Components/BlogPostsCont';
 
 export default function Home() {
-  const blogPosts: BlogPost[] = [
-    {
-      title: 'AMD Ryzen is G.O.A.T. I obviously use Ryzen 5700G',
-      date: '18h ago',
-    },
-    {
-      title: 'AMD Ryzen is G.O.A.T. I obviously use Ryzen 5700G',
-      date: '18h ago',
-    },
-    {
-      title: 'AMD Ryzen is G.O.A.T. I obviously use Ryzen 5700G',
-      date: '18h ago',
-    },
-    {
-      title: 'AMD Ryzen is G.O.A.T. I obviously use Ryzen 5700G',
-      date: '18h ago',
-    },
-    {
-      title: 'AMD Ryzen is G.O.A.T. I obviously use Ryzen 5700G',
-      date: '18h ago',
-    },
-    {
-      title: 'AMD Ryzen is G.O.A.T. I obviously use Ryzen 5700G',
-      date: '18h ago',
-    },
-  ];
   return (
     <main className="flex container mx-auto flex-col items-center justify-center">
-      <section className="relative w-full min-h-screen flex flex-col md:flex-row justify-center md:justify-between items-center gap-5 md:gap-0  pt-[75px]">
+      <section className="relative w-full min-h-screen flex flex-col md:flex-row justify-center md:justify-between items-center gap-5 md:gap-0  pt-[75px] over">
         <div className="flex flex-col items-center md:items-start md:gap-3 order-2 md:order-1">
           <h1 className="font-ShareTechTown text-4xl lg:text-5xl  font-medium text-center md:text-left">
             JOIN THE
@@ -40,7 +14,7 @@ export default function Home() {
           <h1 className="font-ShareTechTown text-4xl lg:text-5xl  font-medium text-center md:text-left">
             COMMUNITY OF
           </h1>
-          <h1 className="font-ShareTechTown text-4xl lg:text-5xl  font-medium text-center md:text-left">
+          <h1 className="font-ShareTechTown text-4xl lg:text-5xl  font-medium text-center md:text-left text-blue-600">
             TECH ENTHUSIASTS
           </h1>
           <p className="mt-3 text-base break-words w-[70vw] md:w-[30vw] text-center md:text-left">
@@ -63,77 +37,24 @@ export default function Home() {
         />
         <img src="/image/bg2.svg" className="absolute bottom-[5vh] right-0" alt="" />
       </section>
-      <Image
-        src="/BigImg2.png"
-        alt={'Image'}
-        width={256}
-        height={256}
-        className="absolute left-0 z-[-1] top-[50rem] md:top-[30rem]"
-      />
-      <section className="mt-16 flex  flex-col md:flex-row items-center justify-center gap-10">
-        <div className="flex flex-col items-center gap-3">
-          <Image
-            src={'/Ellipse1.png'}
-            alt={'Image'}
-            width={150}
-            height={150}
-            className="hover:scale-110 transition-all"
-          />
-          <h6 className=" font-bold text-xl text-center font-ShareTechTown">
-            NETWORK WITH PEERS AND MENTORS.
-          </h6>
-          <p className="text-center text-base">
-            TechClub provides a supportive community for members to network with peers with similar
-            interests and connect with mentors who can guide them in their journey.
-          </p>
-        </div>
-        <div className="flex flex-col items-center gap-3">
-          <Image
-            src={'/Ellipse2.png'}
-            alt={'Image'}
-            width={150}
-            height={150}
-            className="hover:scale-110 transition-all"
-          />
-          <h6 className=" font-bold text-xl text-center font-ShareTechTown">
-            NETWORK WITH PEERS AND MENTORS.
-          </h6>
-          <p className="text-center text-base">
-            TechClub provides a supportive community for members to network with peers with similar
-            interests and connect with mentors who can guide them in their journey.
-          </p>
-        </div>
-        <div className="flex flex-col items-center gap-3">
-          <Image
-            src={'/Ellipse3.png'}
-            alt={'Image'}
-            width={150}
-            height={150}
-            className="hover:scale-110 transition-all"
-          />
-          <h6 className=" font-bold text-xl text-center font-ShareTechTown">
-            NETWORK WITH PEERS AND MENTORS.
-          </h6>
-          <p className="text-center text-base">
-            TechClub provides a supportive community for members to network with peers with similar
-            interests and connect with mentors who can guide them in their journey.
-          </p>
-        </div>
-      </section>
-      <section className="flex flex-col gap-7 items-start  justify-start w-full">
-        <h1 className="text-center mx-auto md:text-left font-ShareTechTown font-bold text-3xl mt-36">
-          CHECK OUT OUR BLOGS
-        </h1>
-        <div className="mt-5 w-full justify-items-center grid-fluid-fill-[15rem] items-center gap-8">
-          {blogPosts.map((e, i) => {
-            return <BlogPost title={e.title} date={e.date} index={i} key={i} />;
-          })}
-        </div>
-      </section>
+
+      <div className="w-screen mt-16">
+        <Image
+          src="/Sectors.png"
+          alt={'Sectors Image'}
+          width={2048}
+          height={2048}
+          className="w-full"
+        />
+      </div>
+
       <section className="flex flex-col gap-7 items-center">
-        <h1 className=" font-ShareTechTown font-bold text-2xl md:text-3xl mt-36">
-          WE ORGANIZE EVENTS LIKE...
-        </h1>
+        <div className="flex flex-col md:flex-row gap-2 self-center mt-12 md:mt-20 md:mb-5 items-center">
+          <h1 className="text-3xl md:text-5xl">CHECK OUT OUR</h1>
+
+          <h1 className="text-3xl md:text-5xl text-blue-500">HASHTECH POSTS</h1>
+        </div>
+
         <div className="flex flex-col md:flex-row gap-3">
           <div className="w-[90vw] md:w-[30rem] h-56 bg-[#2E2E2E] rounded flex hover:scale-110 transition-all">
             <Image
@@ -167,15 +88,74 @@ export default function Home() {
           </div>
         </div>
       </section>
-      <div className="w-screen mt-16">
-        <Image
-          src="/Sectors.png"
-          alt={'Sectors Image'}
-          width={2048}
-          height={2048}
-          className="w-full"
-        />
-      </div>
+
+      <section className="mt-10 flex flex-col gap-7 items-start justify-start w-full py-5 relative">
+        <div className="flex gap-2 self-center">
+          <h1 className="text-center tracking-wider mx-auto md:text-left text-4xl mt-20 text-blue-500">
+            OUR ACTIVITIES
+          </h1>
+          <h1 className="text-center mx-auto md:text-left text-4xl mt-20">INCLUDE</h1>
+        </div>
+        <BlogPostsCont />
+      </section>
+
+      <section className="mt-36 flex flex-col items-center gap-9">
+        <div className="flex gap-1">
+          <h1 className="text-4xl">WHY YOU SHOULD</h1>
+          <h1 className="text-blue-500 text-4xl">JOIN NDITC?</h1>
+        </div>
+        <div className="flex flex-col md:flex-row items-center justify-center gap-10">
+          <div className="flex flex-col items-center gap-3">
+            <Image
+              src={'/Ellipse1.png'}
+              alt={'Image'}
+              width={150}
+              height={150}
+              className="hover:scale-110 transition-all"
+            />
+            <h6 className=" font-bold text-xl text-center font-ShareTechTown">
+              NETWORK WITH PEERS AND MENTORS.
+            </h6>
+            <p className="text-center text-base">
+              TechClub provides a supportive community for members to network with peers with
+              similar interests and connect with mentors who can guide them in their journey.
+            </p>
+          </div>
+          <div className="flex flex-col items-center gap-3">
+            <Image
+              src={'/Ellipse2.png'}
+              alt={'Image'}
+              width={150}
+              height={150}
+              className="hover:scale-110 transition-all"
+            />
+            <h6 className=" font-bold text-xl text-center font-ShareTechTown">
+              NETWORK WITH PEERS AND MENTORS.
+            </h6>
+            <p className="text-center text-base">
+              TechClub provides a supportive community for members to network with peers with
+              similar interests and connect with mentors who can guide them in their journey.
+            </p>
+          </div>
+          <div className="flex flex-col items-center gap-3">
+            <Image
+              src={'/Ellipse3.png'}
+              alt={'Image'}
+              width={150}
+              height={150}
+              className="hover:scale-110 transition-all"
+            />
+            <h6 className=" font-bold text-xl text-center font-ShareTechTown">
+              NETWORK WITH PEERS AND MENTORS.
+            </h6>
+            <p className="text-center text-base">
+              TechClub provides a supportive community for members to network with peers with
+              similar interests and connect with mentors who can guide them in their journey.
+            </p>
+          </div>
+        </div>
+      </section>
+
       <section className="md:self-start mt-20">
         <h1 className=" text-3xl font-ShareTechTown mb-5 text-center md:text-left">
           FREQUENTLY ASKED QUESTIONS...
@@ -185,9 +165,4 @@ export default function Home() {
       <Contact />
     </main>
   );
-}
-
-interface BlogPost {
-  title: string;
-  date: string;
 }
