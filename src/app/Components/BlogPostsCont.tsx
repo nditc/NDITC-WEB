@@ -50,6 +50,7 @@ const BlogPostsCont = () => {
   const [size, setSize] = useState<number>(0);
   const [scrollLeft, setscrollLeft] = useState<number>(0);
   useEffect(() => {
+    setTimeout(() => scrollRef.current?.scrollTo(0, 0), 100);
     const sizeHandler = () => {
       let w = scrollRef.current?.clientWidth || 0;
       setSize((w + 16) / Math.floor(w / 250) - 16);
