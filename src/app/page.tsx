@@ -1,38 +1,12 @@
-import Image from "next/image";
-import BlogPost from "./Components/BlogPost";
-import Accordion from "./Components/Accordion";
-import Contact from "./Components/Contact";
+import Image from 'next/image';
+import Accordion from './Components/Accordion';
+import Contact from './Components/Contact';
+import BlogPostsCont from './Components/BlogPostsCont';
 
 export default function Home() {
-  const blogPosts: BlogPost[] = [
-    {
-      title: "AMD Ryzen is G.O.A.T. I obviously use Ryzen 5700G",
-      date: "18h ago",
-    },
-    {
-      title: "AMD Ryzen is G.O.A.T. I obviously use Ryzen 5700G",
-      date: "18h ago",
-    },
-    {
-      title: "AMD Ryzen is G.O.A.T. I obviously use Ryzen 5700G",
-      date: "18h ago",
-    },
-    {
-      title: "AMD Ryzen is G.O.A.T. I obviously use Ryzen 5700G",
-      date: "18h ago",
-    },
-    {
-      title: "AMD Ryzen is G.O.A.T. I obviously use Ryzen 5700G",
-      date: "18h ago",
-    },
-    {
-      title: "AMD Ryzen is G.O.A.T. I obviously use Ryzen 5700G",
-      date: "18h ago",
-    },
-  ];
   return (
     <main className="flex container mx-auto flex-col items-center justify-center">
-      <section className="relative w-full min-h-screen flex flex-col md:flex-row justify-center md:justify-between items-center gap-5 md:gap-0  pt-[75px]">
+      <section className="relative w-full min-h-screen flex flex-col md:flex-row justify-center md:justify-between items-center gap-5 md:gap-0  pt-[75px] over">
         <div className="flex flex-col items-center md:items-start md:gap-3 order-2 md:order-1">
           <h1 className="font-ShareTechTown text-4xl lg:text-5xl  font-medium text-center md:text-left">
             JOIN THE
@@ -44,9 +18,8 @@ export default function Home() {
             TECH ENTHUSIASTS
           </h1>
           <p className="mt-3 text-base break-words w-[70vw] md:w-[30vw] text-center md:text-left">
-            Connect with like-minded individuals and expand your knowledge in
-            computer, programming, robotics, and design. Let's be the best
-            together
+            Connect with like-minded individuals and expand your knowledge in computer, programming,
+            robotics, and design. Let's be the best together
           </p>
           <button
             type="button"
@@ -56,23 +29,19 @@ export default function Home() {
           </button>
         </div>
         <Image
-          src={"/BigImg.png"}
-          alt={"Image"}
+          src={'/BigImg.png'}
+          alt={'Image'}
           className="relative aspect-square object-contain max-h-[80vh] md:mr-[-10vw] max-w-[95vw] sm:max-w-[80vw] md:max-w-[55vw] order-1 md:order-2"
           width={850}
           height={850}
         />
-        <img
-          src="/image/bg2.svg"
-          className="absolute bottom-[5vh] right-0"
-          alt=""
-        />
+        <img src="/image/bg2.svg" className="absolute bottom-[5vh] right-0" alt="" />
       </section>
 
       <div className="w-screen mt-16">
         <Image
           src="/Sectors.png"
-          alt={"Sectors Image"}
+          alt={'Sectors Image'}
           width={2048}
           height={2048}
           className="w-full"
@@ -90,7 +59,7 @@ export default function Home() {
           <div className="w-[90vw] md:w-[30rem] h-56 bg-[#2E2E2E] rounded flex hover:scale-110 transition-all">
             <Image
               src="/Cover.png"
-              alt={"Image"}
+              alt={'Image'}
               width={256}
               height={256}
               className="flex-1 object-cover"
@@ -99,15 +68,13 @@ export default function Home() {
               <h1 className="p-1 text-white font-Roboto font-bold text-base w-[90%] break-words mt-1">
                 Inter College Programming Contest
               </h1>
-              <p className="font-Roboto text-white text-base ml-1 mt-1 font-light">
-                19h ago
-              </p>
+              <p className="font-Roboto text-white text-base ml-1 mt-1 font-light">19h ago</p>
             </div>
           </div>
           <div className="w-[90vw] md:w-[30rem] h-56 bg-[#2E2E2E] rounded flex hover:scale-110 transition-all">
             <Image
               src="/Cover.png"
-              alt={"Image"}
+              alt={'Image'}
               width={256}
               height={256}
               className="flex-1 object-cover"
@@ -116,29 +83,20 @@ export default function Home() {
               <h1 className="p-1 text-white font-Roboto font-bold text-base w-[90%] break-words mt-1">
                 Inter College Programming Contest
               </h1>
-              <p className="font-Roboto text-white text-base ml-1 mt-1 font-light">
-                19h ago
-              </p>
+              <p className="font-Roboto text-white text-base ml-1 mt-1 font-light">19h ago</p>
             </div>
           </div>
         </div>
       </section>
 
-      <section className="mt-10 flex flex-col gap-7 items-start justify-start w-full">
+      <section className="mt-10 flex flex-col gap-7 items-start justify-start w-full py-5 relative">
         <div className="flex gap-2 self-center">
           <h1 className="text-center tracking-wider mx-auto md:text-left text-4xl mt-20 text-blue-500">
             OUR ACTIVITIES
           </h1>
-          <h1 className="text-center mx-auto md:text-left text-4xl mt-20">
-            INCLUDE
-          </h1>
+          <h1 className="text-center mx-auto md:text-left text-4xl mt-20">INCLUDE</h1>
         </div>
-
-        <div className="mt-5 w-full justify-center grid-design-blogs">
-          {blogPosts.map((e, i) => {
-            return <BlogPost title={e.title} date={e.date} index={i} key={i} />;
-          })}
-        </div>
+        <BlogPostsCont />
       </section>
 
       <section className="mt-36 flex flex-col items-center gap-9">
@@ -149,8 +107,8 @@ export default function Home() {
         <div className="flex flex-col md:flex-row items-center justify-center gap-10">
           <div className="flex flex-col items-center gap-3">
             <Image
-              src={"/Ellipse1.png"}
-              alt={"Image"}
+              src={'/Ellipse1.png'}
+              alt={'Image'}
               width={150}
               height={150}
               className="hover:scale-110 transition-all"
@@ -159,15 +117,14 @@ export default function Home() {
               NETWORK WITH PEERS AND MENTORS.
             </h6>
             <p className="text-center text-base">
-              TechClub provides a supportive community for members to network
-              with peers with similar interests and connect with mentors who can
-              guide them in their journey.
+              TechClub provides a supportive community for members to network with peers with
+              similar interests and connect with mentors who can guide them in their journey.
             </p>
           </div>
           <div className="flex flex-col items-center gap-3">
             <Image
-              src={"/Ellipse2.png"}
-              alt={"Image"}
+              src={'/Ellipse2.png'}
+              alt={'Image'}
               width={150}
               height={150}
               className="hover:scale-110 transition-all"
@@ -176,15 +133,14 @@ export default function Home() {
               NETWORK WITH PEERS AND MENTORS.
             </h6>
             <p className="text-center text-base">
-              TechClub provides a supportive community for members to network
-              with peers with similar interests and connect with mentors who can
-              guide them in their journey.
+              TechClub provides a supportive community for members to network with peers with
+              similar interests and connect with mentors who can guide them in their journey.
             </p>
           </div>
           <div className="flex flex-col items-center gap-3">
             <Image
-              src={"/Ellipse3.png"}
-              alt={"Image"}
+              src={'/Ellipse3.png'}
+              alt={'Image'}
               width={150}
               height={150}
               className="hover:scale-110 transition-all"
@@ -193,9 +149,8 @@ export default function Home() {
               NETWORK WITH PEERS AND MENTORS.
             </h6>
             <p className="text-center text-base">
-              TechClub provides a supportive community for members to network
-              with peers with similar interests and connect with mentors who can
-              guide them in their journey.
+              TechClub provides a supportive community for members to network with peers with
+              similar interests and connect with mentors who can guide them in their journey.
             </p>
           </div>
         </div>
@@ -210,9 +165,4 @@ export default function Home() {
       <Contact />
     </main>
   );
-}
-
-interface BlogPost {
-  title: string;
-  date: string;
 }

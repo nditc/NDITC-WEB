@@ -1,8 +1,8 @@
-"use client";
+'use client';
 
-import { useInView } from "framer-motion";
-import Image from "next/image";
-import { useRef } from "react";
+import { useInView } from 'framer-motion';
+import Image from 'next/image';
+import { useRef, useState } from 'react';
 
 interface Props {
   title: string;
@@ -12,28 +12,39 @@ interface Props {
 
 const BlogPost = ({ title, date, index }: Props) => {
   const ref = useRef(null);
+  const [hover, setHover] = useState<boolean>(false);
 
-  const inView = useInView(ref, { once: true });
+  // const inView = useInView(ref, { once: true });
   return (
     <div
+      onMouseOver={() => {
+        setHover(true);
+      }}
+      onMouseOut={() => {
+        setHover(false);
+      }}
       ref={ref}
-      className={`w-60 h-72 bg-[#2E2E2E] shadow-xl hover:scale-110 rounded duration-1000 ${
-        inView ? "translate-x-0 opacity-100" : "-translate-x-96 opacity-0"
-      }`}
+      className={`bg-[#2E2E2E] shadow-lg  rounded-xl duration-1000 cursor-pointer`}
     >
       <Image
         src="/Ryzen.jpg"
-        alt={"Image"}
+        alt={'Image'}
         width={256}
         height={256}
-        className="w-full object-cover"
+        className="w-full object-cover aspect-video"
       />
-      <h1 className="p-1 font-Roboto text-white font-medium text-sm w-[90%] break-words mt-1">
-        {title}
-      </h1>
-      <p className="font-Roboto text-sm text-white ml-1 mt-1 font-light">
-        {date}
-      </p>
+      <div className="p-3 flex flex-col gap-2">
+        <h1
+          className={
+            'font-Roboto font-bold text-white  text-sm  w-[90%] break-words' +
+            ' ' +
+            (hover ? 'underline' : '')
+          }
+        >
+          {title}
+        </h1>
+        <p className={'font-Roboto text-xs text-white font-light'}>{date}</p>
+      </div>
     </div>
   );
 };

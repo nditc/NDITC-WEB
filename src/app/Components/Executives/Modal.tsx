@@ -83,7 +83,11 @@ const Modal = ({
                 src="/image/vaiya.png"
                 alt=""
               />
-              {/* <p>{JSON.stringify(ExecutiveData.sessions[modalState[0]].members[modalState[1]])}</p> */}
+              {/* <img
+                className="object-cover m-16 mr-8  bg-neutral-200  rounded-2xl md:bg-transparent  max-w-[75vw] md:max-w-[45vw]"
+                src={data.image_url}
+                alt=""
+              /> //Do not remove this. Backup plan  */}
               <div className="w-full pr-0 md:pr-8 pb-8 flex flex-col gap-5 md:gap-0 text-center md:text-left md:justify-between h-full">
                 <div className="mt-12 md:mt-[18.1vh] lg:mt-[12.1vh]">
                   <h1 className="text-5xl 2xl:text-6xl">

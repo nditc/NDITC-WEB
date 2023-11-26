@@ -1,7 +1,7 @@
-@import url("https://fonts.googleapis.com/css2?family=Roboto:wght@300&family=Share+Tech+Mono&display=swap");
-@import url("https://fonts.googleapis.com/css?family=Nunito:200,300,regular,500,600,700,800,900,200italic,300italic,italic,500italic,600italic,700italic,800italic,900italic");
-@import url("https://fonts.googleapis.com/css?family=Bebas+Neue:regular");
-
+@import url('https://fonts.googleapis.com/css?family=Nunito:200,300,regular,500,600,700,800,900,200italic,300italic,italic,500italic,600italic,700italic,800italic,900italic');
+@import url('https://fonts.googleapis.com/css?family=Bebas+Neue:regular');
+@import url('https://fonts.googleapis.com/css?family=Roboto:100,100italic,300,300italic,regular,italic,500,500italic,700,700italic,900,900italic');
+@import url('https://fonts.googleapis.com/css?family=Share+Tech+Mono:regular');
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
@@ -25,7 +25,11 @@ body {
 }
 
 /* Hide scrollbar for Chrome, Safari and Opera */
-*::-webkit-scrollbar {
+/* *::-webkit-scrollbar {
+  display: none;
+} */
+body::-webkit-scrollbar,
+.snap-scroller::-webkit-scrollbar {
   display: none;
 }
 
@@ -35,44 +39,43 @@ body {
 }
 
 .container {
-  @apply max-w-[90vw] xl:max-w-[80vw] 2xl:max-w-[75vw];
+  @apply max-w-[90vw] xl:max-w-[80vw] 2xl:max-w-[75vw] mx-auto;
 }
 
 .card {
-  width: 22.50588rem;
-  height: 24.72719rem;
+  width: 100%;
+  height: 100%;
   flex-shrink: 0;
   border-radius: 1.16913rem;
   background: #fff;
   box-shadow: -11.96668px -9.57335px 37.09673px 0px rgba(255, 255, 255, 0.25),
     8.37668px 11.96668px 37.09673px 0px rgba(0, 0, 0, 0.25);
-  margin: 0.5rem;
 }
 .card_banner {
-  width: 22.62275rem;
+  width: 100%;
   height: 11.86669rem;
   border-radius: 1.16913rem 1.16913rem 0rem 0rem;
   object-fit: cover;
 }
 .card p {
-  width: 20.05069rem;
+  width: 100%;
   color: #000;
   font-size: 0.93531rem;
   font-style: normal;
   font-weight: 400;
   line-height: normal;
   font-family: nunito;
-  margin: auto;
 }
 
 .learn_more {
-  width: 6.4365rem;
-  height: 2.108rem;
-  flex-shrink: 0;
   border-radius: 0.268rem;
   background: #1a6eff;
-  margin: 1.8rem 8.4rem 1.8rem 8.4rem;
   font-family: Bebas Neue;
+  padding: 0.25rem 1rem;
+  margin-bottom: 1.5rem;
+}
+.learn_more:hover {
+  background: #0754da;
 }
 h1,
 h3 {
@@ -81,28 +84,25 @@ h3 {
 p {
   font-family: nunito;
 }
-.grid-design {
-  display: grid;
-  align-items: center;
-  grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
-  justify-items: start;
-  gap: 2rem;
-}
 
-.grid-design-blogs {
+.snap-scroller {
   display: grid;
-  align-items: center;
-  grid-template-columns: repeat(auto-fill, minmax(15rem, 1fr));
-  justify-items: center;
-  gap: 2rem;
+  grid-auto-flow: column;
+  grid-auto-columns: 15rem;
+  width: 100%;
+  overflow-x: scroll;
+  justify-content: start;
+  gap: 1rem;
+  scroll-snap-type: inline mandatory;
+  scroll-behavior: smooth;
+}
+.snap-scroller > * {
+  scroll-snap-align: start;
 }
 .session-selector img {
   display: none;
 }
 @media (max-width: 765px) {
-  .grid-design {
-    grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
-  }
   .session-selector {
     @apply overflow-hidden flex flex-col bg-white w-full rounded-xl mb-10 transition-all  h-[48px] z-10 shadow-lg;
   }

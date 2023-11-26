@@ -48,10 +48,16 @@ const ExecutivePanel = ({
           })}
         </div>
       </div>
-      <div className="grid-design grow md:pl-10">
+      <div className="grid-fluid-fill-[220px] items-center justify-items-start gap-6 lg:grid-fluid-fill-[250px] grow md:pl-10">
         {ExecutiveData.sessions[state].members.map(({ image_url, name, post, dept }, index) => (
           <div key="" onClick={() => setModalState([state, index])}>
-            <Member img={image_url} name={name} designation={post} department={dept} />
+            <Member
+              hasClickHandler={true}
+              img={image_url}
+              name={name}
+              designation={post}
+              department={dept}
+            />
           </div>
         ))}
       </div>
@@ -59,4 +65,4 @@ const ExecutivePanel = ({
   );
 };
 
-export default ExecutivePanel;
+export default React.memo(ExecutivePanel);

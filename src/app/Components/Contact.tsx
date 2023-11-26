@@ -65,7 +65,7 @@ const Contact = () => {
           </button>
         </div>
 
-        <div className="md:w-[40%] md:mr-5 relative flex-1">
+        <div className="relative flex-1">
           <iframe
             width="100%"
             height="600"
