@@ -17,7 +17,7 @@ const Hover = ({ text, imageLink }: Props) => {
         id="dropdownHoverButton"
         data-dropdown-toggle="dropdownHover"
         data-dropdown-trigger="hover"
-        className="tblock py-2 px-3 text-gray-900 rounded hover:bg-gray-100 md:hover:bg-transparent md:hover:text-blue-700 md:p-0"
+        className="block py-2 px-3 text-gray-900 rounded hover:bg-gray-100 md:hover:bg-transparent md:hover:text-blue-700 md:p-0"
         type="button"
       >
         {text}
@@ -27,22 +27,22 @@ const Hover = ({ text, imageLink }: Props) => {
         onMouseEnter={() => setHover(true)}
         onMouseLeave={() => setHover(false)}
         id="dropdownHover"
-        className={`top-7 shadow-2xl right-0 flex transition-all duration-300 items-center w-64 justify-evenly absolute bg-white divide-y divide-gray-100 rounded-lg ${
+        className={`bg-white top-7 shadow-2xl right-0 flex transition-all duration-300 items-center w-96 justify-evenly absolute divide-y divide-gray-100 rounded-lg ${
           hover
-            ? "blur-0 translate-y-0 opacity-100 z-50"
-            : "blur-0 -translate-y-36 opacity-0 z-[-1] pointer-events-none"
+            ? "blur-0 -translate-y-1 translate-x-5 md:translate-x-36 opacity-100 z-50"
+            : "blur-0 -translate-y-36 translate-x-5 md:translate-x-36 opacity-0 z-[-1] pointer-events-none"
         }`}
       >
         <Image
           src={imageLink}
           alt="Image"
-          className="w-[50%] ml-2"
+          className="flex-[2] ml-2"
           width={256}
           height={256}
         />
 
         <ul
-          className="py-2 w-[50%] text-sm text-gray-700 "
+          className="py-2 flex-1 text-sm text-gray-700 "
           aria-labelledby="dropdownHoverButton"
         >
           <li>

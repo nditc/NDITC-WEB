@@ -3,15 +3,14 @@
 const Contact = () => {
   return (
     <div className="mt-36 flex flex-col items-center">
-      <div className="flex gap-2 self-center">
-        <h1 className="text-5xl mb-5 text-center md:text-left text-blue-500">
-          GET IN TOUCH
-        </h1>
-        <h1 className="text-5xl mb-5 text-center md:text-left">WITH US</h1>
-      </div>
-
       <div className="w-screen flex flex-col mt-7 md:flex-row justify-center md:justify-between">
-        <div className="flex-1 flex flex-col items-center justify-center py-10  bg-zinc-200">
+        <div className="flex-1 flex flex-col items-center md:items-start justify-center py-10 bg-zinc-200 md:ml-16">
+          <div className="flex gap-2">
+            <h1 className="text-5xl mb-5 text-center md:text-left text-blue-500">
+              GET IN TOUCH
+            </h1>
+            <h1 className="text-5xl mb-5 text-center md:text-left">WITH US</h1>
+          </div>
           <div className="mb-6 w-[96%] md:w-[70%]">
             <label
               htmlFor="default-input"
@@ -59,7 +58,7 @@ const Contact = () => {
           </div>
           <button
             type="button"
-            className="text-white bg-gray-800 hover:bg-gray-900 focus:outline-none focus:ring-4 focus:ring-gray-300 font-medium rounded-lg text-sm px-5 py-2.5 me-2 mb-2"
+            className="text-white bg-gray-800 hover:bg-gray-900 focus:outline-none focus:ring-4 focus:ring-gray-300 font-medium rounded text-sm px-5 py-2.5 me-2 mb-2"
           >
             Send my message
           </button>

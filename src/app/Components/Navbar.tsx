@@ -13,10 +13,10 @@ const Navbar = () => {
         <a href="/" className="flex items-center space-x-3 rtl:space-x-reverse">
           <Image
             src="/Logo.png"
-            className="h-12"
+            className="h-12 w-32"
             alt="NDITC Logo"
-            width={128}
-            height={128}
+            width={512}
+            height={512}
           />
         </a>
         <div className="flex md:order-2 space-x-3 md:space-x-0 rtl:space-x-reverse">
@@ -70,6 +70,14 @@ const Navbar = () => {
               </a>
             </li>
             <li>
+              <a
+                href="#"
+                className="block py-2 px-3 text-gray-900 rounded hover:bg-gray-100 md:hover:bg-transparent md:hover:text-blue-700 md:p-0"
+              >
+                About
+              </a>
+            </li>
+            <li>
               <Hover text="Activities" imageLink="/HoverImage1.png" />
             </li>
             <li>
@@ -80,14 +88,7 @@ const Navbar = () => {
                 Executives
               </Link>
             </li>
-            <li>
-              <a
-                href="#"
-                className="block py-2 px-3 text-gray-900 rounded hover:bg-gray-100 md:hover:bg-transparent md:hover:text-blue-700 md:p-0"
-              >
-                About
-              </a>
-            </li>
+
             <li>
               <a
                 href="#"
