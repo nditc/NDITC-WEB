@@ -1,7 +1,9 @@
 import Image from "next/image";
-import Accordion from "./Components/Accordion";
 import Contact from "./Components/Contact";
 import BlogPostsCont from "./Components/BlogPostsCont";
+import { GiRobotGolem, GiArtificialIntelligence } from "react-icons/gi";
+import { SiWebpack } from "react-icons/si";
+import { FaFileCode, FaPenNib } from "react-icons/fa";
 
 export default function Home() {
   return (
@@ -43,14 +45,41 @@ export default function Home() {
         />
       </section>
 
-      <div className="w-screen mt-16">
-        <Image
-          src="/Sectors.png"
-          alt={"Sectors Image"}
-          width={2048}
-          height={2048}
-          className="w-full"
-        />
+      <div className="w-screen h-fit mt-16 p-4 md:py-16 bg-black items-center flex gap-16 flex-wrap">
+        <div className="flex flex-col items-center gap-1 flex-1">
+          <GiArtificialIntelligence className="w-16 h-16 text-white" />
+          <h1 className="text-xl text-white text-center">
+            Artificial Intelligence
+          </h1>
+        </div>
+
+        <div className="flex flex-col items-center gap-1 flex-1">
+          <GiRobotGolem className="w-16 h-16 text-white" />
+          <h1 className="text-xl text-white text-center">
+            Hardwares & Robotics
+          </h1>
+        </div>
+
+        <div className="flex flex-col items-center gap-1 flex-1">
+          <SiWebpack className="w-16 h-16 text-white" />
+          <h1 className="text-xl text-white text-center">
+            Website & Native App Development
+          </h1>
+        </div>
+
+        <div className="flex flex-col items-center gap-1 flex-1">
+          <FaFileCode className="w-16 h-16 text-white" />
+          <h1 className="text-xl text-white text-center">
+            Competitive Programming
+          </h1>
+        </div>
+
+        <div className="flex flex-col items-center gap-1 flex-1">
+          <FaPenNib className="w-16 h-16 text-white" />
+          <h1 className="text-xl text-white text-center">
+            Graphics Designing & Article
+          </h1>
+        </div>
       </div>
 
       <section className="flex flex-col gap-7 items-center">
