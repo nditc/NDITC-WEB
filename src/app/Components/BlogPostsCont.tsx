@@ -5,6 +5,7 @@ import BlogPost from "./BlogPost";
 interface BlogPost {
   title: string;
   date: string;
+  imgURL: string;
 }
 
 const BlogPostsCont = () => {
@@ -12,38 +13,50 @@ const BlogPostsCont = () => {
     {
       title: "AMD Ryzen is G.O.A.T. I obviously use Ryzen 5700G",
       date: "18h ago",
+      imgURL:
+        "https://images.pexels.com/photos/39284/macbook-apple-imac-computer-39284.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1",
     },
     {
       title: "AMD Ryzen is G.O.A.T. I obviously use Ryzen 5700G",
       date: "21h ago",
+      imgURL:
+        "https://images.pexels.com/photos/2582935/pexels-photo-2582935.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1",
     },
     {
       title: "AMD Ryzen is G.O.A.T. I obviously use Ryzen 5700G",
       date: "25h ago",
+      imgURL:
+        "https://images.pexels.com/photos/3082341/pexels-photo-3082341.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1",
     },
     {
       title: "AMD Ryzen is G.O.A.T. I obviously use Ryzen 5700G",
       date: "27h ago",
-    },
-    {
-      title: "AMD Ryzen is G.O.A.T. I obviously use Ryzen 5700G",
-      date: "30h ago",
-    },
-    {
-      title: "AMD Ryzen is G.O.A.T. I obviously use Ryzen 5700G",
-      date: "35h ago",
-    },
-    {
-      title: "AMD Ryzen is G.O.A.T. I obviously use Ryzen 5700G",
-      date: "55h ago",
-    },
-    {
-      title: "AMD Ryzen is G.O.A.T. I obviously use Ryzen 5700G",
-      date: "80h ago",
+      imgURL:
+        "https://images.pexels.com/photos/1310847/pexels-photo-1310847.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1",
     },
     {
       title: "AMD Ryzen is G.O.A.T. I obviously use Ryzen 5700G",
       date: "18h ago",
+      imgURL:
+        "https://images.pexels.com/photos/39284/macbook-apple-imac-computer-39284.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1",
+    },
+    {
+      title: "AMD Ryzen is G.O.A.T. I obviously use Ryzen 5700G",
+      date: "21h ago",
+      imgURL:
+        "https://images.pexels.com/photos/2582935/pexels-photo-2582935.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1",
+    },
+    {
+      title: "AMD Ryzen is G.O.A.T. I obviously use Ryzen 5700G",
+      date: "25h ago",
+      imgURL:
+        "https://images.pexels.com/photos/3082341/pexels-photo-3082341.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1",
+    },
+    {
+      title: "AMD Ryzen is G.O.A.T. I obviously use Ryzen 5700G",
+      date: "27h ago",
+      imgURL:
+        "https://images.pexels.com/photos/1310847/pexels-photo-1310847.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1",
     },
   ];
   const scrollRef = useRef<HTMLDivElement>(null);
@@ -76,7 +89,15 @@ const BlogPostsCont = () => {
         className=" justify-center snap-scroller py-5"
       >
         {blogPosts.map((e, i) => {
-          return <BlogPost title={e.title} date={e.date} index={i} key={i} />;
+          return (
+            <BlogPost
+              title={e.title}
+              date={e.date}
+              index={i}
+              imageURL={e.imgURL}
+              key={i}
+            />
+          );
         })}
       </div>
       {scrollLeft !== 0 ? (

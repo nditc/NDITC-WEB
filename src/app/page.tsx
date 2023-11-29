@@ -45,36 +45,36 @@ export default function Home() {
         />
       </section>
 
-      <div className="w-screen h-fit mt-16 p-4 md:py-16 bg-black items-center flex gap-16 flex-wrap">
-        <div className="flex flex-col items-center gap-1 flex-1">
+      <div className="w-screen h-fit mt-16 p-4 md:py-16 items-center flex gap-16 flex-wrap bg-sectorsBG object-cover">
+        <div className="flex flex-col items-center gap-1 flex-1 transition-all hover:scale-125">
           <GiArtificialIntelligence className="w-16 h-16 text-white" />
           <h1 className="text-xl text-white text-center">
             Artificial Intelligence
           </h1>
         </div>
 
-        <div className="flex flex-col items-center gap-1 flex-1">
+        <div className="flex flex-col items-center gap-1 flex-1 transition-all hover:scale-125">
           <GiRobotGolem className="w-16 h-16 text-white" />
           <h1 className="text-xl text-white text-center">
             Hardwares & Robotics
           </h1>
         </div>
 
-        <div className="flex flex-col items-center gap-1 flex-1">
+        <div className="flex flex-col items-center gap-1 flex-1 transition-all hover:scale-125">
           <SiWebpack className="w-16 h-16 text-white" />
           <h1 className="text-xl text-white text-center">
             Website & Native App Development
           </h1>
         </div>
 
-        <div className="flex flex-col items-center gap-1 flex-1">
+        <div className="flex flex-col items-center gap-1 flex-1 transition-all hover:scale-125">
           <FaFileCode className="w-16 h-16 text-white" />
           <h1 className="text-xl text-white text-center">
             Competitive Programming
           </h1>
         </div>
 
-        <div className="flex flex-col items-center gap-1 flex-1">
+        <div className="flex flex-col items-center gap-1 flex-1 transition-all hover:scale-125">
           <FaPenNib className="w-16 h-16 text-white" />
           <h1 className="text-xl text-white text-center">
             Graphics Designing & Article
