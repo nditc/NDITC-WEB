@@ -20,7 +20,7 @@ const Contact = () => {
             </label>
 
             <input
-              placeholder=""
+              placeholder="Your Name"
               type="text"
               id="default-input"
               className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full px-6 py-4"
@@ -36,7 +36,7 @@ const Contact = () => {
             </label>
 
             <input
-              placeholder=""
+              placeholder="Your Email Address"
               type="text"
               id="default-input"
               className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full px-6 py-4"
@@ -51,6 +51,7 @@ const Contact = () => {
             </label>
 
             <textarea
+              placeholder="Type your query here....."
               id="large-input"
               rows={5}
               className="block resize-none w-full px-6 py-4 text-gray-900 border border-gray-300 rounded-lg bg-gray-50 sm:text-md focus:ring-blue-500 focus:border-blue-500"

@@ -96,13 +96,13 @@ export default function Home() {
               alt={"Image"}
               width={256}
               height={256}
-              className="flex-1 object-cover"
+              className="flex-[1.5] object-cover"
             />
-            <div className="flex-1 flex flex-col justify-center gap-3">
+            <div className="flex-1 flex flex-col items-center md:items-start justify-center gap-3">
               <h1 className="p-1 text-white font-Roboto font-bold text-base w-[90%] break-words mt-1">
                 Inter College Programming Contest
               </h1>
-              <p className="font-Roboto text-white text-base ml-1 mt-1 font-light">
+              <p className="self-start font-Roboto text-white text-base ml-1 mt-1 font-light">
                 19h ago
               </p>
             </div>
@@ -113,13 +113,13 @@ export default function Home() {
               alt={"Image"}
               width={256}
               height={256}
-              className="flex-1 object-cover"
+              className="flex-[1.5] object-cover"
             />
-            <div className="flex-1 flex flex-col justify-center gap-3">
+            <div className="flex-1 flex flex-col items-center md:items-start justify-center gap-3">
               <h1 className="p-1 text-white font-Roboto font-bold text-base w-[90%] break-words mt-1">
                 Inter College Programming Contest
               </h1>
-              <p className="font-Roboto text-white text-base ml-1 mt-1 font-light">
+              <p className="self-start font-Roboto text-white text-base ml-1 mt-1 font-light">
                 19h ago
               </p>
             </div>
