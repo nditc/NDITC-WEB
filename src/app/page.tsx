@@ -26,7 +26,7 @@ export default function Home() {
           </p>
           <button
             type="button"
-            className="Bebas text-xl mt-5 py-2 font-Bebas px-7 me-2 mb-2 font-medium text-white focus:outline-none bg-white rounded-lg border border-gray-200 hover:bg-gray-100 hover:text-blue-700 focus:z-10 focus:ring-4 focus:ring-gray-200 dark:focus:ring-gray-700 dark:bg-gray-800 dark:text-gray-400 dark:border-gray-600 dark:hover:text-white dark:hover:bg-gray-700"
+            className="Bebas text-xl mt-5 py-2 font-Bebas px-7 me-2 mb-2 font-medium text-whiterounded-lg border focus:z-10 focus:ring-4  focus:ring-gray-700 bg-gray-800 text-white border-gray-600 hover:text-white hover:bg-gray-700 rounded-lg"
           >
             LEARN MORE
           </button>
@@ -45,7 +45,7 @@ export default function Home() {
         />
       </section>
 
-      <div className="w-screen h-fit mt-16 p-4 md:py-16 items-center flex gap-16 flex-wrap bg-sectorsBG object-cover">
+      <div className="w-screen h-fit md:px-36 mt-16 p-4 md:py-16 items-center flex gap-16 flex-wrap bg-sectorsBG object-cover">
         <div className="flex flex-col items-center gap-1 flex-1 transition-all hover:scale-125">
           <GiArtificialIntelligence className="w-16 h-16 text-white" />
           <h1 className="text-xl text-white text-center">
@@ -155,9 +155,9 @@ export default function Home() {
               height={150}
               className="hover:scale-110 transition-all"
             />
-            <h6 className=" font-bold text-xl text-center font-ShareTechTown">
-              GAIN EXPERIENCE BY CONTRIBUTING
-            </h6>
+            <h1 className="text-2xl px-3 text-center">
+              GAIN EXPERIENCE BY CONTRIBUTING TO REAL-WORLD PROJECTS
+            </h1>
             <p className="text-center text-base">
               TechClub provides a supportive community for members to network
               with peers with similar interests and connect with mentors who can
@@ -172,9 +172,9 @@ export default function Home() {
               height={150}
               className="hover:scale-110 transition-all"
             />
-            <h6 className=" font-bold text-xl text-center font-ShareTechTown">
-              EXPLORE THE LEARNING BASED CLUB JOURNEY
-            </h6>
+            <h1 className="text-2xl px-3 text-center">
+              EXPLORE THE LEARNING BASED CLUB JOURNEY WITH NDITC
+            </h1>
             <p className="text-center text-base">
               TechClub provides a supportive community for members to network
               with peers with similar interests and connect with mentors who can
@@ -189,9 +189,9 @@ export default function Home() {
               height={150}
               className="hover:scale-110 transition-all"
             />
-            <h6 className=" font-bold text-xl text-center font-ShareTechTown">
-              Network with peers and mentors & SHOWCASE YOUR SKILLSET
-            </h6>
+            <h1 className="text-2xl px-3 text-center">
+              NETWORK WITH PEERS AND MENTORS & SHOWCASE YOUR SKILLSET
+            </h1>
             <p className="text-center text-base">
               TechClub provides a supportive community for members to network
               with peers with similar interests and connect with mentors who can

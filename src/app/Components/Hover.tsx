@@ -27,10 +27,10 @@ const Hover = ({ text, imageLink }: Props) => {
         onMouseEnter={() => setHover(true)}
         onMouseLeave={() => setHover(false)}
         id="dropdownHover"
-        className={`bg-white top-7 shadow-2xl right-0 flex transition-all duration-300 items-center w-96 justify-evenly absolute divide-y divide-gray-100 rounded-lg ${
+        className={`bg-white top-7 shadow-2xl right-0 flex transition-all duration-300 items-center w-screen md:w-96 justify-evenly absolute divide-y divide-gray-100 rounded-lg ${
           hover
-            ? "blur-0 -translate-y-1 translate-x-5 md:translate-x-36 opacity-100 z-50"
-            : "blur-0 -translate-y-36 translate-x-5 md:translate-x-36 opacity-0 z-[-1] pointer-events-none"
+            ? "blur-0 -translate-y-1 translate-x-10 md:translate-x-36 opacity-100 z-50"
+            : "blur-0 -translate-y-36 translate-x-10 md:translate-x-36 opacity-0 z-[-1] pointer-events-none"
         }`}
       >
         <Image
@@ -67,12 +67,12 @@ const Hover = ({ text, imageLink }: Props) => {
             </Link>
           </li>
           <li>
-            <a
-              href="https://raw.githubusercontent.com/nditc/nditc_mobile_app/main/nditc.apk"
+            <Link
+              href="/activities?type=project"
               className="block px-4 py-2 hover:bg-gray-100 hover:text-blue-500"
             >
-              App
-            </a>
+              Projects
+            </Link>
           </li>
           <li>
             <Link
