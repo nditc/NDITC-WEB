@@ -1,9 +1,9 @@
-"use client";
+'use client';
 
-import { useState } from "react";
-import Hover from "./Hover";
-import Image from "next/image";
-import Link from "next/link";
+import { useState } from 'react';
+import Hover from './Hover';
+import Image from 'next/image';
+import Link from 'next/link';
 
 const Navbar = () => {
   const [showOptions, setShowOptions] = useState(false);
@@ -11,13 +11,7 @@ const Navbar = () => {
     <nav className="bg-white fixed w-full z-20 top-0 start-0 border-b border-gray-200 ">
       <div className="container flex flex-wrap items-center justify-between mx-auto py-4 px-1">
         <a href="/" className="flex items-center space-x-3 rtl:space-x-reverse">
-          <Image
-            src="/Logo.png"
-            className="h-12 w-32"
-            alt="NDITC Logo"
-            width={512}
-            height={512}
-          />
+          <Image src="/Logo.png" className="h-12 w-32" alt="NDITC Logo" width={512} height={512} />
         </a>
         <div className="flex md:order-2 space-x-3 md:space-x-0 rtl:space-x-reverse">
           <a
@@ -55,7 +49,7 @@ const Navbar = () => {
         </div>
         <div
           className={`items-center justify-between w-full md:flex md:w-auto md:order-1 ${
-            showOptions ? "" : "hidden"
+            showOptions ? '' : 'hidden'
           }`}
           id="navbar-sticky"
         >
@@ -63,7 +57,7 @@ const Navbar = () => {
             <li>
               <a
                 href="/"
-                className="block py-2 px-3 text-white bg-blue-700 rounded md:bg-transparent md:text-blue-700 md:p-0"
+                className="block py-2 px-3 text-white bg-blue-700 rounded md:bg-transparent md:text-black  md:p-0"
                 aria-current="page"
               >
                 Home
@@ -92,9 +86,7 @@ const Navbar = () => {
             <li>
               <button
                 onClick={() => {
-                  document
-                    .querySelector("#Contact")
-                    ?.scrollIntoView({ behavior: "smooth" });
+                  document.querySelector('#Contact')?.scrollIntoView({ behavior: 'smooth' });
                 }}
                 className="block py-2 px-3 text-gray-900 rounded hover:bg-gray-100 md:hover:bg-transparent md:hover:text-blue-700 md:p-0"
               >

@@ -1,4 +1,4 @@
-"use client";
+'use client';
 
 const Contact = () => {
   return (
@@ -8,12 +8,8 @@ const Contact = () => {
         <div className="w-screen flex flex-col mt-7 md:flex-row justify-center md:justify-between">
           <div className="flex-1 flex flex-col items-center md:items-start justify-center py-10 bg-zinc-200 md:ml-16">
             <div className="flex flex-col md:flex-row gap-2">
-              <h1 className="text-5xl mb-5 text-center md:text-left text-blue-500">
-                GET IN TOUCH
-              </h1>
-              <h1 className="text-5xl mb-5 text-center md:text-left">
-                WITH US
-              </h1>
+              <h1 className="text-5xl mb-5 text-center md:text-left text-blue-500">GET IN TOUCH</h1>
+              <h1 className="text-5xl mb-5 text-center md:text-left">WITH US</h1>
             </div>
             <div className="mb-6 w-[96%] md:w-[70%]">
               <label
