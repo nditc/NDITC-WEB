@@ -1,53 +1,53 @@
-import SingleNotification from "./SingleNotification";
+import SingleNotification from './SingleNotification';
 
 const Notifications = () => {
   const NotificationData: NotificationDataFormat[] = [
     {
-      title: "Father Tim memorial programming contest 3.0",
+      title: 'Father Tim memorial programming contest 3.0',
       description:
-        "This is a paragraph with more information about something important. This something has many uses and is made of 100% recycled material.",
+        'This is a paragraph with more information about something important. This something has many uses and is made of 100% recycled material.',
       imgURL:
-        "https://images.pexels.com/photos/546819/pexels-photo-546819.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1",
+        'https://images.pexels.com/photos/546819/pexels-photo-546819.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1',
     },
 
     {
-      title: "Father Tim memorial programming contest 3.0",
+      title: 'Father Tim memorial programming contest 3.0',
       description:
-        "This is a paragraph with more information about something important. This something has many uses and is made of 100% recycled material.",
+        'This is a paragraph with more information about something important. This something has many uses and is made of 100% recycled material.',
       imgURL:
-        "https://images.pexels.com/photos/459654/pexels-photo-459654.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1",
+        'https://images.pexels.com/photos/459654/pexels-photo-459654.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1',
     },
 
     {
-      title: "Father Tim memorial programming contest 3.0",
+      title: 'Father Tim memorial programming contest 3.0',
       description:
-        "This is a paragraph with more information about something important. This something has many uses and is made of 100% recycled material.",
+        'This is a paragraph with more information about something important. This something has many uses and is made of 100% recycled material.',
       imgURL:
-        "https://images.pexels.com/photos/2582937/pexels-photo-2582937.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1",
+        'https://images.pexels.com/photos/2582937/pexels-photo-2582937.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1',
     },
 
     {
-      title: "Father Tim memorial programming contest 3.0",
+      title: 'Father Tim memorial programming contest 3.0',
       description:
-        "This is a paragraph with more information about something important. This something has many uses and is made of 100% recycled material.",
+        'This is a paragraph with more information about something important. This something has many uses and is made of 100% recycled material.',
       imgURL:
-        "https://images.pexels.com/photos/982673/pexels-photo-982673.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1",
+        'https://images.pexels.com/photos/982673/pexels-photo-982673.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1',
     },
 
     {
-      title: "Father Tim memorial programming contest 3.0",
+      title: 'Father Tim memorial programming contest 3.0',
       description:
-        "This is a paragraph with more information about something important. This something has many uses and is made of 100% recycled material.",
-      imgURL: "/Cover.png",
+        'This is a paragraph with more information about something important. This something has many uses and is made of 100% recycled material.',
+      imgURL: '/Cover.png',
     },
   ];
 
   return (
-    <div className="mt-32 pb-10 overflow-x-hidden">
+    <div className="pt-32 pb-10 overflow-x-hidden bg-slate-50">
       <div className="flex w-screen justify-center md:justify-start gap-3 md:ml-32 items-center">
-        <div className="rounded-full w-16 h-16 shadow-[010px_20px_15px_10px_#00000024]">
+        <div className="rounded-full w-16 h-16 grid place-items-center shadow-[010px_20px_15px_10px_#00000024]">
           <svg
-            className="h-16 w-16 text-gray-800"
+            className="h-12 w-12 text-gray-800"
             aria-hidden="true"
             xmlns="http://www.w3.org/2000/svg"
             fill="currentColor"

@@ -110,7 +110,7 @@ export default function Home() {
       </section>
       <div className="w-screen relative">
         <img
-          className="absolute left-0 top-0 -z-10 min-w-[70%] md:min-w-[40%]"
+          className="absolute left-0 top-0 -z-10 max-w-[750px] w-[80%]"
           src="/image/lbg.svg"
           alt=""
         />

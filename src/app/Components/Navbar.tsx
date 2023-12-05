@@ -4,9 +4,11 @@ import { useState } from 'react';
 import Hover from './Hover';
 import Image from 'next/image';
 import Link from 'next/link';
+import { usePathname } from 'next/navigation';
 
 const Navbar = () => {
   const [showOptions, setShowOptions] = useState(false);
+  const Route = usePathname();
   return (
     <nav className="bg-white fixed w-full z-20 top-0 start-0 border-b border-gray-200 ">
       <div className="container flex flex-wrap items-center justify-between mx-auto py-4 px-1">
@@ -17,7 +19,7 @@ const Navbar = () => {
           <a
             href="https://raw.githubusercontent.com/nditc/nditc_mobile_app/main/nditc.apk"
             type="button"
-            className="text-white bg-[#252525] font-ShareTechTown hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-4 py-2 text-center"
+            className="text-white bg-[#252525] font-ShareTechTown hover:bg-zinc-700 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-4 py-2 text-center"
           >
             TRY OUR APP
           </a>
@@ -57,7 +59,11 @@ const Navbar = () => {
             <li>
               <a
                 href="/"
-                className="block py-2 px-3 text-white bg-blue-700 rounded md:bg-transparent md:text-black  md:p-0"
+                className={
+                  'block py-2 px-3 text-white bg-blue-700 hover:text-blue-500 rounded md:bg-transparent  md:p-0' +
+                  ' ' +
+                  (Route === '/' ? 'md:text-blue-500' : 'md:text-black')
+                }
                 aria-current="page"
               >
                 Home
@@ -66,7 +72,11 @@ const Navbar = () => {
             <li>
               <a
                 href="#"
-                className="block py-2 px-3 text-gray-900 rounded hover:bg-gray-100 md:hover:bg-transparent md:hover:text-blue-700 md:p-0"
+                className={
+                  'block py-2 px-3 text-gray-900 rounded hover:bg-gray-100 md:hover:bg-transparent md:hover:text-blue-500 md:p-0' +
+                  ' ' +
+                  (Route === '/about' ? 'md:text-blue-500' : 'md:text-black')
+                }
               >
                 About
               </a>
@@ -77,7 +87,11 @@ const Navbar = () => {
             <li>
               <Link
                 href="/executive"
-                className="block py-2 px-3 text-gray-900 rounded hover:bg-gray-100 md:hover:bg-transparent md:hover:text-blue-700 md:p-0"
+                className={
+                  'block py-2 px-3 text-gray-900 rounded hover:bg-gray-100 md:hover:bg-transparent md:hover:text-blue-500 md:p-0' +
+                  ' ' +
+                  (Route === '/executive' ? 'md:text-blue-500' : 'md:text-black')
+                }
               >
                 Executives
               </Link>
@@ -88,7 +102,7 @@ const Navbar = () => {
                 onClick={() => {
                   document.querySelector('#Contact')?.scrollIntoView({ behavior: 'smooth' });
                 }}
-                className="block py-2 px-3 text-gray-900 rounded hover:bg-gray-100 md:hover:bg-transparent md:hover:text-blue-700 md:p-0"
+                className="block py-2 px-3 text-gray-900 rounded hover:bg-gray-100 md:hover:bg-transparent md:hover:text-blue-500 md:p-0"
               >
                 Contact
               </button>
