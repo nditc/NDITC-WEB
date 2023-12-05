@@ -12,7 +12,7 @@ const Page = async ({ params }: { params: { url: string; type: string } }) => {
         <div className="w-screen bg-white shadow-xl ">
           <div className="container flex flex-col md:flex-row gap-5 items-center ">
             <div className="flex-1 ml-1 flex flex-col gap-5 w-full order-2 md:order-1">
-              <Link href={`http://localhost:3000/activities?type=${params.type}`}>
+              <Link href={`/activities?type=${params.type}`}>
                 <h1 className="text-2xl pt-5 underline hover:text-blue-500">{params.type}&gt;</h1>
               </Link>
 
