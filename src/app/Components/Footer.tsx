@@ -1,11 +1,11 @@
-import Image from "next/image";
-import Link from "next/link";
+import Image from 'next/image';
+import Link from 'next/link';
 
 const Footer = () => {
   return (
     <footer className="bg-[#1F1F1F] text-xs md:text-base relative">
-      <span className="md:text-xs text-gray-500 text-xs sm:text-center mt-7 dark:text-gray-400 absolute bottom-3 left-3">
-        © 2023{" "}
+      <span className="md:text-xs text-zinc-500 text-xs sm:text-center mt-7 dark:text-zinc-400 absolute bottom-3 left-3">
+        © 2023{' '}
         <a href="https://flowbite.com/" className="hover:underline">
           NDITC™
         </a>
@@ -15,25 +15,25 @@ const Footer = () => {
         <div className="flex flex-col gap-3">
           <Link
             href="/"
-            className="text-gray-500 dark:text-gray-400 font-medium hover:underline cursor-pointer"
+            className="text-zinc-500 dark:text-zinc-400 font-medium hover:underline cursor-pointer"
           >
             Home
           </Link>
           <Link
             href="/activities"
-            className="text-gray-500 dark:text-gray-400 font-medium hover:underline cursor-pointer"
+            className="text-zinc-500 dark:text-zinc-400 font-medium hover:underline cursor-pointer"
           >
             Activities
           </Link>
           <Link
             href="/about"
-            className="text-gray-500 dark:text-gray-400 font-medium hover:underline cursor-pointer"
+            className="text-zinc-500 dark:text-zinc-400 font-medium hover:underline cursor-pointer"
           >
             About
           </Link>
           <Link
             href="/events"
-            className="text-gray-500 dark:text-gray-400 font-medium hover:underline cursor-pointer"
+            className="text-zinc-500 dark:text-zinc-400 font-medium hover:underline cursor-pointer"
           >
             Events
           </Link>
@@ -41,25 +41,25 @@ const Footer = () => {
         <div className="flex flex-col gap-3">
           <Link
             href="/"
-            className="text-gray-500 dark:text-gray-400 font-medium hover:underline cursor-pointer"
+            className="text-zinc-500 dark:text-zinc-400 font-medium hover:underline cursor-pointer"
           >
             Publication
           </Link>
           <Link
             href="/"
-            className="text-gray-500 dark:text-gray-400 font-medium hover:underline cursor-pointer"
+            className="text-zinc-500 dark:text-zinc-400 font-medium hover:underline cursor-pointer"
           >
             Resources
           </Link>
           <Link
             href="/executive"
-            className="text-gray-500 dark:text-gray-400 font-medium hover:underline cursor-pointer"
+            className="text-zinc-500 dark:text-zinc-400 font-medium hover:underline cursor-pointer"
           >
             Executives
           </Link>
           <Link
             href="/"
-            className="text-gray-500 dark:text-gray-400 font-medium hover:underline cursor-pointer"
+            className="text-zinc-500 dark:text-zinc-400 font-medium hover:underline cursor-pointer"
           >
             App
           </Link>
@@ -82,9 +82,9 @@ const Footer = () => {
           <div className="text-white font-semibold font-ShareTechTown hover:underline cursor-pointer">
             CONTACT US
           </div>
-          <div className="text-gray-500 dark:text-gray-400 font-medium hover:underline cursor-pointer flex gap-1 items-center">
+          <div className="text-zinc-500 dark:text-zinc-400 font-medium hover:underline cursor-pointer flex gap-1 items-center">
             <svg
-              className="w-5 h-5 text-gray-800 dark:text-white"
+              className="w-5 h-5 text-zinc-800 dark:text-white"
               aria-hidden="true"
               xmlns="http://www.w3.org/2000/svg"
               fill="none"
@@ -101,9 +101,9 @@ const Footer = () => {
 
             <p>contact@nditc.com</p>
           </div>
-          <div className="text-gray-500 dark:text-gray-400 font-medium hover:underline cursor-pointer flex gap-1 items-center">
+          <div className="text-zinc-500 dark:text-zinc-400 font-medium hover:underline cursor-pointer flex gap-1 items-center">
             <svg
-              className="w-5 h-5 text-gray-800 dark:text-white"
+              className="w-5 h-5 text-zinc-800 dark:text-white"
               aria-hidden="true"
               xmlns="http://www.w3.org/2000/svg"
               fill="none"
@@ -119,9 +119,9 @@ const Footer = () => {
             </svg>
             <p>(414) 687 - 5892</p>
           </div>
-          <div className="text-gray-500 dark:text-gray-400 font-medium hover:underline cursor-pointer flex gap-1 items-center">
+          <div className="text-zinc-500 dark:text-zinc-400 font-medium hover:underline cursor-pointer flex gap-1 items-center">
             <svg
-              className="w-5 h-5 text-gray-800 dark:text-white"
+              className="w-5 h-5 text-zinc-800 dark:text-white"
               aria-hidden="true"
               xmlns="http://www.w3.org/2000/svg"
               fill="none"

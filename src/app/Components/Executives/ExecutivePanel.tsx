@@ -6,6 +6,7 @@ import React, { Dispatch, SetStateAction } from 'react';
 import ExecutiveData from '../../db/executives';
 import Modal from './Modal';
 import Member from './Member';
+import { useRouter } from 'next/navigation';
 
 const ExecutivePanel = ({
   setModalState,
@@ -14,10 +15,11 @@ const ExecutivePanel = ({
 }) => {
   const [state, setState] = React.useState<number>(0);
   const [isOpen, setOpen] = React.useState<boolean>(false);
+  const Router = useRouter();
   return (
     <div className="flex pt-10 flex-wrap">
       <div className={'sticky top-24 md:w-auto w-full md:h-[20vw] h-[48px] z-10 mb-10'}>
-        <div className={'session-selector' + ' ' + (isOpen ? 'open' : 'close')}>
+        <div className={'session-selector ' + ' ' + (isOpen ? 'open' : 'close')}>
           {ExecutiveData.sessions.map(({ session }, index) => {
             return (
               <div
@@ -49,17 +51,26 @@ const ExecutivePanel = ({
         </div>
       </div>
       <div className="grid-fluid-fill-[220px] items-center justify-items-start gap-6 lg:grid-fluid-fill-[250px] grow md:pl-10">
-        {ExecutiveData.sessions[state].members.map(({ image_url, name, post, dept }, index) => (
-          <div key="" onClick={() => setModalState([state, index])}>
-            <Member
-              hasClickHandler={true}
-              img={image_url}
-              name={name}
-              designation={post}
-              department={dept}
-            />
-          </div>
-        ))}
+        {ExecutiveData.sessions[state].members.map(
+          ({ image_url, name, post, dept, profile_url }, index) => (
+            <a href={profile_url} key="" target="_blank">
+              {/* <
+              key=""
+              onClick={() => {
+                // setModalState([state, index]);
+                Router.push(profile_url || '/', {});
+              }}
+            > //for later use */}
+              <Member
+                hasClickHandler={true}
+                img={image_url}
+                name={name}
+                designation={post}
+                department={dept}
+              />
+            </a>
+          )
+        )}
       </div>
     </div>
   );

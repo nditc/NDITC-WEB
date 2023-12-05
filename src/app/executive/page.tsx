@@ -10,7 +10,7 @@ const Executive = () => {
   const [modalState, setModalState] = useState<[number, number] | null>(null);
   return (
     <>
-      <div className={'w-full min-h-[100vh] py-[125px] md:px-12 px-5 bg-slate-50 relative'}>
+      <div className={'w-full min-h-[100vh] py-[125px] md:px-12 px-5 bg-[#F6F6F6] relative'}>
         <img className="absolute right-0 top-1/4 z-0" src="/image/bg.svg" alt="bg" />
         <img className="absolute left-0 top-1/2 z-0" src="/image/bg2.svg" alt="bg" />
         <div className="max-w-[1300px] mx-auto relative z-10">

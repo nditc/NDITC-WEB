@@ -44,7 +44,12 @@ const ActivityCards = () => {
             />
             <div className="p-5 flex-1 flex flex-col gap-2 text-center ">
               <h1 className={'text-white  text-2xl min-h-[64px] break-words' + ' '}>{title}</h1>
-              <p className={'font-Roboto text-base text-white font-light pb-2'}>{desc}</p>
+              <p
+                style={{ textAlignLast: 'center' }}
+                className={'font-Nunito text-base text-white  text-justify font-light pb-2'}
+              >
+                {desc}
+              </p>
             </div>
           </div>
         );
