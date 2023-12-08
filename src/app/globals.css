@@ -32,10 +32,15 @@ body::-webkit-scrollbar,
 * {
   -ms-overflow-style: none; /* IE and Edge */
   scrollbar-width: none; /* Firefox */
+  box-sizing: border-box;
 }
 
 .container {
   @apply max-w-[90vw] xl:max-w-[80vw] 2xl:max-w-[75vw] mx-auto;
+}
+
+.container-padding-left {
+  @apply md:pl-[5vw] xl:pl-[5w] 2xl:pl-[12.5vw];
 }
 
 .card {
