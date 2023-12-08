@@ -24,7 +24,7 @@ const Event = ({ title, imageURL, descURL, type }: Props) => {
       <div className="flex flex-1 flex-col justify-between h-full">
         <div className="p-5 pb-6 flex flex-col justify-center gap-2 text-center">
           <h1 className="text-2xl min-h-[64px] grid place-items-center">{title}</h1>
-          <p className="line-clamp-4">{desc}</p>
+          <p className="line-clamp-5">{desc}</p>
         </div>
         <div className="w-full grid place-items-center justify-self-end">
           <Link

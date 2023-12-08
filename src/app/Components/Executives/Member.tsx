@@ -11,9 +11,6 @@ type memberProps = {
 
 const Member = ({ img, name, designation, department, hasClickHandler }: memberProps) => {
   const [hover, setHover] = useState<boolean>(false);
-  useEffect(() => {
-    console.log('Component Re rendring');
-  });
   return (
     <div
       onMouseOver={() => {
@@ -27,7 +24,7 @@ const Member = ({ img, name, designation, department, hasClickHandler }: memberP
         (hasClickHandler ? 'cursor-pointer' : 'saa')
       }
     >
-      <div className="w-full grid place-items-center max-w-[120px] md:max-w-[250px]">
+      <div className="w-full grid place-items-center max-w-[120px] md:max-w-[230px]">
         <span
           className={
             'absolute z-10 font-semibold font-Bebas text-white transition-opacity opacity-0' +
@@ -39,7 +36,7 @@ const Member = ({ img, name, designation, department, hasClickHandler }: memberP
         </span>
         <Image
           className={
-            'rounded-full max-w-[120px] md:max-w-[250px] w-full transition-all aspect-square object-cover ' +
+            'rounded-full max-w-[120px] md:max-w-[230px] w-full transition-all aspect-square object-cover ' +
             (hasClickHandler && hover ? 'brightness-50' : '')
           }
           width={320}

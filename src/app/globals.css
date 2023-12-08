@@ -36,7 +36,7 @@ body::-webkit-scrollbar,
 }
 
 .container {
-  @apply max-w-[90vw] xl:max-w-[80vw] 2xl:max-w-[75vw] mx-auto;
+  @apply max-w-[90vw] xl:max-w-[85vw] 2xl:max-w-[75vw] mx-auto;
 }
 
 .container-padding-left {
@@ -50,7 +50,7 @@ body::-webkit-scrollbar,
   border-radius: 1.16913rem;
   background: #fff;
   box-shadow: -11.96668px -9.57335px 37.09673px 0px rgba(255, 255, 255, 0.25),
-    8.37668px 11.96668px 37.09673px 0px rgba(0, 0, 0, 0.25);
+    8.37668px 11.96668px 37.09673px 0px rgba(199, 155, 155, 0.25);
 }
 .card_banner {
   width: 100%;

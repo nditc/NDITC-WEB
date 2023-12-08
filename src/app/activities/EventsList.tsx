@@ -82,7 +82,7 @@ const EventsList = ({ data }: any) => {
       </div>
 
       {dataSpecific.length > 0 ? (
-        <div className="grid-fluid-fill-[19rem]  gap-5 md:gap-8 justify-items-center w-full">
+        <div className="grid-fluid-fill-[16.5rem] gap-3  2xl:gap-5 justify-items-center w-full">
           {dataSpecific.map((e, i) => {
             if (typeString === e.category) {
               return (
