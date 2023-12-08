@@ -35,7 +35,7 @@ export default function Home() {
         <Image
           src={'/BigImg.png'}
           alt={'Image'}
-          className="relative aspect-square object-contain max-h-[80vh] md:mr-[-10vw] max-w-[95vw] sm:max-w-[80vw] md:max-w-[55vw] order-1 md:order-2"
+          className="relative aspect-square object-contain max-h-[87.5vh] md:mr-[-10vw] max-w-[95vw] sm:max-w-[80vw] md:max-w-[55vw] order-1 md:order-2"
           width={850}
           height={850}
         />
@@ -46,31 +46,31 @@ export default function Home() {
         <h1 className="text-5xl mb-12 text-white">WE HAVE LEARNING RESOURCES ON..</h1>
         <div className="container items-start justify-between flex gap-16 flex-wrap">
           <div className="flex flex-col items-center gap-3 flex-1 ">
-            <GiArtificialIntelligence className="w-20 h-20 md:w-24 md:h-24 text-white" />
+            <Image width={100} height={100} src="/image/icon/ai.svg" alt="" />
             <p className="text-lg md:text-xl text-white text-center font-light">
               Artificial Intelligence
             </p>
           </div>
           <div className="flex flex-col items-center gap-3 flex-1 5">
-            <GiRobotGolem className="w-20 h-20 md:w-24 md:h-24 text-white" />
+            <Image width={100} height={100} src="/image/icon/robot.svg" alt="" />
             <p className="text-lg md:text-xl text-white text-cente font-lightr">
               Hardwares & Robotics
             </p>
           </div>
           <div className="flex flex-col items-center gap-3 flex-1 ">
-            <SiWebpack className="w-20 h-20 md:w-24 md:h-24 text-white" />
+            <Image width={100} height={100} src="/image/icon/web_dev.svg" alt="" />
             <p className="text-lg md:text-xl text-white text-center font-light">
               Website & Native App Development
             </p>
           </div>
           <div className="flex flex-col items-center gap-3 flex-1 ">
-            <FaFileCode className="w-20 h-20 md:w-24 md:h-24 text-white" />
+            <Image width={100} height={100} src="/image/icon/cp.svg" alt="" />
             <p className="text-lg md:text-xl text-white text-center font-light">
               Competitive Programming
             </p>
           </div>
           <div className="flex flex-col items-center gap-3 flex-1 ">
-            <FaPenNib className="w-20 h-20 md:w-24 md:h-24 text-white" />
+            <Image width={100} height={100} src="/image/icon/gfx.svg" alt="" />
             <p className="text-lg md:text-xl text-white text-center font-light">
               Graphics Designing & Article
             </p>

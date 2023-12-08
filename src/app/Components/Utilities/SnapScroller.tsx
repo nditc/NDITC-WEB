@@ -9,7 +9,7 @@ interface Props {
 
 const SnapScroller = ({ baseSize, children, gap }: Props) => {
   const scrollRef = useRef<HTMLDivElement>(null);
-  const [size, setSize] = useState<number>(0);
+  const [size, setSize] = useState<number>(baseSize);
   const [scrollLeft, setscrollLeft] = useState<number>(0);
   const previous = () => {
     scrollRef.current?.scrollTo(scrollRef.current?.scrollLeft - size + gap, 0);
@@ -34,7 +34,7 @@ const SnapScroller = ({ baseSize, children, gap }: Props) => {
     };
   }, [size, scrollLeft, gap]);
   useEffect(() => {
-    setTimeout(() => scrollRef.current?.scrollTo(0, 0), 100);
+    setTimeout(() => scrollRef.current?.scrollTo(0, 0), 250);
     const sizeHandler = () => {
       let w = scrollRef.current?.clientWidth || 0;
       let n = Math.floor(w / baseSize);
@@ -79,7 +79,7 @@ const SnapScroller = ({ baseSize, children, gap }: Props) => {
         ''
       )}
       {scrollLeft + (scrollRef.current?.offsetWidth || 0) <=
-      (scrollRef.current?.scrollWidth || 0) - 25 ? (
+      (scrollRef.current?.scrollWidth || 2500) - 25 ? (
         <button
           onClick={after}
           className="absolute -right-5  rotate-180 top-1/2 p-2 -translate-y-1/2 rounded-full transition-colors  bg-blue-500 shadow-lg hover:bg-blue-600 active:bg-blue-700"

@@ -50,7 +50,7 @@ const ExecutivePanel = ({
           })}
         </div>
       </div>
-      <div className="grid-fluid-fill-[220px] items-center justify-items-start gap-6 lg:grid-fluid-fill-[250px] grow md:pl-10">
+      <div className="grid-fluid-fill-[200px] items-center justify-items-start md:justify-items-stretch gap-5 2xl:gap-6 lg:grid-fluid-fill-[230px] grow md:pl-10">
         {ExecutiveData.sessions[state].members.map(
           ({ image_url, name, post, dept, profile_url }, index) => (
             <a href={profile_url} key="" target="_blank">
