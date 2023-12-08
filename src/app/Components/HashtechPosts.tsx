@@ -1,7 +1,5 @@
-'use client';
-
 import Image from 'next/image';
-import { useRef, useState } from 'react';
+import { useRef } from 'react';
 
 interface Props {
   title: string;
@@ -10,12 +8,9 @@ interface Props {
 }
 
 const HashtechPosts = ({ title, desc, imageURL }: Props) => {
-  const ref = useRef(null);
-
   // const inView = useInView(ref, { once: true });
   return (
     <div
-      ref={ref}
       className={`bg-[#2E2E2E] shadow-xl flex flex-col sm:flex-row rounded-xl duration-1000 overflow-hidden min-w-[290px]`}
     >
       <Image

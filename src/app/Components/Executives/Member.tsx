@@ -11,9 +11,6 @@ type memberProps = {
 
 const Member = ({ img, name, designation, department, hasClickHandler }: memberProps) => {
   const [hover, setHover] = useState<boolean>(false);
-  useEffect(() => {
-    console.log('Component Re rendring');
-  });
   return (
     <div
       onMouseOver={() => {

@@ -85,7 +85,7 @@ export default function Home() {
           <h1 className="text-3xl md:text-5xl text-blue-500">HASHTECH POSTS</h1>
         </div>
 
-        <SnapScroller baseSize={475} gap={16}>
+        <SnapScroller baseSize={475} gap={16} duration={2500}>
           <HashtechPosts
             title="Morbi habitasse felis nulla arcu, morbi ultricies."
             desc="Volutpat tellus porta felis, accumsan. Praesent quis amet et scelerisque dictum fringilla id."

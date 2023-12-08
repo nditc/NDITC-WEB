@@ -4,10 +4,11 @@ import React, { useEffect, useState, useRef } from 'react';
 interface Props {
   baseSize: number;
   gap: number;
+  duration?: number;
   children: React.ReactNode;
 }
 
-const SnapScroller = ({ baseSize, children, gap }: Props) => {
+const SnapScroller = ({ baseSize, children, gap, duration }: Props) => {
   const scrollRef = useRef<HTMLDivElement>(null);
   const [size, setSize] = useState<number>(baseSize);
   const [scrollLeft, setscrollLeft] = useState<number>(0);
@@ -23,12 +24,11 @@ const SnapScroller = ({ baseSize, children, gap }: Props) => {
         scrollLeft + (scrollRef.current?.offsetWidth || 0) <=
         (scrollRef.current?.scrollWidth || 0) - 25
       ) {
-        console.log('Hello');
         scrollRef.current?.scrollTo(scrollRef.current?.scrollLeft + size + gap, 0);
       } else {
         scrollRef.current?.scrollTo(0, 0);
       }
-    }, 5000);
+    }, duration || 3000);
     return () => {
       clearInterval(intID);
     };
