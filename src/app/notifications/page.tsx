@@ -1,7 +1,7 @@
-import SingleNotification from './SingleNotification';
+import SingleNotification from "./SingleNotification";
 
-const Notifications = () => {
-  const NotificationData: NotificationDataFormat[] = [
+const Notifications = async () => {
+  /*const NotificationData: NotificationDataFormat[] = [
     {
       title: 'Father Tim memorial programming contest 3.0',
       description:
@@ -40,7 +40,14 @@ const Notifications = () => {
         'This is a paragraph with more information about something important. This something has many uses and is made of 100% recycled material.',
       imgURL: '/Cover.png',
     },
-  ];
+  ];*/
+
+  const res = await fetch(
+    "https://nditc.pythonanywhere.com/web_notifications",
+    { cache: "no-store" }
+  );
+
+  const NotificationData: NotificationDataFormat[] = await res.json();
 
   return (
     <div className="pt-32 pb-10 overflow-x-hidden bg-slate-50">
@@ -62,13 +69,14 @@ const Notifications = () => {
       </div>
 
       <div className="w-screen flex justify-center">
-        <div className="flex flex-col w-[90%] md:w-[70%] items-center gap-7 mt-10">
+        <div className="flex flex-col-reverse w-[90%] md:w-[70%] items-center gap-7 mt-10">
           {NotificationData.map((e, i) => {
             return (
               <SingleNotification
                 title={e.title}
-                description={e.description}
-                imageURL={e.imgURL}
+                subtitle={e.subtitle}
+                detailsURL={e.details_url}
+                imageURL={e.image_url}
                 key={i}
               />
             );
@@ -81,8 +89,9 @@ const Notifications = () => {
 
 interface NotificationDataFormat {
   title: string;
-  description: string;
-  imgURL: string;
+  subtitle: string;
+  details_url: string;
+  image_url: string;
 }
 
 export default Notifications;
