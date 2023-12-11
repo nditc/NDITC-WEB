@@ -23,6 +23,7 @@ const Page = async ({ params }: { params: { url: string; type: string } }) => {
               <div className="pb-5">
                 <a
                   href={data.action.target}
+                  target="_blank"
                   className="Bebas inline-block cursor-pointer text-xl py-2 font-Bebas px-7 font-medium text-whiterounded-lg border focus:z-10 focus:ring-4  focus:ring-gray-700 bg-black text-white border-gray-600 hover:text-white hover:bg-zinc-700 rounded-lg"
                 >
                   {data.action.label}
