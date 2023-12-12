@@ -54,7 +54,7 @@ const Notifications = async () => {
       <div className="flex w-screen justify-center md:justify-start gap-3 md:ml-32 items-center">
         <div className="rounded-full w-16 h-16 grid place-items-center shadow-[010px_20px_15px_10px_#00000024]">
           <svg
-            className="h-12 w-12 text-gray-800"
+            className="h-12 w-12 text-gray-800 hover:rotate-12 transition-all"
             aria-hidden="true"
             xmlns="http://www.w3.org/2000/svg"
             fill="currentColor"

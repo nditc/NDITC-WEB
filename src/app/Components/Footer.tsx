@@ -1,11 +1,11 @@
-import Image from 'next/image';
-import Link from 'next/link';
+import Image from "next/image";
+import Link from "next/link";
 
 const Footer = () => {
   return (
     <footer className="bg-[#1F1F1F] text-xs md:text-base relative">
       <span className="md:text-xs text-zinc-500 text-xs sm:text-center mt-7 dark:text-zinc-400 absolute bottom-3 left-3">
-        © 2023{' '}
+        © 2023{" "}
         <a href="https://flowbite.com/" className="hover:underline">
           NDITC™
         </a>
@@ -20,7 +20,7 @@ const Footer = () => {
             Home
           </Link>
           <Link
-            href="/activities"
+            href="/activities?type=event"
             className="text-zinc-500 dark:text-zinc-400 font-medium hover:underline cursor-pointer"
           >
             Activities
@@ -32,15 +32,15 @@ const Footer = () => {
             About
           </Link>
           <Link
-            href="/events"
+            href="/policy"
             className="text-zinc-500 dark:text-zinc-400 font-medium hover:underline cursor-pointer"
           >
-            Events
+            Policy
           </Link>
         </div>
         <div className="flex flex-col gap-3">
           <Link
-            href="/"
+            href="/activities?type=publication"
             className="text-zinc-500 dark:text-zinc-400 font-medium hover:underline cursor-pointer"
           >
             Publication
@@ -57,12 +57,12 @@ const Footer = () => {
           >
             Executives
           </Link>
-          <Link
-            href="/"
+          <a
+            href="https://raw.githubusercontent.com/nditc/nditc_mobile_app/main/nditc.apk"
             className="text-zinc-500 dark:text-zinc-400 font-medium hover:underline cursor-pointer"
           >
             App
-          </Link>
+          </a>
         </div>
 
         <div className="flex flex-col items-center gap-3">
@@ -78,7 +78,7 @@ const Footer = () => {
           />
         </div>
 
-        <div className="flex flex-col gap-3 md:items-start items-center">
+        <div className="flex flex-col gap-3 items-start">
           <div className="text-white font-semibold font-ShareTechTown hover:underline cursor-pointer">
             CONTACT US
           </div>

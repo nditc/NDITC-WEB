@@ -49,42 +49,56 @@ export default function Home() {
           WE HAVE LEARNING RESOURCES ON..
         </h1>
         <div className="container items-start justify-between flex gap-16 flex-wrap">
-          <div className="flex flex-col items-center gap-3 flex-1 ">
+          <div className="flex flex-col items-center gap-3 flex-1 hover:scale-110 transition-all">
             <Image width={100} height={100} src="/image/icon/ai.svg" alt="" />
             <p className="text-lg md:text-xl text-white text-center font-light">
               Artificial Intelligence
             </p>
           </div>
-          <div className="flex flex-col items-center gap-3 flex-1 5">
+          <div className="flex flex-col items-center gap-3 flex-1 hover:scale-110 transition-all">
             <Image
               width={100}
               height={100}
               src="/image/icon/robot.svg"
               alt=""
+              loading="lazy"
             />
             <p className="text-lg md:text-xl text-white text-cente font-lightr">
               Hardwares & Robotics
             </p>
           </div>
-          <div className="flex flex-col items-center gap-3 flex-1 ">
+          <div className="flex flex-col items-center gap-3 flex-1 hover:scale-110 transition-all">
             <Image
               width={100}
               height={100}
               src="/image/icon/web_dev.svg"
               alt=""
+              loading="lazy"
             />
             <p className="text-lg md:text-xl text-white text-center font-light">
               Website & Native App Development
             </p>
           </div>
-          <div className="flex flex-col items-center gap-3 flex-1 ">
-            <Image width={100} height={100} src="/image/icon/cp.svg" alt="" />
+          <div className="flex flex-col items-center gap-3 flex-1 hover:scale-110 transition-all">
+            <Image
+              width={100}
+              height={100}
+              src="/image/icon/cp.svg"
+              alt=""
+              loading="lazy"
+            />
             <p className="text-lg md:text-xl text-white text-center font-light">
               Competitive Programming
             </p>
           </div>
-          <div className="flex flex-col items-center gap-3 flex-1 ">
-            <Image width={100} height={100} src="/image/icon/gfx.svg" alt="" />
+          <div className="flex flex-col items-center gap-3 flex-1 hover:scale-110 transition-all">
+            <Image
+              width={100}
+              height={100}
+              src="/image/icon/gfx.svg"
+              alt=""
+              loading="lazy"
+            />
             <p className="text-lg md:text-xl text-white text-center font-light">
               Graphics Designing & Article
             </p>
@@ -156,6 +170,7 @@ export default function Home() {
               width={150}
               height={150}
               className="hover:scale-110 transition-all"
+              loading="lazy"
             />
             <h1 className="text-2xl 2xl:text-3xl px-3 text-center">
               GAIN EXPERIENCE BY CONTRIBUTING TO REAL-WORLD PROJECTS
@@ -173,6 +188,7 @@ export default function Home() {
               width={150}
               height={150}
               className="hover:scale-110 transition-all"
+              loading="lazy"
             />
             <h1 className="text-2xl  2xl:text-3xl px-3 text-center">
               EXPLORE THE LEARNING BASED CLUB JOURNEY WITH NDITC
@@ -190,6 +206,7 @@ export default function Home() {
               width={150}
               height={150}
               className="hover:scale-110 transition-all"
+              loading="lazy"
             />
             <h1 className="text-2xl  2xl:text-3xl px-3 text-center">
               NETWORK WITH PEERS AND MENTORS & SHOWCASE YOUR SKILLSET
