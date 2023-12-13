@@ -155,6 +155,7 @@ const ActivityCards = () => {
             whileInView="animate"
             viewport={{ once: true }}
             custom={i}
+            key={i}
           >
             <Card
               title={title}
