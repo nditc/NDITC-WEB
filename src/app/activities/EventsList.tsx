@@ -19,13 +19,10 @@ type Events = {
   ];
 };
 
-const EventsList = ({ data }: any) => {
+const EventsList = ({ data }: { data: any[] }) => {
   const [typeString, setTypeString] = useState<string>('events');
-  const dataSpecific = Array.isArray(data)
-    ? data.filter((e: any) => typeString === e?.category)
-    : [];
   const type = useSearchParams().get('type');
-
+  console.dir(data);
   useEffect(() => {
     if (type != 'events' && type != 'project' && type != 'publication' && type != 'workshop') {
       setTypeString('event');
@@ -81,20 +78,20 @@ const EventsList = ({ data }: any) => {
         <h1 className="text-3xl md:text-5xl">{typeString + 'S'}</h1>
       </div>
 
-      {dataSpecific.length > 0 ? (
+      {data.length > 0 ? (
         <div className="grid-fluid-fill-[16.5rem] gap-3  2xl:gap-5 justify-items-center w-full">
-          {dataSpecific.map((e, i) => {
-            if (typeString === e.category) {
-              return (
-                <Event
-                  title={e.title}
-                  imageURL={e.image_url}
-                  descURL={e.details_url}
-                  key={i}
-                  type={typeString}
-                />
-              );
-            }
+          {data.map((e, i) => {
+            return (
+              <Event
+                title={e.title}
+                imageURL={e.image_url}
+                descURL={e.details_url}
+                timestamp={e.timestamp}
+                shortDesc={e.short_description}
+                key={i}
+                type={typeString}
+              />
+            );
           })}
         </div>
       ) : (
