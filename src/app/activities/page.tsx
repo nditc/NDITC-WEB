@@ -1,3 +1,4 @@
+import CodeCompass from '../Components/CodeCompass';
 import EventsList from './EventsList';
 import { useSearchParams } from 'next/navigation';
 
@@ -54,6 +55,7 @@ const Activities = async ({
           </div>
         </section>
         <EventsList data={events} />
+        <CodeCompass />
       </div>
     </div>
   );

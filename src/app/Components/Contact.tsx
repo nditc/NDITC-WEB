@@ -3,11 +3,13 @@
 const Contact = () => {
   return (
     <>
-      <div id="Contact" className="w-0 h-0"></div>
       <div className="mt-36 flex flex-col items-center bg-zinc-200">
         <div className="w-screen flex flex-col gap-10  md:flex-row justify-center md:justify-between">
           <div className="flex-1 md:w-1/2  py-10 bg-zinc-200 ">
-            <div className="flex flex-col mt-7  items-center md:items-start justify-center 2xl:pl-32 container-padding-left">
+            <div
+              id="Contact"
+              className="flex flex-col mt-7  items-center md:items-start justify-center 2xl:pl-32 container-padding-left"
+            >
               <div className="flex flex-col md:flex-row gap-2">
                 <h1 className="text-5xl mb-5 text-center md:text-left text-blue-500">
                   GET IN TOUCH

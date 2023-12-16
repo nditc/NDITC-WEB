@@ -5,7 +5,6 @@ import { MdOutlineDateRange } from 'react-icons/md';
 const Page = async ({ params }: { params: { url: string; type: string; date: number } }) => {
   const res = await fetch(decodeURIComponent(params.url));
   const data = await res.json();
-  console.log(data);
   const DateData = new Date(params.date * 1000);
 
   return (
