@@ -55,7 +55,7 @@ const Activities = async ({
         </div>
         <section className="w-full ">
           <div className="w-full grid place-items-center h-60 bg-slate-400 rounded-xl text-slate-100 shadow-xl ">
-            <p className="Bebas text-2xl overflow-hidden">
+            <p className="Bebas text-2xl break-words">
               {JSON.stringify(upcoming)}
             </p>
           </div>
