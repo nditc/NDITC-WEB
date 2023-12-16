@@ -32,7 +32,7 @@ const SnapScroller = ({ baseSize, children, gap, duration }: Props) => {
     return () => {
       clearInterval(intID);
     };
-  }, [size, scrollLeft, gap]);
+  }, [size, scrollLeft, gap, duration]);
   useEffect(() => {
     setTimeout(() => scrollRef.current?.scrollTo(0, 0), 250);
     const sizeHandler = () => {
@@ -44,11 +44,11 @@ const SnapScroller = ({ baseSize, children, gap, duration }: Props) => {
         setSize(w);
       }
     };
-    window.onresize = sizeHandler;
+    window.addEventListener('resize', sizeHandler);
     sizeHandler();
 
     return () => {
-      window.onresize = null;
+      window.removeEventListener('resize', sizeHandler);
     };
   }, [baseSize, gap]);
 

@@ -1,7 +1,7 @@
-@import url("https://fonts.googleapis.com/css?family=Nunito:200,300,regular,500,600,700,800,900,200italic,300italic,italic,500italic,600italic,700italic,800italic,900italic");
-@import url("https://fonts.googleapis.com/css?family=Bebas+Neue:regular");
-@import url("https://fonts.googleapis.com/css?family=Roboto:100,100italic,300,300italic,regular,italic,500,500italic,700,700italic,900,900italic");
-@import url("https://fonts.googleapis.com/css?family=Share+Tech+Mono:regular");
+@import url('https://fonts.googleapis.com/css?family=Nunito:200,300,regular,500,600,700,800,900,200italic,300italic,italic,500italic,600italic,700italic,800italic,900italic');
+@import url('https://fonts.googleapis.com/css?family=Bebas+Neue:regular');
+@import url('https://fonts.googleapis.com/css?family=Roboto:100,100italic,300,300italic,regular,italic,500,500italic,700,700italic,900,900italic');
+@import url('https://fonts.googleapis.com/css?family=Share+Tech+Mono:regular');
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
@@ -11,7 +11,10 @@
   --background-start-rgb: 214, 219, 220;
   --background-end-rgb: 255, 255, 255;
 }
-
+html {
+  scroll-behavior: smooth;
+  scroll-padding-top: 96px;
+}
 /* @media (prefers-color-scheme: dark) {
   :root {
     --foreground-rgb: 255, 255, 255;
@@ -79,6 +82,7 @@ body::-webkit-scrollbar,
   background: #0754da;
 }
 h1,
+h2,
 h3 {
   font-family: Bebas Neue;
 }
@@ -89,7 +93,6 @@ p {
 .Bebas {
   font-family: Bebas Neue;
 }
-
 .snap-scroller {
   display: grid;
   grid-auto-flow: column;

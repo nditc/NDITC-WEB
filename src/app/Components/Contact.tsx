@@ -1,7 +1,7 @@
-"use client";
+'use client';
 
-import { useRef, useState } from "react";
-import { IoIosCloseCircleOutline } from "react-icons/io";
+import { useRef, useState } from 'react';
+import { IoIosCloseCircleOutline } from 'react-icons/io';
 
 const Contact = () => {
   const [sending, setSending] = useState(false);
@@ -16,15 +16,15 @@ const Contact = () => {
     const formData = new FormData(event.target);
 
     try {
-      const response = await fetch("/api/contact", {
-        method: "post",
+      const response = await fetch('/api/contact', {
+        method: 'post',
         body: formData,
       });
 
       formRef.current?.reset();
 
       if (!response.ok) {
-        console.log("falling over");
+        console.log('falling over');
         throw new Error(`response status: ${response.status}`);
       }
 
@@ -34,13 +34,12 @@ const Contact = () => {
       setShowingModal(true);
     } catch (err) {
       console.error(err);
-      alert("Error, please try resubmitting the form");
+      alert('Error, please try resubmitting the form');
     }
   }
 
   return (
     <>
-      <div id="Contact" className="w-0 h-0"></div>
       <div className="mt-36 flex flex-col items-center bg-zinc-200">
         <dialog
           ref={dialogRef}
@@ -77,15 +76,14 @@ const Contact = () => {
             <form
               ref={formRef}
               onSubmit={handleSubmit}
+              id="Contact"
               className="flex flex-col mt-7  items-center md:items-start justify-center 2xl:pl-32 container-padding-left"
             >
               <div className="flex flex-col md:flex-row gap-2">
                 <h1 className="text-5xl mb-5 text-center md:text-left text-blue-500">
                   GET IN TOUCH
                 </h1>
-                <h1 className="text-5xl mb-5 text-center md:text-left">
-                  WITH US
-                </h1>
+                <h1 className="text-5xl mb-5 text-center md:text-left">WITH US</h1>
               </div>
               <div className="mb-6 w-[96%] max-w-[550px]">
                 <label
