@@ -1,6 +1,6 @@
 'use client';
 
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import Hover from './Hover';
 import Image from 'next/image';
 import Link from 'next/link';
@@ -10,9 +10,16 @@ const Navbar = () => {
   const [showOptions, setShowOptions] = useState(false);
   const Route = usePathname();
   const router = useRouter();
+
+  const [windowWidth, setWindowWidth] = useState(0);
+
+  useEffect(() => {
+    setWindowWidth(window.innerWidth);
+  }, []);
+
   return (
     <nav className="bg-white fixed w-full z-20 top-0 start-0 border-b border-gray-200 ">
-      <div className="container flex flex-wrap items-center justify-between mx-auto py-4 px-1">
+      <div className="container flex flex-wrap items-center justify-between mx-auto py-4 px-1 relative">
         <a href="/" className="flex items-center space-x-3 rtl:space-x-reverse">
           <Image src="/Logo.png" className="h-12 w-32" alt="NDITC Logo" width={512} height={512} />
         </a>
@@ -51,14 +58,14 @@ const Navbar = () => {
           </button>
         </div>
         <div
-          className={`items-center justify-between w-full md:flex md:w-auto md:order-1 ${
-            showOptions ? '' : 'hidden'
-          }`}
+          className={`items-center justify-between w-full md:flex md:w-auto md:order-1 transition-all duration-300 ${
+            windowWidth > 768 ? '' : 'absolute left-0'
+          } ${showOptions ? 'top-16' : '-top-96'}`}
           id="navbar-sticky"
         >
           <ul className="flex flex-col p-4 md:p-0 mt-4 font-medium border border-gray-100 rounded-lg bg-gray-50 md:space-x-8 rtl:space-x-reverse md:flex-row md:mt-0 md:border-0 md:bg-white">
             <li>
-              <a
+              <Link
                 href="/"
                 className={
                   'block py-2 px-3 text-white bg-blue-700 hover:text-blue-500 rounded md:bg-transparent  md:p-0' +
@@ -68,7 +75,7 @@ const Navbar = () => {
                 aria-current="page"
               >
                 Home
-              </a>
+              </Link>
             </li>
             <li>
               <Link
@@ -83,7 +90,7 @@ const Navbar = () => {
               </Link>
             </li>
             <li>
-              <Hover text="Activities" imageLink="/HoverImage1.png" />
+              <Hover text="Activities" imageLink="/HoverImage1.png" windowWidth={windowWidth} />
             </li>
             <li>
               <Link

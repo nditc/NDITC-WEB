@@ -1,33 +1,54 @@
+"use client";
+
 import { useState } from "react";
-import Image from "next/image";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 interface Props {
+  windowWidth: number;
   text: string;
   imageLink: string;
 }
 
-const Hover = ({ text, imageLink }: Props) => {
+const Hover = ({ text, imageLink, windowWidth }: Props) => {
   const [hover, setHover] = useState(false);
   const Route = usePathname();
 
   return (
     <div className="relative z-50">
-      <button
-        onMouseEnter={() => setHover(true)}
-        onMouseLeave={() => setHover(false)}
-        id="dropdownHoverButton"
-        data-dropdown-toggle="dropdownHover"
-        data-dropdown-trigger="hover"
-        className={
-          "block py-2 px-3 text-gray-900 rounded hover:bg-gray-100 md:hover:bg-transparent md:hover:text-blue-500 md:p-0" +
-          " " +
-          (Route === "/activities" ? "md:text-blue-500" : "md:text-black")
-        }
-        type="button"
-      >
-        {text}
-      </button>
+      {windowWidth > 768 ? (
+        <Link
+          href="/activities?type=event"
+          onMouseEnter={() => setHover(true)}
+          onMouseLeave={() => setHover(false)}
+          id="dropdownHoverButton"
+          data-dropdown-toggle="dropdownHover"
+          data-dropdown-trigger="hover"
+          className={
+            "block py-2 px-3 text-gray-900 rounded hover:bg-gray-100 md:hover:bg-transparent md:hover:text-blue-500 md:p-0" +
+            " " +
+            (Route === "/activities" ? "md:text-blue-500" : "md:text-black")
+          }
+          type="button"
+        >
+          {text}
+        </Link>
+      ) : (
+        <button
+          onMouseEnter={() => setHover(true)}
+          onMouseLeave={() => setHover(false)}
+          id="dropdownHoverButton"
+          data-dropdown-toggle="dropdownHover"
+          data-dropdown-trigger="hover"
+          className={
+            "block py-2 px-3 text-gray-900 rounded hover:bg-gray-100 md:hover:bg-transparent md:hover:text-blue-500 md:p-0" +
+            " " +
+            (Route === "/activities" ? "md:text-blue-500" : "md:text-black")
+          }
+          type="button"
+        >
+          {text}
+        </button>
+      )}
 
       <div
         onMouseEnter={() => setHover(true)}
