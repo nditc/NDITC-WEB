@@ -1,5 +1,4 @@
-import Image from 'next/image';
-import { useRef } from 'react';
+import Image from "next/image";
 
 interface Props {
   title: string;
@@ -15,14 +14,22 @@ const HashtechPosts = ({ title, desc, imageURL }: Props) => {
     >
       <Image
         src={imageURL}
-        alt={'Image'}
+        alt={"Image"}
         width={512}
         height={512}
         className="w-full sm:w-1/2 aspect-square object-cover  flex-1"
       />
       <div className="p-5 py-10 flex-1 flex flex-col gap-3 text-left">
-        <h1 className={'text-white font-Roboto text-xl font-medium  break-words' + ' '}>{title}</h1>
-        <p className={'font-Roboto text-base text-white font-light pb-2'}>{desc}</p>
+        <h1
+          className={
+            "text-white font-Roboto text-xl font-medium  break-words" + " "
+          }
+        >
+          {title}
+        </h1>
+        <p className={"font-Roboto text-base text-white font-light pb-2"}>
+          {desc}
+        </p>
       </div>
     </div>
   );
