@@ -1,7 +1,7 @@
-'use client';
+"use client";
 
-import { useRef, useState } from 'react';
-import { IoIosCloseCircleOutline } from 'react-icons/io';
+import { useEffect, useRef, useState } from "react";
+import { IoIosCloseCircleOutline } from "react-icons/io";
 
 const Contact = () => {
   const [sending, setSending] = useState(false);
@@ -10,21 +10,26 @@ const Contact = () => {
   const dialogRef = useRef<HTMLDialogElement>(null);
   const [showingModal, setShowingModal] = useState(false);
 
+  useEffect(() => {
+    dialogRef.current?.close();
+    setShowingModal(false);
+  }, []);
+
   async function handleSubmit(event: any) {
     event.preventDefault();
     setSending(true);
     const formData = new FormData(event.target);
 
     try {
-      const response = await fetch('/api/contact', {
-        method: 'post',
+      const response = await fetch("/api/contact", {
+        method: "post",
         body: formData,
       });
 
       formRef.current?.reset();
 
       if (!response.ok) {
-        console.log('falling over');
+        console.log("falling over");
         throw new Error(`response status: ${response.status}`);
       }
 
@@ -34,7 +39,7 @@ const Contact = () => {
       setShowingModal(true);
     } catch (err) {
       console.error(err);
-      alert('Error, please try resubmitting the form');
+      alert("Error, please try resubmitting the form");
     }
   }
 
@@ -43,7 +48,9 @@ const Contact = () => {
       <div className="mt-36 flex flex-col items-center bg-zinc-200">
         <dialog
           ref={dialogRef}
-          className="w-[90%] h-[90%] md:w-96 md:h-56 rounded-xl flex flex-col items-center justify-center"
+          className={`w-[90%] ${
+            showingModal ? "z-30" : "-z-30"
+          } h-[90%] md:w-96 md:h-56 rounded-xl flex flex-col items-center justify-center`}
         >
           {showingModal && (
             <div>
@@ -83,7 +90,9 @@ const Contact = () => {
                 <h1 className="text-5xl mb-5 text-center md:text-left text-blue-500">
                   GET IN TOUCH
                 </h1>
-                <h1 className="text-5xl mb-5 text-center md:text-left">WITH US</h1>
+                <h1 className="text-5xl mb-5 text-center md:text-left">
+                  WITH US
+                </h1>
               </div>
               <div className="mb-6 w-[96%] max-w-[550px]">
                 <label
