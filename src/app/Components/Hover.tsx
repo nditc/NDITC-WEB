@@ -1,22 +1,17 @@
 "use client";
 
-import { useEffect, useState } from "react";
+import { useState } from "react";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 interface Props {
+  windowWidth: number;
   text: string;
   imageLink: string;
 }
 
-const Hover = ({ text, imageLink }: Props) => {
+const Hover = ({ text, imageLink, windowWidth }: Props) => {
   const [hover, setHover] = useState(false);
   const Route = usePathname();
-
-  const [windowWidth, setWindowWidth] = useState(0);
-
-  useEffect(() => {
-    setWindowWidth(window.innerWidth);
-  }, []);
 
   return (
     <div className="relative z-50">
