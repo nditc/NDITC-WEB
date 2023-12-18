@@ -1,10 +1,10 @@
-'use client';
+"use client";
 
-import { useEffect, useState } from 'react';
-import Hover from './Hover';
-import Image from 'next/image';
-import Link from 'next/link';
-import { useRouter, usePathname } from 'next/navigation';
+import { useEffect, useState } from "react";
+import Hover from "./Hover";
+import Image from "next/image";
+import Link from "next/link";
+import { useRouter, usePathname } from "next/navigation";
 
 const Navbar = () => {
   const [showOptions, setShowOptions] = useState(false);
@@ -21,7 +21,13 @@ const Navbar = () => {
     <nav className="bg-white fixed w-full z-20 top-0 start-0 border-b border-gray-200 ">
       <div className="container flex flex-wrap items-center justify-between mx-auto py-4 px-1 relative">
         <a href="/" className="flex items-center space-x-3 rtl:space-x-reverse">
-          <Image src="/Logo.png" className="h-12 w-32" alt="NDITC Logo" width={512} height={512} />
+          <Image
+            src="/Logo.png"
+            className="h-12 w-32"
+            alt="NDITC Logo"
+            width={512}
+            height={512}
+          />
         </a>
         <div className="flex md:order-2 space-x-3 md:space-x-0 rtl:space-x-reverse">
           <a
@@ -58,9 +64,9 @@ const Navbar = () => {
           </button>
         </div>
         <div
-          className={`items-center justify-between w-full md:flex md:w-auto md:order-1 transition-all duration-300 ${
-            windowWidth > 768 ? '' : 'absolute left-0'
-          } ${showOptions ? 'top-16' : '-top-96'}`}
+          className={`items-center justify-between w-full md:flex md:w-auto md:order-1 ${
+            showOptions ? "" : "hidden"
+          }`}
           id="navbar-sticky"
         >
           <ul className="flex flex-col p-4 md:p-0 mt-4 font-medium border border-gray-100 rounded-lg bg-gray-50 md:space-x-8 rtl:space-x-reverse md:flex-row md:mt-0 md:border-0 md:bg-white">
@@ -68,9 +74,9 @@ const Navbar = () => {
               <Link
                 href="/"
                 className={
-                  'block py-2 px-3 text-white bg-blue-700 hover:text-blue-500 rounded md:bg-transparent  md:p-0' +
-                  ' ' +
-                  (Route === '/' ? 'md:text-blue-500' : 'md:text-black')
+                  "block py-2 px-3 text-white bg-blue-700 hover:text-blue-500 rounded md:bg-transparent  md:p-0" +
+                  " " +
+                  (Route === "/" ? "md:text-blue-500" : "md:text-black")
                 }
                 aria-current="page"
               >
@@ -81,24 +87,30 @@ const Navbar = () => {
               <Link
                 href="/about"
                 className={
-                  'block py-2 px-3 text-gray-900 rounded hover:bg-gray-100 md:hover:bg-transparent md:hover:text-blue-500 md:p-0' +
-                  ' ' +
-                  (Route === '/about' ? 'md:text-blue-500' : 'md:text-black')
+                  "block py-2 px-3 text-gray-900 rounded hover:bg-gray-100 md:hover:bg-transparent md:hover:text-blue-500 md:p-0" +
+                  " " +
+                  (Route === "/about" ? "md:text-blue-500" : "md:text-black")
                 }
               >
                 About
               </Link>
             </li>
             <li>
-              <Hover text="Activities" imageLink="/HoverImage1.png" windowWidth={windowWidth} />
+              <Hover
+                text="Activities"
+                imageLink="/HoverImage1.png"
+                windowWidth={windowWidth}
+              />
             </li>
             <li>
               <Link
                 href="/executive"
                 className={
-                  'block py-2 px-3 text-gray-900 rounded hover:bg-gray-100 md:hover:bg-transparent md:hover:text-blue-500 md:p-0' +
-                  ' ' +
-                  (Route === '/executive' ? 'md:text-blue-500' : 'md:text-black')
+                  "block py-2 px-3 text-gray-900 rounded hover:bg-gray-100 md:hover:bg-transparent md:hover:text-blue-500 md:p-0" +
+                  " " +
+                  (Route === "/executive"
+                    ? "md:text-blue-500"
+                    : "md:text-black")
                 }
               >
                 Executives
