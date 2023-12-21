@@ -4,12 +4,15 @@ interface Props {
   title: string;
   desc: string;
   imageURL: string;
+  redirectUrl: string;
 }
 
-const HashtechPosts = ({ title, desc, imageURL }: Props) => {
+const HashtechPosts = ({ title, desc, imageURL, redirectUrl }: Props) => {
   // const inView = useInView(ref, { once: true });
   return (
-    <div
+    <a
+      href={redirectUrl}
+      target="_blank"
       className={`bg-[#2E2E2E] shadow-xl flex flex-col sm:flex-row rounded-xl duration-1000 overflow-hidden min-w-[290px]`}
     >
       <Image
@@ -27,11 +30,11 @@ const HashtechPosts = ({ title, desc, imageURL }: Props) => {
         >
           {title}
         </h1>
-        <p className={"font-Roboto text-base text-white font-light pb-2"}>
-          {desc}
-        </p>
+        <div className={"font-Roboto text-base text-white font-light pb-2"}>
+          <div className="line-clamp-5">{desc}</div>
+        </div>
       </div>
-    </div>
+    </a>
   );
 };
 

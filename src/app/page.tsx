@@ -115,24 +115,31 @@ export default function Home() {
 
         <SnapScroller baseSize={475} gap={16} duration={2500}>
           <HashtechPosts
-            title="Morbi habitasse felis nulla arcu, morbi ultricies."
-            desc="Volutpat tellus porta felis, accumsan. Praesent quis amet et scelerisque dictum fringilla id."
-            imageURL="/hashtech.png"
+            title="Google Gemini"
+            desc="“Google Gemini” is a new advertising platform that integrates search and video ads into Google Play, allowing advertisers to promote mobile app installs and in-app actions."
+            imageURL="https://scontent-iad3-1.xx.fbcdn.net/v/t39.30808-6/409871839_988884939296371_726850100000577863_n.jpg?_nc_cat=101&ccb=1-7&_nc_sid=3635dc&_nc_ohc=Quf5Qiu6fgYAX-s1Sol&_nc_ht=scontent-iad3-1.xx&oh=00_AfAvelqSmpLx7AciJ2CeG55tpb_-zDACkUD_qwNtlZLxmg&oe=6589178D"
+            redirectUrl="https://www.facebook.com/photo?fbid=988884942629704&set=a.762348471950020"
           />
+
           <HashtechPosts
-            title="Morbi habitasse felis nulla arcu, morbi ultricies."
-            desc="Volutpat tellus porta felis, accumsan. Praesent quis amet et scelerisque dictum fringilla id."
-            imageURL="/hashtech.png"
+            title="Computer Architecture"
+            desc="“Computer Architecture” is the design and structure of computer systems, encompassing the arrangement and interaction of various hardware components. This includes the central processing unit (CPU)..."
+            imageURL="https://scontent-iad3-1.xx.fbcdn.net/v/t39.30808-6/409502585_984963203021878_7547505903699746104_n.jpg?_nc_cat=108&ccb=1-7&_nc_sid=3635dc&_nc_ohc=4RjZ02-ngmgAX84rzmO&_nc_ht=scontent-iad3-1.xx&oh=00_AfBA9mnf0ubRzkx8EhXJwh7fOxde7xMufI6NsnuVJebq_g&oe=658907D3"
+            redirectUrl="https://www.facebook.com/photo?fbid=984987733019425&set=a.762348471950020"
           />
+
           <HashtechPosts
-            title="Morbi habitasse felis nulla arcu, morbi ultricies."
-            desc="Volutpat tellus porta felis, accumsan. Praesent quis amet et scelerisque dictum fringilla id."
-            imageURL="/hashtech.png"
+            title="Augmented Reality"
+            desc="Augmented Reality (AR) is an innovative technology that superimposes digital content onto the real world, enhancing the user's perception of their environment."
+            imageURL="https://scontent-iad3-2.xx.fbcdn.net/v/t39.30808-6/405030064_974777844040414_2375425671905176021_n.jpg?_nc_cat=111&ccb=1-7&_nc_sid=3635dc&_nc_ohc=Jv6_3OXZqvQAX9pZaQ1&_nc_ht=scontent-iad3-2.xx&oh=00_AfA-Epsu8BSWKxuZXY5o3VYTusyROpseF_3cXstmjjVFpw&oe=6589AE1B"
+            redirectUrl="https://www.facebook.com/photo/?fbid=974777847373747&set=a.762348471950020"
           />
+
           <HashtechPosts
-            title="Morbi habitasse felis nulla arcu, morbi ultricies."
-            desc="Volutpat tellus porta felis, accumsan. Praesent quis amet et scelerisque dictum fringilla id."
-            imageURL="/hashtech.png"
+            title="Malware"
+            desc="Malware, also stands for “malicious software”, is a software that is intentionally created to harm or obtain unauthorized access to computer systems, networks."
+            imageURL="https://scontent-iad3-1.xx.fbcdn.net/v/t39.30808-6/402110429_970323207819211_7263427348214765051_n.jpg?_nc_cat=101&ccb=1-7&_nc_sid=3635dc&_nc_ohc=OItL41E-YEUAX9hUKHB&_nc_ht=scontent-iad3-1.xx&oh=00_AfDmZndSFL2AK8WmofBL2e5YJtS7kiOtBIUkRZiMJxb71w&oe=65892DEA"
+            redirectUrl="https://www.facebook.com/photo/?fbid=970339901150875&set=a.762348471950020"
           />
         </SnapScroller>
       </section>
@@ -176,9 +183,9 @@ export default function Home() {
               GAIN EXPERIENCE BY CONTRIBUTING TO REAL-WORLD PROJECTS
             </h1>
             <p className="text-center text-base">
-              TechClub provides a supportive community for members to network
-              with peers with similar interests and connect with mentors who can
-              guide them in their journey.
+              Gain invaluable experience with NDITC by actively engaging in
+              real-world projects like HashTech and Evya AI, shaping your
+              practical expertise in the evolving tech sphere.
             </p>
           </div>
           <div className="flex flex-col items-center gap-3">
@@ -194,9 +201,9 @@ export default function Home() {
               EXPLORE THE LEARNING BASED CLUB JOURNEY WITH NDITC
             </h1>
             <p className="text-center text-base">
-              TechClub provides a supportive community for members to network
-              with peers with similar interests and connect with mentors who can
-              guide them in their journey.
+              Embark on an enriching learning journey with NDITC's workshops,
+              seminars, and groundbreaking events like Thynk 2.0, fostering an
+              immersive educational experience in the IT realm.
             </p>
           </div>
           <div className="flex flex-col items-center gap-3">
@@ -212,9 +219,9 @@ export default function Home() {
               NETWORK WITH PEERS AND MENTORS & SHOWCASE YOUR SKILLSET
             </h1>
             <p className="text-center text-base">
-              TechClub provides a supportive community for members to network
-              with peers with similar interests and connect with mentors who can
-              guide them in their journey.
+              Join NDITC to network, collaborate with peers and mentors, and
+              exhibit your diverse skill set through initiatives like FTMPC 3.0,
+              creating opportunities for professional growth and recognition.
             </p>
           </div>
         </div>
