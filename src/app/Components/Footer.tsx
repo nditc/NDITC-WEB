@@ -58,14 +58,18 @@ const Footer = () => {
             Executives
           </Link>
           <a
-            href="https://raw.githubusercontent.com/nditc/nditc_mobile_app/main/nditc.apk"
+            href="https://ndc-pro.vercel.app/details/https%3A%2F%2Fnditc.pythonanywhere.com%2Fprojects%2FgAAAAABklDtCA8wgOMZar9YbvFJgn8e-jFUG27Ic9aHwhx40IBCUofeQ_uoinoAgpmskv_ojJNA4I9Rgswp3RLa9wWgp6846Zg%3D%3D/project/1687651200"
             className="text-zinc-500 dark:text-zinc-400 font-medium hover:underline cursor-pointer"
           >
             App
           </a>
         </div>
 
-        <div className="flex flex-col items-center gap-3">
+        <a
+          href="https://ndc.edu.bd"
+          target="_blank"
+          className="flex flex-col items-center gap-3"
+        >
           <div className="text-white font-semibold font-ShareTechTown hover:underline cursor-pointer text-center">
             A CLUB OF
           </div>
@@ -76,7 +80,7 @@ const Footer = () => {
             height={128}
             className="scale-75 md:scale-100"
           />
-        </div>
+        </a>
 
         <div className="flex flex-col gap-3 items-start">
           <div className="text-white font-semibold font-ShareTechTown hover:underline cursor-pointer">

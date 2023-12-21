@@ -3,6 +3,7 @@ import Contact from "./Components/Contact";
 import ActivityCards from "./Components/ActivityCards";
 import HashtechPosts from "./Components/HashtechPosts";
 import SnapScroller from "./Components/Utilities/SnapScroller";
+import Link from "next/link";
 
 export default function Home() {
   return (
@@ -23,12 +24,12 @@ export default function Home() {
             computer, programming, robotics, and design. Let's be the best
             together
           </p>
-          <button
-            type="button"
+          <Link
+            href="/about"
             className="Bebas text-xl mt-5 py-2 font-Bebas px-7 me-2 mb-2 font-medium text-whiterounded-lg border focus:z-10 focus:ring-4  focus:ring-gray-700 bg-black text-white border-gray-600 hover:text-white hover:bg-zinc-700 rounded-lg"
           >
             LEARN MORE
-          </button>
+          </Link>
         </div>
         <Image
           src={"/BigImg.png"}

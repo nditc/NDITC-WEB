@@ -29,7 +29,7 @@ const Sections = [
     ),
   },
   {
-    heading: "About Our Motive",
+    heading: "Our Motive",
     content: (
       <p>
         Technology, the catalyst of modern human revolution, has rooted its
