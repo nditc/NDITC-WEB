@@ -1,5 +1,5 @@
-import React from 'react';
-import '../styles/codeCompass.css';
+import React from "react";
+import "../styles/codeCompass.css";
 
 const CodeCompass = () => {
   return (
@@ -8,8 +8,8 @@ const CodeCompass = () => {
         Subscribe to our <span>Newsletter</span>
       </h3>
       <p id="about">
-        This is a paragraph with more information about something important. This something has many
-        uses and is made of 100% recycled material.
+        Code Compass is our Official newsletter. SUBSCRIBE NOW for the latest
+        updates on - Club Activities - Useful Learning Resources and many more!
       </p>
       <input type="email" placeholder="Your Email" id="email" />
       <button id="subscribe">
@@ -17,8 +17,14 @@ const CodeCompass = () => {
       </button>
       <div id="cdcmps_div">
         <picture>
-          <source media="(min-width: 460px)" srcSet="/image/code_compass/cdcmp_txt.png" />
-          <source media="(max-width: 460px)" srcSet="/image/code_compass/code_compass.png" />
+          <source
+            media="(min-width: 460px)"
+            srcSet="/image/code_compass/cdcmp_txt.png"
+          />
+          <source
+            media="(max-width: 460px)"
+            srcSet="/image/code_compass/code_compass.png"
+          />
           <img src="trnsprnt.png" alt="" id="cdcmps" />
         </picture>
       </div>

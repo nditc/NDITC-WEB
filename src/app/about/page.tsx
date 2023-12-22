@@ -60,6 +60,10 @@ const Sections = [
       </p>
     ),
   },
+  {
+    heading: "Our Achievements",
+    content: <p></p>,
+  },
 ];
 
 const About = () => {
