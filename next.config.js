@@ -32,6 +32,12 @@ const nextConfig = {
         port: "",
         pathname: "/**",
       },
+      {
+        protocol: "https",
+        hostname: "nditc.pythonanywhere.com/images",
+        port: "",
+        pathname: "/**",
+      },
     ],
   },
   async headers() {
