@@ -31,7 +31,7 @@ const RemainingTime = ({ time }: { time: number }) => {
   }, []);
 
   return (
-    <div className="right-part">
+    <div className="right-part pt-5">
       <div className="circle1">
         <div className="number">{timeLeft.days}</div>
         <div className="word">Days</div>

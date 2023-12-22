@@ -33,13 +33,12 @@ const Upcoming = ({
 
   return (
     <div id="upcoming_event_container">
-      <div className="blog-section shadow-2xl relative">
+      <div className="blog-section relative shadow-[09px_13px_40px_10px_#00000024]">
         <div className="absolute -z-10 right-0 w-full h-full">
-          <div className="w-full h-full bg-gradient-to-l from-green-200 to-slate-50"></div>
           <Image
             src={image}
             alt={"Image"}
-            className="object-cover opacity-30"
+            className="object-right object-cover gradient-mask-l-10"
             fill
           />
         </div>
