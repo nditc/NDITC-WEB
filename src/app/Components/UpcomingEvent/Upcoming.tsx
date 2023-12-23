@@ -45,7 +45,7 @@ const Upcoming = ({
         <div className="left-part">
           <div id="blg_hdr">
             <h1 className="blog-title-1">{firstTwoWords}</h1>
-            <h1 className="blog-title-2 md:text-black text-white mix-blend-difference break-words">
+            <h1 className="blog-title-2 text-black break-words">
               {restOfSentence}
             </h1>
           </div>
