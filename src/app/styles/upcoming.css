@@ -94,7 +94,6 @@
   left: 50%;
   transform: translate(-50%, -50%);
   text-align: center;
-  color: white;
   font-family: "Nunito", sans-serif;
   font-weight: 900;
 }
@@ -105,11 +104,9 @@
   top: calc(62% + 30px); /* "Months" word er position er jonno*/
   left: 50%;
   text-align: center;
-  color: white;
   font-family: "Nunito", sans-serif;
   font-weight: 900;
   margin-top: 0.5rem;
-  mix-blend-mode: difference;
 }
 
 .buttons {
@@ -252,7 +249,6 @@
   }
   .word {
     font-size: 1rem;
-    mix-blend-mode: difference;
   }
   .buttons {
     width: 20rem;
@@ -337,7 +333,6 @@
   }
   .word {
     font-size: 1.1rem;
-    mix-blend-mode: difference;
   }
   .right-part {
     width: 5rem;
