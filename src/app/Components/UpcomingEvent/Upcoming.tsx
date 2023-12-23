@@ -38,7 +38,7 @@ const Upcoming = ({
           <Image
             src={"/dummy.jpg"}
             alt={"Image"}
-            className="object-right object-cover gradient-mask-b-10 md:gradient-mask-l-10"
+            className="object-right object-cover gradient-mask-b-10 md:gradient-mask-l-40"
             fill
           />
         </div>
