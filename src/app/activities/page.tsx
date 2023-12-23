@@ -53,7 +53,7 @@ const Activities = async ({
           <h1 className="text-3xl md:text-5xl pb-1">UPCOMING</h1>
           <h1 className="text-5xl md:text-7xl text-blue-500">EVENT</h1>
         </div>
-        <section className="w-full">
+        <section className="w-full h-fit">
           <Upcoming
             title={upcoming[0].title}
             description={upcoming[0].short_description}

@@ -39,9 +39,7 @@
   font-weight: 400;
   line-height: normal;
 }
-.blog-title-2,
-.blog-title-3 {
-  color: #252525;
+.blog-title-2 {
   font-family: Bebas Neue;
   font-size: 3.2rem;
   font-style: normal;
@@ -107,16 +105,14 @@
   top: calc(62% + 30px); /* "Months" word er position er jonno*/
   left: 50%;
   text-align: center;
-  color: black;
+  color: white;
   font-family: "Nunito", sans-serif;
   font-weight: 900;
   margin-top: 0.5rem;
+  mix-blend-mode: difference;
 }
 
 .buttons {
-  display: flex;
-  flex-direction: row;
-  gap: 35px;
   font-family: "Bebas Neue", sans-serif;
   font-size: large;
   grid-area: buttons;
@@ -125,7 +121,6 @@
 .register-button {
   height: 2.5rem;
   width: 11rem;
-  text-align: center;
   padding: 2px;
   background-color: black;
   color: #fff;
@@ -141,7 +136,6 @@
 .learn-more-button {
   height: 2.5rem;
   width: 11rem;
-  text-align: center;
   padding: 2px;
   background-color: white;
   color: black;
@@ -160,13 +154,7 @@
   box-shadow: 0 12px 16px 0 rgba(0, 0, 0, 0.24),
     0 17px 50px 0 rgba(0, 0, 0, 0.19);
 }
-.buttons-container {
-  grid-area: buttons-container;
-  margin-top: 70px;
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: center;
-}
+
 .custom-button {
   font-family: "Nunito", sans-serif;
   font-weight: 700;
@@ -211,14 +199,16 @@
   }
   .blog-section {
     width: 100%;
-    height: 32rem;
+    height: 50%;
     display: grid;
+    align-content: start;
     grid-template-areas:
-      "left-part right-part"
-      "left-part right-part"
+      "right-part right-part"
+      "left-part left-part"
       "buttons buttons";
   }
   .left-part {
+    padding: 0rem;
     width: 17rem;
     height: 30rem;
     grid-area: left-part;
@@ -232,14 +222,13 @@
   }
   #blg_hdr {
     width: 20rem;
-    font-size: 2rem;
+    font-size: 2.5rem;
   }
   .blog-title-1 {
-    font-size: 2rem;
+    font-size: 2.5rem;
   }
-  .blog-title-2,
-  .blog-title-3 {
-    font-size: 2rem;
+  .blog-title-2 {
+    font-size: 2.5rem;
   }
   .blog-content {
     font-size: 1.1rem;
@@ -249,11 +238,8 @@
     width: 4rem;
     height: 15rem;
     display: grid;
-    grid-template-areas:
-      "circle1"
-      "circle2"
-      "circle3";
-    gap: 1.5rem;
+
+    gap: 2.3rem;
   }
   .circle1,
   .circle2,
@@ -261,16 +247,19 @@
     width: 2.5rem;
     height: 2.5rem;
   }
-  .number,
+  .number {
+    font-size: 1rem;
+  }
   .word {
     font-size: 1rem;
+    mix-blend-mode: difference;
   }
   .buttons {
     width: 20rem;
   }
   .register-button {
     font-size: 1.2rem;
-    width: 10rem;
+    width: 11rem;
   }
   .learn-more-button {
     font-size: 1.2rem;
@@ -330,8 +319,7 @@
   .blog-title-1 {
     font-size: 2.5rem;
   }
-  .blog-title-2,
-  .blog-title-3 {
+  .blog-title-2 {
     font-size: 2.5rem;
   }
   .blog-content {
@@ -344,12 +332,12 @@
     width: 3.2rem;
     height: 3.2rem;
   }
-  .number,
-  .word {
+  .number {
     font-size: 1.3rem;
   }
   .word {
     font-size: 1.1rem;
+    mix-blend-mode: difference;
   }
   .right-part {
     width: 5rem;

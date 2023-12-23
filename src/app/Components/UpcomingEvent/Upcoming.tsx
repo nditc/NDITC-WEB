@@ -36,24 +36,32 @@ const Upcoming = ({
       <div className="blog-section relative shadow-[09px_13px_40px_10px_#00000024]">
         <div className="absolute -z-10 right-0 w-full h-full">
           <Image
-            src={image}
+            src={"/dummy.jpg"}
             alt={"Image"}
-            className="object-right object-cover gradient-mask-l-10"
+            className="object-right object-cover gradient-mask-b-10 md:gradient-mask-l-10"
             fill
           />
         </div>
         <div className="left-part">
           <div id="blg_hdr">
             <h1 className="blog-title-1">{firstTwoWords}</h1>
-            <h1 className="blog-title-2 break-words">{restOfSentence}</h1>
+            <h1 className="blog-title-2 md:text-black text-white mix-blend-difference break-words">
+              {restOfSentence}
+            </h1>
           </div>
           <p className="blog-content line-clamp-5">{description}</p>
-          <div className="buttons">
-            <a href={actionButtonRedirect1} className="register-button">
-              {actionButtonTitle1}
+          <div className="buttons flex flex-col sm:flex-row gap-5 md:gap-[35px]">
+            <a
+              href={actionButtonRedirect1}
+              className="register-button flex items-center justify-center"
+            >
+              <div>{actionButtonTitle1}</div>
             </a>
-            <a href={actionButtonRedirect2} className="learn-more-button">
-              {actionButtonTitle2}
+            <a
+              href={actionButtonRedirect2}
+              className="learn-more-button flex items-center justify-center"
+            >
+              <div>{actionButtonTitle2}</div>
             </a>
           </div>
         </div>
