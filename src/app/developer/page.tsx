@@ -1,14 +1,21 @@
 "use client";
 
+import { FaCode } from "react-icons/fa";
 import { developerData } from "./data";
 import Member from "../Components/Executives/Member";
 
 const Developer = () => {
   return (
     <div className="w-full min-h-[100vh] py-[125px] md:px-12 px-5 bg-[#F6F6F6] relative flex flex-col">
-      <div className="my-12 flex flex-col md:flex-row gap-3 justify-center md:justify-start items-start md:items-end">
-        <h1 className="text-4xl md:text-6xl pb-1 md:pb-2">MEET OUR</h1>
-        <h1 className="text-6xl md:text-8xl text-blue-500">DEVELOPERS</h1>
+      <div className="flex items-center gap-3">
+        <div className="rounded-full shadow-[5px_5px_20px_10px_#00000024] md:mb-3">
+          <FaCode className="w-20 h-20 text-white bg-black rounded-full p-3 m-3" />
+        </div>
+
+        <div className="my-12 flex flex-col md:flex-row gap-3 justify-center md:justify-start items-start md:items-end">
+          <h1 className="text-4xl md:text-6xl pb-1 md:pb-2">MEET OUR</h1>
+          <h1 className="text-6xl md:text-8xl text-blue-500">DEVELOPERS</h1>
+        </div>
       </div>
 
       <div className="my-12 flex flex-col md:flex-row gap-3 justify-center md:justify-start items-start md:items-end">
@@ -40,7 +47,7 @@ const Developer = () => {
         <a href="https://www.facebook.com/kt.prodhan" target="_blank">
           <Member
             hasClickHandler={true}
-            img="https://portfolio-of-nafe.web.app/assets/img/profile-img.png"
+            img="/image/Developers/Adib.jpg"
             name="Adib Adnan"
             designation="Full Stack WEB Developer"
             department="Web & App Development"
@@ -50,7 +57,7 @@ const Developer = () => {
 
       <div className="mt-36 mb-10 flex flex-col md:flex-row gap-3 justify-center md:justify-start items-start md:items-end">
         <h1 className="text-4xl md:text-6xl">FULL-STACK</h1>
-        <h1 className="text-4xl md:text-6xl text-blue-500">DEVELOPERS</h1>
+        <h1 className="text-4xl md:text-6xl text-blue-500">WEB DEVELOPERS</h1>
       </div>
 
       <div className="flex pt-10 flex-wrap gap-56 justify-start">
