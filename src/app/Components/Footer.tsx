@@ -46,16 +46,16 @@ const Footer = () => {
             Publication
           </Link>
           <Link
-            href="/"
-            className="text-zinc-500 dark:text-zinc-400 font-medium hover:underline cursor-pointer"
-          >
-            Resources
-          </Link>
-          <Link
             href="/executive"
             className="text-zinc-500 dark:text-zinc-400 font-medium hover:underline cursor-pointer"
           >
             Executives
+          </Link>
+          <Link
+            href="/developer"
+            className="text-zinc-500 dark:text-zinc-400 font-medium hover:underline cursor-pointer"
+          >
+            Developers
           </Link>
           <a
             href="https://ndc-pro.vercel.app/details/https%3A%2F%2Fnditc.pythonanywhere.com%2Fprojects%2FgAAAAABklDtCA8wgOMZar9YbvFJgn8e-jFUG27Ic9aHwhx40IBCUofeQ_uoinoAgpmskv_ojJNA4I9Rgswp3RLa9wWgp6846Zg%3D%3D/project/1687651200"

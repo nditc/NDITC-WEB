@@ -50,7 +50,7 @@ const Developer = () => {
       </div>
 
       <div className="flex pt-10 flex-wrap gap-56 justify-start">
-        {developerData.map((e) => {
+        {developerData.map((e, i) => {
           return (
             <a href={e.profileURL} target="_blank">
               <Member
@@ -59,6 +59,7 @@ const Developer = () => {
                 name={e.name}
                 designation={e.skill}
                 department={e.department}
+                key={i}
               />
             </a>
           );
