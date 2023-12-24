@@ -20,7 +20,7 @@ const loading = () => {
 
       <div className="w-screen flex justify-center">
         <div className="flex flex-col-reverse w-[90%] md:w-[70%] items-center gap-7 mt-10">
-          {[...new Array(10)].map((e, i) => {
+          {[...new Array(5)].map((e, i) => {
             return (
               <div
                 key={i}
