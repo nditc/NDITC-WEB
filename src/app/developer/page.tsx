@@ -52,14 +52,13 @@ const Developer = () => {
       <div className="flex pt-10 flex-wrap gap-56 justify-start">
         {developerData.map((e, i) => {
           return (
-            <a href={e.profileURL} target="_blank">
+            <a href={e.profileURL} target="_blank" key={i}>
               <Member
                 hasClickHandler={true}
                 img={e.imageURL}
                 name={e.name}
                 designation={e.skill}
                 department={e.department}
-                key={i}
               />
             </a>
           );
