@@ -44,9 +44,9 @@ const Member = ({
         </span>
         <Image
           className={`rounded-full max-w-[120px] md:max-w-[240px] w-full transition-all aspect-square object-cover ${
-            hasClickHandler && hover ? "object-center" : ""
-          }  ${imgInCenter ? "object-center" : "object-top"} ${
-            hasClickHandler && hover ? "brightness-50" : ""
+            hasClickHandler && hover
+              ? "brightness-50 object-center"
+              : `${imgInCenter ? "" : "object-top"}`
           }`}
           width={320}
           height={320}
