@@ -6,7 +6,8 @@ import { BsFacebook } from "react-icons/bs";
 import { RiInstagramFill } from "react-icons/ri";
 import { AiFillYoutube } from "react-icons/ai";
 import { FaGithub } from "react-icons/fa";
-import { IoIosNotifications, IoIosArrowDropupCircle } from "react-icons/io";
+import { IoIosNotifications } from "react-icons/io";
+import { MdKeyboardArrowUp } from "react-icons/md";
 
 const SideBar = () => {
   return (
@@ -49,14 +50,14 @@ const SideBar = () => {
         </div>
 
         <div
-          className="cursor-pointer bg-white rounded-full"
+          className="cursor-pointer bg-white rounded-full shadow-[5px_5px_20px_15px_#00000024] p-1"
           onClick={() => {
             document
               .querySelector("#scrollToTop")
               ?.scrollIntoView({ behavior: "smooth" });
           }}
         >
-          <IoIosArrowDropupCircle className="w-7 h-7" />
+          <MdKeyboardArrowUp className="w-6 h-6" />
         </div>
       </div>
     </div>
