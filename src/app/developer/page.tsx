@@ -70,7 +70,7 @@ const Developer = () => {
         <h1 className="text-4xl md:text-6xl text-blue-500">WEB DEVELOPERS</h1>
       </div>
 
-      <div className="flex pt-10 flex-wrap gap-56 justify-start">
+      <div className="flex pt-10 flex-wrap gap-14 md:gap-56 justify-start">
         <a
           href="https://www.facebook.com/profile.php?id=100083625623282"
           target="_blank"
