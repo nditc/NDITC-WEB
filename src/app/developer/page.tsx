@@ -50,7 +50,7 @@ const Developer = () => {
             img="https://portfolio-of-nafe.web.app/assets/img/profile-img.png"
             name="Nafe Ibne Dalower"
             designation="Organizer"
-            department="Web & App Development"
+            department="Batch '24"
           />
         </a>
 
@@ -60,7 +60,7 @@ const Developer = () => {
             img="/image/Developers/Adib.jpg"
             name="Adib Adnan Hoque"
             designation="Organizer"
-            department="Web & App Development"
+            department="Batch '24"
           />
         </a>
       </div>
@@ -80,7 +80,7 @@ const Developer = () => {
             img="https://scontent.fdac142-1.fna.fbcdn.net/v/t39.30808-6/383970588_283776561086529_4495662120361222194_n.jpg?_nc_cat=102&ccb=1-7&_nc_sid=efb6e6&_nc_ohc=Fr03OW0sMPYAX_iCC8r&_nc_ht=scontent.fdac142-1.fna&oh=00_AfBM0jKSYfsyKxme2VO99pw_s0f7MdLEhV05Lgt26b6-cg&oe=658BD1AE"
             name="Wasef Rahman Swapnil"
             designation="Member"
-            department=""
+            department="Batch '25"
           />
         </a>
 
@@ -93,7 +93,7 @@ const Developer = () => {
             img=""
             name="HRM Rafsan Amin"
             designation="Member"
-            department=""
+            department="Batch '25"
           />
         </a>
       </div>
@@ -103,7 +103,7 @@ const Developer = () => {
         <h1 className="text-4xl md:text-6xl text-blue-500">DEVELOPERS</h1>
       </div>
 
-      <div className="flex pt-10 flex-wrap gap-56 justify-start">
+      <div className="flex pt-10 flex-wrap gap-11 justify-between">
         {developerData.map((e, i) => {
           return (
             <a href={e.profileURL} target="_blank" key={i}>
