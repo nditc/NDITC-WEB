@@ -47,7 +47,7 @@ const Developer = () => {
         <a href="https://www.facebook.com/kt.prodhan" target="_blank">
           <Member
             hasClickHandler={true}
-            img="https://portfolio-of-nafe.web.app/assets/img/profile-img.png"
+            img="/image/Developers/Nafe.png"
             name="Nafe Ibne Dalower"
             designation="Organizer"
             department="Batch '24"
