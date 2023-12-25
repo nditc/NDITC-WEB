@@ -8,7 +8,7 @@ export const developerData: DeveloperDataFormat[] = [
   },
   {
     name: "Mansifur Rahman Rafsan",
-    imageURL: "",
+    imageURL: "/image/Developers/Rafsan.jpg",
     profileURL: "https://www.facebook.com/M.Rafsan06",
     skill: "Frontend WEB Developer",
     department: "",

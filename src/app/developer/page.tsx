@@ -9,7 +9,7 @@ const Developer = () => {
     <div className="w-full min-h-[100vh] py-[125px] md:px-12 px-5 bg-[#F6F6F6] relative flex flex-col">
       <div className="flex items-center gap-3">
         <div className="rounded-full shadow-[5px_5px_20px_10px_#00000024] md:mb-3">
-          <FaCode className="w-20 h-20 text-white bg-black rounded-full p-3 m-3" />
+          <FaCode className="w-20 h-20 text-white bg-black rounded-full p-3 m-3 hover:-rotate-90 transition-all" />
         </div>
 
         <div className="my-12 flex flex-col md:flex-row gap-3 justify-center md:justify-start items-start md:items-end">
@@ -23,7 +23,7 @@ const Developer = () => {
         <h1 className="text-4xl md:text-6xl text-blue-500">GUIDELINES</h1>
       </div>
 
-      <div className="flex pt-10 flex-wrap gap-56 justify-start">
+      <div className="flex pt-10 flex-wrap justify-between">
         <a href="https://www.facebook.com/ahammadshawki8/" target="_blank">
           <Member
             hasClickHandler={true}
@@ -49,7 +49,17 @@ const Developer = () => {
             hasClickHandler={true}
             img="/image/Developers/Adib.jpg"
             name="Adib Adnan"
-            designation="Full Stack WEB Developer"
+            designation="Main Designer"
+            department="Web & App Development"
+          />
+        </a>
+
+        <a href="https://www.facebook.com/mdnaimur020" target="_blank">
+          <Member
+            hasClickHandler={true}
+            img="https://raw.githubusercontent.com/nditc/nditc_mobile_app/main/images/executives/2022-2023/16.jpg"
+            name="Md. Naimur Rahman"
+            designation="Backend Developer"
             department="Web & App Development"
           />
         </a>
