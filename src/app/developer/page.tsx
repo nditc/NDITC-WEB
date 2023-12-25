@@ -23,13 +23,23 @@ const Developer = () => {
         <h1 className="text-4xl md:text-6xl text-blue-500">GUIDELINES</h1>
       </div>
 
-      <div className="flex pt-10 flex-wrap justify-between">
+      <div className="flex pt-10 flex-wrap gap-11 justify-between">
         <a href="https://www.facebook.com/ahammadshawki8/" target="_blank">
           <Member
             hasClickHandler={true}
             img="https://raw.githubusercontent.com/nditc/nditc_mobile_app/main/images/executives/2022-2023/15.jpg"
             name="Ahammad Shawki"
             designation="Full Stack WEB Developer"
+            department="Web & App Development"
+          />
+        </a>
+
+        <a href="https://www.facebook.com/mdnaimur020" target="_blank">
+          <Member
+            hasClickHandler={true}
+            img="https://raw.githubusercontent.com/nditc/nditc_mobile_app/main/images/executives/2022-2023/16.jpg"
+            name="Md. Naimur Rahman"
+            designation="Backend Developer"
             department="Web & App Development"
           />
         </a>
@@ -50,16 +60,6 @@ const Developer = () => {
             img="/image/Developers/Adib.jpg"
             name="Adib Adnan"
             designation="Main Designer"
-            department="Web & App Development"
-          />
-        </a>
-
-        <a href="https://www.facebook.com/mdnaimur020" target="_blank">
-          <Member
-            hasClickHandler={true}
-            img="https://raw.githubusercontent.com/nditc/nditc_mobile_app/main/images/executives/2022-2023/16.jpg"
-            name="Md. Naimur Rahman"
-            designation="Backend Developer"
             department="Web & App Development"
           />
         </a>
