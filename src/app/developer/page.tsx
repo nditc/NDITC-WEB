@@ -29,7 +29,7 @@ const Developer = () => {
             hasClickHandler={true}
             img="https://raw.githubusercontent.com/nditc/nditc_mobile_app/main/images/executives/2022-2023/15.jpg"
             name="Ahammad Shawki"
-            designation="Full Stack WEB Developer"
+            designation="President"
             department="Web & App Development"
           />
         </a>
@@ -39,7 +39,7 @@ const Developer = () => {
             hasClickHandler={true}
             img="https://raw.githubusercontent.com/nditc/nditc_mobile_app/main/images/executives/2022-2023/16.jpg"
             name="Md. Naimur Rahman"
-            designation="Backend Developer"
+            designation="Secretary"
             department="Web & App Development"
           />
         </a>
@@ -49,7 +49,7 @@ const Developer = () => {
             hasClickHandler={true}
             img="https://portfolio-of-nafe.web.app/assets/img/profile-img.png"
             name="Nafe Ibne Dalower"
-            designation="Full Stack WEB Developer"
+            designation="Organizer"
             department="Web & App Development"
           />
         </a>
@@ -58,8 +58,8 @@ const Developer = () => {
           <Member
             hasClickHandler={true}
             img="/image/Developers/Adib.jpg"
-            name="Adib Adnan"
-            designation="Main Designer"
+            name="Adib Adnan Hoque"
+            designation="Organizer"
             department="Web & App Development"
           />
         </a>
@@ -79,7 +79,7 @@ const Developer = () => {
             hasClickHandler={true}
             img="https://scontent.fdac142-1.fna.fbcdn.net/v/t39.30808-6/383970588_283776561086529_4495662120361222194_n.jpg?_nc_cat=102&ccb=1-7&_nc_sid=efb6e6&_nc_ohc=Fr03OW0sMPYAX_iCC8r&_nc_ht=scontent.fdac142-1.fna&oh=00_AfBM0jKSYfsyKxme2VO99pw_s0f7MdLEhV05Lgt26b6-cg&oe=658BD1AE"
             name="Wasef Rahman Swapnil"
-            designation="Full Stack WEB Developer"
+            designation="Member"
             department=""
           />
         </a>
@@ -92,7 +92,7 @@ const Developer = () => {
             hasClickHandler={true}
             img=""
             name="HRM Rafsan Amin"
-            designation="Full Stack WEB Developer"
+            designation="Member"
             department=""
           />
         </a>
@@ -111,7 +111,7 @@ const Developer = () => {
                 hasClickHandler={true}
                 img={e.imageURL}
                 name={e.name}
-                designation={e.skill}
+                designation={e.designation}
                 department={e.department}
               />
             </a>
