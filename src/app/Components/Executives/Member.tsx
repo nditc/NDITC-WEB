@@ -3,6 +3,7 @@ import React, { useState, useEffect } from "react";
 import Image from "next/image";
 type memberProps = {
   img: string;
+  imgInCenter?: boolean;
   name: string;
   designation: string;
   department?: string | null;
@@ -11,6 +12,7 @@ type memberProps = {
 
 const Member = ({
   img,
+  imgInCenter,
   name,
   designation,
   department,
@@ -41,11 +43,11 @@ const Member = ({
           Click for Details
         </span>
         <Image
-          className={
-            "rounded-full max-w-[120px] md:max-w-[240px] w-full transition-all aspect-square object-cover object-top" +
-            " " +
-            (hasClickHandler && hover ? "brightness-50" : "")
-          }
+          className={`rounded-full max-w-[120px] md:max-w-[240px] w-full transition-all aspect-square object-cover ${
+            hasClickHandler && hover ? "object-center" : ""
+          }  ${imgInCenter ? "object-center" : "object-top"} ${
+            hasClickHandler && hover ? "brightness-50" : ""
+          }`}
           width={320}
           height={320}
           src={img}
