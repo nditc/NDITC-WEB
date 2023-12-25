@@ -31,7 +31,7 @@ const Page = async ({
                 {DateData.toDateString()}
               </p>
               {data?.action ? (
-                <div className="pb-5">
+                <div className="pb-5 flex gap-3 flex-col md:flex-row items-start">
                   <a
                     href={data.action.target}
                     target="_blank"
@@ -39,6 +39,16 @@ const Page = async ({
                   >
                     {data.action.label}
                   </a>
+                  {params.url ==
+                    "https%3A%2F%2Fnditc.pythonanywhere.com%2Fprojects%2FgAAAAABklDtCA8wgOMZar9YbvFJgn8e-jFUG27Ic9aHwhx40IBCUofeQ_uoinoAgpmskv_ojJNA4I9Rgswp3RLa9wWgp6846Zg%3D%3D" && (
+                    <a
+                      href="https://raw.githubusercontent.com/nditc/nditc_mobile_app/main/nditc.apk"
+                      target="_blank"
+                      className="self-start Bebas inline-block cursor-pointer text-xl py-2 font-Bebas px-7 font-medium text-whiterounded-lg border focus:z-10 focus:ring-4  focus:ring-gray-700 bg-black text-white border-gray-600 hover:text-white hover:bg-zinc-700 rounded-lg animate-pulse"
+                    >
+                      Download Our APP
+                    </a>
+                  )}
                 </div>
               ) : null}
             </div>
@@ -54,16 +64,6 @@ const Page = async ({
         <div>
           <p className="text-lg min-h-[30vh] my-10">{data.description}</p>
         </div>
-        {params.url ==
-          "https%3A%2F%2Fnditc.pythonanywhere.com%2Fprojects%2FgAAAAABklDtCA8wgOMZar9YbvFJgn8e-jFUG27Ic9aHwhx40IBCUofeQ_uoinoAgpmskv_ojJNA4I9Rgswp3RLa9wWgp6846Zg%3D%3D" && (
-          <a
-            href="https://raw.githubusercontent.com/nditc/nditc_mobile_app/main/nditc.apk"
-            target="_blank"
-            className="self-start Bebas inline-block cursor-pointer text-xl py-2 font-Bebas px-7 font-medium text-whiterounded-lg border focus:z-10 focus:ring-4  focus:ring-gray-700 bg-black text-white border-gray-600 hover:text-white hover:bg-zinc-700 rounded-lg animate-bounce"
-          >
-            Download Our APP
-          </a>
-        )}
       </div>
     </div>
   );

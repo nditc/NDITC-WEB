@@ -10,7 +10,7 @@ export default function Home() {
   return (
     <main className="flex container mx-auto flex-col items-center justify-center bg-transparent">
       <section className="relative w-full min-h-screen flex flex-col md:flex-row justify-center md:justify-between items-center gap-5 md:gap-0 pt-[75px] over">
-        <div className="flex flex-col items-center md:items-start md:gap-2 order-2 md:order-1">
+        <div className="flex flex-col items-center md:items-start md:gap-1 order-2 md:order-1">
           <h1 className="tracking-widest text-5xl lg:text-6xl  font-medium text-center md:text-left">
             JOIN THE
           </h1>

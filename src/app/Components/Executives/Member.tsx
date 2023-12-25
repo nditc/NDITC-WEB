@@ -43,6 +43,7 @@ const Member = ({
         <Image
           className={
             "rounded-full max-w-[120px] md:max-w-[240px] w-full transition-all aspect-square object-cover object-top" +
+            " " +
             (hasClickHandler && hover ? "brightness-50" : "")
           }
           width={320}
