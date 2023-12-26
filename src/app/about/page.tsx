@@ -1,5 +1,6 @@
 import CommonPage from "../Components/CommonPage/CommonPage";
 import { FaRegQuestionCircle } from "react-icons/fa";
+import Timeline from "../Components/Timeline";
 
 const Sections = [
   {
@@ -74,6 +75,7 @@ const About = () => {
         icon={<FaRegQuestionCircle className={"w-16 h-16"} />}
         sections={Sections}
       />
+      <Timeline />
     </div>
   );
 };
