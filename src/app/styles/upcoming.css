@@ -5,6 +5,9 @@
 
 .blog-section {
   display: flex;
+  flex-direction: column-reverse;
+  justify-content: center;
+  gap: 4.1rem;
   max-width: 100rem;
   height: 32rem;
   margin: 1.2rem auto;
@@ -64,7 +67,7 @@
   height: 4rem;
   display: grid;
   grid-template-areas: "circle1 circle2 circle3";
-  gap: 1rem;
+  gap: 0.5rem;
   grid-area: right-part;
 }
 
@@ -72,8 +75,8 @@
 .circle2,
 .circle3 {
   position: relative;
-  width: 4rem;
-  height: 4rem;
+  width: 3.2rem;
+  height: 3.2rem;
   background-color: #1a6eff;
   border-radius: 50%;
 }
@@ -88,7 +91,7 @@
 }
 .number,
 .word {
-  font-size: 2rem;
+  font-size: 1.5rem;
   position: absolute;
   top: 50%;
   left: 50%;
@@ -199,6 +202,7 @@
     height: 50%;
     display: grid;
     align-content: start;
+    justify-content: start;
     grid-template-areas:
       "right-part right-part"
       "left-part left-part"
@@ -283,18 +287,19 @@
   .blog-section {
     display: grid;
     width: 100%;
-    height: 36rem;
+    height: 50%;
     padding: 1rem;
     box-sizing: border-box;
     border-radius: 15px;
     overflow: hidden;
     position: relative;
     grid-area: blog-section;
+    justify-content: start;
   }
   .blog-section {
     grid-template-areas:
-      "left-part right-part"
-      "left-part right-part"
+      "right-part right-part"
+      "left-part left-part"
       "buttons buttons";
   }
   .left-part {
@@ -338,11 +343,8 @@
     width: 5rem;
     height: 15rem;
     display: grid;
-    grid-template-areas:
-      "circle1"
-      "circle2"
-      "circle3";
-    gap: 1.5rem;
+    grid-template-areas: "circle1 circle2 circle3";
+    gap: 3rem;
   }
 }
 

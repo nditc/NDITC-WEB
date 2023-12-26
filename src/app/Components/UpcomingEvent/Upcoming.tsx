@@ -32,8 +32,8 @@ const Upcoming = ({
   const restOfSentence = words.slice(2).join(" ");
 
   return (
-    <div id="upcoming_event_container">
-      <div className="blog-section relative shadow-[09px_13px_40px_10px_#00000024]">
+    <div id="upcoming_event_container relative">
+      <div className="blog-section shadow-[09px_13px_40px_10px_#00000024]">
         <div className="absolute -z-10 right-0 w-full h-full">
           <Image
             src={"/dummy.jpg"}
@@ -49,7 +49,9 @@ const Upcoming = ({
               {restOfSentence}
             </h1>
           </div>
-          <p className="blog-content line-clamp-5">{description}</p>
+          <p className="blog-content line-clamp-5 md:line-clamp-3">
+            {description}
+          </p>
           <div className="buttons flex flex-col sm:flex-row gap-5 md:gap-[35px]">
             <a
               href={actionButtonRedirect1}

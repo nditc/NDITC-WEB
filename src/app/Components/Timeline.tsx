@@ -57,7 +57,7 @@ const Timeline = () => {
       </div>
 
       <div className="flex-[10] flex justify-center items-center">
-        <div className="h-[90%] w-[90%] rounded-xl shadow-[020px_20px_20px_10px_#00000024] flex flex-col md:flex-row items-center justify-center gap-5 px-[.7rem]">
+        <div className="h-[90%] w-[90%] rounded-xl shadow-[020px_20px_20px_10px_#00000024] flex flex-col md:flex-row items-center justify-center gap-5 px-[1rem]">
           <div className="gap-5 flex-col">
             <h1 className="text-5xl">{currentTitle}</h1>
             <p>{currentDescription}</p>
@@ -65,7 +65,7 @@ const Timeline = () => {
           <Image
             src={currentImage}
             alt="Image"
-            className="w-[90%] h-[90%] rounded-3xl object-cover"
+            className="w-full h-[90%] rounded-[.75rem] object-cover"
             width={1024}
             height={1024}
           />
