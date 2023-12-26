@@ -1,17 +1,41 @@
 "use client";
 
+import Image from "next/image";
 import { useState } from "react";
 
 const Timeline = () => {
   const [selectedIndex, setSelectedIndex] = useState(0);
 
   const timelineData = [
-    { time1: "2018", time2: "27 June", data: "" },
-    { time1: "2018", time2: "31 June", data: "" },
-    { time1: "2018", time2: "23 Nov", data: "" },
-    { time1: "2019", time2: "01 June", data: "" },
-    { time1: "2024", time2: "Jan 01", data: "" },
+    {
+      time1: "2018",
+      time2: "27 June",
+      title: "CLUB STARTED",
+      description:
+        "Born in 2018, NDITC sprouted at Notre Dame College to nurture tech talent and bridge the gap between knowledge and innovation.",
+      imgURL: "/Timeline.png",
+    },
+    { time1: "2018", time2: "31 June", title: "", description: "", imgURL: "" },
+    { time1: "2018", time2: "23 Nov", title: "", description: "", imgURL: "" },
+    { time1: "2019", time2: "01 June", title: "", description: "", imgURL: "" },
+    { time1: "2024", time2: "Jan 01", title: "", description: "", imgURL: "" },
   ];
+
+  const [currentTitle, setCurrentTitle] = useState(timelineData[0].title);
+
+  const [currentDescription, setCurrentDescription] = useState(
+    timelineData[0].description
+  );
+
+  const [currentImage, setCurrentImage] = useState(timelineData[0].imgURL);
+
+  const setCurrentData = (i: number) => {
+    setSelectedIndex(i);
+    setCurrentTitle(timelineData[i].title);
+    setCurrentDescription(timelineData[i].description);
+    setCurrentImage(timelineData[i].imgURL);
+  };
+
   return (
     <section className="h-96 w-full mb-16 px-10 md:px-32 flex justify-center">
       <div className="flex gap-5">
@@ -23,7 +47,7 @@ const Timeline = () => {
                 time2={e.time2}
                 index={i}
                 current={selectedIndex == i}
-                setCurrentAsSelected={setSelectedIndex}
+                setCurrentAsSelected={setCurrentData}
                 key={i}
               />
             );
@@ -33,7 +57,19 @@ const Timeline = () => {
       </div>
 
       <div className="flex-[10] flex justify-center items-center">
-        <div className="h-[90%] w-[90%] bg-black rounded-xl shadow-2xl"></div>
+        <div className="h-[90%] w-[90%] rounded-xl shadow-[020px_20px_20px_10px_#00000024] flex flex-col md:flex-row items-center justify-center gap-5 px-[.7rem]">
+          <div className="gap-5 flex-col">
+            <h1 className="text-5xl">{currentTitle}</h1>
+            <p>{currentDescription}</p>
+          </div>
+          <Image
+            src={currentImage}
+            alt="Image"
+            className="w-[90%] h-[90%] rounded-3xl object-cover"
+            width={1024}
+            height={1024}
+          />
+        </div>
       </div>
     </section>
   );
@@ -46,12 +82,14 @@ const Time = ({
   time2,
   index,
   current,
+
   setCurrentAsSelected,
 }: {
   time1: string;
   time2: string;
   index: number;
   current: boolean;
+
   setCurrentAsSelected: (i: number) => void;
 }) => {
   return (
