@@ -4,12 +4,11 @@ import { useEffect, useState } from "react";
 import Hover from "./Hover";
 import Image from "next/image";
 import Link from "next/link";
-import { useRouter, usePathname } from "next/navigation";
+import { usePathname } from "next/navigation";
 
 const Navbar = () => {
   const [showOptions, setShowOptions] = useState(false);
   const Route = usePathname();
-  const router = useRouter();
 
   const [windowWidth, setWindowWidth] = useState(0);
 

@@ -74,7 +74,7 @@ const Hover = ({ text, imageLink, windowWidth }: Props) => {
           </li>
           <li>
             <Link
-              href="/activities?type=workshop"
+              href="/activities?type=workshop&scroll=true"
               className="block px-4 py-2 hover:bg-gray-100 hover:text-blue-500"
             >
               Workshop
@@ -83,7 +83,7 @@ const Hover = ({ text, imageLink, windowWidth }: Props) => {
 
           <li>
             <Link
-              href="/activities?type=project"
+              href="/activities?type=project&scroll=true"
               className="block px-4 py-2 hover:bg-gray-100 hover:text-blue-500"
             >
               Projects
@@ -91,7 +91,7 @@ const Hover = ({ text, imageLink, windowWidth }: Props) => {
           </li>
           <li>
             <Link
-              href="/activities?type=publication"
+              href="/activities?type=publication&scroll=true"
               className="block px-4 py-2 hover:bg-gray-100 hover:text-blue-500"
             >
               Publication
