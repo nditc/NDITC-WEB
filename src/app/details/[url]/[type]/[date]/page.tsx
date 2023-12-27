@@ -44,7 +44,7 @@ const Page = async ({
                     <a
                       href="https://raw.githubusercontent.com/nditc/nditc_mobile_app/main/nditc.apk"
                       target="_blank"
-                      className="self-start Bebas inline-block cursor-pointer text-xl py-2 font-Bebas px-7 font-medium text-whiterounded-lg border focus:z-10 focus:ring-4  focus:ring-gray-700 bg-black text-white border-gray-600 hover:text-white hover:bg-zinc-700 rounded-lg animate-pulse"
+                      className="self-start Bebas inline-block cursor-pointer text-xl py-2 font-Bebas px-7 font-medium text-whiterounded-lg border-2 focus:z-10 focus:ring-4  focus:ring-gray-700 border-gray-600 hover:text-white hover:bg-zinc-800 rounded-lg"
                     >
                       Download Our APP
                     </a>
