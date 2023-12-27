@@ -124,8 +124,8 @@ const Timeline = () => {
             src={currentImage}
             alt="Image"
             className="w-full h-[90%] rounded-[.75rem] object-cover"
-            width={1024}
-            height={1024}
+            width={720}
+            height={720}
           />
         </div>
       </div>
