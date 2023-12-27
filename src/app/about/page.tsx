@@ -9,11 +9,11 @@ const Sections = [
     content: (
       <>
         <Image
-          src="https://scontent.fdac27-2.fna.fbcdn.net/v/t39.30808-6/391666727_950004116517787_5699787442107876909_n.jpg?_nc_cat=106&ccb=1-7&_nc_sid=dd5e9f&_nc_eui2=AeGFwxQeg837l58GS_3rErHF54J8zIQHXL7ngnzMhAdcvifm0aSnl59S_fvVnbeNJCLhRiQlDRWcg5uzUq2unkI5&_nc_ohc=H0yEY20ZAQ4AX9Zpalv&_nc_ht=scontent.fdac27-2.fna&oh=00_AfCxzn8Id-XJmtqfhYdpUUZows5GVo8KlUsUBNr2Uzrh5w&oe=658FFEBD"
+          src="/About.jpg"
           alt="Image"
           className="w-full rounded-xl object-cover mb-10"
-          width={720}
-          height={720}
+          width={810}
+          height={810}
         />
         <p>
           Notre Dame Information Technology Club (NDITC), a co-curricular
