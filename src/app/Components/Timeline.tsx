@@ -99,7 +99,7 @@ const Timeline = () => {
   }, [selectedIndex]);
 
   return (
-    <section className="h-96 bg-[#F6F6F6] w-full mt-10 mb-32 px-10 md:px-32 flex justify-center">
+    <section className="h-96 w-full mt-10 mb-32 px-10 md:px-32 flex justify-center">
       <div className="flex gap-5">
         <div className="h-full flex flex-col flex-1 justify-center gap-5">
           {timelineData.map((e, i) => {
