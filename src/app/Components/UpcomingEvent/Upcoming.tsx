@@ -42,16 +42,14 @@ const Upcoming = ({
             fill
           />
         </div>
-        <div className="left-part">
+        <div className="left-part m-5">
           <div id="blg_hdr">
             <h1 className="blog-title-1">{firstTwoWords}</h1>
             <h1 className="blog-title-2 text-black break-words">
               {restOfSentence}
             </h1>
           </div>
-          <p className="blog-content line-clamp-5 md:line-clamp-3">
-            {description}
-          </p>
+          <p className="blog-content line-clamp-5">{description}</p>
           <div className="buttons flex flex-col sm:flex-row gap-5 md:gap-[35px]">
             <a
               href={actionButtonRedirect1}

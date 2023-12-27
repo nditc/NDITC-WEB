@@ -31,24 +31,18 @@ const RemainingTime = ({ time }: { time: number }) => {
   }, []);
 
   return (
-    <div className="right-part pt-5">
+    <div className="right-part pt-5 ml-5">
       <div className="circle1">
         <div className="number text-white">{timeLeft.days}</div>
-        <div className="word text-white mix-blend-difference md:text-black">
-          Days
-        </div>
+        <div className="word text-white">Days</div>
       </div>
       <div className="circle2">
         <div className="number text-white">{timeLeft.minutes}</div>
-        <div className="word text-white mix-blend-difference md:text-black">
-          Minutes
-        </div>
+        <div className="word text-white">Minutes</div>
       </div>
       <div className="circle3">
         <span className="number text-white">{timeLeft.seconds}</span>
-        <span className="word text-white mix-blend-difference md:text-black">
-          Seconds
-        </span>
+        <span className="word text-white">Seconds</span>
       </div>
     </div>
   );
