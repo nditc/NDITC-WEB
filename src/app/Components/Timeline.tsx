@@ -1,7 +1,8 @@
 "use client";
 
 import Image from "next/image";
-import { useState } from "react";
+import { useEffect, useState } from "react";
+import { MdKeyboardArrowUp, MdKeyboardArrowDown } from "react-icons/md";
 
 const Timeline = () => {
   const [selectedIndex, setSelectedIndex] = useState(0);
@@ -89,13 +90,16 @@ const Timeline = () => {
 
   const setCurrentData = (i: number) => {
     setSelectedIndex(i);
-    setCurrentTitle(timelineData[i].title);
-    setCurrentDescription(timelineData[i].description);
-    setCurrentImage(timelineData[i].imgURL);
   };
 
+  useEffect(() => {
+    setCurrentTitle(timelineData[selectedIndex].title);
+    setCurrentDescription(timelineData[selectedIndex].description);
+    setCurrentImage(timelineData[selectedIndex].imgURL);
+  }, [selectedIndex]);
+
   return (
-    <section className="h-96 w-full mt-10 mb-32 px-10 md:px-32 flex justify-center">
+    <section className="h-96 bg-[#F6F6F6] w-full mt-10 mb-32 px-10 md:px-32 flex justify-center">
       <div className="flex gap-5">
         <div className="h-full flex flex-col flex-1 justify-center gap-5">
           {timelineData.map((e, i) => {
@@ -114,7 +118,31 @@ const Timeline = () => {
         <div className="w-1 h-full bg-gray-400 rounded-3xl gradient-mask-t-90-d" />
       </div>
 
-      <div className="flex-[10] flex justify-center items-center">
+      <div className="flex-[10] flex justify-center items-center relative">
+        <MdKeyboardArrowUp
+          onClick={() => {
+            if (selectedIndex > 0) {
+              setSelectedIndex(selectedIndex - 1);
+            }
+          }}
+          className={`w-10 h-10 cursor-pointer absolute -top-16 transition-all ${
+            selectedIndex > 0
+              ? "scale-110 hover:scale-150"
+              : "text-gray-500 scale-90"
+          }`}
+        />
+        <MdKeyboardArrowDown
+          onClick={() => {
+            if (selectedIndex < timelineData.length - 1) {
+              setSelectedIndex(selectedIndex + 1);
+            }
+          }}
+          className={`w-10 h-10 cursor-pointer absolute -bottom-16 transition-all ${
+            selectedIndex < timelineData.length - 1
+              ? "scale-110 hover:scale-150"
+              : "text-gray-500 scale-90"
+          }`}
+        />
         <div className="h-[90%] w-[90%] rounded-xl shadow-[020px_20px_20px_10px_#00000024] flex flex-col md:flex-row items-center justify-center gap-5 px-[1rem]">
           <div className="gap-5 flex-col">
             <h1 className="text-3xl md:text-5xl">{currentTitle}</h1>
