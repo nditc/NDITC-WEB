@@ -1,6 +1,6 @@
-"use client";
-import { inView, useInView } from "framer-motion";
-import React, { useEffect, useRef, useState } from "react";
+'use client';
+import { inView, useInView } from 'framer-motion';
+import React, { useEffect, useRef, useState } from 'react';
 
 interface Section {
   heading: string;
@@ -15,14 +15,8 @@ interface CommonPageProps {
   hasTableOfContent?: boolean;
 }
 
-const Sections = ({
-  sections,
-  subNumber,
-}: {
-  sections: Section[];
-  subNumber?: string;
-}) => {
-  const subNum = subNumber ? subNumber : "";
+const Sections = ({ sections, subNumber }: { sections: Section[]; subNumber?: string }) => {
+  const subNum = subNumber ? subNumber : '';
   return (
     <>
       {sections.map(({ heading, content, subSections }, index) => {
@@ -41,10 +35,7 @@ const Sections = ({
               <div className="text-justify">{content}</div>
             </div>
             {subSections?.length ? (
-              <Sections
-                sections={subSections}
-                subNumber={subNum + index.toString()}
-              />
+              <Sections sections={subSections} subNumber={subNum + index.toString()} />
             ) : null}
           </>
         );
@@ -62,36 +53,39 @@ const TOCList = ({
   subNumber?: string;
   scrollPos?: number;
 }) => {
-  const subNum = subNumber ? subNumber : "";
+  const subNum = subNumber ? subNumber : '';
   const ref = useRef<HTMLUListElement | null>(null);
   useEffect(() => {
-    ref.current?.scrollTo({
-      top: (ref.current?.scrollHeight - ref?.current.clientHeight || 0) * (scrollPos || 0),
-    });
+    // ref.current?.scrollTo({
+    //   top: (ref.current?.scrollHeight - ref?.current.clientHeight || 0) * (scrollPos || 0),
+    // });
   }, [scrollPos]);
   return (
     <ul
       ref={ref}
       style={{
         overscrollBehavior: 'contain',
-        height: subNum ? 'auto' : 'calc(60vh - 36px - 5rem)',
+        height: subNum ? 'auto' : 'calc(65vh - 36px - 5rem)',
       }}
       className={
-        'flex flex-col gap-2   mt-2 border-l' +
-        (subNum ? ' overflow-visible ' : ' overflow-auto pb-5')
+        'flex flex-col gap-2   mt-2 ' +
+        (subNum
+          ? ' overflow-visible border-l scroll '
+          : ' overflow-y-auto overflow-x-visible pl-2  pb-5 ')
       }
     >
       {sections.map(({ heading, content, subSections }, index) => {
         return (
-          <li key={index} className={'list-disc cursor-pointer ml-[0.9rem]'}>
+          <li key={index} className={'list-disc cursor-pointer ml-[0.9rem] '}>
             <a href={'#' + subNum + index}>
-              <h4 className={'text-base  hover:underline'}>{heading}</h4>
+              <p
+                className={'text-base hover:underline' + (subNum ? ' font-light' : ' font-medium')}
+              >
+                {heading}
+              </p>
             </a>
             {subSections?.length ? (
-              <TOCList
-                sections={subSections}
-                subNumber={subNum + index.toString()}
-              />
+              <TOCList sections={subSections} subNumber={subNum + index.toString()} />
             ) : null}
           </li>
         );
@@ -99,15 +93,10 @@ const TOCList = ({
     </ul>
   );
 };
-const CommonPage = ({
-  heading,
-  icon,
-  sections,
-  hasTableOfContent,
-}: CommonPageProps) => {
-  const headingArray = heading.split(" ");
-  const firstWord = headingArray.splice(0, 1) + " ";
-  const restWord = headingArray.join(" ");
+const CommonPage = ({ heading, icon, sections, hasTableOfContent }: CommonPageProps) => {
+  const headingArray = heading.split(' ');
+  const firstWord = headingArray.splice(0, 1) + ' ';
+  const restWord = headingArray.join(' ');
   const [scrollPos, setScrollPos] = useState<number>(0);
   useEffect(() => {
     const handler = () => {
@@ -116,23 +105,23 @@ const CommonPage = ({
           (document.documentElement.scrollHeight - window.innerHeight)
       );
     };
-    document.addEventListener("scroll", handler);
+    document.addEventListener('scroll', handler);
 
     return () => {
-      document.removeEventListener("scroll", handler);
+      document.removeEventListener('scroll', handler);
     };
   }, []);
   return (
-    <div className="mt-[81px]">
+    <div className="mt-[81px] bg-[#F6F6F6]">
       <div
         style={{
           transform: `scaleX(${scrollPos})`,
-          transformOrigin: "left",
+          transformOrigin: 'left',
         }}
         className="fixed top-0 left-0 h-1 z-50 bg-blue-500 transition ease-linear w-screen "
       ></div>
       <div className="container pt-5 pb-16">
-        <div className={"flex gap-5 items-center sm:justify-start"}>
+        <div className={'flex gap-5 items-center sm:justify-start'}>
           <span className="p-5 shadow-2xl rounded-full bg-white ">{icon}</span>
           <h1 className="text-6xl">
             <span className="text-blue-500 ">{firstWord}</span>
@@ -150,13 +139,8 @@ const CommonPage = ({
               </div>
             </div>
           ) : null}
-          <div
-            className={
-              "flex-1" +
-              (!hasTableOfContent ? " mx-6 md:ml-8 md:mr-0 cont" : "")
-            }
-          >
-            <Sections sections={sections} />{" "}
+          <div className={'flex-1' + (!hasTableOfContent ? ' mx-6 md:ml-8 md:mr-0 cont' : '')}>
+            <Sections sections={sections} />{' '}
           </div>
         </div>
       </div>
