@@ -25,7 +25,9 @@ const Sections = ({ sections, subNumber }: { sections: Section[]; subNumber?: st
             <div className="section" id={subNum + index.toString()} key={index}>
               <h2
                 className={
-                  (subNum ? 'text-3xl ' : 'text-4xl ') + (index !== 0 || subNum ? 'mt-8 ' : '')
+                  (subNum ? 'text-xl font-Nunito font-bold ' : 'text-4xl ') +
+                  (index !== 0 && !subNum ? 'mt-12 ' : '') +
+                  (subNum ? 'mt-4 ' : '')
                 }
               >
                 {heading}
@@ -54,27 +56,33 @@ const TOCList = ({
   const subNum = subNumber ? subNumber : '';
   const ref = useRef<HTMLUListElement | null>(null);
   useEffect(() => {
-    ref.current?.scrollTo({
-      top: (ref.current?.scrollHeight - ref?.current.clientHeight || 0) * (scrollPos || 0),
-    });
+    // ref.current?.scrollTo({
+    //   top: (ref.current?.scrollHeight - ref?.current.clientHeight || 0) * (scrollPos || 0),
+    // });
   }, [scrollPos]);
   return (
     <ul
       ref={ref}
       style={{
         overscrollBehavior: 'contain',
-        height: subNum ? 'auto' : 'calc(60vh - 36px - 5rem)',
+        height: subNum ? 'auto' : 'calc(65vh - 36px - 5rem)',
       }}
       className={
-        'flex flex-col gap-2   mt-2 border-l' +
-        (subNum ? ' overflow-visible ' : ' overflow-auto pb-5')
+        'flex flex-col gap-2   mt-2 ' +
+        (subNum
+          ? ' overflow-visible border-l scroll '
+          : ' overflow-y-auto overflow-x-visible pl-2  pb-5 ')
       }
     >
       {sections.map(({ heading, content, subSections }, index) => {
         return (
-          <li key={index} className={'list-disc cursor-pointer ml-[0.9rem]'}>
+          <li key={index} className={'list-disc cursor-pointer ml-[0.9rem] '}>
             <a href={'#' + subNum + index}>
-              <h4 className={'text-base  hover:underline'}>{heading}</h4>
+              <p
+                className={'text-base hover:underline' + (subNum ? ' font-light' : ' font-medium')}
+              >
+                {heading}
+              </p>
             </a>
             {subSections?.length ? (
               <TOCList sections={subSections} subNumber={subNum + index.toString()} />
@@ -122,7 +130,7 @@ const CommonPage = ({ heading, icon, sections, hasTableOfContent }: CommonPagePr
         </div>
         <div className="flex flex-col md:flex-row gap-12 pt-8">
           {hasTableOfContent ? (
-            <div className="bg-white shadow-2xl rounded-xl p-8 basis-[290px]  md:sticky top-[96px] h-[60vh]">
+            <div className="bg-white shadow-2xl rounded-xl p-8 basis-[310px]  md:sticky top-[96px] h-[65vh]">
               <h2 className="text-3xl">
                 <span className="text-blue-500">Table</span> of contents
               </h2>
