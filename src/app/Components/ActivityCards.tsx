@@ -73,7 +73,7 @@ const Card = ({ title, desc, imgURL, href }: CardProps) => {
           <p
             style={{ textAlignLast: "center" }}
             className={
-              "font-Nunito text-base text-white  text-justify font-light pb-2"
+              "font-Nunito text-base text-white  text-center font-light pb-2"
             }
           >
             {desc}
@@ -97,7 +97,7 @@ const Card = ({ title, desc, imgURL, href }: CardProps) => {
           <p
             style={{ textAlignLast: "center" }}
             className={
-              "font-Nunito text-base text-white  text-justify font-light pb-2"
+              "font-Nunito text-base text-white  text-center font-light pb-2"
             }
           >
             {desc}

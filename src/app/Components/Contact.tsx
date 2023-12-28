@@ -45,7 +45,7 @@ const Contact = () => {
 
   return (
     <>
-      <div className="mt-36 flex flex-col items-center bg-zinc-200">
+      <div className="mt-10 flex flex-col items-center bg-zinc-200">
         <dialog
           ref={dialogRef}
           className={`w-[90%] ${

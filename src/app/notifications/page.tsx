@@ -1,47 +1,6 @@
 import SingleNotification from "./SingleNotification";
 
 const Notifications = async () => {
-  /*const NotificationData: NotificationDataFormat[] = [
-    {
-      title: 'Father Tim memorial programming contest 3.0',
-      description:
-        'This is a paragraph with more information about something important. This something has many uses and is made of 100% recycled material.',
-      imgURL:
-        'https://images.pexels.com/photos/546819/pexels-photo-546819.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1',
-    },
-
-    {
-      title: 'Father Tim memorial programming contest 3.0',
-      description:
-        'This is a paragraph with more information about something important. This something has many uses and is made of 100% recycled material.',
-      imgURL:
-        'https://images.pexels.com/photos/459654/pexels-photo-459654.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1',
-    },
-
-    {
-      title: 'Father Tim memorial programming contest 3.0',
-      description:
-        'This is a paragraph with more information about something important. This something has many uses and is made of 100% recycled material.',
-      imgURL:
-        'https://images.pexels.com/photos/2582937/pexels-photo-2582937.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1',
-    },
-
-    {
-      title: 'Father Tim memorial programming contest 3.0',
-      description:
-        'This is a paragraph with more information about something important. This something has many uses and is made of 100% recycled material.',
-      imgURL:
-        'https://images.pexels.com/photos/982673/pexels-photo-982673.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1',
-    },
-
-    {
-      title: 'Father Tim memorial programming contest 3.0',
-      description:
-        'This is a paragraph with more information about something important. This something has many uses and is made of 100% recycled material.',
-      imgURL: '/Cover.png',
-    },
-  ];*/
-
   const res = await fetch(
     "https://nditc.pythonanywhere.com/web_notifications",
     { cache: "no-store" }

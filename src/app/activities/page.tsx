@@ -1,6 +1,6 @@
 import CodeCompass from "../Components/CodeCompass";
+import Upcoming from "../Components/UpcomingEvent/Upcoming";
 import EventsList from "./EventsList";
-import { useSearchParams } from "next/navigation";
 
 type Events = {
   data: [
@@ -48,17 +48,22 @@ const Activities = async ({
         className="absolute top-1/4 right-0 z-0"
         alt=""
       ></img>
-      <div className="container pt-32 py-10  flex flex-col items-center gap-10 z-10 bg-transparent relative">
+      <div className="container pt-32 py-10 flex flex-col items-center gap-10 z-10 bg-transparent relative">
         <div className="flex gap-3 items-end justify-center self-start md:justify-start">
           <h1 className="text-3xl md:text-5xl pb-1">UPCOMING</h1>
           <h1 className="text-5xl md:text-7xl text-blue-500">EVENT</h1>
         </div>
-        <section className="w-full ">
-          <div className="w-full grid place-items-center h-60 bg-slate-400 rounded-xl text-slate-100 shadow-xl ">
-            <p className="Bebas text-2xl break-words">
-              {JSON.stringify(upcoming)}
-            </p>
-          </div>
+        <section className="w-full h-fit">
+          <Upcoming
+            title={upcoming[0].title}
+            description={upcoming[0].short_description}
+            actionButtonTitle1="Register"
+            actionButtonTitle2="Learn More"
+            actionButtonRedirect1=""
+            actionButtonRedirect2=""
+            image={upcoming[0].image_url}
+            timestamp={upcoming[0].timestamp}
+          />
         </section>
         <EventsList data={events} />
         <CodeCompass />

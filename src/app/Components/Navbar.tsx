@@ -4,12 +4,11 @@ import { useEffect, useState } from "react";
 import Hover from "./Hover";
 import Image from "next/image";
 import Link from "next/link";
-import { useRouter, usePathname } from "next/navigation";
+import { usePathname } from "next/navigation";
 
 const Navbar = () => {
   const [showOptions, setShowOptions] = useState(false);
   const Route = usePathname();
-  const router = useRouter();
 
   const [windowWidth, setWindowWidth] = useState(0);
 
@@ -20,7 +19,10 @@ const Navbar = () => {
   return (
     <nav className="bg-white fixed w-full z-20 top-0 start-0 border-b border-gray-200 ">
       <div className="container flex flex-wrap items-center justify-between mx-auto py-4 px-1 relative">
-        <a href="/" className="flex items-center space-x-3 rtl:space-x-reverse">
+        <Link
+          href="/"
+          className="flex items-center space-x-3 rtl:space-x-reverse"
+        >
           <Image
             src="/Logo.png"
             className="h-12 w-32"
@@ -28,15 +30,15 @@ const Navbar = () => {
             width={512}
             height={512}
           />
-        </a>
+        </Link>
         <div className="flex md:order-2 space-x-3 md:space-x-0 rtl:space-x-reverse">
-          <a
-            href="https://raw.githubusercontent.com/nditc/nditc_mobile_app/main/nditc.apk"
+          <Link
+            href="/details/https%3A%2F%2Fnditc.pythonanywhere.com%2Fprojects%2FgAAAAABklDtCA8wgOMZar9YbvFJgn8e-jFUG27Ic9aHwhx40IBCUofeQ_uoinoAgpmskv_ojJNA4I9Rgswp3RLa9wWgp6846Zg%3D%3D/project/1687651200"
             type="button"
             className="text-white bg-[#252525] font-ShareTechTown hover:bg-zinc-700 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-4 py-2 text-center"
           >
             TRY OUR APP
-          </a>
+          </Link>
           <button
             onClick={() => setShowOptions(!showOptions)}
             data-collapse-toggle="navbar-sticky"

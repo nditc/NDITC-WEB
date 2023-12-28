@@ -3,12 +3,14 @@ import Contact from "./Components/Contact";
 import ActivityCards from "./Components/ActivityCards";
 import HashtechPosts from "./Components/HashtechPosts";
 import SnapScroller from "./Components/Utilities/SnapScroller";
+import Link from "next/link";
+import CodeCompass from "./Components/CodeCompass";
 
 export default function Home() {
   return (
     <main className="flex container mx-auto flex-col items-center justify-center bg-transparent">
-      <section className="relative w-full min-h-screen flex flex-col md:flex-row justify-center md:justify-between items-center gap-5 md:gap-0  pt-[75px] over">
-        <div className="flex flex-col items-center md:items-start md:gap-2 order-2 md:order-1">
+      <section className="relative w-full min-h-screen flex flex-col md:flex-row justify-center md:justify-between items-center gap-5 md:gap-0 pt-[75px] over">
+        <div className="flex flex-col items-center md:items-start md:gap-1 order-2 md:order-1">
           <h1 className="tracking-widest text-5xl lg:text-6xl  font-medium text-center md:text-left">
             JOIN THE
           </h1>
@@ -23,12 +25,12 @@ export default function Home() {
             computer, programming, robotics, and design. Let's be the best
             together
           </p>
-          <button
-            type="button"
+          <Link
+            href="/about"
             className="Bebas text-xl mt-5 py-2 font-Bebas px-7 me-2 mb-2 font-medium text-whiterounded-lg border focus:z-10 focus:ring-4  focus:ring-gray-700 bg-black text-white border-gray-600 hover:text-white hover:bg-zinc-700 rounded-lg"
           >
             LEARN MORE
-          </button>
+          </Link>
         </div>
         <Image
           src={"/BigImg.png"}
@@ -115,6 +117,12 @@ export default function Home() {
 
         <SnapScroller baseSize={475} gap={16} duration={2500}>
           <HashtechPosts
+            title="Firewall"
+            desc="A security system set up on the network which monitors and controls incoming and outgoing traffic based on predetermined security protocols is called firewall..."
+            imageURL="https://scontent.fdac142-1.fna.fbcdn.net/v/t39.30808-6/411683470_994353095416222_7206788424372546186_n.jpg?_nc_cat=103&ccb=1-7&_nc_sid=3635dc&_nc_ohc=zZ5u_yiF2iUAX8t6Ypu&_nc_oc=AQmYsb3uHQtRTLiAqJ-IfYqdv18tW5vyV4WUJAvybXJNK4pf8eaExigCDdYA1GD5KZQ&_nc_ht=scontent.fdac142-1.fna&oh=00_AfBZ1wv1XrFPRGitQn-UY5kdQRP7YMPF6tlWn-Ns8B7FRA&oe=658C0802"
+            redirectUrl="https://www.facebook.com/photo/?fbid=994363988748466&set=a.762348471950020"
+          />
+          <HashtechPosts
             title="Google Gemini"
             desc="“Google Gemini” is a new advertising platform that integrates search and video ads into Google Play, allowing advertisers to promote mobile app installs and in-app actions."
             imageURL="https://scontent-iad3-1.xx.fbcdn.net/v/t39.30808-6/409871839_988884939296371_726850100000577863_n.jpg?_nc_cat=101&ccb=1-7&_nc_sid=3635dc&_nc_ohc=Quf5Qiu6fgYAX-s1Sol&_nc_ht=scontent-iad3-1.xx&oh=00_AfAvelqSmpLx7AciJ2CeG55tpb_-zDACkUD_qwNtlZLxmg&oe=6589178D"
@@ -140,6 +148,12 @@ export default function Home() {
             desc="Malware, also stands for “malicious software”, is a software that is intentionally created to harm or obtain unauthorized access to computer systems, networks."
             imageURL="https://scontent-iad3-1.xx.fbcdn.net/v/t39.30808-6/402110429_970323207819211_7263427348214765051_n.jpg?_nc_cat=101&ccb=1-7&_nc_sid=3635dc&_nc_ohc=OItL41E-YEUAX9hUKHB&_nc_ht=scontent-iad3-1.xx&oh=00_AfDmZndSFL2AK8WmofBL2e5YJtS7kiOtBIUkRZiMJxb71w&oe=65892DEA"
             redirectUrl="https://www.facebook.com/photo/?fbid=970339901150875&set=a.762348471950020"
+          />
+          <HashtechPosts
+            title="NLP"
+            desc="NLP stands for Natural Language Processing. It's a field of artificial intelligence (AI) that focuses on the interaction between computers and humans through natural language. The goal of NLP is to enable computers to understand, interpret, and generate human language in a valuable and meaningful way."
+            imageURL="https://scontent.fdac142-1.fna.fbcdn.net/v/t39.30808-6/400035393_965244961660369_6724820738509894849_n.jpg?_nc_cat=101&ccb=1-7&_nc_sid=3635dc&_nc_ohc=6KDsVckl_uAAX-ueNMm&_nc_ht=scontent.fdac142-1.fna&oh=00_AfBIhfib-ekoVU1BwCQWibjt2VRendRrl2Wg2b--FZSejA&oe=658CA285"
+            redirectUrl="https://www.facebook.com/photo/?fbid=965835914934607&set=a.762348471950020"
           />
         </SnapScroller>
       </section>
@@ -226,6 +240,8 @@ export default function Home() {
           </div>
         </div>
       </section>
+
+      <CodeCompass />
 
       <Contact />
     </main>
