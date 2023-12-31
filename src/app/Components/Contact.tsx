@@ -1,7 +1,7 @@
-"use client";
+'use client';
 
-import { useEffect, useRef, useState } from "react";
-import { IoIosCloseCircleOutline } from "react-icons/io";
+import { useEffect, useRef, useState } from 'react';
+import { IoIosCloseCircleOutline } from 'react-icons/io';
 
 const Contact = () => {
   const [sending, setSending] = useState(false);
@@ -21,15 +21,15 @@ const Contact = () => {
     const formData = new FormData(event.target);
 
     try {
-      const response = await fetch("/api/contact", {
-        method: "post",
+      const response = await fetch('/api/contact', {
+        method: 'post',
         body: formData,
       });
 
       formRef.current?.reset();
 
       if (!response.ok) {
-        console.log("falling over");
+        console.log('falling over');
         throw new Error(`response status: ${response.status}`);
       }
 
@@ -39,7 +39,7 @@ const Contact = () => {
       setShowingModal(true);
     } catch (err) {
       console.error(err);
-      alert("Error, please try resubmitting the form");
+      alert('Error, please try resubmitting the form');
     }
   }
 
@@ -49,7 +49,7 @@ const Contact = () => {
         <dialog
           ref={dialogRef}
           className={`w-[90%] ${
-            showingModal ? "z-30" : "-z-30"
+            showingModal ? 'z-30' : '-z-30'
           } h-[90%] md:w-96 md:h-56 rounded-xl flex flex-col items-center justify-center`}
         >
           {showingModal && (
@@ -79,22 +79,20 @@ const Contact = () => {
         </dialog>
 
         <div className="w-screen flex flex-col gap-10  md:flex-row justify-center md:justify-between">
-          <div className="flex-1 md:w-1/2  py-10 bg-zinc-200 ">
+          <div className="flex-1 md:w-1/2  py-10 bg-zinc-200">
             <form
               ref={formRef}
               onSubmit={handleSubmit}
               id="Contact"
-              className="flex flex-col mt-7  items-center md:items-start justify-center 2xl:pl-32 container-padding-left"
+              className="flex flex-col mt-7  items-center md:items-start justify-center 2xl:pl-32 container-padding"
             >
               <div className="flex flex-col md:flex-row gap-2">
                 <h1 className="text-5xl mb-5 text-center md:text-left text-blue-500">
                   GET IN TOUCH
                 </h1>
-                <h1 className="text-5xl mb-5 text-center md:text-left">
-                  WITH US
-                </h1>
+                <h1 className="text-5xl mb-5 text-center md:text-left">WITH US</h1>
               </div>
-              <div className="mb-6 w-[96%] max-w-[550px]">
+              <div className="mb-6 w-full md:max-w-[550px]">
                 <label
                   htmlFor="default-input"
                   className="block mb-2 text-lg font-medium text-gray-900"
@@ -111,7 +109,7 @@ const Contact = () => {
                   className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full px-6 py-4"
                 />
               </div>
-              <div className="mb-6 w-[96%] max-w-[550px]">
+              <div className="mb-6 w-full md:max-w-[550px]">
                 <label
                   htmlFor="default-input"
                   className="block mb-2 text-lg font-medium text-gray-900"
@@ -128,7 +126,7 @@ const Contact = () => {
                   className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full px-6 py-4"
                 />
               </div>
-              <div className="mb-6 w-[96%] max-w-[550px]">
+              <div className="mb-6 w-full md:max-w-[550px]">
                 <label
                   htmlFor="default-input"
                   className="block mb-2 text-lg font-medium text-gray-900"

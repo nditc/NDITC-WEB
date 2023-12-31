@@ -1,12 +1,8 @@
-import React from "react";
-import Image from "next/image";
-import Link from "next/link";
-import { MdOutlineDateRange } from "react-icons/md";
-const Page = async ({
-  params,
-}: {
-  params: { url: string; type: string; date: number };
-}) => {
+import React from 'react';
+import Image from 'next/image';
+import Link from 'next/link';
+import { MdOutlineDateRange } from 'react-icons/md';
+const Page = async ({ params }: { params: { url: string; type: string; date: number } }) => {
   const res = await fetch(decodeURIComponent(params.url));
   const data = await res.json();
   const DateData = new Date(params.date * 1000);
@@ -18,15 +14,13 @@ const Page = async ({
           <div className="container flex flex-col md:flex-row gap-5 items-center ">
             <div className="flex-1 ml-1 flex flex-col gap-5 w-full order-2 md:order-1">
               <Link href={`/activities?type=${params.type}`}>
-                <h1 className="text-2xl pt-5 underline hover:text-blue-500">
-                  {params.type}&gt;
-                </h1>
+                <h1 className="text-2xl pt-5 underline hover:text-blue-500">{params.type}&gt;</h1>
               </Link>
 
               <h1 className="text-4xl  2xl:text-5xl ">{data.title}</h1>
               {data.subtitle ? <p>{data.subtitle}</p> : null}
               <p className="line-clamp-5 flex justify-start items-center">
-                <MdOutlineDateRange className={"mr-2 w-6 h-6"} />
+                <MdOutlineDateRange className={'mr-2 w-6 h-6'} />
 
                 {DateData.toDateString()}
               </p>
@@ -40,11 +34,11 @@ const Page = async ({
                     {data.action.label}
                   </a>
                   {params.url ==
-                    "https%3A%2F%2Fnditc.pythonanywhere.com%2Fprojects%2FgAAAAABklDtCA8wgOMZar9YbvFJgn8e-jFUG27Ic9aHwhx40IBCUofeQ_uoinoAgpmskv_ojJNA4I9Rgswp3RLa9wWgp6846Zg%3D%3D" && (
+                    'https%3A%2F%2Fnditc.pythonanywhere.com%2Fprojects%2FgAAAAABklDtCA8wgOMZar9YbvFJgn8e-jFUG27Ic9aHwhx40IBCUofeQ_uoinoAgpmskv_ojJNA4I9Rgswp3RLa9wWgp6846Zg%3D%3D' && (
                     <a
                       href="https://raw.githubusercontent.com/nditc/nditc_mobile_app/main/nditc.apk"
                       target="_blank"
-                      className="self-start Bebas inline-block cursor-pointer text-xl py-2 font-Bebas px-7 font-medium text-whiterounded-lg border-2 focus:z-10 focus:ring-4  focus:ring-gray-700 border-gray-600 hover:text-white hover:bg-zinc-800 rounded-lg"
+                      className="self-start Bebas inline-block cursor-pointer text-xl py-2 font-Bebas px-7 font-medium text-whiterounded-lg border-2 focus:z-10 focus:ring-4  focus:ring-gray-700 border-zinc-800 hover:text-white hover:bg-zinc-800 rounded-lg"
                     >
                       Download Our APP
                     </a>
