@@ -98,10 +98,9 @@ const Developer = () => {
         </a>
       </div>
 
-      <div className="mt-36 mb-10 flex flex-col md:flex-row gap-3 justify-center md:justify-start items-start md:items-end">
-        <h1 className="text-4xl md:text-6xl">FRONTEND</h1>
-        <h1 className="text-4xl md:text-6xl text-blue-500">DEVELOPERS</h1>
-      </div>
+      <h1 className="mt-36 mb-10 text-4xl md:text-6xl text-blue-500">
+        DEVELOPERS
+      </h1>
 
       <div className="flex pt-10 flex-wrap gap-11 justify-between">
         {developerData.map((e, i) => {

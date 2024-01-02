@@ -2,7 +2,7 @@ import type { Metadata } from "next";
 import { Inter } from "next/font/google";
 import "./globals.css";
 import Navbar from "./Components/Navbar";
-import SideBar from "./Components/SideBar";
+import SideBar from "./Components/Sidebar/SideBar";
 import Footer from "./Components/Footer";
 import NextTopLoader from "nextjs-toploader";
 
