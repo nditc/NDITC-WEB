@@ -1,8 +1,9 @@
-'use client';
-import { useEffect, useRef, useState } from 'react';
-import '../styles/NewsLAndApp.css';
+"use client";
+import { useRouter } from "next/navigation";
+import "../styles/NewsLAndApp.css";
 
 const NewsLAndApp = () => {
+  const router = useRouter();
   return (
     <div className="container my-10 md:my-12 lg:my-16">
       <div id="appANDnwslttr">
@@ -11,8 +12,9 @@ const NewsLAndApp = () => {
             Subscribe to our <span>Newsletter</span>
           </h3>
           <p id="abt">
-            Code Compass is our Official newsletter. SUBSCRIBE NOW for the latest updates on - Club
-            Activities - Useful Learning Resources and many more!
+            Code Compass is our Official newsletter. SUBSCRIBE NOW for the
+            latest updates on - Club Activities - Useful Learning Resources and
+            many more!
           </p>
           <div id="usr_inf">
             <input type="email" placeholder="Your Email" id="eml" />
@@ -22,8 +24,14 @@ const NewsLAndApp = () => {
           </div>
           <div id="cdcmps_div">
             <picture>
-              <source media="(min-width: 1200px)" srcSet="/image/newsl_and_app/cdcmp_txt.png" />
-              <source media="(max-width: 1200px)" srcSet="/image/newsl_and_app/code_compass.png" />
+              <source
+                media="(min-width: 1200px)"
+                srcSet="/image/newsl_and_app/cdcmp_txt.png"
+              />
+              <source
+                media="(max-width: 1200px)"
+                srcSet="/image/newsl_and_app/code_compass.png"
+              />
               <img src="" alt="" id="cdcmps" />
             </picture>
           </div>
@@ -42,11 +50,21 @@ const NewsLAndApp = () => {
           <div id="botom">
             <span id="appl">APPLICATION</span>
             <p id="inf">
-              This is a paragraph with more information about something important. This something
-              has many uses and is made of 100% recycled material.
+              This is a paragraph with more information about something
+              important. This something has many uses and is made of 100%
+              recycled material.
             </p>
             <div id="cvr_img"></div>
-            <button id="dwnld_btn">Download</button>
+            <button
+              onClick={() => {
+                router.push(
+                  "/details/https%3A%2F%2Fnditc.pythonanywhere.com%2Fprojects%2FgAAAAABklDtCA8wgOMZar9YbvFJgn8e-jFUG27Ic9aHwhx40IBCUofeQ_uoinoAgpmskv_ojJNA4I9Rgswp3RLa9wWgp6846Zg%3D%3D/project/1687651200"
+                );
+              }}
+              id="dwnld_btn"
+            >
+              Download
+            </button>
           </div>
         </div>
       </div>
