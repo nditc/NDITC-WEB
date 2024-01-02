@@ -1,9 +1,11 @@
 "use client";
 import { useRouter } from "next/navigation";
 import "../styles/NewsLAndApp.css";
+import { useState } from "react";
 
 const NewsLAndApp = () => {
   const router = useRouter();
+  const [email, setEmail] = useState("");
   return (
     <div className="container my-10 md:my-12 lg:my-16">
       <div id="appANDnwslttr">
@@ -17,8 +19,26 @@ const NewsLAndApp = () => {
             many more!
           </p>
           <div id="usr_inf">
-            <input type="email" placeholder="Your Email" id="eml" />
-            <button id="sbscrb">
+            <input
+              type="email"
+              placeholder="Your Email"
+              id="eml"
+              value={email}
+              onChange={(e) => setEmail(e.currentTarget.value)}
+            />
+            <button
+              onClick={() => {
+                if (email.replaceAll(" ", "") != "") {
+                  window.open(
+                    "https://nditc.us14.list-manage.com/subscribe?u=252af46a54f45725aea40941c&id=53b7f78f01",
+                    "_blank"
+                  );
+                } else {
+                  alert("Enter a valid Email");
+                }
+              }}
+              id="sbscrb"
+            >
               <span>Subscribe</span>
             </button>
           </div>
