@@ -2,7 +2,7 @@ import SingleNotification from "./SingleNotification";
 
 const Notifications = async () => {
   const res = await fetch(
-    "https://nditc.pythonanywhere.com/web_notifications",
+    "https://nditc.pythonanywhere.com/web_notifications?page=1&limit=5",
     { cache: "no-store" }
   );
 
@@ -28,7 +28,7 @@ const Notifications = async () => {
       </div>
 
       <div className="w-screen flex justify-center">
-        <div className="flex flex-col-reverse w-[90%] md:w-[70%] items-center gap-7 mt-10">
+        <div className="flex flex-col w-[90%] md:w-[70%] items-center gap-7 mt-10">
           {NotificationData.map((e, i) => {
             return (
               <SingleNotification
