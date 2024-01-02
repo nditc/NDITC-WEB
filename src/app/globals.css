@@ -41,9 +41,11 @@ body::-webkit-scrollbar,
 .container {
   @apply max-w-[90vw] xl:max-w-[85vw] 2xl:max-w-[75vw] mx-auto;
 }
-
-.container-padding-left {
-  @apply md:pl-[5vw] xl:pl-[5w] 2xl:pl-[12.5vw];
+.container-md {
+  @apply max-w-[90vw];
+}
+.container-padding {
+  @apply px-[5vw] md:pl-[5vw] xl:pl-[5vw] 2xl:pl-[12.5vw] md:pr-0;
 }
 
 .card {
@@ -53,7 +55,7 @@ body::-webkit-scrollbar,
   border-radius: 1.16913rem;
   background: #fff;
   box-shadow: -11.96668px -9.57335px 37.09673px 0px rgba(255, 255, 255, 0.25),
-    8.37668px 11.96668px 37.09673px 0px rgba(199, 155, 155, 0.25);
+    8.37668px 11.96668px 37.09673px 0px rgba(168, 168, 168, 0.25);
 }
 .card_banner {
   width: 100%;
@@ -164,7 +166,7 @@ p {
 }
 .success-checkmark .check-icon::before,
 .success-checkmark .check-icon::after {
-  content: "";
+  content: '';
   height: 100px;
   position: absolute;
   background: #ffffff;

@@ -1,6 +1,6 @@
 /* eslint-disable @next/next/no-img-element */
-import React, { useState, useEffect } from "react";
-import Image from "next/image";
+import React, { useState, useEffect } from 'react';
+import Image from 'next/image';
 type memberProps = {
   img: string;
   imgInCenter?: boolean;
@@ -28,25 +28,25 @@ const Member = ({
         setHover(false);
       }}
       className={
-        "text-center flex md:flex-col place-items-center md:gap-2 gap-4 hover:scale-105 transition-all " +
-        (hasClickHandler ? "cursor-pointer" : "saa")
+        'text-center flex md:flex-col place-items-center md:gap-2 gap-4 hover:scale-105 transition-all ' +
+        (hasClickHandler ? 'cursor-pointer' : 'saa')
       }
     >
-      <div className="w-full grid place-items-center max-w-[120px] md:max-w-[240px]">
+      <div className="w-full grid place-items-center max-w-[120px] md:max-w-[280px]">
         <span
           className={
-            "absolute z-10 font-semibold font-Bebas text-white transition-opacity opacity-0" +
-            " " +
-            (hasClickHandler && hover ? "opacity-100 " : "")
+            'absolute z-10 font-semibold font-Bebas text-white transition-opacity opacity-0' +
+            ' ' +
+            (hasClickHandler && hover ? 'opacity-100 ' : '')
           }
         >
           Click for Details
         </span>
         <Image
-          className={`rounded-full max-w-[120px] md:max-w-[240px] w-full transition-all aspect-square object-cover ${
+          className={`rounded-full max-w-[120px] md:max-w-[280px] w-full transition-all aspect-square object-cover ${
             hasClickHandler && hover
-              ? "brightness-50 object-center"
-              : `${imgInCenter ? "" : "object-top"}`
+              ? 'brightness-50 object-center'
+              : `${imgInCenter ? '' : 'object-top'}`
           }`}
           width={320}
           height={320}
