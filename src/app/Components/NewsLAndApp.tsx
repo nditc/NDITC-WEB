@@ -33,6 +33,7 @@ const NewsLAndApp = () => {
                     "https://nditc.us14.list-manage.com/subscribe?u=252af46a54f45725aea40941c&id=53b7f78f01",
                     "_blank"
                   );
+                  setEmail("");
                 } else {
                   alert("Enter a valid Email");
                 }
