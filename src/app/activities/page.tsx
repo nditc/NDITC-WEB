@@ -1,4 +1,4 @@
-import CodeCompass from '../Components/CodeCompass';
+import CodeCompass from '../Components/NewsLAndApp';
 import Upcoming from '../Components/UpcomingEvent/Upcoming';
 import EventsList from './EventsList';
 

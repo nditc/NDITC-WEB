@@ -137,12 +137,12 @@ const Timeline = () => {
               : 'text-gray-500 scale-90'
           }`}
         />
-        <div className="h-[90%] w-[90%] rounded-xl shadow-[020px_20px_20px_10px_#00000024] flex flex-col md:flex-row items-center justify-center gap-5 px-[1rem]">
+        <div className="h-[90%] w-[90%] bg-white rounded-xl shadow-[020px_20px_20px_10px_#00000024] flex flex-col md:flex-row items-center justify-center gap-5 px-[1rem]">
           <div className="gap-5 flex-col">
             <h1 className="text-3xl md:text-5xl">{currentTitle}</h1>
             <p>{currentDescription}</p>
           </div>
-          <Image
+          <img
             src={currentImage}
             alt="Image"
             className="w-full h-[90%] rounded-[.75rem] object-cover"

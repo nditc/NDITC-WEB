@@ -12,7 +12,7 @@ const Navbar = () => {
   const Route = usePathname();
   const Params = useSearchParams();
   const navRef = useRef<HTMLElement>(null);
-  const [windowWidth, setWindowWidth] = useState(800);
+  const [windowWidth, setWindowWidth] = useState(768);
 
   useEffect(() => {
     const stateHandler = () => {
