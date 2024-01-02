@@ -34,10 +34,10 @@ const SaveData = ({ data }: { data: any }) => {
     >
       <Link href="/notifications" className="text-black mt-2 relative">
         {isNew && (
-          <div className="w-2 h-2 bg-red-700 rounded-full absolute right-1" />
+          <div className="w-3 h-3 bg-red-700 rounded-full absolute right-0 top-0" />
         )}
         <svg
-          className="bellSVG w-6 h-6"
+          className="bellSVG w-6 h-6 transition-all hover:scale-125"
           xmlns="http://www.w3.org/2000/svg"
           viewBox="0 0 19 19"
         >
