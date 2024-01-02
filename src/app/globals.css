@@ -1,7 +1,7 @@
-@import url('https://fonts.googleapis.com/css?family=Nunito:200,300,regular,500,600,700,800,900,200italic,300italic,italic,500italic,600italic,700italic,800italic,900italic');
-@import url('https://fonts.googleapis.com/css?family=Bebas+Neue:regular');
-@import url('https://fonts.googleapis.com/css?family=Roboto:100,100italic,300,300italic,regular,italic,500,500italic,700,700italic,900,900italic');
-@import url('https://fonts.googleapis.com/css?family=Share+Tech+Mono:regular');
+@import url("https://fonts.googleapis.com/css?family=Nunito:200,300,regular,500,600,700,800,900,200italic,300italic,italic,500italic,600italic,700italic,800italic,900italic");
+@import url("https://fonts.googleapis.com/css?family=Bebas+Neue:regular");
+@import url("https://fonts.googleapis.com/css?family=Roboto:100,100italic,300,300italic,regular,italic,500,500italic,700,700italic,900,900italic");
+@import url("https://fonts.googleapis.com/css?family=Share+Tech+Mono:regular");
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
@@ -275,5 +275,104 @@ p {
     width: 47px;
     right: 8px;
     top: 38px;
+  }
+}
+
+/*----------------------------------------*/
+
+.too-big-actually {
+  transform-origin: 9.5px 9.5px;
+}
+
+.bell-whole {
+  animation: ring 2.1s linear infinite;
+  transform-origin: 9.5px 2.4781px;
+}
+
+.bell-part {
+  fill: currentColor;
+}
+
+.bell-part--ringer {
+  animation: ding 2.1s linear infinite;
+}
+
+@keyframes ring {
+  0% {
+    transform: rotate(0deg);
+  }
+
+  15% {
+    transform: rotate(30deg);
+  }
+
+  25% {
+    transform: rotate(-25deg);
+  }
+
+  37.5% {
+    transform: rotate(20deg);
+  }
+
+  51.5% {
+    transform: rotate(-10deg);
+  }
+
+  66.5% {
+    transform: rotate(5deg);
+  }
+
+  80% {
+    transform: rotate(-2deg);
+  }
+
+  100% {
+    transform: rotate(0deg);
+  }
+}
+
+@keyframes ding {
+  0% {
+    transform: translateX(0);
+  }
+
+  12% {
+    transform: translateX(4px);
+  }
+
+  15% {
+    transform: translateX(4px);
+  }
+
+  23% {
+    transform: translateX(-4px);
+  }
+
+  25% {
+    transform: translateX(-4px);
+  }
+
+  35.5% {
+    transform: translateX(4px);
+  }
+
+  37.5% {
+    transform: translateX(4px);
+  }
+
+  54.5% {
+    transform: translateX(-3px);
+  }
+
+  71.5% {
+    transform: translateX(2px);
+  }
+
+  90% {
+    transform: translateX(-1px);
+  }
+
+  110% {
+    transform: translateX(0);
   }
 }

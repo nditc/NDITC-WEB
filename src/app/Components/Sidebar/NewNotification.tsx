@@ -1,5 +1,3 @@
-import Link from "next/link";
-import { IoIosNotifications } from "react-icons/io";
 import SaveData from "./SaveData";
 
 const NewNotification = async () => {
