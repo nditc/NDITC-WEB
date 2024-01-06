@@ -143,7 +143,7 @@ const Contact = () => {
                 />
               </div>
               {sending ? (
-                <div className="text-white w-44 bg-gray-800 hover:bg-gray-900 focus:outline-none focus:ring-4 focus:ring-gray-300 font-medium rounded text-sm px-5 py-2.5 me-2 mb-2">
+                <div className="text-white w-44 bg-gray-800 hover:bg-gray-900 focus:outline-none focus:ring-4 focus:ring-gray-300 font-medium rounded-lg text-sm px-5 py-2.5 me-2 mb-2">
                   <div className="text-center">
                     <div role="status">
                       <svg
@@ -169,7 +169,7 @@ const Contact = () => {
               ) : (
                 <button
                   type="submit"
-                  className="text-white w-44 bg-gray-800 hover:bg-gray-900 focus:outline-none focus:ring-4 focus:ring-gray-300 font-medium rounded text-sm px-5 py-2.5 me-2 mb-2"
+                  className="text-white w-44 bg-gray-800 hover:bg-gray-900 focus:outline-none focus:ring-4 focus:ring-gray-300 font-medium rounded-lg text-sm px-5 py-2.5 me-2 mb-2"
                 >
                   Send my message
                 </button>

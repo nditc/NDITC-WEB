@@ -121,7 +121,7 @@ const CommonPage = ({ heading, icon, sections, hasTableOfContent }: CommonPagePr
         className="fixed top-0 left-0 h-1 z-50 bg-blue-500 transition ease-linear w-screen "
       ></div>
       <div className="container pt-5 pb-16">
-        <div className={'flex gap-5 items-center sm:justify-start  md:-ml-8'}>
+        <div className={'flex gap-5 items-center sm:justify-start'}>
           <span className="p-5 shadow-2xl rounded-full bg-white ">{icon}</span>
           <h1 className="text-6xl">
             <span className="text-blue-500 ">{firstWord}</span>

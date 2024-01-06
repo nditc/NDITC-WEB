@@ -49,7 +49,7 @@ const Modal = ({
       ></div>
       <div
         className={
-          'fixed pb-24 md:pb-0 d:mb-0 left-1/2 top-1/2 translate-y-[-50%] translate-x-[-50%] w-full h-full lg:w-4/5 lg:h-4/5 md:rounded-2xl  bg-white z-[70] shadow-2xl transition' +
+          'fixed overflow-hidden pb-24 md:pb-0 d:mb-0 left-1/2 top-1/2 translate-y-[-50%] translate-x-[-50%] w-full h-full lg:w-4/5 lg:h-4/5 md:rounded-2xl  bg-white z-[70] shadow-2xl transition' +
           ' ' +
           (modalState ? 'scale-1' : 'scale-0 pointer-events-none')
         }
@@ -102,22 +102,21 @@ const Modal = ({
                   ) : null}
                 </div>
                 <div className="text-center md:text-right flex flex-col gap-2 2xl:gap-3 justify-center md:justify-right align-bottom">
-                  <Field
-                    title="Academic Life"
-                    desc="X School > Notre Dame College > X University"
-                  />
-                  <Field title="Interest" desc="Graphics Design" />
-                  <Field title="E-mail" desc="random@gmail.com" />
-                  <Field
-                    title="Socials"
-                    desc={
-                      <div className="flex justify-center md:justify-end gap-2">
-                        <Links img="fb" href="www.facebook.com" />
-                        <Links img="dribble" href="www.facebook.com" />
-                        <Links img="github" href="www.facebook.com" />
-                      </div>
-                    }
-                  />
+                  <Field title="Roll" desc={data.roll} />
+                  <Field title="Mobile No." desc={data.phone} />
+                  <Field title="E-mail" desc={data.email} />
+                  {Array.isArray(data.profile_url) && data.profile_url.length > 0 ? (
+                    <Field
+                      title="Socials"
+                      desc={
+                        <div className="flex justify-center md:justify-end gap-2">
+                          {data.profile_url.map((arr, index) => {
+                            return <Links key={index} img={arr.platform} href={arr.url} />;
+                          })}
+                        </div>
+                      }
+                    />
+                  ) : null}
                 </div>
               </div>
             </div>

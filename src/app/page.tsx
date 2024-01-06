@@ -38,7 +38,7 @@ export default function Home() {
           width={850}
           height={850}
         />
-        <img src="/image/bg2.svg" className="absolute bottom-[-4vh] right-0" alt="" />
+        <img src="/image/bg2.svg" className="absolute bottom-[-4vh] right-0 -z-10" alt="" />
       </section>
 
       <div className="w-screen h-fit mt-16 py-14 bg-sectorsBG object-cover text-center">
@@ -88,7 +88,7 @@ export default function Home() {
           <HashtechPosts
             title="Firewall"
             desc="A security system set up on the network which monitors and controls incoming and outgoing traffic based on predetermined security protocols is called firewall..."
-            imageURL="https://scontent.fdac142-1.fna.fbcdn.net/v/t39.30808-6/411683470_994353095416222_7206788424372546186_n.jpg?_nc_cat=103&ccb=1-7&_nc_sid=3635dc&_nc_ohc=zZ5u_yiF2iUAX8t6Ypu&_nc_oc=AQmYsb3uHQtRTLiAqJ-IfYqdv18tW5vyV4WUJAvybXJNK4pf8eaExigCDdYA1GD5KZQ&_nc_ht=scontent.fdac142-1.fna&oh=00_AfBZ1wv1XrFPRGitQn-UY5kdQRP7YMPF6tlWn-Ns8B7FRA&oe=658C0802"
+            imageURL="https://scontent.frjh4-1.fna.fbcdn.net/v/t39.30808-6/411683470_994353095416222_7206788424372546186_n.jpg?_nc_cat=103&ccb=1-7&_nc_sid=3635dc&_nc_ohc=cakM_T0W75sAX8unv_c&_nc_ht=scontent.frjh4-1.fna&oh=00_AfAjeuPLalzFH6CnmEcUbyv59KEJQSFN0ZDF3TzVSLK17Q&oe=659DD442"
             redirectUrl="https://www.facebook.com/photo/?fbid=994363988748466&set=a.762348471950020"
           />
           <HashtechPosts

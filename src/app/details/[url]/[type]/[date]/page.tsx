@@ -2,9 +2,28 @@ import React from 'react';
 import Image from 'next/image';
 import Link from 'next/link';
 import { MdOutlineDateRange } from 'react-icons/md';
-const Page = async ({ params }: { params: { url: string; type: string; date: number } }) => {
-  const res = await fetch(decodeURIComponent(params.url));
-  const data = await res.json();
+import { notFound } from 'next/navigation';
+
+type ParamType = { url: string; type: string; date: number };
+
+const fetchData = async (params: ParamType) => {
+  try {
+    const res = await fetch(decodeURIComponent(params.url));
+    console.log(res);
+    if (!res.ok) {
+      notFound();
+    } else {
+      const data = await res.json();
+      return data;
+    }
+  } catch (err) {
+    console.error(err);
+    notFound();
+  }
+};
+
+const Page = async ({ params }: { params: ParamType }) => {
+  const data = await fetchData(params);
   const DateData = new Date(params.date * 1000);
 
   return (
@@ -18,12 +37,12 @@ const Page = async ({ params }: { params: { url: string; type: string; date: num
               </Link>
 
               <h1 className="text-4xl  2xl:text-5xl ">{data.title}</h1>
-              {data.subtitle ? <p>{data.subtitle}</p> : null}
-              <p className="line-clamp-5 flex justify-start items-center">
-                <MdOutlineDateRange className={'mr-2 w-6 h-6'} />
+              <p className="line-clamp-5  font-semibold flex justify-start items-center">
+                <MdOutlineDateRange className={'mr-2 w-6 h-6 '} />
 
                 {DateData.toDateString()}
               </p>
+              {data.subtitle ? <p>{data.subtitle}</p> : null}
               {data?.action ? (
                 <div className="pb-5 flex gap-3 flex-col md:flex-row items-start">
                   <a
