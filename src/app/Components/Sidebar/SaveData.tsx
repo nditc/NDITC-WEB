@@ -2,7 +2,6 @@
 
 import Link from "next/link";
 import { useEffect, useState } from "react";
-import { IoIosNotifications } from "react-icons/io";
 
 const SaveData = ({ data }: { data: any }) => {
   const [isNew, setIsNew] = useState(false);
@@ -21,7 +20,6 @@ const SaveData = ({ data }: { data: any }) => {
     } else {
       setIsNew(true);
     }
-    console.log(isNew);
   }, [NewNotification]);
 
   return (
@@ -32,7 +30,16 @@ const SaveData = ({ data }: { data: any }) => {
       }}
       className="transition-all rounded-full bg-white shadow-[5px_5px_20px_15px_#00000024] p-1"
     >
-      <Link href="/notifications" className="text-black mt-2 relative">
+      <Link
+        href={
+          isNew
+            ? `/notifications/details/${encodeURIComponent(
+                data[0].details_url
+              )}`
+            : "/notifications"
+        }
+        className="text-black mt-2 relative"
+      >
         {isNew && (
           <div className="w-3 h-3 bg-red-700 rounded-full absolute right-0 top-0" />
         )}
