@@ -13,8 +13,7 @@ const Timeline = () => {
       title: "Our journey began",
       description:
         "Born in 2018, NDITC sprouted at Notre Dame College to nurture tech talent and bridge the gap between knowledge and innovation.",
-      imgURL:
-        "https://scontent.fdac142-1.fna.fbcdn.net/v/t1.6435-9/34069156_196383591182434_2754192450514845696_n.jpg?_nc_cat=105&ccb=1-7&_nc_sid=300f58&_nc_ohc=CDq7f7v8APoAX86DHFF&_nc_ht=scontent.fdac142-1.fna&oh=00_AfDrWbMyYt97YKUXs0I1jaee25yQPp8NohWyOyNkKEQ5UQ&oe=65C0701E",
+      imgURL: "/image/timeline/1.jpg",
     },
     {
       time1: "2018",
@@ -22,7 +21,7 @@ const Timeline = () => {
       title: "College Robotics Contest Winner",
       description:
         "Our first achievement came when we won the 1st robotics competition for college organized by campusbd.net with a price of 1 lakh taka.",
-      imgURL: "/Timeline.png",
+      imgURL: "/image/timeline/Timeline.png",
     },
     {
       time1: "2018",
@@ -30,16 +29,14 @@ const Timeline = () => {
       title: "INIT 2018: Our very first national event",
       description:
         "We successfully organized our first event ``NDITC_init 2018`` with 11 different segments.",
-      imgURL:
-        "https://scontent.fdac27-1.fna.fbcdn.net/v/t1.6435-9/47213039_329585844528874_4244135400274132992_n.jpg?_nc_cat=104&ccb=1-7&_nc_sid=4dc865&_nc_eui2=AeFwIa948mxFTMCZ3HbRfc7kz9DPXwl7DyjP0M9fCXsPKNbdtH2ZhTEcQJlt9MriO0xpWcn1nU16dV94XsbpvIwa&_nc_ohc=JocY97aqD_cAX-_EV_O&_nc_ht=scontent.fdac27-1.fna&oh=00_AfBxTvZwYtMgzinsILtmKt4jWWjeUiLtHOPKyk7dQRoYnw&oe=65B31286",
+      imgURL: "/image/timeline/3.jpg",
     },
     {
       time1: "2019",
       time2: "09 Aug",
       title: "Tinker, First non-human member, was born",
       description: "The first robot of our club.",
-      imgURL:
-        "https://scontent.fdac142-1.fna.fbcdn.net/v/t1.6435-9/67924877_475030843317706_7015976674567127040_n.jpg?_nc_cat=103&ccb=1-7&_nc_sid=7f8c78&_nc_eui2=AeEJi_5q71EwMWYUZJF7qR6zNd8PHDgJC1A13w8cOAkLUAnzBup2clzSbhA_Ky8G1dimeMF9tJRbDQCIDg8cOLai&_nc_ohc=xDi21Cw1pTQAX_qDZad&_nc_ht=scontent.fdac142-1.fna&oh=00_AfCSu7MCg5MsRUN_XDRbu4gKvzhPaV5Xw2x6Aj-c2_sm-Q&oe=65B31D8A",
+      imgURL: "/image/timeline/4.jpg",
     },
     {
       time1: "2023",
@@ -47,8 +44,7 @@ const Timeline = () => {
       title: "Our AI project, EVYA.AI",
       description:
         "Our R&D team developed a Face Recognition application for our AI project named ‘EVYA.AI’ using the Python programming language.",
-      imgURL:
-        "https://scontent.fdac142-1.fna.fbcdn.net/v/t39.30808-6/339662794_548865080666633_4038810144068896006_n.jpg?_nc_cat=100&ccb=1-7&_nc_sid=3635dc&_nc_ohc=uFASoaXb6r8AX-oJg8v&_nc_ht=scontent.fdac142-1.fna&oh=00_AfAb8wsMPJcdYPu6ysSAoLZQcny-CPPjPXPTbTN2FgJN3A&oe=659D6CAB",
+      imgURL: "/image/timeline/5.jpg",
     },
     {
       time1: "2023",
@@ -56,8 +52,7 @@ const Timeline = () => {
       title: "Publishing First Monthly Newsletter",
       description:
         "In order to keep ourselves updated about our club activities, trending tech stories and sharing resources, we published our first monthly newsletter ``Code Compass``.",
-      imgURL:
-        "https://scontent.fdac142-1.fna.fbcdn.net/v/t39.30808-6/347107110_194740690126915_4846416508705261757_n.jpg?_nc_cat=110&ccb=1-7&_nc_sid=dd5e9f&_nc_ohc=qXip-96HtccAX-DClwI&_nc_ht=scontent.fdac142-1.fna&oh=00_AfCuv5OlVVcPcTl6lfX9b8p0_sK1Y6KwhVpBx4b88RUd_w&oe=659F0A6F",
+      imgURL: "/image/timeline/6.jpg",
     },
     {
       time1: "2023",
@@ -65,8 +60,7 @@ const Timeline = () => {
       title: "Official Android app was launched",
       description:
         "We published an android application to attend many club purposes.",
-      imgURL:
-        "https://scontent.fdac142-1.fna.fbcdn.net/v/t39.30808-6/403857163_310805355145661_5612467512012240365_n.jpg?_nc_cat=109&ccb=1-7&_nc_sid=c42490&_nc_ohc=fOAUTFikSusAX9Tzmh_&_nc_ht=scontent.fdac142-1.fna&oh=00_AfBi_8MOko0UT0dSeWXohoAZ3crqxOTtc-fMz-fHxi3SMg&oe=659D462A",
+      imgURL: "/image/timeline/7.jpg",
     },
     {
       time1: "2023",
@@ -74,8 +68,7 @@ const Timeline = () => {
       title: "First wall magazine",
       description:
         "We launched our first wall magazine at the fresher's ceremony",
-      imgURL:
-        "https://scontent.fdac142-1.fna.fbcdn.net/v/t39.30808-6/407638320_982471246604407_6908868430944244848_n.jpg?_nc_cat=103&ccb=1-7&_nc_sid=a73e89&_nc_ohc=uOrMPusrEhkAX_VgV6G&_nc_ht=scontent.fdac142-1.fna&oh=00_AfAsUge4IidsflFHZ0yeYnf96XK83jrBAsReWEcjtM_r_w&oe=659E14E1",
+      imgURL: "/image/timeline/8.jpg",
     },
   ];
 
