@@ -44,23 +44,27 @@ const Activities = async ({
   return (
     <div className="w-screen bg-[#F6F6F6]">
       <img src="/image/bg2.svg" className="absolute top-1/4 right-0 z-0" alt=""></img>
-      <div className="container pt-32 py-10 flex flex-col items-center gap-5 sm:gap-10 z-10 bg-transparent relative">
-        <div className="flex gap-3 items-end justify-center self-start md:justify-start">
-          <h1 className="text-3xl md:text-5xl pb-1">UPCOMING</h1>
-          <h1 className="text-5xl md:text-7xl text-blue-500">EVENT</h1>
-        </div>
-        <section className="w-full h-fit">
-          <Upcoming
-            title={upcoming[0].title}
-            description={upcoming[0].short_description}
-            actionButtonTitle1="Register"
-            actionButtonTitle2="Learn More"
-            actionButtonRedirect1=""
-            actionButtonRedirect2=""
-            image={upcoming[0].image_url}
-            timestamp={upcoming[0].timestamp}
-          />
-        </section>
+      <div className="container pt-32 py-10 flex flex-col items-center  mb-5 gap-5 sm:gap-10 z-10 bg-transparent relative">
+        {Array.isArray(upcoming) && upcoming?.length > 0 && upcoming ? (
+          <>
+            <div className="flex gap-3 items-end justify-center self-start md:justify-start">
+              <h1 className="text-3xl md:text-5xl pb-1">UPCOMING</h1>
+              <h1 className="text-5xl md:text-7xl text-blue-500">EVENT</h1>
+            </div>
+            <section className="w-full h-fit">
+              <Upcoming
+                title={upcoming[0].title}
+                description={upcoming[0].short_description}
+                actionButtonTitle1="Register"
+                actionButtonTitle2="Learn More"
+                actionButtonRedirect1=""
+                actionButtonRedirect2=""
+                image={upcoming[0].image_url}
+                timestamp={upcoming[0].timestamp}
+              />
+            </section>
+          </>
+        ) : null}
         <EventsList data={events} />
         <CodeCompass />
       </div>

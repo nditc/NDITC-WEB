@@ -12,7 +12,7 @@ const Navbar = () => {
   const Route = usePathname();
   const Params = useSearchParams();
   const navRef = useRef<HTMLElement>(null);
-  const [windowWidth, setWindowWidth] = useState(768);
+  const [windowWidth, setWindowWidth] = useState(800);
 
   useEffect(() => {
     const stateHandler = () => {
@@ -91,9 +91,9 @@ const Navbar = () => {
               >
                 <path
                   stroke="currentColor"
-                  stroke-linecap="round"
-                  stroke-linejoin="round"
-                  stroke-width="2"
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                  strokeWidth="2"
                   d="M1 1h15M1 7h15M1 13h15"
                 />
               </svg>
@@ -106,7 +106,7 @@ const Navbar = () => {
           }}
           className={`items-center justify-between bg-white w-screen md:flex z-30  md:w-auto md:order-1 transition ${
             showOptions || windowWidth > 768 ? 'scale-y-100 ' : 'scale-y-0 pointer-events-none'
-          } ${windowWidth <= 768 ? 'fixed top-[81px] pb-5 left-0 border-b border-gray-200' : ''}`}
+          } ${windowWidth <= 768 ? 'fixed top-[72px] pb-5 left-0 border-b border-gray-200' : ''}`}
           id="navbar-sticky"
         >
           <ul className="flex flex-col gap-1 container  p-4 md:p-0 mt-4 font-medium border border-gray-100 rounded-lg bg-gray-50 md:space-x-8 rtl:space-x-reverse md:flex-row md:mt-0 md:border-0 md:bg-white">

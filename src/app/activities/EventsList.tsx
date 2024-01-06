@@ -37,13 +37,15 @@ const EventsList = ({ data }: { data: any[] }) => {
   }, [type]);
 
   return (
-    <section className="w-full mt-5">
+    <section className="w-full">
       <div className="flex gap-3 mb-9 flex-wrap w-full">
         <Link
           href="/activities?type=event&scroll=true"
           type="button"
-          className={`bg-white  font-Nunito font-bold -gray-300 focus:outline-none hover:bg-gray-100 focus:ring-4 focus:ring-gray-200 rounded-xl text-sm px-5 py-2.5 me-2 mb-2 shadow-[5px_5px_21px_7px_#00000024] transition-colors  ${
-            type == 'event' ? 'text-blue-500' : 'text-black'
+          className={` shadow-[5px_5px_21px_7px_#00000024]  font-Nunito font-bold -gray-300 focus:outline-none hover:bg-blue-50 hover:text-blue-500 focus:ring-4 focus:ring-gray-200 rounded-xl text-sm md:text-base px-5 py-2.5 me-2 mb-2  transition-colors  ${
+            type == 'event'
+              ? 'bg-blue-500 text-white shadow-[5px_5px_21px_7px_#00000024]'
+              : 'bg-white text-black'
           }`}
         >
           Events
@@ -51,8 +53,10 @@ const EventsList = ({ data }: { data: any[] }) => {
         <Link
           href="/activities?type=workshop&scroll=true"
           type="button"
-          className={`bg-white  font-Nunito font-bold -gray-300 focus:outline-none hover:bg-gray-100 focus:ring-4 focus:ring-gray-200 rounded-xl text-sm px-5 py-2.5 me-2 mb-2 shadow-[5px_5px_21px_7px_#00000024] transition-colors  ${
-            type == 'workshop' ? 'text-blue-500' : 'text-black'
+          className={`shadow-[5px_5px_21px_7px_#00000024] font-Nunito font-bold -gray-300 focus:outline-none hover:bg-blue-50 hover:text-blue-500 focus:ring-4 focus:ring-gray-200 rounded-xl text-sm md:text-base px-5 py-2.5 me-2 mb-2  transition-colors  ${
+            type == 'workshop'
+              ? 'bg-blue-500 text-white shadow-[5px_5px_21px_7px_#00000024]'
+              : 'bg-white text-black'
           }`}
         >
           Workshop
@@ -61,8 +65,10 @@ const EventsList = ({ data }: { data: any[] }) => {
         <Link
           href="/activities?type=project&scroll=true"
           type="button"
-          className={`bg-white  font-Nunito font-bold -gray-300 focus:outline-none hover:bg-gray-100 focus:ring-4 focus:ring-gray-200 rounded-xl text-sm px-5 py-2.5 me-2 mb-2 shadow-[5px_5px_21px_7px_#00000024] transition-colors  ${
-            type == 'project' ? 'text-blue-500' : 'text-black'
+          className={` shadow-[5px_5px_21px_7px_#00000024] font-Nunito font-bold -gray-300 focus:outline-none hover:bg-blue-50 hover:text-blue-500 focus:ring-4 focus:ring-gray-200 rounded-xl text-sm md:text-base px-5 py-2.5 me-2 mb-2  transition-colors  ${
+            type == 'project'
+              ? 'bg-blue-500 text-white shadow-[5px_5px_21px_7px_#00000024]'
+              : 'bg-white text-black'
           }`}
         >
           Projects
@@ -71,8 +77,10 @@ const EventsList = ({ data }: { data: any[] }) => {
         <Link
           href="/activities?type=publication&scroll=true"
           type="button"
-          className={`bg-white  font-Nunito font-bold -gray-300 focus:outline-none active:outline-none hover:bg-gray-100 focus:ring-4 focus:ring-gray-200 rounded-xl text-sm px-5 py-2.5 me-2 mb-2 shadow-[5px_5px_21px_7px_#00000024] transition-colors  ${
-            type == 'publication' ? 'text-blue-500' : 'text-black'
+          className={` shadow-[5px_5px_21px_7px_#00000024]  font-Nunito font-bold -gray-300 focus:outline-none active:outline-none hover:bg-blue-50 hover:text-blue-500 focus:ring-4 focus:ring-gray-200 rounded-xl text-sm md:text-base px-5 py-2.5 me-2 mb-2  transition-colors  ${
+            type == 'publication'
+              ? 'bg-blue-500 text-white shadow-[5px_5px_21px_7px_#00000024]'
+              : 'bg-white text-black'
           }`}
         >
           Publication
