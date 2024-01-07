@@ -37,7 +37,7 @@ const Sections = [
           </p>
         </div>
         <h1 className="text-4xl md:text-5xl mb-5">
-          Our<span className="text-blue-500"> Achievments</span>
+          Our<span className="text-blue-500"> Achievements</span>
         </h1>
         <div className="flex flex-col lg:flex-row gap-4 md:gap-8 mb-10">
           <Timeline />
