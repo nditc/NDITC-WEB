@@ -7,6 +7,7 @@ import ExecutiveData from '../../db/executives';
 import Modal from './Modal';
 import Member from './Member';
 import { useRouter } from 'next/navigation';
+import { profile } from 'console';
 
 const ExecutivePanel = ({
   setModalState,
@@ -53,23 +54,46 @@ const ExecutivePanel = ({
       <div className=" grid-fluid-fill-[280px] md:grid-fluid-fill-[200px] 2xl:grid-fluid-fill-[250px]  items-start justify-items-start md:justify-items-stretch gap-8 2xl:gap-10  grow md:pl-10">
         {ExecutiveData.sessions[state].members.map(
           ({ image_url, imageInCenter, name, post, dept, profile_url }, index) => (
-            <a href={profile_url} key="" target="_blank">
-              {/* <
-              key=""
-              onClick={() => {
-                // setModalState([state, index]);
-                Router.push(profile_url || '/', {});
-              }}
-            > //for later use */}
-              <Member
-                hasClickHandler={true}
-                img={image_url}
-                imgInCenter={imageInCenter}
-                name={name}
-                designation={post}
-                department={dept}
-              />
-            </a>
+            <>
+              {ExecutiveData.sessions[state].hasExtraDetails ? (
+                <div
+                  key=""
+                  onClick={() => {
+                    setModalState([state, index]);
+                  }}
+                >
+                  <Member
+                    hasClickHandler={true}
+                    img={image_url}
+                    imgInCenter={imageInCenter}
+                    name={name}
+                    designation={post}
+                    department={dept}
+                  />
+                </div>
+              ) : (
+                <a
+                  href={
+                    typeof profile_url === 'string' && profile_url !== ''
+                      ? profile_url
+                      : profile_url
+                      ? profile_url[0].url
+                      : '/not-found'
+                  }
+                  key=""
+                  target="_blank"
+                >
+                  <Member
+                    hasClickHandler={true}
+                    img={image_url}
+                    imgInCenter={imageInCenter}
+                    name={name}
+                    designation={post}
+                    department={dept}
+                  />
+                </a>
+              )}
+            </>
           )
         )}
       </div>
