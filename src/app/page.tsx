@@ -34,7 +34,7 @@ export default function Home() {
         <Image
           src={'/HeroImg.png'}
           alt={'Image'}
-          className="relative aspect-square md:-mt-12 md:-ml-6 xl:ml-0 lg:mt-0 object-contain max-h-[87vh] object-right 2xl:max-h-[82vh] md:-mr-6 max-w-[95vw] sm:max-w-[80vw] md:max-w-[55vw] order-1 md:order-2"
+          className="relative aspect-square md:-mt-12 md:-ml-6 xl:ml-0 lg:mt-0 object-contain max-h-[87vh] md:object-right 2xl:max-h-[82vh] md:-mr-6 max-w-[95vw] sm:max-w-[80vw] md:max-w-[55vw] order-1 md:order-2"
           width={850}
           height={850}
         />
