@@ -42,10 +42,10 @@ const EventsList = ({ data }: { data: any[] }) => {
         <Link
           href="/activities?type=event&scroll=true"
           type="button"
-          className={` shadow-[5px_5px_21px_7px_#00000024]  font-Nunito font-bold -gray-300 focus:outline-none hover:bg-blue-50 hover:text-blue-500 focus:ring-4 focus:ring-gray-200 rounded-xl text-sm md:text-base px-5 py-2.5 me-2 mb-2  transition-colors  ${
+          className={` shadow-[5px_5px_21px_7px_#00000024]  font-Nunito font-bold -gray-300 focus:outline-none focus:ring-4 focus:ring-gray-200 rounded-xl text-sm md:text-base px-5 py-2.5 me-2 mb-2  transition-colors  ${
             type == 'event'
-              ? 'bg-blue-500 text-white shadow-[5px_5px_21px_7px_#00000024]'
-              : 'bg-white text-black'
+              ? 'bg-blue-500 hover:bg-blue-600 hover:text-white  text-white shadow-[5px_5px_21px_7px_#00000024]'
+              : 'bg-white text-black hover:bg-blue-100 hover:text-blue-500'
           }`}
         >
           Events
@@ -53,10 +53,10 @@ const EventsList = ({ data }: { data: any[] }) => {
         <Link
           href="/activities?type=workshop&scroll=true"
           type="button"
-          className={`shadow-[5px_5px_21px_7px_#00000024] font-Nunito font-bold -gray-300 focus:outline-none hover:bg-blue-50 hover:text-blue-500 focus:ring-4 focus:ring-gray-200 rounded-xl text-sm md:text-base px-5 py-2.5 me-2 mb-2  transition-colors  ${
+          className={`shadow-[5px_5px_21px_7px_#00000024] font-Nunito font-bold -gray-300 focus:outline-none focus:ring-4 focus:ring-gray-200 rounded-xl text-sm md:text-base px-5 py-2.5 me-2 mb-2  transition-colors  ${
             type == 'workshop'
-              ? 'bg-blue-500 text-white shadow-[5px_5px_21px_7px_#00000024]'
-              : 'bg-white text-black'
+              ? 'bg-blue-500 hover:bg-blue-600 hover:text-white  text-white shadow-[5px_5px_21px_7px_#00000024]'
+              : 'bg-white text-black hover:bg-blue-100 hover:text-blue-500'
           }`}
         >
           Workshop
@@ -65,10 +65,10 @@ const EventsList = ({ data }: { data: any[] }) => {
         <Link
           href="/activities?type=project&scroll=true"
           type="button"
-          className={` shadow-[5px_5px_21px_7px_#00000024] font-Nunito font-bold -gray-300 focus:outline-none hover:bg-blue-50 hover:text-blue-500 focus:ring-4 focus:ring-gray-200 rounded-xl text-sm md:text-base px-5 py-2.5 me-2 mb-2  transition-colors  ${
+          className={` shadow-[5px_5px_21px_7px_#00000024] font-Nunito font-bold -gray-300 focus:outline-none focus:ring-4 focus:ring-gray-200 rounded-xl text-sm md:text-base px-5 py-2.5 me-2 mb-2  transition-colors  ${
             type == 'project'
-              ? 'bg-blue-500 text-white shadow-[5px_5px_21px_7px_#00000024]'
-              : 'bg-white text-black'
+              ? 'bg-blue-500 hover:bg-blue-600 hover:text-white  text-white shadow-[5px_5px_21px_7px_#00000024]'
+              : 'bg-white text-black hover:bg-blue-100 hover:text-blue-500'
           }`}
         >
           Projects
@@ -77,10 +77,10 @@ const EventsList = ({ data }: { data: any[] }) => {
         <Link
           href="/activities?type=publication&scroll=true"
           type="button"
-          className={` shadow-[5px_5px_21px_7px_#00000024]  font-Nunito font-bold -gray-300 focus:outline-none active:outline-none hover:bg-blue-50 hover:text-blue-500 focus:ring-4 focus:ring-gray-200 rounded-xl text-sm md:text-base px-5 py-2.5 me-2 mb-2  transition-colors  ${
+          className={` shadow-[5px_5px_21px_7px_#00000024]  font-Nunito font-bold -gray-300 focus:outline-none active:outline-none focus:ring-4 focus:ring-gray-200 rounded-xl text-sm md:text-base px-5 py-2.5 me-2 mb-2  transition-colors  ${
             type == 'publication'
-              ? 'bg-blue-500 text-white shadow-[5px_5px_21px_7px_#00000024]'
-              : 'bg-white text-black'
+              ? 'bg-blue-500 hover:bg-blue-600 hover:text-white  text-white shadow-[5px_5px_21px_7px_#00000024]'
+              : 'bg-white text-black hover:bg-blue-100 hover:text-blue-500'
           }`}
         >
           Publication

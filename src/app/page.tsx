@@ -10,17 +10,17 @@ export default function Home() {
   return (
     <main className="flex container mx-auto flex-col items-center justify-center bg-transparent">
       <section className="relative w-full min-h-screen flex flex-col md:flex-row justify-center md:justify-between items-center gap-5 md:gap-0 pt-[75px] over">
-        <div className="flex flex-col items-center md:items-start md:gap-1 order-2 md:order-1">
-          <h1 className="tracking-widest text-5xl lg:text-6xl  font-medium text-center md:text-left">
+        <div className="flex flex-col md:max-w-[40vw] lg:max-w-[35vw] items-center md:items-start md:gap-1 order-2 md:order-1">
+          <h1 className="tracking-wide lg:tracking-widest text-5xl 2xl:text-6xl w-fit  font-medium text-center md:text-left">
             JOIN THE
           </h1>
-          <h1 className="tracking-widest text-5xl lg:text-6xl  font-medium text-center md:text-left">
+          <h1 className="tracking-wide lg:tracking-widest text-5xl 2xl:text-6xl  font-medium text-center md:text-left">
             COMMUNITY OF
           </h1>
-          <h1 className="tracking-widest text-5xl lg:text-6xl  font-medium text-center md:text-left text-blue-600">
+          <h1 className="tracking-wide lg:tracking-widest text-5xl 2xl:text-6xl  font-medium text-center md:text-left text-blue-500">
             TECH ENTHUSIASTS
           </h1>
-          <p className="mt-3 text-lg 2xl:text-[1.375rem] break-words w-[70vw] md:w-[30vw] text-center md:text-left">
+          <p className="mt-3 text-lg 2xl:text-[1.375rem] break-words w-[85vw] md:w-fit text-center md:text-left">
             Connect with like-minded individuals and expand your knowledge in computer, programming,
             robotics, and design. Let's be the best together
           </p>
@@ -32,9 +32,9 @@ export default function Home() {
           </Link>
         </div>
         <Image
-          src={'/BigImg.png'}
+          src={'/HeroImg.png'}
           alt={'Image'}
-          className="relative aspect-square object-contain max-h-[87.5vh] md:mr-[-10vw] max-w-[95vw] sm:max-w-[80vw] md:max-w-[55vw] order-1 md:order-2"
+          className="relative aspect-square md:-mt-12 md:-ml-6 xl:ml-0 lg:mt-0 object-contain max-h-[87vh] object-right 2xl:max-h-[82vh] md:-mr-6 max-w-[95vw] sm:max-w-[80vw] md:max-w-[55vw] order-1 md:order-2"
           width={850}
           height={850}
         />

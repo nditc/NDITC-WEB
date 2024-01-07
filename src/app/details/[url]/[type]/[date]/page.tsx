@@ -25,6 +25,8 @@ const fetchData = async (params: ParamType) => {
 const Page = async ({ params }: { params: ParamType }) => {
   const data = await fetchData(params);
   const DateData = new Date(params.date * 1000);
+  const titleArray = data.title.split(' ');
+  const firstPart = titleArray.splice(0, 1) + ' ';
 
   return (
     <div className="w-screen bg-[#F6F6F6]">
@@ -36,9 +38,12 @@ const Page = async ({ params }: { params: ParamType }) => {
                 <h1 className="text-2xl pt-5 underline hover:text-blue-500">{params.type}&gt;</h1>
               </Link>
 
-              <h1 className="text-4xl  2xl:text-5xl ">{data.title}</h1>
+              <h1 className="text-4xl  2xl:text-5xl ">
+                <span className="text-blue-500">{firstPart}</span>
+                {titleArray.join(' ')}
+              </h1>
               <p className="line-clamp-5  font-semibold flex justify-start items-center">
-                <MdOutlineDateRange className={'mr-2 w-6 h-6 '} />
+                <MdOutlineDateRange className={'mr-2 w-6 h-6 text-blue-500'} />
 
                 {DateData.toDateString()}
               </p>
@@ -48,7 +53,7 @@ const Page = async ({ params }: { params: ParamType }) => {
                   <a
                     href={data.action.target}
                     target="_blank"
-                    className="Bebas inline-block cursor-pointer text-xl py-2 font-Bebas px-7 font-medium text-whiterounded-lg border focus:z-10 focus:ring-4  focus:ring-gray-700 bg-black text-white border-gray-600 hover:text-white hover:bg-zinc-700 rounded-lg"
+                    className="Bebas inline-block cursor-pointer text-xl py-2 font-Bebas px-7 font-medium text-whiterounded-lg border-2 focus:z-10 focus:ring-4  focus:ring-gray-700 bg-black text-white border-black hover:text-white hover:bg-zinc-700 hover:border-zinc-700 rounded-lg"
                   >
                     {data.action.label}
                   </a>
