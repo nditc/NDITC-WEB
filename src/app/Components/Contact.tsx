@@ -1,7 +1,7 @@
-'use client';
+"use client";
 
-import { useEffect, useRef, useState } from 'react';
-import { IoIosCloseCircleOutline } from 'react-icons/io';
+import { useEffect, useRef, useState } from "react";
+import { IoIosCloseCircleOutline } from "react-icons/io";
 
 const Contact = () => {
   const [sending, setSending] = useState(false);
@@ -21,15 +21,15 @@ const Contact = () => {
     const formData = new FormData(event.target);
 
     try {
-      const response = await fetch('/api/contact', {
-        method: 'post',
+      const response = await fetch("/api/contact", {
+        method: "post",
         body: formData,
       });
 
       formRef.current?.reset();
 
       if (!response.ok) {
-        console.log('falling over');
+        console.log("falling over");
         throw new Error(`response status: ${response.status}`);
       }
 
@@ -39,7 +39,7 @@ const Contact = () => {
       setShowingModal(true);
     } catch (err) {
       console.error(err);
-      alert('Error, please try resubmitting the form');
+      alert("Error, please try resubmitting the form");
     }
   }
 
@@ -49,7 +49,7 @@ const Contact = () => {
         <dialog
           ref={dialogRef}
           className={`w-[90%] ${
-            showingModal ? 'z-30' : '-z-30'
+            showingModal ? "z-30" : "-z-30"
           } h-[90%] md:w-96 md:h-56 rounded-xl flex flex-col items-center justify-center`}
         >
           {showingModal && (
@@ -90,7 +90,9 @@ const Contact = () => {
                 <h1 className="text-5xl mb-5 text-center md:text-left text-blue-500">
                   GET IN TOUCH
                 </h1>
-                <h1 className="text-5xl mb-5 text-center md:text-left">WITH US</h1>
+                <h1 className="text-5xl mb-5 text-center md:text-left">
+                  WITH US
+                </h1>
               </div>
               <div className="mb-6 w-full md:max-w-[550px]">
                 <label
@@ -169,9 +171,9 @@ const Contact = () => {
               ) : (
                 <button
                   type="submit"
-                  className="text-white w-44 bg-gray-800 hover:bg-gray-900 focus:outline-none focus:ring-4 focus:ring-gray-300 font-medium rounded-lg text-sm px-5 py-2.5 me-2 mb-2"
+                  className="before:ease relative flex items-center justify-center overflow-hidden shadow-2xl transition-all before:absolute before:top-1/2 before:h-0 before:w-64 before:origin-center before:-translate-x-20 before:rotate-45 before:bg-blue-500 before:duration-300 hover:shadow-blue-500 hover:before:h-64 hover:before:-translate-y-32  text-white w-44 bg-gray-800 focus:outline-none focus:ring-4 focus:ring-gray-300 font-medium rounded-lg text-sm px-5 py-2.5 me-2 mb-2"
                 >
-                  Send my message
+                  <span className="relative z-10">Send my message</span>
                 </button>
               )}
             </form>
