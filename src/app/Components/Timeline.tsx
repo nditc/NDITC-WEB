@@ -91,9 +91,9 @@ const Timeline = () => {
   }, [selectedIndex]);
 
   return (
-    <section className="h-96 w-full mt-28 mb-32  flex justify-center">
-      <div className="flex gap-5">
-        <div className="h-full flex flex-col flex-1 justify-center gap-5">
+    <section className="h-96 w-full mt-28 mb-32  flex flex-col md:flex-row justify-center">
+      <div className="flex flex-col md:flex-row gap-5">
+        <div className="h-full flex flex-row md:flex-col flex-1 justify-center gap-5">
           {timelineData.map((e, i) => {
             return (
               <Time
@@ -107,7 +107,7 @@ const Timeline = () => {
             );
           })}
         </div>
-        <div className="w-1 h-full bg-gray-400 rounded-3xl gradient-mask-t-90-d" />
+        <div className="h-1 w-full md:w-1 md:h-full bg-gray-400 rounded-3xl md:gradient-mask-t-90-d hidden md:flex" />
       </div>
 
       <div className="flex-[10] flex justify-center items-center relative">
@@ -117,7 +117,7 @@ const Timeline = () => {
               setSelectedIndex(selectedIndex - 1);
             }
           }}
-          className={`w-10 h-10 cursor-pointer absolute -top-16 transition-all ${
+          className={`w-10 h-10 cursor-pointer absolute -left-4 -rotate-90 md:left-auto md:rotate-0 md:-top-16 transition-all ${
             selectedIndex > 0
               ? "scale-110 hover:scale-150"
               : "text-gray-500 scale-90"
@@ -129,12 +129,13 @@ const Timeline = () => {
               setSelectedIndex(selectedIndex + 1);
             }
           }}
-          className={`w-10 h-10 cursor-pointer absolute -bottom-16 transition-all ${
+          className={`w-10 h-10 cursor-pointer absolute -right-4 -rotate-90 md:right-auto md:rotate-0 md:-bottom-16 transition-all ${
             selectedIndex < timelineData.length - 1
               ? "scale-110 hover:scale-150"
               : "text-gray-500 scale-90"
           }`}
         />
+
         <div className="h-[90%] w-[90%] bg-white rounded-xl shadow-[020px_20px_20px_10px_#00000024] flex flex-col md:flex-row items-center justify-center gap-5 px-[1rem]">
           <div className="gap-5 flex-col">
             <h1 className="text-3xl md:text-5xl text-left">{currentTitle}</h1>
@@ -172,7 +173,9 @@ const Time = ({
 }) => {
   return (
     <div
-      className="relative cursor-pointer"
+      className={`relative cursor-pointer ${
+        current ? "" : "hidden"
+      } md:flex mb-1 md:mb-0`}
       onClick={() => {
         setCurrentAsSelected(index);
       }}
@@ -195,7 +198,7 @@ const Time = ({
       </div>
 
       <div
-        className={`transition-all duration-300 w-5 h-5 rounded-full absolute bg-blue-500 z-10 left-[3.25rem] top-[50%] -translate-y-[50%] flex items-center justify-center shadow-[5px_5px_20px_10px_#00000024] ${
+        className={`hidden transition-all duration-300 w-5 h-5 rounded-full absolute bg-blue-500 z-10 left-[50%] -translate-x-[50%] top-[4.25rem] md:translate-x-0 md:left-[3.25rem] md:top-[50%] md:-translate-y-[50%] md:flex items-center justify-center shadow-[5px_5px_20px_10px_#00000024] ${
           current ? "scale-100" : "scale-0"
         }`}
       >
