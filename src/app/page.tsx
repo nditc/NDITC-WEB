@@ -1,10 +1,10 @@
-import Image from 'next/image';
-import Contact from './Components/Contact';
-import ActivityCards from './Components/ActivityCards';
-import HashtechPosts from './Components/HashtechPosts';
-import SnapScroller from './Components/Utilities/SnapScroller';
-import Link from 'next/link';
-import CodeCompass from './Components/NewsLAndApp';
+import Image from "next/image";
+import Contact from "./Components/Contact";
+import ActivityCards from "./Components/ActivityCards";
+import HashtechPosts from "./Components/HashtechPosts";
+import SnapScroller from "./Components/Utilities/SnapScroller";
+import Link from "next/link";
+import CodeCompass from "./Components/NewsLAndApp";
 
 export default function Home() {
   return (
@@ -21,28 +21,35 @@ export default function Home() {
             TECH ENTHUSIASTS
           </h1>
           <p className="mt-3 text-lg 2xl:text-[1.375rem] break-words w-[70vw] md:w-[30vw] text-center md:text-left">
-            Connect with like-minded individuals and expand your knowledge in computer, programming,
-            robotics, and design. Let's be the best together
+            Connect with like-minded individuals and expand your knowledge in
+            computer, programming, robotics, and design. Let's be the best
+            together
           </p>
           <Link
             href="/about"
-            className="Bebas text-xl mt-5 py-2 font-Bebas px-7 me-2 mb-2 font-medium text-whiterounded-lg border focus:z-10 focus:ring-4  focus:ring-gray-700 bg-black text-white border-gray-600 hover:text-white hover:bg-zinc-700 rounded-lg"
+            className="before:ease relative flex items-center justify-center  overflow-hidden shadow-2xl transition-all before:absolute before:top-1/2 before:h-0 before:w-64 before:origin-center before:-translate-x-20 before:rotate-45 before:bg-blue-500 before:duration-300 hover:shadow-blue-500 hover:before:h-64 hover:before:-translate-y-32 Bebas text-xl mt-5 py-2 font-Bebas px-7 me-2 mb-2 font-medium text-whiterounded-lg border focus:z-10 focus:ring-4  focus:ring-gray-700 bg-black text-white border-gray-600 hover:text-white hover:bg-zinc-700 rounded-lg"
           >
-            LEARN MORE
+            <span className="relative z-10">LEARN MORE</span>
           </Link>
         </div>
         <Image
-          src={'/BigImg.png'}
-          alt={'Image'}
+          src={"/BigImg.png"}
+          alt={"Image"}
           className="relative aspect-square object-contain max-h-[87.5vh] md:mr-[-10vw] max-w-[95vw] sm:max-w-[80vw] md:max-w-[55vw] order-1 md:order-2"
           width={850}
           height={850}
         />
-        <img src="/image/bg2.svg" className="absolute bottom-[-4vh] right-0 -z-10" alt="" />
+        <img
+          src="/image/bg2.svg"
+          className="absolute bottom-[-4vh] right-0 -z-10"
+          alt=""
+        />
       </section>
 
       <div className="w-screen h-fit mt-16 py-14 bg-sectorsBG object-cover text-center">
-        <h1 className="text-5xl mb-12 text-white">WE HAVE LEARNING RESOURCES ON..</h1>
+        <h1 className="text-5xl mb-12 text-white">
+          WE HAVE LEARNING RESOURCES ON..
+        </h1>
         <div className="container items-start justify-between flex gap-16 flex-wrap">
           <div className="flex flex-col items-center gap-3 flex-1 hover:scale-110 transition-all">
             <Image width={100} height={100} src="/image/icon/ai.svg" alt="" />
@@ -51,25 +58,49 @@ export default function Home() {
             </p>
           </div>
           <div className="flex flex-col items-center gap-3 flex-1 hover:scale-110 transition-all">
-            <Image width={100} height={100} src="/image/icon/robot.svg" alt="" loading="lazy" />
+            <Image
+              width={100}
+              height={100}
+              src="/image/icon/robot.svg"
+              alt=""
+              loading="lazy"
+            />
             <p className="text-lg md:text-xl text-white text-cente font-lightr">
               Hardwares & Robotics
             </p>
           </div>
           <div className="flex flex-col items-center gap-3 flex-1 hover:scale-110 transition-all">
-            <Image width={100} height={100} src="/image/icon/web_dev.svg" alt="" loading="lazy" />
+            <Image
+              width={100}
+              height={100}
+              src="/image/icon/web_dev.svg"
+              alt=""
+              loading="lazy"
+            />
             <p className="text-lg md:text-xl text-white text-center font-light">
               Website & Native App Development
             </p>
           </div>
           <div className="flex flex-col items-center gap-3 flex-1 hover:scale-110 transition-all">
-            <Image width={100} height={100} src="/image/icon/cp.svg" alt="" loading="lazy" />
+            <Image
+              width={100}
+              height={100}
+              src="/image/icon/cp.svg"
+              alt=""
+              loading="lazy"
+            />
             <p className="text-lg md:text-xl text-white text-center font-light">
               Competitive Programming
             </p>
           </div>
           <div className="flex flex-col items-center gap-3 flex-1 hover:scale-110 transition-all">
-            <Image width={100} height={100} src="/image/icon/gfx.svg" alt="" loading="lazy" />
+            <Image
+              width={100}
+              height={100}
+              src="/image/icon/gfx.svg"
+              alt=""
+              loading="lazy"
+            />
             <p className="text-lg md:text-xl text-white text-center font-light">
               Graphics Designing & Article
             </p>
@@ -137,7 +168,9 @@ export default function Home() {
             <h1 className="text-center tracking-wider mx-auto md:text-left text-3xl md:text-5xl text-blue-500">
               OUR ACTIVITIES
             </h1>
-            <h1 className="text-center mx-auto md:text-left text-3xl md:text-5xl">INCLUDE</h1>
+            <h1 className="text-center mx-auto md:text-left text-3xl md:text-5xl">
+              INCLUDE
+            </h1>
           </div>
           <ActivityCards />
         </section>
@@ -146,13 +179,15 @@ export default function Home() {
       <section className="mt-24 flex flex-col items-center gap-9">
         <div className="flex flex-col md:flex-row gap-1">
           <h1 className="text-3xl md:text-5xl text-center">WHY YOU SHOULD</h1>
-          <h1 className="text-blue-500 text-3xl md:text-5xl text-center">JOIN NDITC?</h1>
+          <h1 className="text-blue-500 text-3xl md:text-5xl text-center">
+            JOIN NDITC?
+          </h1>
         </div>
         <div className="flex flex-col md:flex-row items-center justify-center gap-10">
           <div className="flex flex-col items-center gap-3">
             <Image
-              src={'/Ellipse1.png'}
-              alt={'Image'}
+              src={"/Ellipse1.png"}
+              alt={"Image"}
               width={150}
               height={150}
               className="hover:scale-110 transition-all"
@@ -162,14 +197,15 @@ export default function Home() {
               GAIN EXPERIENCE BY CONTRIBUTING TO REAL-WORLD PROJECTS
             </h1>
             <p className="text-center text-base">
-              Gain invaluable experience with NDITC by actively engaging in real-world projects like
-              HashTech and Evya AI, shaping your practical expertise in the evolving tech sphere.
+              Gain invaluable experience with NDITC by actively engaging in
+              real-world projects like HashTech and Evya AI, shaping your
+              practical expertise in the evolving tech sphere.
             </p>
           </div>
           <div className="flex flex-col items-center gap-3">
             <Image
-              src={'/Ellipse2.png'}
-              alt={'Image'}
+              src={"/Ellipse2.png"}
+              alt={"Image"}
               width={150}
               height={150}
               className="hover:scale-110 transition-all"
@@ -179,15 +215,15 @@ export default function Home() {
               EXPLORE THE LEARNING BASED CLUB JOURNEY WITH NDITC
             </h1>
             <p className="text-center text-base">
-              Embark on an enriching learning journey with NDITC's workshops, seminars, and
-              groundbreaking events like Thynk 2.0, fostering an immersive educational experience in
-              the IT realm.
+              Embark on an enriching learning journey with NDITC's workshops,
+              seminars, and groundbreaking events like Thynk 2.0, fostering an
+              immersive educational experience in the IT realm.
             </p>
           </div>
           <div className="flex flex-col items-center gap-3">
             <Image
-              src={'/Ellipse3.png'}
-              alt={'Image'}
+              src={"/Ellipse3.png"}
+              alt={"Image"}
               width={150}
               height={150}
               className="hover:scale-110 transition-all"
@@ -197,9 +233,9 @@ export default function Home() {
               NETWORK WITH PEERS AND MENTORS & SHOWCASE YOUR SKILLSET
             </h1>
             <p className="text-center text-base">
-              Join NDITC to network, collaborate with peers and mentors, and exhibit your diverse
-              skill set through initiatives like FTMPC 3.0, creating opportunities for professional
-              growth and recognition.
+              Join NDITC to network, collaborate with peers and mentors, and
+              exhibit your diverse skill set through initiatives like FTMPC 3.0,
+              creating opportunities for professional growth and recognition.
             </p>
           </div>
         </div>
