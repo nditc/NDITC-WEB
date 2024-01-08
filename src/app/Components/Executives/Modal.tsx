@@ -80,7 +80,7 @@ const Modal = ({
             <div className="flex align-bottom h-full flex-col md:flex-row">
               <img
                 className="object-cover p-5 pb-0 md:p-0 md:mt-[20.1vh] lg:mt-[12.1vh] bg-neutral-200 shadow-lg md:shadow-none rounded-lg md:rounded-none md:bg-transparent  max-w-[75vw] md:max-w-[45vw] mx-auto md:ml-12  overflow-visible"
-                src="/image/vaiya.png"
+                src={data.modal_image_url}
                 alt=""
               />
               {/* <img
