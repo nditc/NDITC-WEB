@@ -1,7 +1,7 @@
 import Image from "next/image";
-import { useEffect, useState } from "react";
 import Link from "next/link";
 import { MdOutlineDateRange } from "react-icons/md";
+import AES from "crypto-js/aes";
 
 interface Props {
   title: string;
@@ -21,6 +21,8 @@ const Event = ({
   shortDesc,
 }: Props) => {
   const DateData = new Date(timestamp * 1000);
+
+  const descEncryptedURL = AES.encrypt(descURL, "SWAPNIL");
   return (
     <div id="init" className="card flex flex-col relative">
       {timestamp * 1000 - new Date().getTime() > 0 ? (
@@ -53,7 +55,7 @@ const Event = ({
           <Link
             className="relative flex items-center justify-center overflow-hidden bg-gray-800 shadow-2xl transition-all before:absolute before:h-0 before:w-0 before:rounded-full before:bg-blue-700 before:duration-500 before:ease-out hover:shadow-blue-700 hover:before:h-56 hover:before:w-56 learn_more text-white text-lg cursor-pointer"
             href={`/details/${encodeURIComponent(
-              descURL
+              descEncryptedURL.toString()
             )}/${type}/${timestamp}`}
           >
             <span className="relative z-10">Learn More</span>
