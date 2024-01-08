@@ -7,6 +7,7 @@ export type memberType = {
   email?: string;
   phone?: string;
   profile_url?: string | { platform: string; url: string }[];
+  modal_image_url?: string;
   post: string;
   dept?: string | null;
 };
@@ -53,6 +54,7 @@ const db: dbType = {
           name: 'Abdullah Rafid',
           image_url:
             'https://raw.githubusercontent.com/nditc/nditc_mobile_app/main/images/executives/2022-2023/1.jpg',
+          modal_image_url: '/image/executives/2022-2023/1.png',
           profile_url: [{ platform: 'facebook', url: 'https://www.facebook.com/smrt.nerd' }],
           post: 'President',
           dept: 'Department of Administration',
@@ -65,6 +67,7 @@ const db: dbType = {
           name: 'Irfan Hossain Rafi',
           image_url:
             'https://raw.githubusercontent.com/nditc/nditc_mobile_app/main/images/executives/2022-2023/2.jpg',
+          modal_image_url: '/image/executives/2022-2023/2.png',
           profile_url: [
             {
               platform: 'facebook',
@@ -82,6 +85,7 @@ const db: dbType = {
           name: 'Md. Mahmudunnobi',
           image_url:
             'https://raw.githubusercontent.com/nditc/nditc_mobile_app/main/images/executives/2022-2023/3.jpg',
+          modal_image_url: '/image/executives/2022-2023/3.png',
           profile_url: [{ platform: 'facebook', url: 'https://www.facebook.com/mahmud.s.13' }],
           post: 'Secretary',
           dept: 'Department of Administration',
@@ -95,6 +99,7 @@ const db: dbType = {
           name: 'Sabyasachi Ghosh',
           image_url:
             'https://raw.githubusercontent.com/nditc/nditc_mobile_app/main/images/executives/2022-2023/4.jpg',
+          modal_image_url: '/image/executives/2022-2023/4.png',
           profile_url: [
             { platform: 'facebook', url: 'https://www.facebook.com/sabyasachi.ghosh.bd' },
           ],
@@ -109,6 +114,7 @@ const db: dbType = {
           name: 'Khaled Mahmud Riad',
           image_url:
             'https://raw.githubusercontent.com/nditc/nditc_mobile_app/main/images/executives/2022-2023/5.jpg',
+          modal_image_url: '/image/executives/2022-2023/5.png',
           profile_url: [
             { platform: 'facebook', url: 'https://www.facebook.com/ohaiyo.mirza?mibextid=ZbWKwL' },
           ],
@@ -123,6 +129,7 @@ const db: dbType = {
           name: 'Srijon Kumar Mondal',
           image_url:
             'https://raw.githubusercontent.com/nditc/nditc_mobile_app/main/images/executives/2022-2023/6.jpg',
+          modal_image_url: '/image/executives/2022-2023/6.png',
           imageInCenter: true,
           profile_url: [{ platform: 'facebook', url: 'https://www.facebook.com/srijon777xx' }],
           post: 'President',
@@ -136,6 +143,7 @@ const db: dbType = {
           name: 'Shahtaz Rahman Labib',
           image_url:
             'https://raw.githubusercontent.com/nditc/nditc_mobile_app/main/images/executives/2022-2023/7.jpg',
+          modal_image_url: '/image/executives/2022-2023/7.png',
           profile_url: [
             { platform: 'facebook', url: 'https://www.facebook.com/shahtaz.shahtazrahman' },
           ],
@@ -150,6 +158,7 @@ const db: dbType = {
           name: 'Nazmus Tahsan',
           image_url:
             'https://raw.githubusercontent.com/nditc/nditc_mobile_app/main/images/executives/2022-2023/8.jpg',
+          modal_image_url: '/image/executives/2022-2023/8.png',
           profile_url: [{ platform: 'facebook', url: 'https://www.facebook.com/NazmusTahsan48' }],
           post: 'President',
           dept: 'Department of Public Relations',
@@ -162,6 +171,7 @@ const db: dbType = {
           name: 'Arko Chowdhury',
           image_url:
             'https://raw.githubusercontent.com/nditc/nditc_mobile_app/main/images/executives/2022-2023/9.jpg',
+          modal_image_url: '/image/executives/2022-2023/9.png',
           profile_url: [
             { platform: 'facebook', url: 'https://www.facebook.com/arko.chowdhury.121' },
           ],
@@ -176,6 +186,7 @@ const db: dbType = {
           name: 'Badruddoza Kaif',
           image_url:
             'https://raw.githubusercontent.com/nditc/nditc_mobile_app/main/images/executives/2022-2023/10.jpg',
+          modal_image_url: '/image/executives/2022-2023/10.png',
           profile_url: [{ platform: 'facebook', url: 'https://www.facebook.com/bokaif' }],
           post: 'President',
           dept: 'Department of Publications',
@@ -188,6 +199,7 @@ const db: dbType = {
           name: 'Tahsin Ahmed',
           image_url:
             'https://raw.githubusercontent.com/nditc/nditc_mobile_app/main/images/executives/2022-2023/11.jpg',
+          modal_image_url: '/image/executives/2022-2023/11.png',
           profile_url: [{ platform: 'facebook', url: 'https://www.facebook.com/girgiti.ofc' }],
           post: 'Vice President',
           dept: 'Department of Publications',
@@ -200,6 +212,7 @@ const db: dbType = {
           name: 'Snigdho Roy',
           image_url:
             'https://raw.githubusercontent.com/nditc/nditc_mobile_app/main/images/executives/2022-2023/12.jpg',
+          modal_image_url: '/image/executives/2022-2023/12.png',
           profile_url: [{ platform: 'facebook', url: 'https://www.facebook.com/snigdho.roy.5268' }],
           post: 'Secretary',
           dept: 'Department of Publications',
@@ -212,6 +225,7 @@ const db: dbType = {
           name: 'Md. Al Mahin Bin Hasan',
           image_url:
             'https://raw.githubusercontent.com/nditc/nditc_mobile_app/main/images/executives/2022-2023/13.jpg',
+          modal_image_url: '/image/executives/2022-2023/13.png',
           profile_url: [{ platform: 'facebook', url: 'https://www.facebook.com/root.mahin' }],
           post: 'President',
           dept: 'Department of Robotics & AI',
@@ -224,6 +238,7 @@ const db: dbType = {
           name: 'Sahidul Hasan Rahi',
           image_url:
             'https://raw.githubusercontent.com/nditc/nditc_mobile_app/main/images/executives/2022-2023/14.jpg',
+          modal_image_url: '/image/executives/2022-2023/14.png',
           profile_url: [{ platform: 'facebook', url: 'https://www.facebook.com/sahidul.rahi' }],
           post: 'Secretary',
           dept: 'Department of Robotics & AI',
@@ -236,6 +251,7 @@ const db: dbType = {
           name: 'Ahammad Shawki',
           image_url:
             'https://raw.githubusercontent.com/nditc/nditc_mobile_app/main/images/executives/2022-2023/15.jpg',
+          modal_image_url: '/image/executives/2022-2023/15.png',
           profile_url: [{ platform: 'facebook', url: 'https://www.facebook.com/ahammadshawki8/' }],
           post: 'President',
           dept: 'Web & App Development',
@@ -248,6 +264,7 @@ const db: dbType = {
           name: 'Md. Naimur Rahman',
           image_url:
             'https://raw.githubusercontent.com/nditc/nditc_mobile_app/main/images/executives/2022-2023/16.jpg',
+          modal_image_url: '/image/executives/2022-2023/16.png',
           profile_url: [{ platform: 'facebook', url: 'https://www.facebook.com/mdnaimur020' }],
           post: 'Secretary',
           dept: 'Web & App Development',
@@ -260,6 +277,7 @@ const db: dbType = {
           name: 'Abdullah Al Fahme',
           image_url:
             'https://raw.githubusercontent.com/nditc/nditc_mobile_app/main/images/executives/2022-2023/17.jpg',
+          modal_image_url: '/image/executives/2022-2023/17.png',
           profile_url: [{ platform: 'facebook', url: 'https://www.facebook.com/ahmed.rafan.923' }],
           post: 'Treasurer',
           group: 5,
@@ -271,6 +289,7 @@ const db: dbType = {
           name: 'Bakhtiar Hossain',
           image_url:
             'https://raw.githubusercontent.com/nditc/nditc_mobile_app/main/images/executives/2022-2023/18.jpg',
+          modal_image_url: '/image/executives/2022-2023/18.png',
           profile_url: [
             { platform: 'facebook', url: 'https://www.facebook.com/bakhtiar.hossain.5811' },
           ],
@@ -284,6 +303,7 @@ const db: dbType = {
           name: 'Shaikh Mohammad Moballig',
           image_url:
             'https://raw.githubusercontent.com/nditc/nditc_mobile_app/main/images/executives/2022-2023/19.jpg',
+          modal_image_url: '/image/executives/2022-2023/19.png',
           profile_url: [{ platform: 'facebook', url: 'https://www.facebook.com/moballig.148' }],
           post: 'Executive Member',
           group: 13,

@@ -1,4 +1,4 @@
-import Image from "next/image";
+import Image from 'next/image';
 
 interface Props {
   title: string;
@@ -13,26 +13,26 @@ const HashtechPosts = ({ title, desc, imageURL, redirectUrl }: Props) => {
     <a
       href={redirectUrl}
       target="_blank"
-      className={`bg-[#2E2E2E] shadow-xl flex flex-col sm:flex-row rounded-xl duration-1000 overflow-hidden min-w-[290px]`}
+      className={`bg-[#2e2e2e] border group  border-gray-300 shadow-xl flex flex-col sm:flex-row rounded-xl duration-1000 overflow-hidden min-w-[290px]`}
     >
       <Image
         src={imageURL}
-        alt={"Image"}
+        alt={'Image'}
         width={512}
         height={512}
         className="w-full sm:w-1/2 aspect-square object-cover  flex-1"
       />
-      <div className="p-5 py-10 flex-1 flex flex-col gap-3 text-left">
-        <h1
-          className={
-            "text-white font-Roboto text-xl font-medium  break-words" + " "
-          }
-        >
+      <div className="p-5 py-10 flex-1 flex flex-col gap-3 text-left justify-center">
+        <h1 className={'group-hover:text-white text-zinc-200 text-3xl  break-words' + ' '}>
           {title}
         </h1>
-        <div className={"font-Roboto text-base text-white font-light pb-2"}>
+        <div className={'font-nunito text-base transition group-hover:text-white text-zinc-300'}>
           <div className="line-clamp-5">{desc}</div>
         </div>
+        <p className="text-zinc-400 font-extrabold transition group-hover:text-white  mb-3">
+          Click to learn More{' '}
+          <span className=" inline-block text-2xl transition group-hover:translate-x-2">→</span>{' '}
+        </p>
       </div>
     </a>
   );

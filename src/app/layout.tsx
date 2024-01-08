@@ -1,24 +1,20 @@
-import type { Metadata } from "next";
-import { Inter } from "next/font/google";
-import "./globals.css";
-import Navbar from "./Components/Navbar";
-import SideBar from "./Components/Sidebar/SideBar";
-import Footer from "./Components/Footer";
-import NextTopLoader from "nextjs-toploader";
+import type { Metadata } from 'next';
+import { Inter } from 'next/font/google';
+import './globals.css';
+import Navbar from './Components/Navbar';
+import SideBar from './Components/Sidebar/SideBar';
+import Footer from './Components/Footer';
+import NextTopLoader from 'nextjs-toploader';
 
-const inter = Inter({ subsets: ["latin"] });
+const inter = Inter({ subsets: ['latin'] });
 
 export const metadata: Metadata = {
-  title: "NDITC",
-  description: "Love the light of Technology",
-  icons: { icon: "favicon.ico" },
+  title: 'NDITC',
+  description: 'Love the light of Technology',
+  icons: { icon: 'favicon.ico' },
 };
 
-export default function RootLayout({
-  children,
-}: {
-  children: React.ReactNode;
-}) {
+export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
     <html lang="en">
       <body className={inter.className}>

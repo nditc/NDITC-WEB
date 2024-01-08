@@ -118,7 +118,7 @@ const CommonPage = ({ heading, icon, sections, hasTableOfContent }: CommonPagePr
           transform: `scaleX(${scrollPos})`,
           transformOrigin: 'left',
         }}
-        className="fixed top-0 left-0 h-1 z-50 bg-blue-500 transition ease-linear w-screen "
+        className="fixed top-[80px] left-0 h-1 z-30 bg-blue-500 transition ease-linear w-screen "
       ></div>
       <div className="container pt-5 pb-16">
         <div className={'flex gap-5 items-center sm:justify-start'}>
