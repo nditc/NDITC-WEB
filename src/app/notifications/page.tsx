@@ -3,7 +3,7 @@ import SingleNotification from "./SingleNotification";
 const Notifications = async () => {
   const res = await fetch(
     "https://nditc.pythonanywhere.com/web_notifications?page=1&limit=5",
-    { cache: "no-store" }
+    { cache: "no-cache" }
   );
 
   const NotificationData: NotificationDataFormat[] = await res.json();
