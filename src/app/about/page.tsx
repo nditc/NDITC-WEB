@@ -3,7 +3,9 @@ import { FaRegQuestionCircle } from 'react-icons/fa';
 import Timeline from '../Components/Timeline';
 import Image from 'next/image';
 import DataCard from '../Components/DataCard';
-
+import { FaCode } from 'react-icons/fa6';
+import { PiBagSimple } from 'react-icons/pi';
+import Link from 'next/link';
 const Sections = [
   {
     heading: '',
@@ -36,12 +38,34 @@ const Sections = [
             advanced nation.
           </p>
         </div>
-        <h1 className="text-4xl md:text-5xl mb-5">
+        <h1 className="text-4xl md:text-5xl mb-6">
           Our<span className="text-blue-500"> Achievements</span>
         </h1>
-        <div className="flex flex-col lg:flex-row gap-4 md:gap-8 mb-10">
+        <div className="flex flex-col lg:flex-row gap-4 md:gap-8 mb-4 md:mb-8">
           <Timeline />
           <DataCard />
+        </div>
+        <div className="mb-10 flex flex-col md:flex-row gap-4 md:gap-8">
+          <div className="shadow-lg flex-1  flex-wrap gap-2  bg-white rounded-xl p-3 md:p-4 xl:p-6 flex justify-between items-center ">
+            <h1 className="Bebas text-3xl md:text-4xl flex gap-2 items-center leading-[0.7_!important] align-middle">
+              <PiBagSimple className={'text-blue-500 text-3xl h-10 w-10'} />
+              Total Panelists <span className="text-blue-500 leading-[0.7_!important] ">19</span>
+            </h1>
+            <Link
+              href="/executive"
+              className="py-2 px-4 md:px-8 md:text-lg bg-blue-500 text-white font-bold rounded-lg hover:bg-blue-600"
+            >
+              See Executives
+            </Link>
+          </div>
+
+          <Link
+            href="/developer"
+            className="py-2 px-4 md:px-8 shadow-lg  flex gap-3 items-center md:text-lg bg-blue-500 text-white font-bold rounded-xl hover:bg-blue-600"
+          >
+            <FaCode className={'w-8 h-8'} />
+            Explore Developers
+          </Link>
         </div>
         <h1 className="text-4xl md:text-5xl mb-3">
           Our<span className="text-blue-500"> Motive</span>

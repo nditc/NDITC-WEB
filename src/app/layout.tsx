@@ -18,7 +18,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
   return (
     <html lang="en">
       <body className={inter.className}>
-        <NextTopLoader color="#000" />
+        <NextTopLoader color="#3b82f6" />
         <Navbar />
         <div id="scrollToTop" className="w-0 h-0" />
         <SideBar />

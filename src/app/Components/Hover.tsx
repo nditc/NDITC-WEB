@@ -17,7 +17,7 @@ const Hover = ({ text, showOptions, windowWidth, setShowOption }: Props) => {
   const Route = usePathname();
   useEffect(() => {
     const listener = () => {
-      if (window.innerHeight > 768) {
+      if (window.innerHeight >= 768) {
         setOpen(false);
       }
     };
@@ -33,7 +33,7 @@ const Hover = ({ text, showOptions, windowWidth, setShowOption }: Props) => {
   }, [showOptions]);
   return (
     <div className="relative z-50">
-      {windowWidth > 768 ? (
+      {windowWidth >= 768 ? (
         <Link
           href="/activities?type=event"
           onMouseEnter={() => setHover(true)}
@@ -43,7 +43,7 @@ const Hover = ({ text, showOptions, windowWidth, setShowOption }: Props) => {
           data-dropdown-trigger="hover"
           onClick={setShowOption}
           className={
-            'block py-2 px-3 rounded hover:bg-gray-100 md:hover:bg-transparent md:p-0' +
+            'block py-2 px-3 md:px-1 lg:px-3 rounded hover:bg-gray-100 md:hover:bg-transparent md:p-0' +
             ' ' +
             (Route === '/activities' ? 'md:text-blue-500' : '') +
             ' ' +

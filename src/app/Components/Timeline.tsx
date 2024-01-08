@@ -102,29 +102,7 @@ const Timeline = () => {
 
   return (
     <section className="w-full lg:w-0 flex-1 gap-2 md:gap-0 flex flex-col md:flex-row justify-center relative">
-      <MdKeyboardArrowUp
-        onClick={() => {
-          if (selectedIndex > 0) {
-            setSelectedIndex(selectedIndex - 1);
-          }
-        }}
-        className={`w-10 h-10 cursor-pointer absolute top-2 left-0  z-20 -rotate-90 md:left-auto md:rotate-0 md:-top-2 transition-all ${
-          selectedIndex > 0 ? 'scale-110 hover:scale-150' : 'text-gray-500 scale-90'
-        }`}
-      />
-      <MdKeyboardArrowDown
-        onClick={() => {
-          if (selectedIndex < timelineData.length - 1) {
-            setSelectedIndex(selectedIndex + 1);
-          }
-        }}
-        className={`w-10 h-10 cursor-pointer absolute top-2 md:top-[unset]  z-20  right-0 -rotate-90 md:right-auto md:rotate-0 md:-bottom-2 transition-all ${
-          selectedIndex < timelineData.length - 1
-            ? 'scale-110 hover:scale-150'
-            : 'text-gray-500 scale-90'
-        }`}
-      />
-      <div className="flex flex-col md:flex-row gap-5">
+      <div className="hidden md:flex flex-col md:flex-row gap-2">
         <div className="h-full flex flex-row md:flex-col flex-1 justify-center gap-5">
           {timelineData.map((e, i) => {
             return (
@@ -142,8 +120,40 @@ const Timeline = () => {
         <div className="h-1 w-full md:w-1 md:h-full bg-gray-400 rounded-3xl md:gradient-mask-t-90-d hidden md:flex" />
       </div>
 
-      <div className="flex-[10] my-auto  md:ml-10 h-full  flex justify-center items-center relative">
-        <div className="w-full  bg-white rounded-xl shadow-xl grid grid-rows-[1fr_280px] items-stretch justify-items-start gap-5 p-4 md:p-6">
+      <div className="flex-[10] my-auto  md:ml-6 h-full  flex justify-center items-center relative">
+        <div className="w-full h-full  bg-white rounded-xl shadow-lg grid grid-rows-[auto_auto_1fr] items-stretch justify-items-start gap-5 p-3 md:p-4  xl:p-6">
+          <div className="flex gap-2 items-center justify-between md:justify-start w-full mt-2 md:mt-0">
+            <MdKeyboardArrowUp
+              onClick={() => {
+                if (selectedIndex > 0) {
+                  setSelectedIndex(selectedIndex - 1);
+                }
+              }}
+              className={`w-10 h-10 cursor-pointer p-2 -rotate-90  rounded-full  md:rotate-0 transition-all ${
+                selectedIndex > 0
+                  ? 'scale-100 hover:bg-blue-100 hover:text-blue-500 bg-gray-200'
+                  : 'text-gray-500 bg-gray-100'
+              }`}
+            />
+            <p className="text-base md:text-xl flex flex-col items-center md:gap-[0.375rem] md:flex-row font-bold md:order-3">
+              <span className=" text-blue-500 leading-none  Bebas text-3xl md:text-xl  md:font-Nunito font-normal  md:font-extrabold">
+                {timelineData[selectedIndex].time1}{' '}
+              </span>
+              {timelineData[selectedIndex].time2}
+            </p>
+            <MdKeyboardArrowDown
+              onClick={() => {
+                if (selectedIndex < timelineData.length - 1) {
+                  setSelectedIndex(selectedIndex + 1);
+                }
+              }}
+              className={`w-10 h-10 cursor-pointer ] p-2 z-20   rounded-full -rotate-90  md:rotate-0  transition-all ${
+                selectedIndex < timelineData.length - 1
+                  ? 'scale-100 hover:bg-blue-100 hover:text-blue-500 bg-gray-200 '
+                  : 'text-gray-500 bg-gray-100'
+              }`}
+            />
+          </div>
           <div className="gap-5 flex-col">
             <h1 className="text-3xl md:text-4xl text-left">{currentTitle}</h1>
             <p>{currentDescription}</p>
@@ -151,7 +161,7 @@ const Timeline = () => {
           <img
             src={currentImage}
             alt="Image"
-            className="w-full h-full max-h-[280px] rounded-[.75rem] object-cover"
+            className="w-full h-full  max-h-[380px] rounded-[.75rem] object-cover"
             width={720}
             height={720}
           />
@@ -201,7 +211,7 @@ const Time = ({
       </div>
 
       <div
-        className={`hidden transition-all duration-300 w-5 h-5 rounded-full absolute bg-blue-500 z-10 left-[50%] -translate-x-[50%] top-[4.25rem] md:translate-x-0 md:left-[4.75rem] md:top-[50%] md:-translate-y-[50%] md:flex items-center justify-center shadow-[5px_5px_20px_10px_#00000024] ${
+        className={`hidden transition-all duration-300 w-5 h-5 rounded-full absolute bg-blue-500 z-10 left-[50%] -translate-x-[50%] top-[4.25rem] md:translate-x-0 md:left-[4rem] md:top-[50%] md:-translate-y-[50%] md:flex items-center justify-center shadow-[5px_5px_20px_10px_#00000024] ${
           current ? 'scale-100' : 'scale-0'
         }`}
       >
