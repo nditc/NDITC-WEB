@@ -51,7 +51,7 @@ const Event = ({
         </div>
         <div className="w-full grid place-items-center justify-self-end">
           <Link
-            className="relative flex items-center justify-center overflow-hidden bg-gray-800 shadow-2xl transition-all before:absolute before:h-0 before:w-0 before:rounded-full before:bg-gray-900 before:duration-500 before:ease-out hover:shadow-gray-900 hover:before:h-56 hover:before:w-56 learn_more text-white text-lg cursor-pointer"
+            className="relative flex items-center justify-center overflow-hidden bg-gray-800 shadow-2xl transition-all before:absolute before:h-0 before:w-0 before:rounded-full before:bg-blue-700 before:duration-500 before:ease-out hover:shadow-blue-700 hover:before:h-56 hover:before:w-56 learn_more text-white text-lg cursor-pointer"
             href={`/details/${encodeURIComponent(
               descURL
             )}/${type}/${timestamp}`}
