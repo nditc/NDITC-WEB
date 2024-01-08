@@ -1,6 +1,5 @@
 "use client";
 
-import { AES } from "crypto-js";
 import Link from "next/link";
 import { useEffect, useState } from "react";
 
@@ -22,7 +21,7 @@ const SaveData = ({ data }: { data: any }) => {
       setIsNew(true);
     }
   }, [NewNotification]);
-  const descEncryptedURL = AES.encrypt(data[0].details_url, "Anime");
+
   return (
     <div
       onClick={() => {
@@ -35,7 +34,7 @@ const SaveData = ({ data }: { data: any }) => {
         href={
           isNew
             ? `/notifications/details/${encodeURIComponent(
-                descEncryptedURL.toString()
+                data[0].details_url
               )}`
             : "/notifications"
         }
