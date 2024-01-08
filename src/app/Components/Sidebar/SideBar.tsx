@@ -38,7 +38,11 @@ const SideBar = () => {
             <AiFillYoutube className="w-7 h-7" />
           </a>
 
-          <a href="" className="hover:scale-125 transition-all" target="_blank">
+          <a
+            href="https://github.com/nditc"
+            className="hover:scale-125 transition-all"
+            target="_blank"
+          >
             <FaGithub className="w-7 h-7" />
           </a>
         </div>
