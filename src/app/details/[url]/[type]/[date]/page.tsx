@@ -8,9 +8,9 @@ import { AES, enc } from "crypto-js";
 type ParamType = { url: string; type: string; date: number };
 
 const fetchData = async (params: ParamType) => {
-  const url = await decodeURIComponent(params.url);
+  const url = decodeURIComponent(params.url);
   const bytes = await AES.decrypt(url, "SWAPNIL");
-  const text = await bytes.toString(enc.Utf8);
+  const text = bytes.toString(enc.Utf8);
 
   try {
     const res = await fetch(text);
