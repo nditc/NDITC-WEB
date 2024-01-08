@@ -4,9 +4,9 @@ import Link from "next/link";
 import { AES, enc } from "crypto-js";
 
 const Page = async ({ params }: { params: { url: string; type: string } }) => {
-  const url = decodeURIComponent(params.url);
+  const url = await decodeURIComponent(params.url);
   const bytes = await AES.decrypt(url, "Anime");
-  const text = bytes.toString(enc.Utf8);
+  const text = await bytes.toString(enc.Utf8);
 
   const res = await fetch(text);
   const data = await res.json();
