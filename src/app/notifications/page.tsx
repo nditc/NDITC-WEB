@@ -2,14 +2,14 @@ import SingleNotification from "./SingleNotification";
 
 const Notifications = async () => {
   const res = await fetch(
-    "https://nditc.pythonanywhere.com/web_notifications?page=1&limit=5",
+    "https://nditc.pythonanywhere.com/api/v1/notifications/web?page=1&limit=5",
     { cache: "no-store" }
   );
 
   const NotificationData: NotificationDataFormat[] = await res.json();
 
   return (
-    <div className="pt-32 pb-10 overflow-x-hidden bg-slate-50">
+    <div className="pt-32 pb-10 h-screen overflow-x-hidden bg-slate-50">
       <div className="flex w-screen justify-center md:justify-start gap-3 md:ml-32 items-center">
         <div className="rounded-full w-16 h-16 grid place-items-center shadow-[010px_20px_15px_10px_#00000024]">
           <svg

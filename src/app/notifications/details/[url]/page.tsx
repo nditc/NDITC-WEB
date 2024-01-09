@@ -1,14 +1,18 @@
 import React from "react";
 import Image from "next/image";
 import Link from "next/link";
+import { AES, enc } from "crypto-js";
 
 const Page = async ({ params }: { params: { url: string; type: string } }) => {
-  const res = await fetch(decodeURIComponent(params.url));
+  const url = decodeURIComponent(params.url);
+  const cypher = AES.decrypt(url, "Anime");
+  const text = cypher.toString(enc.Utf8);
+  const res = await fetch(text);
   const data = await res.json();
 
   return (
     <div className="w-screen bg-[#F6F6F6]">
-      <div className="container pt-[81px] py-10  flex flex-col items-center gap-10 z-10 bg-transparent relative">
+      <div className="container pt-[81px] py-10 flex flex-col items-center gap-10 z-10 bg-transparent relative">
         <div className="w-screen bg-white shadow-xl ">
           <div className="container flex flex-col md:flex-row gap-5 items-center ">
             <div className="flex-1 ml-1 flex flex-col gap-5 w-full order-2 md:order-1">

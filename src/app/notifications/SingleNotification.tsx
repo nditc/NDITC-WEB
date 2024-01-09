@@ -1,5 +1,6 @@
 "use client";
 
+import { AES } from "crypto-js";
 import Image from "next/image";
 import Link from "next/link";
 
@@ -14,9 +15,12 @@ const SingleNotification = ({
   imageURL: string;
   detailsURL: string;
 }) => {
+  const detailsEncrypt = AES.encrypt(detailsURL, "Anime");
   return (
     <Link
-      href={`/notifications/details/${encodeURIComponent(detailsURL)}`}
+      href={`/notifications/details/${encodeURIComponent(
+        detailsEncrypt.toString()
+      )}`}
       className="hover:cursor-pointer w-full h-[7.9rem] md:h-[8.6rem] border-gray-200 shadow-[5px_5px_30px_5px_#00000024] transition-all duration-500 hover:scale-110 rounded-xl flex justify-between"
     >
       <div className="flex flex-col gap-1 flex-[6] p-5">
