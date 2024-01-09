@@ -1,9 +1,11 @@
 "use client";
 
+import { AES } from "crypto-js";
 import Link from "next/link";
 import { useEffect, useState } from "react";
 
 const SaveData = ({ data }: { data: any }) => {
+  const detailsEncrypt = AES.encrypt(data[0].details_url, "Anime");
   const [isNew, setIsNew] = useState(false);
 
   const NewNotification = JSON.stringify(data[0].title);
@@ -34,7 +36,7 @@ const SaveData = ({ data }: { data: any }) => {
         href={
           isNew
             ? `/notifications/details/${encodeURIComponent(
-                data[0].details_url
+                detailsEncrypt.toString()
               )}`
             : "/notifications"
         }
