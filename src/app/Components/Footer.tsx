@@ -1,11 +1,11 @@
-import Image from 'next/image';
-import Link from 'next/link';
+import Image from "next/image";
+import Link from "next/link";
 
 const Footer = () => {
   return (
     <footer className="bg-[#1F1F1F] text-xs md:text-base relative">
       <span className="md:text-xs text-zinc-500 text-xs sm:text-center mt-7 dark:text-zinc-400 absolute bottom-3 left-3">
-        © 2023{' '}
+        © 2023{" "}
         <a href="https://flowbite.com/" className="hover:underline">
           NDITC™
         </a>
@@ -58,14 +58,18 @@ const Footer = () => {
             Developers
           </Link>
           <a
-            href="/details/https%3A%2F%2Fnditc.pythonanywhere.com%2Fprojects%2FgAAAAABklDtCA8wgOMZar9YbvFJgn8e-jFUG27Ic9aHwhx40IBCUofeQ_uoinoAgpmskv_ojJNA4I9Rgswp3RLa9wWgp6846Zg%3D%3D/project/1687651200"
+            href="/details/U2FsdGVkX1%2BAo1HnTjk4aPrXkCt9rh1%2BNX%2FDWCpvsejwdtAoSjewOeYdKkZbh6aGaCzc66CV12V3COPzTfJdiRVwQsKY9T7hTEK5uHR6K4odMR4G%2FHndw%2BsLnz%2FamA1HVEDOV9n%2FeVAQ7U3yvYJftX0vc455XIZ3msRakGeLRfcnSfCudDzNtNO2z%2BBV3BJ3Q%2FAiKPNaCas8xNySX8iKn2q6N6OfEw4tQeh7SlogJS4%3D/project/1687651200"
             className="text-zinc-500 dark:text-zinc-400 font-medium hover:underline cursor-pointer"
           >
             App
           </a>
         </div>
 
-        <a href="https://ndc.edu.bd" target="_blank" className="flex flex-col items-center gap-3">
+        <a
+          href="https://ndc.edu.bd"
+          target="_blank"
+          className="flex flex-col items-center gap-3"
+        >
           <div className="text-white font-semibold font-ShareTechTown hover:underline cursor-pointer text-center">
             A CLUB OF
           </div>
@@ -127,7 +131,12 @@ const Footer = () => {
               fill="none"
               viewBox="0 0 17 21"
             >
-              <g stroke="currentColor" strokeLinecap="round" strokeLinejoin="round" strokeWidth="2">
+              <g
+                stroke="currentColor"
+                strokeLinecap="round"
+                strokeLinejoin="round"
+                strokeWidth="2"
+              >
                 <path d="M8 12a3 3 0 1 0 0-6 3 3 0 0 0 0 6Z" />
                 <path d="M13.8 12.938h-.01a7 7 0 1 0-11.465.144h-.016l.141.17c.1.128.2.252.3.372L8 20l5.13-6.248c.193-.209.373-.429.54-.66l.13-.154Z" />
               </g>
