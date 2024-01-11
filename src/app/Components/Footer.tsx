@@ -1,16 +1,11 @@
 import Image from "next/image";
 import Link from "next/link";
+import CurrentYear from "./CurrentYear";
 
 const Footer = () => {
   return (
     <footer className="bg-[#1F1F1F] text-xs md:text-base relative">
-      <span className="md:text-xs text-zinc-500 text-xs sm:text-center mt-7 dark:text-zinc-400 absolute bottom-3 left-3">
-        © 2023{" "}
-        <a href="https://flowbite.com/" className="hover:underline">
-          NDITC™
-        </a>
-        . All Rights Reserved.
-      </span>
+      <CurrentYear />
       <div className="mx-auto w-full max-w-screen-xl p-4 py-6 lg:py-8 flex justify-evenly gap-3">
         <div className="flex flex-col gap-3">
           <Link
@@ -65,28 +60,26 @@ const Footer = () => {
           </a>
         </div>
 
-        <a
-          href="https://ndc.edu.bd"
-          target="_blank"
-          className="flex flex-col items-center gap-3"
-        >
-          <div className="text-white font-semibold font-ShareTechTown hover:underline cursor-pointer text-center">
+        <div className="flex flex-col items-center gap-3">
+          <div className="text-white font-semibold font-ShareTechTown hover:underline text-center">
             A CLUB OF
           </div>
-          <Image
-            src="/NDC.png"
-            alt="Logo"
-            width={128}
-            height={128}
-            className="scale-75 md:scale-100"
-          />
-        </a>
+          <a href="https://ndc.edu.bd" target="_blank">
+            <Image
+              src="/NDC.png"
+              alt="Logo"
+              width={128}
+              height={128}
+              className="scale-75 md:scale-100"
+            />
+          </a>
+        </div>
 
         <div className="flex flex-col gap-3 items-start">
           <div className="text-white font-semibold font-ShareTechTown hover:underline cursor-pointer">
             CONTACT US
           </div>
-          <div className="text-zinc-500 dark:text-zinc-400 font-medium hover:underline cursor-pointer flex gap-1 items-center">
+          <div className="text-zinc-500 dark:text-zinc-400 font-medium hover:underline flex gap-1 items-center">
             <svg
               className="w-5 h-5 text-zinc-800 dark:text-white"
               aria-hidden="true"
@@ -105,7 +98,7 @@ const Footer = () => {
 
             <p>nditc.official@gmail.com</p>
           </div>
-          <div className="text-zinc-500 dark:text-zinc-400 font-medium hover:underline cursor-pointer flex gap-1 items-center">
+          <div className="text-zinc-500 dark:text-zinc-400 font-medium hover:underline flex gap-1 items-center">
             <svg
               className="w-5 h-5 text-zinc-800 dark:text-white"
               aria-hidden="true"
@@ -123,7 +116,7 @@ const Footer = () => {
             </svg>
             <p>+88 01793471625</p>
           </div>
-          <div className="text-zinc-500 dark:text-zinc-400 font-medium hover:underline cursor-pointer flex gap-1 items-center">
+          <div className="text-zinc-500 dark:text-zinc-400 font-medium hover:underline flex gap-1 items-center">
             <svg
               className="w-5 h-5 text-zinc-800 dark:text-white"
               aria-hidden="true"

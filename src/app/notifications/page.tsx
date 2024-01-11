@@ -36,6 +36,7 @@ const Notifications = async () => {
                 subtitle={e.subtitle}
                 detailsURL={e.details_url}
                 imageURL={e.image_url}
+                index={i}
                 key={i}
               />
             );

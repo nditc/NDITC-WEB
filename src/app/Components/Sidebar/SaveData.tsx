@@ -32,16 +32,7 @@ const SaveData = ({ data }: { data: any }) => {
       }}
       className="transition-all rounded-full bg-white shadow-[5px_5px_20px_15px_#00000024] p-1"
     >
-      <Link
-        href={
-          isNew
-            ? `/notifications/details/${encodeURIComponent(
-                detailsEncrypt.toString()
-              )}`
-            : "/notifications"
-        }
-        className="text-black mt-2 relative"
-      >
+      <Link href="/notifications" className="text-black mt-2 relative">
         {isNew && (
           <div className="w-3 h-3 bg-red-700 rounded-full absolute right-0 top-0" />
         )}
