@@ -120,8 +120,8 @@ const Timeline = () => {
         <div className="h-1 w-full md:w-1 md:h-full bg-gray-400 rounded-3xl md:gradient-mask-t-90-d hidden md:flex" />
       </div>
 
-      <div className="flex-[10] my-auto  md:ml-6 h-full  flex justify-center items-center relative">
-        <div className="w-full h-full  bg-white rounded-xl shadow-lg grid grid-rows-[auto_auto_1fr] items-stretch justify-items-start gap-5 p-3 md:p-4  xl:p-6">
+      <div className="md:flex-[10] my-auto  md:ml-6 h-[600px]  flex justify-center items-center relative">
+        <div className="w-full h-full  bg-white rounded-xl shadow-sm grid grid-rows-[auto_auto_1fr] items-stretch justify-items-start gap-5 p-3 md:p-4  xl:p-6">
           <div className="flex gap-2 items-center justify-between md:justify-start w-full mt-2 md:mt-0">
             <MdKeyboardArrowUp
               onClick={() => {
@@ -158,13 +158,15 @@ const Timeline = () => {
             <h1 className="text-3xl md:text-4xl text-left">{currentTitle}</h1>
             <p>{currentDescription}</p>
           </div>
-          <img
-            src={currentImage}
-            alt="Image"
-            className="w-full h-full  max-h-[380px] rounded-[.75rem] object-cover"
-            width={720}
-            height={720}
-          />
+          <div className="flex overflow-hidden rounded-[.75rem]">
+            <img
+              src={currentImage}
+              alt="Image"
+              className="flex-1 h-full  rounded-[.75rem] object-cover"
+              width={720}
+              height={720}
+            />
+          </div>
         </div>
       </div>
     </section>
