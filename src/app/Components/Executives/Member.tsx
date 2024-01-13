@@ -8,6 +8,7 @@ type memberProps = {
   designation: string;
   department?: string | null;
   hasClickHandler?: boolean;
+  hoverText?: string;
 };
 
 const Member = ({
@@ -17,6 +18,7 @@ const Member = ({
   designation,
   department,
   hasClickHandler,
+  hoverText,
 }: memberProps) => {
   const [hover, setHover] = useState<boolean>(false);
   return (
@@ -40,7 +42,7 @@ const Member = ({
             (hasClickHandler && hover ? 'opacity-100 ' : '')
           }
         >
-          Click for Details
+          {hoverText}
         </span>
         <Image
           className={`rounded-full max-w-[120px] md:max-w-[280px] w-full transition-all aspect-square object-cover ${

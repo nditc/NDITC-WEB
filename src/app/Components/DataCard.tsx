@@ -5,7 +5,7 @@ import { PiGraduationCapBold } from 'react-icons/pi';
 const DataCard = () => {
   return (
     <div className="flex-1   w-full lg:w-0  flex flex-col md:flex-row lg:flex-col  gap-4">
-      <div className="lg:h-1/2 flex-1 shadow-lg bg-[#1A6EFF] rounded-xl grid grid-cols-[1fr_auto] sm:grid-cols-[3fr_2fr] grid-rows-[auto_1fr] p-4 lg:p-6 text-white gap-3">
+      <div className="lg:h-1/2 flex-1 shadow-sm bg-[#1A6EFF] rounded-xl grid grid-cols-[1fr_auto] sm:grid-cols-[3fr_2fr] grid-rows-[auto_1fr] p-4 lg:p-6 text-white gap-3">
         <div className="col-span-2 flex gap-3">
           <BsCalendar2EventFill className={'w-11 h-11'} />
           <div>
@@ -30,7 +30,7 @@ const DataCard = () => {
           </p>
         </div>
       </div>
-      <div className="lg:h-1/2 flex-1 shadow-lg  bg-white grid grid-rows-2 grid-cols-[1fr_auto] p-3 lg:p-6 gap-4 rounded-xl items-center">
+      <div className="lg:h-1/2 flex-1 shadow-sm  bg-white grid grid-rows-2 grid-cols-[1fr_auto] p-3 lg:p-6 gap-4 rounded-xl items-center">
         <div className="bg-gray-100 h-full rounded-lg col-start-1 grid grid-cols-[auto_1fr_auto] p-3 lg:p-6 items-center lg:gap-3">
           <MdOutlinePeopleOutline
             className={
@@ -57,8 +57,8 @@ const DataCard = () => {
             2472
           </h4>
         </div>
-        <div className="col-start-2 bg-[conic-gradient(#60a5fa_30%,#3b82f6_75%,#fff_0)]  row-start-1 row-span-2 w-32 sm:w-40 2xl:h-48 h-32 sm:h-40 2xl:w-48 rounded-full aspect-square flex flex-col justify-center items-center ">
-          <div className="bg-white  text-center  rounded-full w-28 sm:w-36 2xl:w-44 h-28 sm:h-36 2xl:h-44 flex flex-col justify-center items-center">
+        <div className="col-start-2 bg-[conic-gradient(#60a5fa_30%,#3b82f6_75%,#fff_0)]  row-start-1 row-span-2 w-32 sm:w-40 2xl:h-44 h-32 sm:h-40 2xl:w-44 rounded-full aspect-square flex flex-col justify-center items-center ">
+          <div className="bg-white  text-center  rounded-full w-28 sm:w-36 2xl:w-40 h-28 sm:h-36 2xl:h-40 flex flex-col justify-center items-center">
             <h3 className="leading-[.7_!important] text-6xl sm:text-7xl 2xl:text-8xl  text-blue-500">
               6
             </h3>
