@@ -26,7 +26,7 @@ const SingleNotification = ({
       className="relative hover:cursor-pointer w-full h-[7.9rem] md:h-[8.6rem] border-gray-200 shadow-[5px_5px_30px_5px_#00000024] transition-all duration-500 hover:scale-110 rounded-xl flex justify-between"
     >
       {index == 0 && (
-        <div className="absolute z-50 w-28 h-9 bg-blue-600 -right-3 -top-3 rounded-xl flex items-center justify-center">
+        <div className="absolute z-10 w-28 h-9 bg-blue-600 -right-3 -top-3 rounded-xl flex items-center justify-center">
           <div className="Bebas text-2xl text-white">NEW</div>
         </div>
       )}

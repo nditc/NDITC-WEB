@@ -21,6 +21,13 @@ export const developerData: DeveloperDataFormat[] = [
     designation: "Member",
     department: "Batch '25",
   },
+  {
+    name: "Muksifur Rahman",
+    imageURL: "/image/Developers/muksif.jpg",
+    profileURL: "https://www.facebook.com/muksifur",
+    designation: "Member",
+    department: "Batch '25",
+  },
 ];
 
 interface DeveloperDataFormat {
