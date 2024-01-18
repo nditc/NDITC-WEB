@@ -13,7 +13,7 @@ const HashtechPosts = ({ title, desc, imageURL, redirectUrl }: Props) => {
     <a
       href={redirectUrl}
       target="_blank"
-      className={`bg-[#2e2e2e] border group  border-gray-300 shadow-xl flex flex-col sm:flex-row rounded-xl duration-1000 overflow-hidden min-w-[290px]`}
+      className={`bg-[#2e2e2e] group shadow-xl flex flex-col sm:flex-row rounded-xl duration-1000 overflow-hidden min-w-[290px]`}
     >
       <Image
         src={imageURL}

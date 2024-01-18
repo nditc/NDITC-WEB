@@ -43,7 +43,7 @@ const Hover = ({ text, showOptions, windowWidth, setShowOption }: Props) => {
           data-dropdown-trigger="hover"
           onClick={setShowOption}
           className={
-            'block py-2 px-3 md:px-1 lg:px-3 rounded hover:bg-gray-100 md:hover:bg-transparent md:p-0' +
+            'block py-2 px-3  rounded hover:bg-gray-100 md:hover:bg-transparent md:p-0' +
             ' ' +
             (Route === '/activities' ? 'md:text-blue-500' : '') +
             ' ' +

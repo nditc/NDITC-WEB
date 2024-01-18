@@ -8,6 +8,7 @@ import Modal from './Modal';
 import Member from './Member';
 import { useRouter } from 'next/navigation';
 import { profile } from 'console';
+import Link from 'next/link';
 
 const ExecutivePanel = ({
   setModalState,
@@ -55,7 +56,7 @@ const ExecutivePanel = ({
         {ExecutiveData.sessions[state].members.map(
           ({ image_url, imageInCenter, name, post, dept, profile_url }, index) => (
             <>
-              {ExecutiveData.sessions[state].hasExtraDetails ? (
+              {ExecutiveData.sessions[state].hasExtraDetails && typeof profile_url === 'object' ? (
                 <div
                   key=""
                   onClick={() => {
@@ -69,20 +70,11 @@ const ExecutivePanel = ({
                     name={name}
                     designation={post}
                     department={dept}
+                    hoverText="Click for Details"
                   />
                 </div>
-              ) : (
-                <a
-                  href={
-                    typeof profile_url === 'string' && profile_url !== ''
-                      ? profile_url
-                      : profile_url
-                      ? profile_url[0].url
-                      : '/not-found'
-                  }
-                  key=""
-                  target="_blank"
-                >
+              ) : typeof profile_url === 'string' && profile_url !== '' ? (
+                <Link href={profile_url} key="" target="_blank">
                   <Member
                     hasClickHandler={true}
                     img={image_url}
@@ -90,8 +82,20 @@ const ExecutivePanel = ({
                     name={name}
                     designation={post}
                     department={dept}
+                    hoverText="Visit Social"
                   />
-                </a>
+                </Link>
+              ) : (
+                <div>
+                  <Member
+                    hasClickHandler={false}
+                    img={image_url}
+                    imgInCenter={imageInCenter}
+                    name={name}
+                    designation={post}
+                    department={dept}
+                  />
+                </div>
               )}
             </>
           )

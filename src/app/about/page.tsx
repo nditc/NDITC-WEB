@@ -11,7 +11,7 @@ const Sections = [
     heading: '',
     content: (
       <>
-        <div className="flex gap-8 lg:flex-row flex-col  mb-10">
+        <div className="flex gap-8 lg:flex-row flex-col mb-10 md:mb-16">
           <Image
             src="/About.jpg"
             alt="Image"
@@ -38,15 +38,15 @@ const Sections = [
             advanced nation.
           </p>
         </div>
-        <h1 className="text-4xl md:text-5xl mb-6">
+        <h1 className="text-4xl md:text-5xl mb-7">
           Our<span className="text-blue-500"> Achievements</span>
         </h1>
         <div className="flex flex-col lg:flex-row gap-4 md:gap-8 mb-4 md:mb-8">
           <Timeline />
           <DataCard />
         </div>
-        <div className="mb-10 flex flex-col md:flex-row gap-4 md:gap-8">
-          <div className="shadow-lg flex-1  flex-wrap gap-2  bg-white rounded-xl p-3 md:p-4 xl:p-6 flex justify-between items-center ">
+        <div className="mb-10 md:mb-16 flex flex-col md:flex-row gap-4 md:gap-8">
+          <div className="shadow-sm flex-1  flex-wrap gap-2  bg-white rounded-xl p-3 md:p-4 xl:p-6 flex justify-between items-center ">
             <h1 className="Bebas text-3xl md:text-4xl flex gap-2 items-center leading-[0.7_!important] align-middle">
               <PiBagSimple className={'text-blue-500 text-3xl h-10 w-10'} />
               Total Panelists <span className="text-blue-500 leading-[0.7_!important] ">19</span>
@@ -61,7 +61,7 @@ const Sections = [
 
           <Link
             href="/developer"
-            className="py-2 px-4 md:px-8 shadow-lg  flex gap-3 items-center md:text-lg bg-blue-500 text-white font-bold rounded-xl hover:bg-blue-600"
+            className="py-2 px-4 md:px-8 shadow-sm  flex gap-3 items-center md:text-lg bg-blue-500 text-white font-bold rounded-xl hover:bg-blue-600"
           >
             <FaCode className={'w-8 h-8'} />
             Explore Developers
