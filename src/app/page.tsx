@@ -1,10 +1,10 @@
-import Image from 'next/image';
-import Contact from './Components/Contact';
-import ActivityCards from './Components/ActivityCards';
-import HashtechPosts from './Components/HashtechPosts';
-import SnapScroller from './Components/Utilities/SnapScroller';
-import Link from 'next/link';
-import CodeCompass from './Components/NewsLAndApp';
+import Image from "next/image";
+import Contact from "./Components/Contact";
+import ActivityCards from "./Components/ActivityCards";
+import HashtechPosts from "./Components/HashtechPosts";
+import SnapScroller from "./Components/Utilities/SnapScroller";
+import Link from "next/link";
+import CodeCompass from "./Components/NewsLAndApp";
 
 export default function Home() {
   return (
@@ -21,8 +21,9 @@ export default function Home() {
             TECH ENTHUSIASTS
           </h1>
           <p className="mt-3 text-lg 2xl:text-[1.375rem] break-words w-[85vw] md:w-fit text-center md:text-left">
-            Connect with like-minded individuals and expand your knowledge in computer, programming,
-            robotics, and design. Let's be the best together
+            Connect with like-minded individuals and expand your knowledge in
+            computer, programming, robotics, and design. Let's be the best
+            together
           </p>
           <Link
             href="/about"
@@ -32,17 +33,23 @@ export default function Home() {
           </Link>
         </div>
         <Image
-          src={'/HeroImg.png'}
-          alt={'Image'}
+          src={"/BigImg-old.png"}
+          alt={"Image"}
           className="relative aspect-square md:-mt-12 md:-ml-6 xl:ml-0 lg:mt-0 object-contain max-h-[87vh] md:object-right 2xl:max-h-[82vh] md:-mr-6 max-w-[95vw] sm:max-w-[80vw] md:max-w-[55vw] order-1 md:order-2"
           width={850}
           height={850}
         />
-        <img src="/image/bg2.svg" className="absolute bottom-[-4vh] right-0 -z-10" alt="" />
+        <img
+          src="/image/bg2.svg"
+          className="absolute bottom-[-4vh] right-0 -z-10"
+          alt=""
+        />
       </section>
 
       <div className="w-screen h-fit mt-16 py-14 bg-sectorsBG object-cover text-center">
-        <h1 className="text-5xl mb-12 text-white">WE HAVE LEARNING RESOURCES ON..</h1>
+        <h1 className="text-5xl mb-12 text-white">
+          WE HAVE LEARNING RESOURCES ON..
+        </h1>
         <div className="container items-start justify-between flex gap-16 flex-wrap">
           <div className="flex flex-col items-center gap-3 flex-1 hover:scale-110 transition-all">
             <Image width={100} height={100} src="/image/icon/ai.svg" alt="" />
@@ -51,25 +58,49 @@ export default function Home() {
             </p>
           </div>
           <div className="flex flex-col items-center gap-3 flex-1 hover:scale-110 transition-all">
-            <Image width={100} height={100} src="/image/icon/robot.svg" alt="" loading="lazy" />
+            <Image
+              width={100}
+              height={100}
+              src="/image/icon/robot.svg"
+              alt=""
+              loading="lazy"
+            />
             <p className="text-lg md:text-xl text-white text-cente font-lightr">
               Hardwares & Robotics
             </p>
           </div>
           <div className="flex flex-col items-center gap-3 flex-1 hover:scale-110 transition-all">
-            <Image width={100} height={100} src="/image/icon/web_dev.svg" alt="" loading="lazy" />
+            <Image
+              width={100}
+              height={100}
+              src="/image/icon/web_dev.svg"
+              alt=""
+              loading="lazy"
+            />
             <p className="text-lg md:text-xl text-white text-center font-light">
               Website & Native App Development
             </p>
           </div>
           <div className="flex flex-col items-center gap-3 flex-1 hover:scale-110 transition-all">
-            <Image width={100} height={100} src="/image/icon/cp.svg" alt="" loading="lazy" />
+            <Image
+              width={100}
+              height={100}
+              src="/image/icon/cp.svg"
+              alt=""
+              loading="lazy"
+            />
             <p className="text-lg md:text-xl text-white text-center font-light">
               Competitive Programming
             </p>
           </div>
           <div className="flex flex-col items-center gap-3 flex-1 hover:scale-110 transition-all">
-            <Image width={100} height={100} src="/image/icon/gfx.svg" alt="" loading="lazy" />
+            <Image
+              width={100}
+              height={100}
+              src="/image/icon/gfx.svg"
+              alt=""
+              loading="lazy"
+            />
             <p className="text-lg md:text-xl text-white text-center font-light">
               Graphics Designing & Article
             </p>
@@ -137,7 +168,9 @@ export default function Home() {
             <h1 className="text-center tracking-wider mx-auto md:text-left text-3xl md:text-5xl text-blue-500">
               OUR ACTIVITIES
             </h1>
-            <h1 className="text-center mx-auto md:text-left text-3xl md:text-5xl">INCLUDE</h1>
+            <h1 className="text-center mx-auto md:text-left text-3xl md:text-5xl">
+              INCLUDE
+            </h1>
           </div>
           <ActivityCards />
         </section>
@@ -146,13 +179,15 @@ export default function Home() {
       <section className="mt-24 flex flex-col items-center gap-9">
         <div className="flex flex-col md:flex-row gap-1">
           <h1 className="text-3xl md:text-5xl text-center">WHY YOU SHOULD</h1>
-          <h1 className="text-blue-500 text-3xl md:text-5xl text-center">JOIN NDITC?</h1>
+          <h1 className="text-blue-500 text-3xl md:text-5xl text-center">
+            JOIN NDITC?
+          </h1>
         </div>
         <div className="flex flex-col md:flex-row items-center justify-center gap-10">
           <div className="flex flex-col items-center gap-3">
             <Image
-              src={'/Ellipse1.png'}
-              alt={'Image'}
+              src={"/Ellipse1.png"}
+              alt={"Image"}
               width={150}
               height={150}
               className="hover:scale-110 transition-all"
@@ -162,14 +197,15 @@ export default function Home() {
               GAIN EXPERIENCE BY CONTRIBUTING TO REAL-WORLD PROJECTS
             </h1>
             <p className="text-center text-base">
-              Gain invaluable experience with NDITC by actively engaging in real-world projects like
-              HashTech and Evya AI, shaping your practical expertise in the evolving tech sphere.
+              Gain invaluable experience with NDITC by actively engaging in
+              real-world projects like HashTech and Evya AI, shaping your
+              practical expertise in the evolving tech sphere.
             </p>
           </div>
           <div className="flex flex-col items-center gap-3">
             <Image
-              src={'/Ellipse2.png'}
-              alt={'Image'}
+              src={"/Ellipse2.png"}
+              alt={"Image"}
               width={150}
               height={150}
               className="hover:scale-110 transition-all"
@@ -179,15 +215,15 @@ export default function Home() {
               EXPLORE THE LEARNING BASED CLUB JOURNEY WITH NDITC
             </h1>
             <p className="text-center text-base">
-              Embark on an enriching learning journey with NDITC's workshops, seminars, and
-              groundbreaking events like Thynk 2.0, fostering an immersive educational experience in
-              the IT realm.
+              Embark on an enriching learning journey with NDITC's workshops,
+              seminars, and groundbreaking events like Thynk 2.0, fostering an
+              immersive educational experience in the IT realm.
             </p>
           </div>
           <div className="flex flex-col items-center gap-3">
             <Image
-              src={'/Ellipse3.png'}
-              alt={'Image'}
+              src={"/Ellipse3.png"}
+              alt={"Image"}
               width={150}
               height={150}
               className="hover:scale-110 transition-all"
@@ -197,9 +233,9 @@ export default function Home() {
               NETWORK WITH PEERS AND MENTORS & SHOWCASE YOUR SKILLSET
             </h1>
             <p className="text-center text-base">
-              Join NDITC to network, collaborate with peers and mentors, and exhibit your diverse
-              skill set through initiatives like FTMPC 3.0, creating opportunities for professional
-              growth and recognition.
+              Join NDITC to network, collaborate with peers and mentors, and
+              exhibit your diverse skill set through initiatives like FTMPC 3.0,
+              creating opportunities for professional growth and recognition.
             </p>
           </div>
         </div>
