@@ -1,7 +1,7 @@
-"use client";
+'use client';
 
-import { useEffect, useRef, useState } from "react";
-import { IoIosCloseCircleOutline } from "react-icons/io";
+import { useEffect, useRef, useState } from 'react';
+import { IoIosCloseCircleOutline } from 'react-icons/io';
 
 const Contact = () => {
   const [sending, setSending] = useState(false);
@@ -21,15 +21,15 @@ const Contact = () => {
     const formData = new FormData(event.target);
 
     try {
-      const response = await fetch("/api/contact", {
-        method: "post",
+      const response = await fetch('/api/contact', {
+        method: 'post',
         body: formData,
       });
 
       formRef.current?.reset();
 
       if (!response.ok) {
-        console.log("falling over");
+        console.log('falling over');
         throw new Error(`response status: ${response.status}`);
       }
 
@@ -39,17 +39,17 @@ const Contact = () => {
       setShowingModal(true);
     } catch (err) {
       console.error(err);
-      alert("Error, please try resubmitting the form");
+      alert('Error, please try resubmitting the form');
     }
   }
 
   return (
     <>
-      <div className="mt-10 flex flex-col items-center bg-zinc-200">
+      <div className="mt-10 flex flex-col items-center bg-[#e6e6e6]">
         <dialog
           ref={dialogRef}
           className={`w-[90%] ${
-            showingModal ? "z-30" : "-z-30"
+            showingModal ? 'z-30' : '-z-30'
           } h-[90%] md:w-96 md:h-56 rounded-xl flex flex-col items-center justify-center`}
         >
           {showingModal && (
@@ -79,7 +79,7 @@ const Contact = () => {
         </dialog>
 
         <div className="w-screen flex flex-col gap-10  md:flex-row justify-center md:justify-between">
-          <div className="flex-1 md:w-1/2  py-10 bg-zinc-200">
+          <div className="flex-1 md:w-1/2  py-10 bg-[#e6e6e6]">
             <form
               ref={formRef}
               onSubmit={handleSubmit}
@@ -90,9 +90,7 @@ const Contact = () => {
                 <h1 className="text-5xl mb-5 text-center md:text-left text-blue-500">
                   GET IN TOUCH
                 </h1>
-                <h1 className="text-5xl mb-5 text-center md:text-left">
-                  WITH US
-                </h1>
+                <h1 className="text-5xl mb-5 text-center md:text-left">WITH US</h1>
               </div>
               <div className="mb-6 w-full md:max-w-[550px]">
                 <label
@@ -108,7 +106,7 @@ const Contact = () => {
                   name="name"
                   placeholder="Your Name"
                   type="text"
-                  className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full px-6 py-4"
+                  className="bg-white border border-stone-400 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full px-6 py-4"
                 />
               </div>
               <div className="mb-6 w-full md:max-w-[550px]">
@@ -125,7 +123,7 @@ const Contact = () => {
                   name="email"
                   placeholder="Your Email Address"
                   type="email"
-                  className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full px-6 py-4"
+                  className="bg-white border border-stone-400 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full px-6 py-4"
                 />
               </div>
               <div className="mb-6 w-full md:max-w-[550px]">
@@ -141,16 +139,16 @@ const Contact = () => {
                   name="message"
                   placeholder="Type your query here....."
                   rows={5}
-                  className="block resize-none w-full px-6 py-4 text-gray-900 border border-gray-300 rounded-lg bg-gray-50 sm:text-md focus:ring-blue-500 focus:border-blue-500"
+                  className="block resize-none w-full px-6 py-4 text-gray-900 border border-stone-400 rounded-lg bg-white sm:text-md focus:ring-blue-500 focus:border-blue-500"
                 />
               </div>
               {sending ? (
-                <div className="text-white w-44 bg-gray-800 hover:bg-gray-900 focus:outline-none focus:ring-4 focus:ring-gray-300 font-medium rounded-lg text-sm px-5 py-2.5 me-2 mb-2">
+                <div className="text-white w-44 bg-[#1f1f1f] hover:bg-stone-900 focus:outline-none focus:ring-4 focus:ring-gray-300 font-medium rounded-lg text-sm px-5 py-2.5 me-2 mb-2">
                   <div className="text-center">
                     <div role="status">
                       <svg
                         aria-hidden="true"
-                        className="inline w-6 h-6 text-gray-200 animate-spin dark:text-gray-600 fill-blue-600"
+                        className="inline w-6 h-6 text-gray-200 animate-spin dark:text-gray-600 fill-white"
                         viewBox="0 0 100 101"
                         fill="none"
                         xmlns="http://www.w3.org/2000/svg"
@@ -171,7 +169,7 @@ const Contact = () => {
               ) : (
                 <button
                   type="submit"
-                  className="before:ease relative flex items-center justify-center overflow-hidden shadow-2xl transition-all before:absolute before:top-1/2 before:h-0 before:w-64 before:origin-center before:-translate-x-20 before:rotate-45 before:bg-blue-500 before:duration-300 hover:shadow-blue-500 hover:before:h-64 hover:before:-translate-y-32  text-white w-44 bg-gray-800 hover:bg-blue-500 focus:outline-none focus:ring-4 focus:ring-gray-300 font-medium rounded-lg text-sm px-5 py-2.5 me-2 mb-2"
+                  className="before:ease relative flex items-center justify-center overflow-hidden shadow-2xl transition-all before:absolute before:top-1/2 before:h-0 before:w-64 before:origin-center before:-translate-x-32 before:rotate-45 before:bg-blue-500 before:duration-300 hover:shadow-blue-500 hover:before:h-[32rem] hover:before:-translate-y-32  text-white w-44 bg-[#2c2c2c]  focus:outline-none focus:ring-4 focus:ring-gray-300 font-medium rounded-md text-sm px-5 py-2.5 me-2 mb-2"
                 >
                   <span className="relative z-10">Send my message</span>
                 </button>

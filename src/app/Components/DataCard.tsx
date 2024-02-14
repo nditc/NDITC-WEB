@@ -5,32 +5,36 @@ import { PiGraduationCapBold } from 'react-icons/pi';
 const DataCard = () => {
   return (
     <div className="flex-1   w-full lg:w-0  flex flex-col md:flex-row lg:flex-col  gap-4">
-      <div className="lg:h-1/2 flex-1 shadow-sm bg-[#1A6EFF] rounded-xl grid grid-cols-[1fr_auto] sm:grid-cols-[3fr_2fr] grid-rows-[auto_1fr] p-4 lg:p-6 text-white gap-3">
+      <div className="lg:h-1/2 flex-1  bg-gray-100 rounded-xl grid grid-cols-[1fr_auto] sm:grid-cols-[3fr_2fr] grid-rows-[auto_1fr] p-4 lg:p-6 text-black gap-3">
         <div className="col-span-2 flex gap-3">
-          <BsCalendar2EventFill className={'w-11 h-11'} />
+          <BsCalendar2EventFill className={'w-11 h-11 text-blue-500'} />
           <div>
-            <h3 className="text-2xl leading-none mb-[3.5px] font-Nunito font-extrabold">Events</h3>
+            <h3 className="text-2xl leading-none mb-[3.5px] text-blue-500 font-Nunito font-extrabold">
+              Events
+            </h3>
             <p className="text-lg leading-none "> Organized by NDITC</p>
           </div>
         </div>
         <div className="col-start-1 row-start-2 self-end flex flex-col sm:gap-2">
           <p className="sm:text-lg lg:text-xl flex items-center">
             Intra Events
-            <span className="ml-3 font-extrabold">14</span>
+            <span className="ml-3 font-extrabold text-blue-500">14</span>
           </p>
           <p className="sm:text-lg lg:text-xl flex items-center">
             National Events
-            <span className="ml-3 font-extrabold">6</span>
+            <span className="ml-3 font-extrabold text-blue-500">6</span>
           </p>
         </div>
         <div className="col-start-2 row-start-2 justify-self-end self-end text-right">
-          <h3 className="text-7xl sm:text-8xl mt-4 lg:text-[10rem]  leading-[0.8]">20</h3>
+          <h3 className="text-7xl sm:text-8xl mt-4 lg:text-[10rem] text-blue-500  leading-[0.8]">
+            20
+          </h3>
           <p className="flex justify-end flex-col lg:gap-[.325rem] lg:flex-row sm:text-lg lg:text-xl leading-none ">
             Total <span>Events</span>
           </p>
         </div>
       </div>
-      <div className="lg:h-1/2 flex-1 shadow-sm  bg-white grid grid-rows-2 grid-cols-[1fr_auto] p-3 lg:p-6 gap-4 rounded-xl items-center">
+      <div className="lg:h-1/2 flex-1   bg-white grid grid-rows-2 grid-cols-[1fr_auto] gap-4 rounded-xl items-center">
         <div className="bg-gray-100 h-full rounded-lg col-start-1 grid grid-cols-[auto_1fr_auto] p-3 lg:p-6 items-center lg:gap-3">
           <MdOutlinePeopleOutline
             className={

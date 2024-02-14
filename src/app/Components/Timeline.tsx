@@ -117,11 +117,11 @@ const Timeline = () => {
             );
           })}
         </div>
-        <div className="h-1 w-full md:w-1 md:h-full bg-gray-400 rounded-3xl md:gradient-mask-t-90-d hidden md:flex" />
+        <div className="h-1 w-full md:w-1 md:h-4/5 my-auto bg-gray-400 rounded-3xl md:gradient-mask-t-90-d hidden md:flex" />
       </div>
 
       <div className="md:flex-[10] my-auto  md:ml-6 h-[600px]  flex justify-center items-center relative">
-        <div className="w-full h-full  bg-white rounded-xl shadow-sm grid grid-rows-[auto_auto_1fr] items-stretch justify-items-start gap-5 p-3 md:p-4  xl:p-6">
+        <div className="w-full h-full  bg-white rounded-xl  grid grid-rows-[auto_auto_1fr] items-stretch justify-items-start gap-5 pb-1 pt-4">
           <div className="flex gap-2 items-center justify-between md:justify-start w-full mt-2 md:mt-0">
             <MdKeyboardArrowUp
               onClick={() => {
@@ -200,13 +200,15 @@ const Time = ({
       <div className="w-16">
         <h1
           className={`transition-all ${
-            current ? 'text-3xl text-blue-500' : 'text-gray-400 text-2xl'
+            current ? 'text-3xl text-blue-500' : 'text-gray-400 text-2xl scale-85'
           }`}
         >
           {time1}
         </h1>
         <p
-          className={`transition-all  ${current ? 'text-base font-bold' : 'text-gray-400 text-sm'}`}
+          className={`transition-all  ${
+            current ? 'text-base font-bold' : 'text-gray-400 text-sm scale-85'
+          }`}
         >
           {time2}
         </p>

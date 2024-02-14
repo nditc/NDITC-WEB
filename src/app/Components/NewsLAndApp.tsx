@@ -2,13 +2,15 @@
 import { useRouter } from 'next/navigation';
 import '../styles/NewsLAndApp.css';
 import { useState } from 'react';
-
+type Props = {
+  gap: number;
+};
 const NewsLAndApp = () => {
   const router = useRouter();
   const [email, setEmail] = useState('');
   return (
-    <div className="container mt-24 mb-12">
-      <div id="appANDnwslttr">
+    <div className="container mb-12">
+      <div className="gap-4 md:gap-6" id="appANDnwslttr">
         <div id="nwslttr_crd">
           <h3 id="hdr">
             Subscribe to our <span>Newsletter</span>

@@ -1,0 +1,30 @@
+.cont {
+  display: grid;
+  gap: 0.5rem;
+  height: 60vh;
+  grid-auto-flow: column;
+}
+.cont img {
+  height: calc((60vh - 1rem) / 3);
+  object-fit: cover;
+  width: 100%;
+  cursor: pointer;
+  border-radius: 5px;
+  transition: 0.2s linear;
+}
+.cont img:hover {
+  filter: brightness(0.8) blur(1px);
+}
+.l1 {
+  grid-template-columns: 1fr 1fr 1fr;
+  grid-template-rows: repeat(3, calc((60vh - 1rem) / 3));
+}
+
+.l1 .i1 {
+  grid-row: 1 / span 3;
+  height: 60vh;
+}
+.l1 .i5 {
+  grid-row: 1 / span 3;
+  height: 60vh;
+}
