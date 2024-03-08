@@ -16,7 +16,6 @@ const fetchData = async (params: ParamType) => {
 
   try {
     const res = await fetch(text);
-    console.log(res);
     if (!res.ok) {
       notFound();
     } else {
@@ -56,11 +55,11 @@ const Page = async ({ params }: { params: ParamType }) => {
               </p>
               {data.subtitle ? <p>{data.subtitle}</p> : null}
               {data?.action ? (
-                <div className=" flex md:pb-5 gap-2 md:gap-3 mt-2 flex-col md:flex-row items-start">
+                <div className=" flex md:pb-5 gap-2 md:gap-3  flex-wrap mt-2 flex-col md:flex-row items-start">
                   <a
                     href={data.action.target}
                     target="_blank"
-                    className="before:ease relative align-middle border-2   h-full flex-1 md:flex-[0_auto] w-1/2 md:w-auto max-w-[150px] md:max-w-none  text-center flex items-center justify-center  overflow-hidden  transition-all before:absolute before:top-1/2 before:h-0 before:w-64 before:origin-center before:-translate-x-20 before:rotate-45 before:bg-blue-500 before:duration-300 hover:shadow-blue-500 hover:before:h-64 hover:before:-translate-y-32 Bebas cursor-pointer text-xl py-2 font-Bebas px-7 font-medium text-whiterounded-lg border-2focus:z-10 focus:ring-4 focus:ring-gray-700 bg-black text-white border-black hover:border-blue-500 hover:text-white hover:bg-zinc-700 rounded-lg"
+                    className="before:ease relative align-middle border-2   h-full flex-1 md:flex-[0_auto] min-w-[48%] sm:min-w-[auto]    text-center flex items-center justify-center  overflow-hidden  transition-all before:absolute before:top-1/2 before:h-0 before:w-64 before:origin-center before:-translate-x-20 before:rotate-45 before:bg-blue-500 before:duration-300 hover:shadow-blue-500 hover:before:h-[29rem] hover:before:-translate-y-44 Bebas cursor-pointer text-xl py-2 font-Bebas px-7 font-medium text-whiterounded-lg border-2focus:z-10 focus:ring-4 focus:ring-gray-700 bg-black text-white border-black hover:border-blue-500 hover:text-white hover:bg-zinc-700 rounded-lg"
                   >
                     <span className="relative z-10">{data.action.label}</span>
                   </a>
@@ -69,7 +68,7 @@ const Page = async ({ params }: { params: ParamType }) => {
                     <a
                       href="https://raw.githubusercontent.com/nditc/nditc_mobile_app/main/nditc.apk"
                       target="_blank"
-                      className="relative  align-middle overflow-hidden flex-1 md:flex-[0_auto] w-1/2 md:w-auto max-w-[150px]  md:max-w-none text-center bg-white  transition-all before:absolute before:left-0 before:top-0 before:h-full before:w-0 before:duration-500 after:absolute after:right-0 after:top-0 after:h-full after:w-0 after:duration-500 hover:shadow-pink-400 hover:before:w-2/4 hover:before:bg-zinc-900 hover:after:w-2/4 hover:after:bg-zinc-900 self-start Bebas inline-block cursor-pointer text-xl py-2 font-Bebas px-7 font-medium text-whiterounded-lg border-2 focus:z-10 focus:ring-4  focus:ring-gray-700 border-zinc-800 hover:text-white rounded-lg"
+                      className="relative  align-middle overflow-hidden flex-1 md:flex-[0_auto] min-w-[48%] sm:min-w-[auto]    text-center bg-white  transition-all before:absolute before:left-0 before:top-0 before:h-full before:w-0 before:duration-500 after:absolute after:right-0 after:top-0 after:h-full after:w-0 after:duration-500 hover:shadow-pink-400 hover:before:w-2/4 hover:before:bg-zinc-900 hover:after:w-2/4 hover:after:bg-zinc-900 self-start Bebas inline-block cursor-pointer text-xl py-2 font-Bebas px-7 font-medium text-whiterounded-lg border-2 focus:z-10 focus:ring-4  focus:ring-gray-700 border-zinc-800 hover:text-white rounded-lg"
                     >
                       <span className="relative z-10">Download Our APP</span>
                     </a>
@@ -77,18 +76,18 @@ const Page = async ({ params }: { params: ParamType }) => {
                 </div>
               ) : null}
               {params.type === 'publication' ? (
-                <div className=" flex gap-2 md:gap-3 mt-2  h-full items-start md:pb-5">
+                <div className=" flex gap-2 md:gap-3 mt-2 flex-wrap   h-full items-start md:pb-5">
                   <a
                     href={data.pdf_url}
                     target="_blank"
-                    className="before:ease relative align-middle    flex-1 md:flex-[0_auto] w-1/2 md:w-auto max-w-[150px] md:max-w-none text-center flex items-center justify-center  overflow-hidden  transition-all before:absolute before:top-1/2 before:h-0 before:w-64 before:origin-center before:-translate-x-20 before:rotate-45 before:bg-blue-500 before:duration-300 hover:shadow-blue-500 hover:before:h-64 hover:before:-translate-y-32 Bebas cursor-pointer text-xl py-2 font-Bebas px-7 font-medium text-whiterounded-lg border-2focus:z-10 focus:ring-4 focus:ring-gray-700 bg-black text-white border-black hover:border-blue-500 border-2 hover:text-white hover:bg-zinc-700 rounded-lg"
+                    className="before:ease relative align-middle    flex-1 md:flex-[0_auto] min-w-[48%] sm:min-w-[auto]   text-center flex items-center justify-center  overflow-hidden  transition-all before:absolute before:top-1/2 before:h-0 before:w-64 before:origin-center before:-translate-x-20 before:rotate-45 before:bg-blue-500 before:duration-300 hover:shadow-blue-500 hover:before:h-[29rem] hover:before:-translate-y-44 Bebas cursor-pointer text-xl py-2 font-Bebas px-7 font-medium text-whiterounded-lg border-2focus:z-10 focus:ring-4 focus:ring-gray-700 bg-black text-white border-black hover:border-blue-500 border-2 hover:text-white hover:bg-zinc-700 rounded-lg"
                   >
                     <span className="relative z-10">Read Now</span>
                   </a>
                   <a
                     href={data.pdf_url}
                     download={true}
-                    className="relative  align-middle overflow-hidden  flex-1 md:flex-[0_auto] w-1/2 md:w-auto max-w-[150px] md:max-w-none text-center bg-white  transition-all before:absolute before:left-0 before:top-0 before:h-full before:w-0 before:duration-500 after:absolute after:right-0 after:top-0 after:h-full after:w-0 after:duration-500  hover:before:w-2/4 hover:before:bg-blue-500 hover:after:w-2/4 hover:after:bg-blue-500 self-start Bebas inline-block cursor-pointer text-xl py-2 font-Bebas px-7 font-medium text-whiterounded-lg border-2 focus:z-10 focus:ring-4  focus:ring-blue-300 border-zinc-800 hover:border-blue-500  hover:text-white rounded-lg"
+                    className="relative  align-middle overflow-hidden  flex-1 md:flex-[0_auto] min-w-[48%] sm:min-w-[auto]   text-center bg-white  transition-all before:absolute before:left-0 before:top-0 before:h-full before:w-0 before:duration-500 after:absolute after:right-0 after:top-0 after:h-full after:w-0 after:duration-500  hover:before:w-2/4 hover:before:bg-blue-500 hover:after:w-2/4 hover:after:bg-blue-500 self-start Bebas inline-block cursor-pointer text-xl py-2 font-Bebas px-7 font-medium text-whiterounded-lg border-2 focus:z-10 focus:ring-4  focus:ring-blue-300 border-zinc-800 hover:border-blue-500  hover:text-white rounded-lg"
                   >
                     <span className="relative z-10">Download</span>
                   </a>
@@ -104,19 +103,19 @@ const Page = async ({ params }: { params: ParamType }) => {
             />
           </div>
         </div>
-        <div className="self-start">
+        <div className="self-start w-full">
           {data.images.length > 1 ? (
             <div>
               <h1 className="text-4xl">Gallery</h1>
-              <div className="py-5">
-                <ImageGrid images={data.images} layout="1" />
+              <div className="py-5 w-full">
+                <ImageGrid images={data.images} layout={data.layout_id} />
               </div>
             </div>
           ) : null}
 
-          <p className="text-lg min-h-[30vh] mb-10 text-left">
+          <div className="text-lg min-h-[30vh] mt-3 mb-10 text-left font-Nunito markdown">
             <Markdown>{data.description || data.short_description}</Markdown>
-          </p>
+          </div>
         </div>
       </div>
     </div>

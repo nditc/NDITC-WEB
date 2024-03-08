@@ -86,11 +86,9 @@ const Contact = () => {
               id="Contact"
               className="flex flex-col mt-7  items-center md:items-start justify-center 2xl:pl-32 container-padding"
             >
-              <div className="flex flex-col md:flex-row gap-2">
-                <h1 className="text-5xl mb-5 text-center md:text-left text-blue-500">
-                  GET IN TOUCH
-                </h1>
-                <h1 className="text-5xl mb-5 text-center md:text-left">WITH US</h1>
+              <div className="flex flex-col md:flex-row gap-2 mb-5">
+                <h1 className="text-5xl text-center md:text-left text-blue-500">GET IN TOUCH</h1>
+                <h1 className="text-5xl text-center md:text-left">WITH US</h1>
               </div>
               <div className="mb-6 w-full md:max-w-[550px]">
                 <label
