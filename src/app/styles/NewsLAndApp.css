@@ -5,7 +5,6 @@
   grid-template-areas: 'nwslttr dwnld_app';
   grid-template-columns: auto 24rem;
   grid-template-rows: 100%;
-  gap: 1.5rem;
 }
 @media screen and (max-width: 450px) {
   #appANDnwslttr {
@@ -14,8 +13,8 @@
       'nwslttr'
       'dwnld_app';
     grid-template-columns: 100%;
-    grid-template-rows: 54% 43%;
-    gap: 0rem;
+    grid-template-rows: auto auto;
+    gap: 1rem;
   }
 }
 @media screen and (min-width: 450px) and (max-width: 768px) {
@@ -25,15 +24,15 @@
       'nwslttr'
       'dwnld_app';
     grid-template-columns: 100%;
-    grid-template-rows: 47.5% 47.5%;
-    gap: 2rem;
+    grid-template-rows: AUTO auto;
+    gap: 1rem;
   }
 }
 @media screen and (min-width: 768px) and (max-width: 1024px) {
   #appANDnwslttr {
     gap: 2rem;
     height: auto;
-    grid-template-columns: 47.5% 47.5%;
+    grid-template-rows: AUTO auto;
   }
 }
 

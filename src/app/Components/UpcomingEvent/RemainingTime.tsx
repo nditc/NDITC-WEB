@@ -18,15 +18,12 @@ const RemainingTime = ({ time }: { time: number }) => {
     const days = (remainingTime / (1000 * 60 * 60 * 24)) % 30;
     const hours = (remainingTime / (1000 * 60 * 60)) % 24;
 
-    console.log(months, days, hours);
-
     setTimeLeft({
       months: months,
       days: days,
       hours: hours,
     });
   }
-  console.log(timeLeft);
   useEffect(() => {
     setInterval(() => {
       getTimeLeft(time);

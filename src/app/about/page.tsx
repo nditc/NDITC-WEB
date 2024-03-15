@@ -41,31 +41,35 @@ const Sections = [
         <h1 className="text-4xl md:text-5xl mb-7">
           Our<span className="text-blue-500"> Achievements</span>
         </h1>
-        <div className="flex flex-col lg:flex-row gap-4 md:gap-8 mb-4 md:mb-8">
-          <Timeline />
-          <DataCard />
-        </div>
-        <div className="mb-10 md:mb-16 flex flex-col md:flex-row gap-4 md:gap-8">
-          <div className="shadow-sm flex-1  flex-wrap gap-2  bg-white rounded-xl p-3 md:p-4 xl:p-6 flex justify-between items-center ">
-            <h1 className="Bebas text-3xl md:text-4xl flex gap-2 items-center leading-[0.7_!important] align-middle">
-              <PiBagSimple className={'text-blue-500 text-3xl h-10 w-10'} />
-              Total Panelists <span className="text-blue-500 leading-[0.7_!important] ">19</span>
-            </h1>
-            <Link
-              href="/executive"
-              className="py-2 px-4 md:px-8 md:text-lg bg-blue-500 text-white font-bold rounded-lg hover:bg-blue-600"
-            >
-              See Executives
-            </Link>
+        <div className="bg-white rounded-xl p-3 md:p-6 mb-10 md:mb-16">
+          <div className="flex flex-col lg:flex-row gap-4 md:gap-8 mb-4 md:mb-8  ">
+            <Timeline />
+            <DataCard />
           </div>
-
-          <Link
-            href="/developer"
-            className="py-2 px-4 md:px-8 shadow-sm  flex gap-3 items-center md:text-lg bg-blue-500 text-white font-bold rounded-xl hover:bg-blue-600"
-          >
-            <FaCode className={'w-8 h-8'} />
-            Explore Developers
-          </Link>
+          <div className=" flex flex-col md:flex-row gap-4 md:gap-8">
+            <div className=" flex-1  flex-wrap gap-2  bg-white rounded-xl  flex justify-between items-center ">
+              <h1 className="Bebas text-3xl md:text-4xl flex gap-2 items-center leading-[0.7_!important] align-middle">
+                <PiBagSimple className={'text-blue-500 text-3xl h-10 w-10'} />
+                Total Panelists <span className="text-blue-500 leading-[0.7_!important] ">19</span>
+              </h1>
+              <div className="flex flex-col md:flex-row gap-2 w-full sm:w-auto">
+                <Link
+                  href="/executive"
+                  className="py-2 px-4 md:px-8 w-full sm:w-auto flex gap-3 items-center md:text-lg bg-blue-500 text-white font-bold rounded-lg hover:bg-blue-600"
+                >
+                  <PiBagSimple className={'w-8 h-8'} />
+                  See Executives
+                </Link>
+                <Link
+                  href="/developer"
+                  className="py-2 px-4 md:px-8 w-full sm:w-auto flex gap-3 items-center md:text-lg bg-blue-500 text-white font-bold rounded-lg hover:bg-blue-600"
+                >
+                  <FaCode className={'w-8 h-8'} />
+                  Explore Developers
+                </Link>
+              </div>
+            </div>
+          </div>
         </div>
         <h1 className="text-4xl md:text-5xl mb-3">
           Our<span className="text-blue-500"> Motive</span>

@@ -30,7 +30,6 @@ const Navbar = () => {
         setShowOptions(false);
       }
     };
-
     setShowOptions(false);
 
     listener();
@@ -48,7 +47,7 @@ const Navbar = () => {
     <nav
       ref={navRef}
       className={
-        'bg-white fixed w-full top-0 z-50 start-0 border-b border-gray-200 ' +
+        'bg-white fixed max-w-[100vw] w-full top-0 z-50 start-0 border  border-gray-200 ' +
         (showOptions ? 'border-transparent' : '')
       }
     >
@@ -68,7 +67,14 @@ const Navbar = () => {
             type="button"
             className="before:ease relative overflow-hidden border border-black shadow-2xl before:absolute before:left-0 before:-ml-2 before:h-48 before:w-48 before:origin-top-right before:-translate-x-full before:translate-y-12 before:-rotate-90 before:bg-gray-900 before:transition-all before:duration-300 hover:text-white hover:before:-rotate-180 text-white bg-[#252525] font-ShareTechTown hover:bg-zinc-700 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-4 md:px-2 lg:px-4 py-2 text-center"
           >
-            <span className="relative z-10">TRY OUR APP</span>
+            <span className="relative z-10 hidden xsm:inline">TRY OUR APP</span>
+            <Image
+              width={20}
+              height={20}
+              className="invert inline xsm:hidden"
+              src="/image/icon/d_app.png"
+              alt=""
+            />
           </Link>
           <button
             onClick={() => setShowOptions(!showOptions)}
@@ -109,7 +115,7 @@ const Navbar = () => {
           } ${windowWidth < 768 ? 'fixed top-[72px] pb-5 left-0 border-b border-gray-200' : ''}`}
           id="navbar-sticky"
         >
-          <ul className="flex flex-col gap-1 md:gap-0  container  p-4 md:p-0 mt-4 font-medium border border-gray-100 rounded-lg bg-gray-50 md:space-x-5 lg:space-x-8 rtl:space-x-reverse md:flex-row md:mt-0 md:border-0 md:bg-white">
+          <ul className="flex flex-col gap-1 Inter md:gap-0  container  p-4 md:p-0 mt-4 font-medium border border-gray-100 rounded-lg bg-gray-50 md:space-x-5 lg:space-x-8 rtl:space-x-reverse md:flex-row md:mt-0 md:border-0 md:bg-white">
             <li>
               <Link
                 onClick={() => {

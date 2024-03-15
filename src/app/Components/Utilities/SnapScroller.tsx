@@ -64,14 +64,14 @@ const SnapScroller = ({ baseSize, children, gap, duration }: Props) => {
           gridAutoColumns: size.toString() + 'px',
           gap: gap + 'px',
         }}
-        className={`justify-center snap-scroller pb-10 pt-5 md:py-10  w-full`}
+        className={`justify-center snap-scroller pb-12 pt-5 md:pt-8  w-full`}
       >
         {children}
       </div>
       {scrollLeft >= 25 ? (
         <button
           onClick={previous}
-          className="absolute -left-5 top-1/2  -translate-y-1/2 p-2 rounded-full transition-colors  bg-blue-500 shadow-lg hover:bg-blue-600 active:bg-blue-700"
+          className="absolute -left-3 md:-left-6 top-1/2  -translate-y-1/2 p-2 rounded-full transition-colors  bg-blue-500 shadow-lg hover:bg-blue-600 active:bg-blue-700"
         >
           <img className="w-8 h-8 invert " src="/image/lc.svg" alt="" />
         </button>
@@ -82,7 +82,7 @@ const SnapScroller = ({ baseSize, children, gap, duration }: Props) => {
       (scrollRef.current?.scrollWidth || 2500) - 25 ? (
         <button
           onClick={after}
-          className="absolute -right-5  rotate-180 top-1/2 p-2 -translate-y-1/2 rounded-full transition-colors  bg-blue-500 shadow-lg hover:bg-blue-600 active:bg-blue-700"
+          className="absolute -right-3 md:-right-6  rotate-180 top-1/2 p-2 -translate-y-1/2 rounded-full transition-colors  bg-blue-500 shadow-lg hover:bg-blue-600 active:bg-blue-700"
         >
           <img className="w-8 h-8 invert " src="/image/lc.svg" alt="" />
         </button>

@@ -1,8 +1,14 @@
+import { PiSmileySad } from 'react-icons/pi';
+import { BsCalendar2EventFill } from 'react-icons/bs';
+import { GrWorkshop } from 'react-icons/gr';
+import { FaProjectDiagram } from 'react-icons/fa';
+import { BiSolidBook } from 'react-icons/bi';
+
 const loading = () => {
   return (
     <div className="w-screen bg-[#F6F6F6]">
       <img src="/image/bg2.svg" className="absolute top-1/4 right-0 z-0" alt=""></img>
-      <div className="container pt-32 py-10  flex flex-col items-center gap-10 z-10 bg-transparent relative">
+      <div className="container pt-28 sm:pt-[7.5rem] py-10 flex flex-col items-center  mb-5 gap-5 sm:gap-10 z-10 bg-transparent relative">
         {/* <div className="flex gap-3 items-end justify-center self-start md:justify-start">
           <h1 className="text-3xl md:text-5xl pb-1">UPCOMING</h1>
           <h1 className="text-5xl md:text-7xl text-blue-500">EVENT</h1>
@@ -13,34 +19,63 @@ const loading = () => {
           </div>
         </section> */}
         <section className="w-full">
-          <div className="flex gap-3 mb-9 flex-wrap w-full">
-            <div
-              className={`bg-white shadow-[5px_5px_21px_7px_#00000024]  font-Nunito font-bold -gray-300 focus:outline-none active:outline-none focus:ring-4 focus:ring-gray-200 rounded-xl text-sm md:text-base px-5 py-2.5 me-2 mb-2  transition-colors
-               `}
+          <div className="flex flex-col lg:flex-row my-auto  justify-between gap-3 lg:gap-8 mb-5 lg:mb-6">
+            <h1
+              className="text-[2.5rem] md:text-5xl leading-none ml-1 my-auto items-center justify-center self-start md:justify-start"
+              id="SCROLLHERE"
             >
-              Events
+              <span className=" text-blue-500 ">ALL</span> EVENTS
+            </h1>
+            <div className="flex my-auto gap-2 justify-between sm:justify-start  flex-wrap">
+              <div
+                className={` shadow-md sm:shadow-lg flex gap-2 basis-[calc(50%-0.25rem)] shrink-0 grow-0 sm:basis-auto items-center font-Nunito font-bold -gray-300 focus:outline-none focus:ring-4 focus:ring-gray-200 rounded-lg md:rounded-xl  text-sm md:text-base px-5 py-4 md:py-3 md:me-2 md:mb-2  transition-colors  ${
+                  0
+                    ? 'bg-blue-500 hover:bg-blue-600 hover:text-white  text-white shadow-lg'
+                    : 'bg-white text-black hover:bg-blue-100 hover:text-blue-500'
+                }`}
+              >
+                <BsCalendar2EventFill
+                  className={'w-[1.125rem] h-[1.125rem] ' + (0 ? 'text-blue-200' : 'text-blue-500')}
+                />
+                Events
+              </div>
+              <div
+                className={`shadow-md sm:shadow-lg font-Nunito basis-[calc(50%-0.25rem)] shrink-0 grow-0 sm:basis-auto flex gap-2 items-center font-bold -gray-300 focus:outline-none focus:ring-4 focus:ring-gray-200 rounded-lg md:rounded-xl  text-sm md:text-base px-5 py-4 md:py-3 md:me-2 md:mb-2  transition-colors  ${
+                  0
+                    ? 'bg-blue-500 hover:bg-blue-600 hover:text-white  text-white shadow-lg'
+                    : 'bg-white text-black hover:bg-blue-100 hover:text-blue-500'
+                }`}
+              >
+                <GrWorkshop
+                  className={'w-[1.125rem] h-[1.125rem] ' + (0 ? 'text-blue-200' : 'text-blue-500')}
+                />
+                Workshop
+              </div>
+              <div
+                className={` shadow-md sm:shadow-lg font-Nunito basis-[calc(50%-0.25rem)] shrink-0 grow-0  sm:basis-auto flex gap-2 items-center font-bold -gray-300 focus:outline-none focus:ring-4 focus:ring-gray-200 rounded-lg md:rounded-xl  text-sm md:text-base px-5 py-4 md:py-3 md:me-2 md:mb-2  transition-colors  ${
+                  0
+                    ? 'bg-blue-500 hover:bg-blue-600 hover:text-white  text-white shadow-lg'
+                    : 'bg-white text-black hover:bg-blue-100 hover:text-blue-500'
+                }`}
+              >
+                <FaProjectDiagram
+                  className={'w-[1.125rem] h-[1.125rem] ' + (0 ? 'text-blue-200' : 'text-blue-500')}
+                />
+                Projects
+              </div>
+              <div
+                className={` shadow-md sm:shadow-lg  font-Nunito basis-[calc(50%-0.25rem)] shrink-0 grow-0 sm:basis-auto flex gap-2 items-center font-bold -gray-300 focus:outline-none active:outline-none focus:ring-4 focus:ring-gray-200 rounded-lg md:rounded-xl  text-sm md:text-base px-5 py-4 md:py-3 md:me-2 md:mb-2  transition-colors  ${
+                  0
+                    ? 'bg-blue-500 hover:bg-blue-600 hover:text-white  text-white shadow-lg'
+                    : 'bg-white text-black hover:bg-blue-100 hover:text-blue-500'
+                }`}
+              >
+                <BiSolidBook
+                  className={'w-[1.125rem] h-[1.125rem] ' + (0 ? 'text-blue-200' : 'text-blue-500')}
+                />
+                Publication
+              </div>
             </div>
-            <div
-              className={`bg-white  shadow-[5px_5px_21px_7px_#00000024]  font-Nunito font-bold -gray-300 focus:outline-none active:outline-none focus:ring-4 focus:ring-gray-200 rounded-xl text-sm md:text-base px-5 py-2.5 me-2 mb-2  transition-colors`}
-            >
-              Workshop
-            </div>
-
-            <div
-              className={`bg-white  shadow-[5px_5px_21px_7px_#00000024]  font-Nunito font-bold -gray-300 focus:outline-none active:outline-none focus:ring-4 focus:ring-gray-200 rounded-xl text-sm md:text-base px-5 py-2.5 me-2 mb-2  transition-colors`}
-            >
-              Projects
-            </div>
-
-            <div
-              className={`bg-white  shadow-[5px_5px_21px_7px_#00000024]  font-Nunito font-bold -gray-300 focus:outline-none active:outline-none focus:ring-4 focus:ring-gray-200 rounded-xl text-sm md:text-base px-5 py-2.5 me-2 mb-2  transition-colors`}
-            >
-              Publication
-            </div>
-          </div>
-          <div className="flex gap-3 ml-1 mt-8 items-end justify-center self-start md:justify-start pb-7">
-            <h1 className="text-3xl md:text-5xl text-blue-500">ALL</h1>
-            <h1 className="text-3xl md:text-5xl">EVENTS</h1>
           </div>
 
           <div className="grid-fluid-fill-[16.5rem] gap-3 2xl:gap-5 justify-items-center w-full">
