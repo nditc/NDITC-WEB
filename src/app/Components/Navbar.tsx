@@ -1,11 +1,11 @@
-'use client';
+"use client";
 
-import { useEffect, useRef, useState } from 'react';
-import Hover from './Hover';
-import Image from 'next/image';
-import Link from 'next/link';
-import { usePathname, useSearchParams } from 'next/navigation';
-import { RxCross2 } from 'react-icons/rx';
+import { useEffect, useRef, useState } from "react";
+import Hover from "./Hover";
+import Image from "next/image";
+import Link from "next/link";
+import { usePathname, useSearchParams } from "next/navigation";
+import { RxCross2 } from "react-icons/rx";
 
 const Navbar = () => {
   const [showOptions, setShowOptions] = useState(false);
@@ -19,7 +19,11 @@ const Navbar = () => {
       setShowOptions(false);
     };
     const handleClickOutside: EventListener = (e) => {
-      if (navRef.current && e.target instanceof Node && !navRef.current.contains(e.target)) {
+      if (
+        navRef.current &&
+        e.target instanceof Node &&
+        !navRef.current.contains(e.target)
+      ) {
         setShowOptions(false);
       }
     };
@@ -34,12 +38,12 @@ const Navbar = () => {
 
     listener();
 
-    window.addEventListener('hashchange', stateHandler);
-    window.addEventListener('resize', listener);
-    document.addEventListener('mousedown', handleClickOutside);
+    window.addEventListener("hashchange", stateHandler);
+    window.addEventListener("resize", listener);
+    document.addEventListener("mousedown", handleClickOutside);
     return () => {
-      window.removeEventListener('hashchange', stateHandler);
-      window.removeEventListener('resize', listener);
+      window.removeEventListener("hashchange", stateHandler);
+      window.removeEventListener("resize", listener);
     };
   }, [Route, Params]);
 
@@ -47,8 +51,8 @@ const Navbar = () => {
     <nav
       ref={navRef}
       className={
-        'bg-white fixed max-w-[100vw] w-full top-0 z-50 start-0 border  border-gray-200 ' +
-        (showOptions ? 'border-transparent' : '')
+        "bg-white fixed max-w-[100vw] w-full top-0 z-50 start-0 border border-gray-200 " +
+        (showOptions ? "border-transparent" : "")
       }
     >
       <div className="container flex flex-wrap  items-center justify-between mx-auto py-4 px-1 relative">
@@ -59,7 +63,13 @@ const Navbar = () => {
           }}
           className="flex items-center  z-50 space-x-3 rtl:space-x-reverse"
         >
-          <Image src="/Logo.png" className="h-12 w-32" alt="NDITC Logo" width={512} height={512} />
+          <Image
+            src="/Logo.png"
+            className="h-12 w-32"
+            alt="NDITC Logo"
+            width={512}
+            height={512}
+          />
         </Link>
         <div className="flex md:order-2 space-x-3   z-50 md:space-x-0 rtl:space-x-reverse">
           <Link
@@ -86,7 +96,7 @@ const Navbar = () => {
           >
             <span className="sr-only">Open main menu</span>
             {showOptions ? (
-              <RxCross2 className={'w-6 h-6'} />
+              <RxCross2 className={"w-6 h-6"} />
             ) : (
               <svg
                 className="w-5 h-5"
@@ -108,11 +118,17 @@ const Navbar = () => {
         </div>
         <div
           style={{
-            transformOrigin: 'top',
+            transformOrigin: "top",
           }}
           className={`items-center justify-between bg-white w-screen md:flex z-30  md:w-auto md:order-1 transition ${
-            showOptions || windowWidth >= 768 ? 'scale-y-100 ' : 'scale-y-0 pointer-events-none'
-          } ${windowWidth < 768 ? 'fixed top-[72px] pb-5 left-0 border-b border-gray-200' : ''}`}
+            showOptions || windowWidth >= 768
+              ? "scale-y-100 "
+              : "scale-y-0 pointer-events-none"
+          } ${
+            windowWidth < 768
+              ? "fixed top-[72px] pb-5 left-0 border-b border-gray-200"
+              : ""
+          }`}
           id="navbar-sticky"
         >
           <ul className="flex flex-col gap-1 Inter md:gap-0  container  p-4 md:p-0 mt-4 font-medium border border-gray-100 rounded-lg bg-gray-50 md:space-x-5 lg:space-x-8 rtl:space-x-reverse md:flex-row md:mt-0 md:border-0 md:bg-white">
@@ -123,11 +139,11 @@ const Navbar = () => {
                 }}
                 href="/"
                 className={
-                  'block py-2 px-3  text-gray-900 rounded md:hover:bg-transparent md:hover:text-blue-500   md:p-0' +
-                  ' ' +
-                  (Route === '/'
-                    ? 'bg-blue-600 text-white hover:bg-blue-700 md:bg-transparent  md:text-blue-500'
-                    : 'md:text-black hover:bg-gray-200 md:bg-transparent')
+                  "block py-2 px-3  text-gray-900 rounded md:hover:bg-transparent md:hover:text-blue-500   md:p-0" +
+                  " " +
+                  (Route === "/"
+                    ? "bg-blue-600 text-white hover:bg-blue-700 md:bg-transparent  md:text-blue-500"
+                    : "md:text-black hover:bg-gray-200 md:bg-transparent")
                 }
                 aria-current="page"
               >
@@ -141,11 +157,11 @@ const Navbar = () => {
                 }}
                 href="/about"
                 className={
-                  'block py-2 px-3 text-gray-900 rounded md:hover:bg-transparent   md:hover:text-blue-500 md:p-0' +
-                  ' ' +
-                  (Route === '/about'
-                    ? 'bg-blue-600 text-white hover:bg-blue-700  md:bg-transparent  md:text-blue-500'
-                    : 'md:text-black hover:bg-gray-200 md:bg-transparent')
+                  "block py-2 px-3 text-gray-900 rounded md:hover:bg-transparent   md:hover:text-blue-500 md:p-0" +
+                  " " +
+                  (Route === "/about"
+                    ? "bg-blue-600 text-white hover:bg-blue-700  md:bg-transparent  md:text-blue-500"
+                    : "md:text-black hover:bg-gray-200 md:bg-transparent")
                 }
               >
                 About
@@ -166,11 +182,11 @@ const Navbar = () => {
                 }}
                 href="/executive"
                 className={
-                  'block py-2 px-3 text-gray-900 rounded md:hover:bg-transparent   md:hover:text-blue-500 md:p-0' +
-                  ' ' +
-                  (Route === '/executive'
-                    ? 'bg-blue-600 text-white hover:bg-blue-700  md:bg-transparent  md:text-blue-500'
-                    : 'md:text-black hover:bg-gray-200 md:bg-transparent')
+                  "block py-2 px-3 text-gray-900 rounded md:hover:bg-transparent   md:hover:text-blue-500 md:p-0" +
+                  " " +
+                  (Route === "/executive"
+                    ? "bg-blue-600 text-white hover:bg-blue-700  md:bg-transparent  md:text-blue-500"
+                    : "md:text-black hover:bg-gray-200 md:bg-transparent")
                 }
               >
                 Executives
