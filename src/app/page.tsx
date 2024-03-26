@@ -8,7 +8,7 @@ import CodeCompass from './Components/NewsLAndApp';
 
 export default function Home() {
   return (
-    <main className="flex container mx-auto flex-col items-center justify-center bg-transparent">
+    <main className="flex container mx-auto flex-col items-center justify-center">
       <section className="relative w-full min-h-screen flex flex-col md:flex-row justify-center md:justify-between items-center pt-[75px] over">
         <div className="flex flex-col md:max-w-[40vw] lg:max-w-[35vw] items-center md:items-start md:gap-1 order-2 md:order-1">
           <h1 className="tracking-wide lg:tracking-widest text-5xl 2xl:text-6xl w-fit  font-medium text-center md:text-left">

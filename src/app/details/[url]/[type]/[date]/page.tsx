@@ -6,6 +6,7 @@ import { notFound } from 'next/navigation';
 import { AES, enc } from 'crypto-js';
 import ImageGrid from '@/app/Components/ImageGrid';
 import Markdown from 'react-markdown';
+import Draggable from 'react-draggable';
 
 type ParamType = { url: string; type: string; date: number };
 
@@ -36,12 +37,12 @@ const Page = async ({ params }: { params: ParamType }) => {
 
   return (
     <div className="w-screen bg-[#F6F6F6]">
-      <div className="container pt-[81px] py-10 flex flex-col items-center gap-10 z-10 bg-transparent relative">
+      <div className="container pt-[81px] py-10 flex flex-col items-center gap-10 bg-transparent relative">
         <div className="w-screen bg-white shadow-xl ">
           <div className="container flex flex-col md:flex-row gap-0 md:gap-5 items-center pb-5 md:pb-0">
             <div className="flex-1 ml-1 flex flex-col gap-2 md:gap-3 2xl:gap-5 w-full order-2 md:order-1">
               <Link href={`/activities?type=${params.type}`}>
-                <h1 className="text-2xl pt-5 hover:text-blue-500">{params.type}&gt;</h1>
+                <h1 className="text-2xl pt-5 md:pt-0 hover:text-blue-500">{params.type}&gt;</h1>
               </Link>
 
               <h1 className="text-4xl  2xl:text-5xl ">

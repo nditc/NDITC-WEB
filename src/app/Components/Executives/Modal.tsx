@@ -1,7 +1,7 @@
 /* eslint-disable @next/next/no-img-element */
 import React, { Dispatch, SetStateAction, useEffect } from 'react';
 import ExecutiveData from '../../db/executives';
-
+import ModalCont from '../Modal';
 const Field = ({ title, desc }: { title: string; desc: React.ReactNode }) => {
   return (
     <div>
@@ -40,13 +40,7 @@ const Modal = ({
     }
   }, [modalState]);
   return (
-    <>
-      <div
-        className={
-          'fixed inset-0 w-full h-full bg-black  z-[60] transition-transform ' +
-          (modalState ? 'opacity-20' : 'opacity-0 pointer-events-none')
-        }
-      ></div>
+    <ModalCont state={modalState}>
       <div
         className={
           'fixed overflow-hidden pb-24 md:pb-0 d:mb-0 left-1/2 top-1/2 translate-y-[-50%] translate-x-[-50%] w-full h-full lg:w-4/5 lg:h-4/5 md:rounded-2xl  bg-white z-[70] shadow-2xl transition' +
@@ -123,7 +117,7 @@ const Modal = ({
           ) : null}
         </div>
       </div>
-    </>
+    </ModalCont>
   );
 };
 

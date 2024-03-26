@@ -1,6 +1,10 @@
-import React from 'react';
+'use client';
+
+import React, { useState } from 'react';
 import Styles from '@/app/styles/ImageGrid.module.css';
 import Image from 'next/image';
+import ImageViewer from './ImageViewer/ImageViewer';
+import Draggable from 'react-draggable';
 type props = {
   images: string[];
   layout: number;
@@ -14,6 +18,7 @@ const ImageGrid = ({ images, layout }: props) => {
   } else if (layout === 4) {
     imgs = images.slice(1, 4);
   }
+  const [imageViewerState, setImageViewerState] = useState<boolean>(false);
   return (
     <>
       {' '}
@@ -38,8 +43,13 @@ const ImageGrid = ({ images, layout }: props) => {
         })}
       </div>
       <div className="text-right font-medium hover:underline hover:text-blue-500 cursor-pointer mr-1 text-stone-500  mt-1">
-        <a>... View More Images</a>
+        <button onClick={() => setImageViewerState(true)}>... View More Images</button>
       </div>
+      <ImageViewer
+        close={() => setImageViewerState(false)}
+        images={images}
+        state={imageViewerState}
+      />
     </>
   );
 };
