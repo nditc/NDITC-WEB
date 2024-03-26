@@ -12,8 +12,8 @@ const HashtechPosts = async ({ title, desc, redirectUrl }: Props) => {
 
   const res = await fetch(
     imageCode
-      ? `https://hashtechimg.pythonanywhere.com/${imageCode[1]}?size=750`
-      : "https://hashtechimg.pythonanywhere.com/874301847421348?size=750",
+      ? `https://hashtechimg.pythonanywhere.com/${imageCode[1]}?size=360`
+      : "https://hashtechimg.pythonanywhere.com/874301847421348?size=360",
     { cache: "no-store" }
   );
 
