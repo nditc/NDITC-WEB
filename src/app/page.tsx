@@ -1,10 +1,10 @@
-import Image from 'next/image';
-import Contact from './Components/Contact';
-import ActivityCards from './Components/ActivityCards';
-import HashtechPosts from './Components/HashtechPosts';
-import SnapScroller from './Components/Utilities/SnapScroller';
-import Link from 'next/link';
-import CodeCompass from './Components/NewsLAndApp';
+import Image from "next/image";
+import Contact from "./Components/Contact";
+import ActivityCards from "./Components/ActivityCards";
+import HashtechPosts from "./Components/HashtechPosts";
+import SnapScroller from "./Components/Utilities/SnapScroller";
+import Link from "next/link";
+import CodeCompass from "./Components/NewsLAndApp";
 
 export default function Home() {
   return (
@@ -21,8 +21,9 @@ export default function Home() {
             TECH ENTHUSIASTS
           </h1>
           <p className="mt-3 text-lg 2xl:text-[1.375rem]   2xl:leading-8  break-words w-[85vw] md:w-fit text-center md:text-left">
-            Connect with like-minded individuals and expand your knowledge in computer, programming,
-            robotics, and design. Let's be the best together
+            Connect with like-minded individuals and expand your knowledge in
+            computer, programming, robotics, and design. Let's be the best
+            together
           </p>
           <Link
             href="/about"
@@ -32,20 +33,26 @@ export default function Home() {
           </Link>
         </div>
         <Image
-          src={'/BigImg-old.png'}
-          alt={'Image'}
+          src={"/BigImg-old.png"}
+          alt={"Image"}
           className="relative aspect-square md:-mt-12 md:-ml-6 xl:ml-0 lg:mt-0 object-contain max-h-[87vh] md:object-right 2xl:max-h-[82vh] md:-mr-6 max-w-[95vw] sm:max-w-[80vw] md:max-w-[55vw] order-1 md:order-2"
           width={850}
           height={850}
         />
-        <img src="/image/bg2.svg" className="absolute bottom-[-4vh] right-0 -z-10" alt="" />
+        <img
+          src="/image/bg2.svg"
+          className="absolute bottom-[-4vh] right-0 -z-10"
+          alt=""
+        />
       </section>
 
       <div className="w-screen h-fit mt-16 pb-16 object-cover text-center">
         <h1 className="mx-auto mb-5 md:mb-8 ">
-          <span className="text-4xl md:text-5xl text-center">WE HAVE </span>{' '}
+          <span className="text-4xl md:text-5xl text-center">WE HAVE </span>{" "}
           <br className="inline md:hidden" />
-          <span className="text-blue-500 text-4xl md:text-5xl text-center">DEPARTMENTS </span>{' '}
+          <span className="text-blue-500 text-4xl md:text-5xl text-center">
+            DEPARTMENTS{" "}
+          </span>{" "}
           <span className="text-4xl md:text-5xl text-center">ON </span>
         </h1>
         <div className="container items-stretch justify-between flex gap-4 md:gap-6 flex-wrap">
@@ -84,7 +91,9 @@ export default function Home() {
                 alt=""
                 loading="lazy"
               />
-              <p className="text-lg text-center ">Website & Native App Development</p>
+              <p className="text-lg text-center ">
+                Website & Native App Development
+              </p>
             </div>
           </div>
           <div className=" min-w-[160px] flex relative overflow-hidden z-10 before:z-0 before:scale-x-0 hover:before:scale-x-100 before:transition-all border before:w-full before:p-6 before:absolute before:left-0 before:bottom-0 before:h-full before:bg-blue-500 before:origin-left  before:ease-in-out  border-gray-200 hover:border-blue-300 flex-col justify-center items-center gap-3 flex-1  hover:text-white group cursor-pointer bg-gray-100 p-6 rounded-xl transition-all">
@@ -110,7 +119,9 @@ export default function Home() {
                 alt=""
                 loading="lazy"
               />
-              <p className="text-lg text-center ">Graphics Designing & Article</p>
+              <p className="text-lg text-center ">
+                Graphics Designing & Article
+              </p>
             </div>
           </div>
         </div>
@@ -121,32 +132,40 @@ export default function Home() {
         <section className="flex flex-col container items-center my-auto">
           <div className="flex flex-col text-white md:flex-row self-center md:gap-2 mt-8  items-center z-10">
             <h1 className="text-[2.55rem] md:text-5xl">CHECK OUT OUR</h1>
-            <img className="h-16 md:h-[6.5rem] ml-2" src="/image/hashtech_logo.png" alt="" />
+            <img
+              className="h-16 md:h-[6.5rem] ml-2"
+              src="/image/hashtech_logo.png"
+              alt=""
+            />
           </div>
           <SnapScroller baseSize={475} gap={16} duration={2500}>
             <HashtechPosts
-              title="Firewall"
-              desc="A security system set up on the network which monitors and controls incoming and outgoing traffic based on predetermined security protocols is called firewall..."
-              imageURL="https://scontent.frjh4-1.fna.fbcdn.net/v/t39.30808-6/411683470_994353095416222_7206788424372546186_n.jpg?_nc_cat=103&ccb=1-7&_nc_sid=3635dc&_nc_ohc=cakM_T0W75sAX8unv_c&_nc_ht=scontent.frjh4-1.fna&oh=00_AfAjeuPLalzFH6CnmEcUbyv59KEJQSFN0ZDF3TzVSLK17Q&oe=659DD442"
-              redirectUrl="https://www.facebook.com/photo/?fbid=994363988748466&set=a.762348471950020"
+              title="Independence Day"
+              desc="Independence day is a momentous occasion celebrated
+with great enthusiasm. Notre Dame Information
+Technology Club"
+              redirectUrl="https://www.facebook.com/photo/?fbid=1057840939067437&set=a.762348471950020"
             />
             <HashtechPosts
-              title="Google Gemini"
-              desc="“Google Gemini” is a new advertising platform that integrates search and video ads into Google Play, allowing advertisers to promote mobile app installs and in-app actions."
-              imageURL="https://scontent.frjh4-1.fna.fbcdn.net/v/t39.30808-6/409871839_988884939296371_726850100000577863_n.jpg?_nc_cat=101&ccb=1-7&_nc_sid=3635dc&_nc_ohc=RFoKpCSLxdkAX_RTWWx&_nc_ht=scontent.frjh4-1.fna&oh=00_AfCRVPxVraNPyNF4MMHazCS1x5YXmlyAUADPnADReazdwQ&oe=65CA59CD"
-              redirectUrl="https://www.facebook.com/photo?fbid=988884942629704&set=a.762348471950020"
+              title="Li-Fi"
+              desc="Li-Fi also known as light fidelity is a wireless communication technology that transmit utilizing LED. It is faster than Wi-Fi.
+Benefits of Li-Fi :"
+              redirectUrl="https://www.facebook.com/photo?fbid=1051372199714311&set=a.762348471950020"
             />
             <HashtechPosts
-              title="Computer Architecture"
-              desc="“Computer Architecture” is the design and structure of computer systems, encompassing the arrangement and interaction of various hardware components. This includes the central processing unit (CPU)..."
-              imageURL="https://scontent.frjh4-1.fna.fbcdn.net/v/t39.30808-6/409502585_984963203021878_7547505903699746104_n.jpg?_nc_cat=108&ccb=1-7&_nc_sid=3635dc&_nc_ohc=usnU4Za0a7wAX-oWegZ&_nc_ht=scontent.frjh4-1.fna&oh=00_AfDkfofGNbjaN13vXiINbsJTpTyuiRIPkeoAYVpb2l17hQ&oe=65CA4A13"
-              redirectUrl="https://www.facebook.com/photo?fbid=984987733019425&set=a.762348471950020"
+              title="5G"
+              desc="Even a decade ago, the term 'wireless mobile network' was unimaginable to us. Who else could have thought of connecting with anyone from anywhere on the globe and communicate"
+              redirectUrl="https://www.facebook.com/photo?fbid=1046808550170676&set=a.762348471950020"
             />
             <HashtechPosts
-              title="Augmented Reality"
-              desc="Augmented Reality (AR) is an innovative technology that superimposes digital content onto the real world, enhancing the user's perception of their environment."
-              imageURL="https://scontent.frjh4-1.fna.fbcdn.net/v/t39.30808-6/405030064_974777844040414_2375425671905176021_n.jpg?_nc_cat=111&ccb=1-7&_nc_sid=3635dc&_nc_ohc=FdJ_nLWuc7gAX-UR0Kk&_nc_ht=scontent.frjh4-1.fna&oh=00_AfDHy7vGL1Axlj9c1MzQ-heBGUW4VtvAI7bBzwb2aUrC-w&oe=65CAF05B"
-              redirectUrl="https://www.facebook.com/photo/?fbid=974777847373747&set=a.762348471950020"
+              title="Women's Day"
+              desc="As International Women's Day nears, the Notre Dame Information Technology Club acknowledges women's pivotal role in IT history"
+              redirectUrl="https://www.facebook.com/photo?fbid=1045766416941556&set=a.762348471950020"
+            />
+            <HashtechPosts
+              title="Robotic Exoskeleton"
+              desc="A robotic exoskeleton is a wearable device that boosts strength, endurance, and mobility by offering external support."
+              redirectUrl="https://www.facebook.com/photo?fbid=1041937043991160&set=a.762348471950020"
             />
           </SnapScroller>
         </section>
@@ -157,7 +176,9 @@ export default function Home() {
             <h1 className="text-center  mx-auto md:text-left text-4xl md:text-5xl text-blue-500">
               OUR ACTIVITIES
             </h1>
-            <h1 className="text-center mx-auto md:text-left text-4xl md:text-5xl">INCLUDE</h1>
+            <h1 className="text-center mx-auto md:text-left text-4xl md:text-5xl">
+              INCLUDE
+            </h1>
           </div>
           <ActivityCards />
         </section>
@@ -172,13 +193,15 @@ export default function Home() {
         <section className="mt-8 container md:mt-16 flex flex-col items-center gap-7 relative  mb-10 md:mb-12">
           <div className="flex flex-col md:flex-row gap-1">
             <h1 className="text-4xl md:text-5xl text-center">WHY YOU SHOULD</h1>
-            <h1 className="text-blue-500 text-4xl md:text-5xl text-center">JOIN NDITC?</h1>
+            <h1 className="text-blue-500 text-4xl md:text-5xl text-center">
+              JOIN NDITC?
+            </h1>
           </div>
           <div className="flex flex-col md:flex-row items-center justify-center gap-10">
             <div className="flex flex-col items-center gap-3">
               <Image
-                src={'/Ellipse1.png'}
-                alt={'Image'}
+                src={"/Ellipse1.png"}
+                alt={"Image"}
                 width={150}
                 height={150}
                 className="hover:scale-110 transition-all"
@@ -188,15 +211,15 @@ export default function Home() {
                 GAIN EXPERIENCE BY CONTRIBUTING TO REAL-WORLD PROJECTS
               </h1>
               <p className="text-center text-base">
-                Gain invaluable experience with NDITC by actively engaging in real-world projects
-                like HashTech and Evya AI, shaping your practical expertise in the evolving tech
-                sphere.
+                Gain invaluable experience with NDITC by actively engaging in
+                real-world projects like HashTech and Evya AI, shaping your
+                practical expertise in the evolving tech sphere.
               </p>
             </div>
             <div className="flex flex-col items-center gap-3">
               <Image
-                src={'/Ellipse2.png'}
-                alt={'Image'}
+                src={"/Ellipse2.png"}
+                alt={"Image"}
                 width={150}
                 height={150}
                 className="hover:scale-110 transition-all"
@@ -206,15 +229,15 @@ export default function Home() {
                 EXPLORE THE LEARNING BASED CLUB JOURNEY WITH NDITC
               </h1>
               <p className="text-center text-base">
-                Embark on an enriching learning journey with NDITC's workshops, seminars, and
-                groundbreaking events like Thynk 2.0, fostering an immersive educational experience
-                in the IT realm.
+                Embark on an enriching learning journey with NDITC's workshops,
+                seminars, and groundbreaking events like Thynk 2.0, fostering an
+                immersive educational experience in the IT realm.
               </p>
             </div>
             <div className="flex flex-col items-center gap-3">
               <Image
-                src={'/Ellipse3.png'}
-                alt={'Image'}
+                src={"/Ellipse3.png"}
+                alt={"Image"}
                 width={150}
                 height={150}
                 className="hover:scale-110 transition-all"
@@ -224,9 +247,10 @@ export default function Home() {
                 NETWORK WITH PEERS AND MENTORS & SHOWCASE YOUR SKILLSET
               </h1>
               <p className="text-center text-base ">
-                Join NDITC to network, collaborate with peers and mentors, and exhibit your diverse
-                skill set through initiatives like FTMPC 3.0, creating opportunities for
-                professional growth and recognition.
+                Join NDITC to network, collaborate with peers and mentors, and
+                exhibit your diverse skill set through initiatives like FTMPC
+                3.0, creating opportunities for professional growth and
+                recognition.
               </p>
             </div>
           </div>

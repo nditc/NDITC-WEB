@@ -1,13 +1,12 @@
-'use client';
+"use client";
 
-import { useState } from 'react';
-import Image from 'next/image';
+import { useState } from "react";
 
 const Accordion = () => {
   const accordionData: AccordionData[] = [
-    { title: 'Just A Question', answer: 'This is the answer' },
-    { title: 'Just A Question', answer: 'This is the answer' },
-    { title: 'Just A Question', answer: 'This is the answer' },
+    { title: "Just A Question", answer: "This is the answer" },
+    { title: "Just A Question", answer: "This is the answer" },
+    { title: "Just A Question", answer: "This is the answer" },
   ];
   const [accordionIndex, setAccordionIndex] = useState(-1);
   return (
@@ -45,7 +44,13 @@ interface AccordionProps {
   setIndex: (value: number) => void;
 }
 
-const SingleAccordion = ({ title, answer, index, currentIndex, setIndex }: AccordionProps) => {
+const SingleAccordion = ({
+  title,
+  answer,
+  index,
+  currentIndex,
+  setIndex,
+}: AccordionProps) => {
   return (
     <>
       <h2 id="accordion-collapse-heading-1">
@@ -85,7 +90,7 @@ const SingleAccordion = ({ title, answer, index, currentIndex, setIndex }: Accor
       </h2>
       <div
         id="accordion-collapse-body-1"
-        className={`${currentIndex == index ? '' : 'hidden'}`}
+        className={`${currentIndex == index ? "" : "hidden"}`}
         aria-labelledby="accordion-collapse-heading-1"
       >
         <div className="p-5 border border-b-0 border-gray-200">
