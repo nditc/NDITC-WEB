@@ -1,14 +1,14 @@
-import Image from "next/image";
-import Contact from "./Components/Contact";
-import ActivityCards from "./Components/ActivityCards";
-import HashtechPosts from "./Components/HashtechPosts";
-import SnapScroller from "./Components/Utilities/SnapScroller";
-import Link from "next/link";
-import CodeCompass from "./Components/NewsLAndApp";
+import Image from 'next/image';
+import Contact from './Components/Contact';
+import ActivityCards from './Components/ActivityCards';
+import HashtechPosts from './Components/HashtechPosts';
+import SnapScroller from './Components/Utilities/SnapScroller';
+import Link from 'next/link';
+import CodeCompass from './Components/NewsLAndApp';
 
 export default function Home() {
   return (
-    <main className="flex container mx-auto flex-col items-center justify-center bg-transparent">
+    <main className="flex container mx-auto flex-col items-center justify-center">
       <section className="relative w-full min-h-screen flex flex-col md:flex-row justify-center md:justify-between items-center pt-[75px] over">
         <div className="flex flex-col md:max-w-[40vw] lg:max-w-[35vw] items-center md:items-start md:gap-1 order-2 md:order-1">
           <h1 className="tracking-wide lg:tracking-widest text-5xl 2xl:text-6xl w-fit  font-medium text-center md:text-left">
@@ -21,9 +21,8 @@ export default function Home() {
             TECH ENTHUSIASTS
           </h1>
           <p className="mt-3 text-lg 2xl:text-[1.375rem]   2xl:leading-8  break-words w-[85vw] md:w-fit text-center md:text-left">
-            Connect with like-minded individuals and expand your knowledge in
-            computer, programming, robotics, and design. Let's be the best
-            together
+            Connect with like-minded individuals and expand your knowledge in computer, programming,
+            robotics, and design. Let's be the best together
           </p>
           <Link
             href="/about"
@@ -33,26 +32,20 @@ export default function Home() {
           </Link>
         </div>
         <Image
-          src={"/BigImg-old.png"}
-          alt={"Image"}
+          src={'/BigImg-old.png'}
+          alt={'Image'}
           className="relative aspect-square md:-mt-12 md:-ml-6 xl:ml-0 lg:mt-0 object-contain max-h-[87vh] md:object-right 2xl:max-h-[82vh] md:-mr-6 max-w-[95vw] sm:max-w-[80vw] md:max-w-[55vw] order-1 md:order-2"
           width={850}
           height={850}
         />
-        <img
-          src="/image/bg2.svg"
-          className="absolute bottom-[-4vh] right-0 -z-10"
-          alt=""
-        />
+        <img src="/image/bg2.svg" className="absolute bottom-[-4vh] right-0 -z-10" alt="" />
       </section>
 
       <div className="w-screen h-fit mt-16 pb-16 object-cover text-center">
         <h1 className="mx-auto mb-5 md:mb-8 ">
-          <span className="text-4xl md:text-5xl text-center">WE HAVE </span>{" "}
+          <span className="text-4xl md:text-5xl text-center">WE HAVE </span>{' '}
           <br className="inline md:hidden" />
-          <span className="text-blue-500 text-4xl md:text-5xl text-center">
-            DEPARTMENTS{" "}
-          </span>{" "}
+          <span className="text-blue-500 text-4xl md:text-5xl text-center">DEPARTMENTS </span>{' '}
           <span className="text-4xl md:text-5xl text-center">ON </span>
         </h1>
         <div className="container items-stretch justify-between flex gap-4 md:gap-6 flex-wrap">
@@ -91,9 +84,7 @@ export default function Home() {
                 alt=""
                 loading="lazy"
               />
-              <p className="text-lg text-center ">
-                Website & Native App Development
-              </p>
+              <p className="text-lg text-center ">Website & Native App Development</p>
             </div>
           </div>
           <div className=" min-w-[160px] flex relative overflow-hidden z-10 before:z-0 before:scale-x-0 hover:before:scale-x-100 before:transition-all border before:w-full before:p-6 before:absolute before:left-0 before:bottom-0 before:h-full before:bg-blue-500 before:origin-left  before:ease-in-out  border-gray-200 hover:border-blue-300 flex-col justify-center items-center gap-3 flex-1  hover:text-white group cursor-pointer bg-gray-100 p-6 rounded-xl transition-all">
@@ -119,9 +110,7 @@ export default function Home() {
                 alt=""
                 loading="lazy"
               />
-              <p className="text-lg text-center ">
-                Graphics Designing & Article
-              </p>
+              <p className="text-lg text-center ">Graphics Designing & Article</p>
             </div>
           </div>
         </div>
@@ -132,11 +121,7 @@ export default function Home() {
         <section className="flex flex-col container items-center my-auto">
           <div className="flex flex-col text-white md:flex-row self-center md:gap-2 mt-8  items-center z-10">
             <h1 className="text-[2.55rem] md:text-5xl">CHECK OUT OUR</h1>
-            <img
-              className="h-16 md:h-[6.5rem] ml-2"
-              src="/image/hashtech_logo.png"
-              alt=""
-            />
+            <img className="h-16 md:h-[6.5rem] ml-2" src="/image/hashtech_logo.png" alt="" />
           </div>
           <SnapScroller baseSize={475} gap={16} duration={2500}>
             <HashtechPosts
@@ -176,15 +161,13 @@ Benefits of Li-Fi :"
             <h1 className="text-center  mx-auto md:text-left text-4xl md:text-5xl text-blue-500">
               OUR ACTIVITIES
             </h1>
-            <h1 className="text-center mx-auto md:text-left text-4xl md:text-5xl">
-              INCLUDE
-            </h1>
+            <h1 className="text-center mx-auto md:text-left text-4xl md:text-5xl">INCLUDE</h1>
           </div>
           <ActivityCards />
         </section>
       </div>
 
-      <div className="w-screen relative">
+      <div className="w-screen relative overflow-hidden">
         <img
           className="absolute left-0 top-[20%] md:-top-1/2 -z-10 max-w-[750px] w-[125%] md:w-[80%]"
           src="/image/lbg.svg"
@@ -193,15 +176,13 @@ Benefits of Li-Fi :"
         <section className="mt-8 container md:mt-16 flex flex-col items-center gap-7 relative  mb-10 md:mb-12">
           <div className="flex flex-col md:flex-row gap-1">
             <h1 className="text-4xl md:text-5xl text-center">WHY YOU SHOULD</h1>
-            <h1 className="text-blue-500 text-4xl md:text-5xl text-center">
-              JOIN NDITC?
-            </h1>
+            <h1 className="text-blue-500 text-4xl md:text-5xl text-center">JOIN NDITC?</h1>
           </div>
           <div className="flex flex-col md:flex-row items-center justify-center gap-10">
             <div className="flex flex-col items-center gap-3">
               <Image
-                src={"/Ellipse1.png"}
-                alt={"Image"}
+                src={'/Ellipse1.png'}
+                alt={'Image'}
                 width={150}
                 height={150}
                 className="hover:scale-110 transition-all"
@@ -211,15 +192,15 @@ Benefits of Li-Fi :"
                 GAIN EXPERIENCE BY CONTRIBUTING TO REAL-WORLD PROJECTS
               </h1>
               <p className="text-center text-base">
-                Gain invaluable experience with NDITC by actively engaging in
-                real-world projects like HashTech and Evya AI, shaping your
-                practical expertise in the evolving tech sphere.
+                Gain invaluable experience with NDITC by actively engaging in real-world projects
+                like HashTech and Evya AI, shaping your practical expertise in the evolving tech
+                sphere.
               </p>
             </div>
             <div className="flex flex-col items-center gap-3">
               <Image
-                src={"/Ellipse2.png"}
-                alt={"Image"}
+                src={'/Ellipse2.png'}
+                alt={'Image'}
                 width={150}
                 height={150}
                 className="hover:scale-110 transition-all"
@@ -229,15 +210,15 @@ Benefits of Li-Fi :"
                 EXPLORE THE LEARNING BASED CLUB JOURNEY WITH NDITC
               </h1>
               <p className="text-center text-base">
-                Embark on an enriching learning journey with NDITC's workshops,
-                seminars, and groundbreaking events like Thynk 2.0, fostering an
-                immersive educational experience in the IT realm.
+                Embark on an enriching learning journey with NDITC's workshops, seminars, and
+                groundbreaking events like Thynk 2.0, fostering an immersive educational experience
+                in the IT realm.
               </p>
             </div>
             <div className="flex flex-col items-center gap-3">
               <Image
-                src={"/Ellipse3.png"}
-                alt={"Image"}
+                src={'/Ellipse3.png'}
+                alt={'Image'}
                 width={150}
                 height={150}
                 className="hover:scale-110 transition-all"
@@ -247,10 +228,9 @@ Benefits of Li-Fi :"
                 NETWORK WITH PEERS AND MENTORS & SHOWCASE YOUR SKILLSET
               </h1>
               <p className="text-center text-base ">
-                Join NDITC to network, collaborate with peers and mentors, and
-                exhibit your diverse skill set through initiatives like FTMPC
-                3.0, creating opportunities for professional growth and
-                recognition.
+                Join NDITC to network, collaborate with peers and mentors, and exhibit your diverse
+                skill set through initiatives like FTMPC 3.0, creating opportunities for
+                professional growth and recognition.
               </p>
             </div>
           </div>
