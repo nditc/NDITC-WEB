@@ -2,6 +2,7 @@
 import React, { Dispatch, SetStateAction, useEffect } from 'react';
 import ExecutiveData from '../../db/executives';
 import ModalCont from '../Modal';
+import Link from 'next/link';
 const Field = ({ title, desc }: { title: string; desc: React.ReactNode }) => {
   return (
     <div>
