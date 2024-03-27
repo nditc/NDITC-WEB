@@ -167,7 +167,7 @@ Benefits of Li-Fi :"
         </section>
       </div>
 
-      <div className="w-screen relative overflow-hidden">
+      <div className="w-screen relative overflow-x-clip">
         <img
           className="absolute left-0 top-[20%] md:-top-1/2 -z-10 max-w-[750px] w-[125%] md:w-[80%]"
           src="/image/lbg.svg"
