@@ -125,28 +125,32 @@ export default function Home() {
           </div>
           <SnapScroller baseSize={475} gap={16} duration={2500}>
             <HashtechPosts
-              title="Firewall"
-              desc="A security system set up on the network which monitors and controls incoming and outgoing traffic based on predetermined security protocols is called firewall..."
-              imageURL="https://scontent.frjh4-1.fna.fbcdn.net/v/t39.30808-6/411683470_994353095416222_7206788424372546186_n.jpg?_nc_cat=103&ccb=1-7&_nc_sid=3635dc&_nc_ohc=cakM_T0W75sAX8unv_c&_nc_ht=scontent.frjh4-1.fna&oh=00_AfAjeuPLalzFH6CnmEcUbyv59KEJQSFN0ZDF3TzVSLK17Q&oe=659DD442"
-              redirectUrl="https://www.facebook.com/photo/?fbid=994363988748466&set=a.762348471950020"
+              title="Independence Day"
+              desc="Independence day is a momentous occasion celebrated
+with great enthusiasm. Notre Dame Information
+Technology Club"
+              redirectUrl="https://www.facebook.com/photo/?fbid=1057840939067437&set=a.762348471950020"
             />
             <HashtechPosts
-              title="Google Gemini"
-              desc="“Google Gemini” is a new advertising platform that integrates search and video ads into Google Play, allowing advertisers to promote mobile app installs and in-app actions."
-              imageURL="https://scontent.frjh4-1.fna.fbcdn.net/v/t39.30808-6/409871839_988884939296371_726850100000577863_n.jpg?_nc_cat=101&ccb=1-7&_nc_sid=3635dc&_nc_ohc=RFoKpCSLxdkAX_RTWWx&_nc_ht=scontent.frjh4-1.fna&oh=00_AfCRVPxVraNPyNF4MMHazCS1x5YXmlyAUADPnADReazdwQ&oe=65CA59CD"
-              redirectUrl="https://www.facebook.com/photo?fbid=988884942629704&set=a.762348471950020"
+              title="Li-Fi"
+              desc="Li-Fi also known as light fidelity is a wireless communication technology that transmit utilizing LED. It is faster than Wi-Fi.
+Benefits of Li-Fi :"
+              redirectUrl="https://www.facebook.com/photo?fbid=1051372199714311&set=a.762348471950020"
             />
             <HashtechPosts
-              title="Computer Architecture"
-              desc="“Computer Architecture” is the design and structure of computer systems, encompassing the arrangement and interaction of various hardware components. This includes the central processing unit (CPU)..."
-              imageURL="https://scontent.frjh4-1.fna.fbcdn.net/v/t39.30808-6/409502585_984963203021878_7547505903699746104_n.jpg?_nc_cat=108&ccb=1-7&_nc_sid=3635dc&_nc_ohc=usnU4Za0a7wAX-oWegZ&_nc_ht=scontent.frjh4-1.fna&oh=00_AfDkfofGNbjaN13vXiINbsJTpTyuiRIPkeoAYVpb2l17hQ&oe=65CA4A13"
-              redirectUrl="https://www.facebook.com/photo?fbid=984987733019425&set=a.762348471950020"
+              title="5G"
+              desc="Even a decade ago, the term 'wireless mobile network' was unimaginable to us. Who else could have thought of connecting with anyone from anywhere on the globe and communicate"
+              redirectUrl="https://www.facebook.com/photo?fbid=1046808550170676&set=a.762348471950020"
             />
             <HashtechPosts
-              title="Augmented Reality"
-              desc="Augmented Reality (AR) is an innovative technology that superimposes digital content onto the real world, enhancing the user's perception of their environment."
-              imageURL="https://scontent.frjh4-1.fna.fbcdn.net/v/t39.30808-6/405030064_974777844040414_2375425671905176021_n.jpg?_nc_cat=111&ccb=1-7&_nc_sid=3635dc&_nc_ohc=FdJ_nLWuc7gAX-UR0Kk&_nc_ht=scontent.frjh4-1.fna&oh=00_AfDHy7vGL1Axlj9c1MzQ-heBGUW4VtvAI7bBzwb2aUrC-w&oe=65CAF05B"
-              redirectUrl="https://www.facebook.com/photo/?fbid=974777847373747&set=a.762348471950020"
+              title="Women's Day"
+              desc="As International Women's Day nears, the Notre Dame Information Technology Club acknowledges women's pivotal role in IT history"
+              redirectUrl="https://www.facebook.com/photo?fbid=1045766416941556&set=a.762348471950020"
+            />
+            <HashtechPosts
+              title="Robotic Exoskeleton"
+              desc="A robotic exoskeleton is a wearable device that boosts strength, endurance, and mobility by offering external support."
+              redirectUrl="https://www.facebook.com/photo?fbid=1041937043991160&set=a.762348471950020"
             />
           </SnapScroller>
         </section>
@@ -163,7 +167,7 @@ export default function Home() {
         </section>
       </div>
 
-      <div className="w-screen relative">
+      <div className="w-screen relative overflow-hidden">
         <img
           className="absolute left-0 top-[20%] md:-top-1/2 -z-10 max-w-[750px] w-[125%] md:w-[80%]"
           src="/image/lbg.svg"

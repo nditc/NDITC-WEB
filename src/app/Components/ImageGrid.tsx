@@ -4,7 +4,6 @@ import React, { useState } from 'react';
 import Styles from '@/app/styles/ImageGrid.module.css';
 import Image from 'next/image';
 import ImageViewer from './ImageViewer/ImageViewer';
-import Draggable from 'react-draggable';
 type props = {
   images: string[];
   layout: number;
@@ -19,6 +18,7 @@ const ImageGrid = ({ images, layout }: props) => {
     imgs = images.slice(1, 4);
   }
   const [imageViewerState, setImageViewerState] = useState<boolean>(false);
+  const [initIndex, setInitIndex] = useState<number>(0);
   return (
     <>
       {' '}
@@ -26,9 +26,11 @@ const ImageGrid = ({ images, layout }: props) => {
         {imgs.map((url, index) => {
           return (
             <a
-              className={'img ' + Styles['i' + (index + 1)]}
-              href={url}
-              target="_blank"
+              className={Styles.img + ' ' + Styles['i' + (index + 1)]}
+              onClick={() => {
+                setImageViewerState(true);
+                setInitIndex(index + 1);
+              }}
               key={index}
             >
               <Image
@@ -43,12 +45,22 @@ const ImageGrid = ({ images, layout }: props) => {
         })}
       </div>
       <div className="text-right font-medium hover:underline hover:text-blue-500 cursor-pointer mr-1 text-stone-500  mt-1">
-        <button onClick={() => setImageViewerState(true)}>... View More Images</button>
+        <button
+          onClick={() => {
+            setImageViewerState(true);
+          }}
+        >
+          ... View More Images
+        </button>
       </div>
       <ImageViewer
-        close={() => setImageViewerState(false)}
+        close={() => {
+          setImageViewerState(false);
+          setInitIndex(0);
+        }}
         images={images}
         state={imageViewerState}
+        initIndex={initIndex}
       />
     </>
   );

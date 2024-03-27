@@ -6,7 +6,6 @@ import { notFound } from 'next/navigation';
 import { AES, enc } from 'crypto-js';
 import ImageGrid from '@/app/Components/ImageGrid';
 import Markdown from 'react-markdown';
-import Draggable from 'react-draggable';
 
 type ParamType = { url: string; type: string; date: number };
 
@@ -16,7 +15,7 @@ const fetchData = async (params: ParamType) => {
   const text = cypher.toString(enc.Utf8);
 
   try {
-    const res = await fetch(text);
+    const res = await fetch(text, { cache: 'no-cache' });
     if (!res.ok) {
       notFound();
     } else {
@@ -96,7 +95,7 @@ const Page = async ({ params }: { params: ParamType }) => {
               ) : null}
             </div>
             <Image
-              className="flex-1 order-1 md:max-h-[45vh] object-cover md:order-2 rounded-b-xl md:rounded-none md:max-w-[60%]"
+              className="flex-1 order-1 md:max-h-[50vh] object-cover md:order-2 rounded-b-xl md:rounded-none md:max-w-[60%]"
               src={data.images[0]}
               alt=""
               width={750}

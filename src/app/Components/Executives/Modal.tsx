@@ -12,12 +12,13 @@ const Field = ({ title, desc }: { title: string; desc: React.ReactNode }) => {
 };
 const Links = ({ img, href }: { img: string; href: string }) => {
   return (
-    <a
+    <Link
+      target="_blank"
       className="w-[35px] h-[35px] hover:fill-blue-500 transition-opacity opacity-70 hover:opacity-100"
       href={href}
     >
       <img src={'/image/links/' + img + '.svg'} alt="" />
-    </a>
+    </Link>
   );
 };
 const Modal = ({
