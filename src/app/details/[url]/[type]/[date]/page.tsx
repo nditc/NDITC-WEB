@@ -1,17 +1,17 @@
-import React from 'react';
-import Image from 'next/image';
-import Link from 'next/link';
-import { MdOutlineDateRange } from 'react-icons/md';
-import { notFound } from 'next/navigation';
-import { AES, enc } from 'crypto-js';
-import ImageGrid from '@/app/Components/ImageGrid';
-import Markdown from 'react-markdown';
+import React from "react";
+import Image from "next/image";
+import Link from "next/link";
+import { MdOutlineDateRange } from "react-icons/md";
+import { notFound } from "next/navigation";
+import { AES, enc } from "crypto-js";
+import ImageGrid from "@/app/Components/ImageGrid";
+import Markdown from "react-markdown";
 
 type ParamType = { url: string; type: string; date: number };
 
 const fetchData = async (params: ParamType) => {
   const url = decodeURIComponent(params.url);
-  const cypher = AES.decrypt(url, 'SWAPNIL');
+  const cypher = AES.decrypt(url, "SWAPNIL");
   const text = cypher.toString(enc.Utf8);
 
   try {
@@ -31,8 +31,8 @@ const fetchData = async (params: ParamType) => {
 const Page = async ({ params }: { params: ParamType }) => {
   const data = await fetchData(params);
   const DateData = new Date(params.date * 1000);
-  const titleArray = data.title.split(' ');
-  const firstPart = titleArray.splice(0, 1) + ' ';
+  const titleArray = data.title.split(" ");
+  const firstPart = titleArray.splice(0, 1) + " ";
 
   return (
     <div className="w-screen bg-[#F6F6F6]">
@@ -41,15 +41,17 @@ const Page = async ({ params }: { params: ParamType }) => {
           <div className="container flex flex-col md:flex-row gap-0 md:gap-5 items-center pb-5 md:pb-0">
             <div className="flex-1 ml-1 flex flex-col gap-2 md:gap-3 2xl:gap-5 w-full order-2 md:order-1">
               <Link href={`/activities?type=${params.type}`}>
-                <h1 className="text-2xl pt-5 hover:text-blue-500">{params.type}&gt;</h1>
+                <h1 className="text-2xl pt-5 hover:text-blue-500">
+                  {params.type}&gt;
+                </h1>
               </Link>
 
               <h1 className="text-4xl  2xl:text-5xl ">
                 <span className="text-blue-500">{firstPart}</span>
-                {titleArray.join(' ')}
+                {titleArray.join(" ")}
               </h1>
               <p className="line-clamp-5  font-semibold flex justify-start items-center">
-                <MdOutlineDateRange className={'mr-2 w-6 h-6 text-blue-500'} />
+                <MdOutlineDateRange className={"mr-2 w-6 h-6 text-blue-500"} />
 
                 {DateData.toDateString()}
               </p>
@@ -63,8 +65,7 @@ const Page = async ({ params }: { params: ParamType }) => {
                   >
                     <span className="relative z-10">{data.action.label}</span>
                   </a>
-                  {params.url ==
-                    'https%3A%2F%2Fnditc.pythonanywhere.com%2Fprojects%2FgAAAAABklDtCA8wgOMZar9YbvFJgn8e-jFUG27Ic9aHwhx40IBCUofeQ_uoinoAgpmskv_ojJNA4I9Rgswp3RLa9wWgp6846Zg%3D%3D' && (
+                  {data.title == "Official Mobile App" && (
                     <a
                       href="https://raw.githubusercontent.com/nditc/nditc_mobile_app/main/nditc.apk"
                       target="_blank"
@@ -75,7 +76,7 @@ const Page = async ({ params }: { params: ParamType }) => {
                   )}
                 </div>
               ) : null}
-              {params.type === 'publication' ? (
+              {params.type === "publication" ? (
                 <div className=" flex gap-2 md:gap-3 mt-2 flex-wrap   h-full items-start md:pb-5">
                   <a
                     href={data.pdf_url}

@@ -140,13 +140,6 @@ export default function Home() {
           </div>
           <SnapScroller baseSize={475} gap={16} duration={2500}>
             <HashtechPosts
-              title="Independence Day"
-              desc="Independence day is a momentous occasion celebrated
-with great enthusiasm. Notre Dame Information
-Technology Club"
-              redirectUrl="https://www.facebook.com/photo/?fbid=1057840939067437&set=a.762348471950020"
-            />
-            <HashtechPosts
               title="Li-Fi"
               desc="Li-Fi also known as light fidelity is a wireless communication technology that transmit utilizing LED. It is faster than Wi-Fi.
 Benefits of Li-Fi :"
@@ -157,15 +150,23 @@ Benefits of Li-Fi :"
               desc="Even a decade ago, the term 'wireless mobile network' was unimaginable to us. Who else could have thought of connecting with anyone from anywhere on the globe and communicate"
               redirectUrl="https://www.facebook.com/photo?fbid=1046808550170676&set=a.762348471950020"
             />
-            <HashtechPosts
-              title="Women's Day"
-              desc="As International Women's Day nears, the Notre Dame Information Technology Club acknowledges women's pivotal role in IT history"
-              redirectUrl="https://www.facebook.com/photo?fbid=1045766416941556&set=a.762348471950020"
-            />
+
             <HashtechPosts
               title="Robotic Exoskeleton"
               desc="A robotic exoskeleton is a wearable device that boosts strength, endurance, and mobility by offering external support."
               redirectUrl="https://www.facebook.com/photo?fbid=1041937043991160&set=a.762348471950020"
+            />
+
+            <HashtechPosts
+              title="Quantum Computing"
+              desc="Quantum computing is a revolutionary technology that utilizes quantum mechanics principles to process information"
+              redirectUrl="https://www.facebook.com/photo?fbid=1037396531111878&set=a.762348471950020"
+            />
+
+            <HashtechPosts
+              title="DevOp"
+              desc="DevOps is a software development approach that emphasizes collaboration, integration, automation, and communication"
+              redirectUrl="https://www.facebook.com/photo?fbid=1032911361560395&set=a.762348471950020"
             />
           </SnapScroller>
         </section>
