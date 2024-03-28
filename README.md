@@ -1,36 +1,58 @@
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+![NDITC](public/ss.png)
 
-## Getting Started
+# Official Website - NDITC
 
-First, run the development server:
+#### NDITC - Notre Dame Information Technology Club
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
+### https://nditc.net - Click to see
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+Welcome to the official repository for the NDITC website. Here you can explore how we developed our official. If you are a member of NDITC and if you want to contribute then have a talk with our executive panel then you will be able to access push your ideas to this repository.
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+## Tech Stack Used
 
-This project uses [`next/font`](https://nextjs.org/docs/basic-features/font-optimization) to automatically optimize and load Inter, a custom Google Font.
+| Front-End      |     | Back-End |
+| -------------- | --- | -------: |
+| Typescript 5   |     |   Python |
+| Next.js 14     |     |   SQLite |
+| React.js 18    |     |
+| Tailwind.css 3 |     |
 
-## Learn More
+## Any Issues?
 
-To learn more about Next.js, take a look at the following resources:
+Please contact to info.nditc.official@gmail.com or open an issue if you find any bugs and issues. We would be very grateful to you.
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+## Contributions
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
+### Supervision and Guidelines
 
-## Deploy on Vercel
+- Ahammed Shawki - President (2022-23), Web and App Development
+- Naimur Rahman - Secretary (2022-23), Web and App Development
+- Nafe Ibne Delowar - Organizer, Batch '24
+- Adib Adnan Hoque - Organizer, Batch '24
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+### Designers
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
+- Adib Adnan Hoque - Organizer, Batch '24
+
+### Full Stack Web Developers
+
+- Wasif Rahman Swapnil - Member, Batch '25
+- HRM Rafsan Amin - Member, Batch '25
+
+### Front End Web Developers
+
+- Tahsan Hossain Niloy - Member, Batch '25
+- Mansifur Rahman Rafsan - Member, Batch '25
+- Redwanur Rahman - Member, Batch '25
+
+### Back End Web Developers
+
+- Naimur Rahman - Secretary (2022-23), Web and App Development
+- Muksifur Rahman - Member, Batch '25
+
+## Contact Us
+
+- [Telephone](tel:01885-925097)
+- [Website](http://nditc.net/)
+- [Facebook](https://www.facebook.com/nditc.official)
+- [LinkedIn](https://www.linkedin.com/company/nditc/)
