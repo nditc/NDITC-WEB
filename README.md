@@ -10,11 +10,11 @@ Welcome to the official repository for the NDITC website. Here you can explore h
 
 ## Tech Stack Used
 
-| Front-End      |     | Back-End |
-| -------------- | --- | -------: |
-| Typescript 5   |     |   Python |
-| Next.js 14     |     |   SQLite |
-| React.js 18    |     |
+|   Front-End    |     | Back-End |
+| :------------: | --- | :------: |
+|  Typescript 5  |     |  Python  |
+|   Next.js 14   |     |  SQLite  |
+|  React.js 18   |     |
 | Tailwind.css 3 |     |
 
 ## Any Issues?
@@ -52,7 +52,6 @@ Please contact to info.nditc.official@gmail.com or open an issue if you find any
 
 ## Contact Us
 
-- [Telephone](tel:01885-925097)
 - [Website](http://nditc.net/)
 - [Facebook](https://www.facebook.com/nditc.official)
 - [LinkedIn](https://www.linkedin.com/company/nditc/)
