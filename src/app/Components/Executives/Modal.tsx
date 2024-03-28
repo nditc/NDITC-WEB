@@ -1,8 +1,8 @@
 /* eslint-disable @next/next/no-img-element */
-import { Dispatch, SetStateAction, useEffect } from "react";
-import ExecutiveData from "../../db/executives";
-import Link from "next/link";
-
+import React, { Dispatch, SetStateAction, useEffect } from 'react';
+import ExecutiveData from '../../db/executives';
+import ModalCont from '../Modal';
+import Link from 'next/link';
 const Field = ({ title, desc }: { title: string; desc: React.ReactNode }) => {
   return (
     <div>
@@ -18,7 +18,7 @@ const Links = ({ img, href }: { img: string; href: string }) => {
       className="w-[35px] h-[35px] hover:fill-blue-500 transition-opacity opacity-70 hover:opacity-100"
       href={href}
     >
-      <img src={"/image/links/" + img + ".svg"} alt="" />
+      <img src={'/image/links/' + img + '.svg'} alt="" />
     </Link>
   );
 };
@@ -29,33 +29,25 @@ const Modal = ({
   modalState: [number, number] | null;
   setModalState: Dispatch<SetStateAction<[number, number] | null>>;
 }) => {
-  const data = modalState
-    ? ExecutiveData.sessions[modalState[0]].members[modalState[1]]
-    : null;
-  const firstNameArr = data?.name.split(" ");
+  const data = modalState ? ExecutiveData.sessions[modalState[0]].members[modalState[1]] : null;
+  const firstNameArr = data?.name.split(' ');
   const lastName = firstNameArr?.pop();
-  const firstName = firstNameArr?.join(" ") + " ";
-  const deptName = data?.dept?.replace("Department of ", "");
+  const firstName = firstNameArr?.join(' ') + ' ';
+  const deptName = data?.dept?.replace('Department of ', '');
   useEffect(() => {
     if (modalState) {
-      document.body.style.overflow = "hidden";
+      document.body.style.overflow = 'hidden';
     } else {
-      document.body.style.overflow = "auto";
+      document.body.style.overflow = 'auto';
     }
   }, [modalState]);
   return (
-    <>
+    <ModalCont state={modalState}>
       <div
         className={
-          "fixed inset-0 w-full h-full bg-black  z-[60] transition-transform " +
-          (modalState ? "opacity-20" : "opacity-0 pointer-events-none")
-        }
-      ></div>
-      <div
-        className={
-          "fixed overflow-hidden pb-24 md:pb-0 d:mb-0 left-1/2 top-1/2 translate-y-[-50%] translate-x-[-50%] w-full h-full lg:w-4/5 lg:h-4/5 md:rounded-2xl  bg-white z-[70] shadow-2xl transition" +
-          " " +
-          (modalState ? "scale-1" : "scale-0 pointer-events-none")
+          'fixed overflow-hidden pb-24 md:pb-0 d:mb-0 left-1/2 top-1/2 translate-y-[-50%] translate-x-[-50%] w-full h-full lg:w-4/5 lg:h-4/5 md:rounded-2xl  bg-white z-[70] shadow-2xl transition' +
+          ' ' +
+          (modalState ? 'scale-1' : 'scale-0 pointer-events-none')
         }
       >
         <img
@@ -64,17 +56,11 @@ const Modal = ({
           alt=""
         />
         <div className="w-full h-full overflow-y-scroll md:overflow-hidden mt-24 md:mt-0">
-          <div
-            className={"absolute top-6 right-8 flex align-middle text-right"}
-          >
+          <div className={'absolute top-6 right-8 flex align-middle text-right'}>
             <div>
-              <p className="font-bold text-sm 2xl:text-base">
-                Executive Committee
-              </p>
+              <p className="font-bold text-sm 2xl:text-base">Executive Committee</p>
               <h3 className="text-4xl 2xl:text-[2.825rem] leading-none text-blue-500">
-                {modalState
-                  ? ExecutiveData.sessions[modalState[0]].session
-                  : ""}
+                {modalState ? ExecutiveData.sessions[modalState[0]].session : ''}
               </h3>
             </div>
           </div>
@@ -82,11 +68,7 @@ const Modal = ({
             className="absolute top-5 left-5 p-3 bg-slate-50 rounded-full hover:bg-blue-50  hover:fill-blue-500 transition"
             onClick={() => setModalState(null)}
           >
-            <svg
-              xmlns="http://www.w3.org/2000/svg"
-              className="w-4"
-              viewBox="0 0 384 512"
-            >
+            <svg xmlns="http://www.w3.org/2000/svg" className="w-4" viewBox="0 0 384 512">
               <path d="M342.6 150.6c12.5-12.5 12.5-32.8 0-45.3s-32.8-12.5-45.3 0L192 210.7 86.6 105.4c-12.5-12.5-32.8-12.5-45.3 0s-12.5 32.8 0 45.3L146.7 256 41.4 361.4c-12.5 12.5-12.5 32.8 0 45.3s32.8 12.5 45.3 0L192 301.3 297.4 406.6c12.5 12.5 32.8 12.5 45.3 0s12.5-32.8 0-45.3L237.3 256 342.6 150.6z" />
             </svg>
           </button>
@@ -108,13 +90,10 @@ const Modal = ({
                     {firstName}
                     <span className="text-blue-500">{lastName}</span>
                   </h1>
-                  <p className="text-2xl 2xl:text-3xl text-blue-500 font-bold">
-                    {data.post}
-                  </p>
+                  <p className="text-2xl 2xl:text-3xl text-blue-500 font-bold">{data.post}</p>
                   {data.dept ? (
                     <p className="text-xl 2xl:text-2xl">
-                      Department of{" "}
-                      <span className="text-blue-500">{deptName}</span>
+                      Department of <span className="text-blue-500">{deptName}</span>
                     </p>
                   ) : null}
                 </div>
@@ -122,20 +101,13 @@ const Modal = ({
                   <Field title="Roll" desc={data.roll} />
                   <Field title="Mobile No." desc={data.phone} />
                   <Field title="E-mail" desc={data.email} />
-                  {Array.isArray(data.profile_url) &&
-                  data.profile_url.length > 0 ? (
+                  {Array.isArray(data.profile_url) && data.profile_url.length > 0 ? (
                     <Field
                       title="Socials"
                       desc={
                         <div className="flex justify-center md:justify-end gap-2">
                           {data.profile_url.map((arr, index) => {
-                            return (
-                              <Links
-                                key={index}
-                                img={arr.platform}
-                                href={arr.url}
-                              />
-                            );
+                            return <Links key={index} img={arr.platform} href={arr.url} />;
                           })}
                         </div>
                       }
@@ -147,7 +119,7 @@ const Modal = ({
           ) : null}
         </div>
       </div>
-    </>
+    </ModalCont>
   );
 };
 

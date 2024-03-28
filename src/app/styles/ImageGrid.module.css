@@ -37,16 +37,22 @@
     grid-template-rows: repeat(6, 1fr);
     height: 60vh;
   }
-  .l1 .i1 {
-    grid-row: 1 / span 3;
-  }
-  .l1 .i2 {
-    grid-row: span 3;
-  }
-  .l1 img {
+  .l1 .img {
     grid-row: span 2;
     height: 100%;
     align-items: stretch;
+  }
+  .l1 img {
+    align-items: stretch;
+    height: calc((60vh - 1.5rem) / 3);
+  }
+  .l1 .i1,
+  .l1 .i1 {
+    grid-row: span 3;
+  }
+  .l1 .i1 img,
+  .l1 .i2 img {
+    height: calc((60vh - 0.75rem) / 2);
   }
 }
 /* layout 2 */
@@ -77,7 +83,7 @@
   }
 
   .l2 img {
-    height: calc(((60vh - 1rem) / 3) * 2);
+    height: calc((60vh - 1rem) / 2);
     align-items: stretch;
   }
 }
