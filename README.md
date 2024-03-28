@@ -6,7 +6,7 @@
 
 ### https://nditc.net - Click to see
 
-Welcome to the official repository for the NDITC website. Here you can explore how we developed our official. If you are a member of NDITC and if you want to contribute then have a talk with our executive panel then you will be able to access push your ideas to this repository.
+Welcome to NDITC’s official website repository. This platform is dedicated to showcasing the development journey of our official site. For NDITC members interested in contributing, we encourage you to contact with our executive panel. Upon discussion, you’ll gain the opportunity to share and contribute your innovative ideas to this repository.
 
 ## Tech Stack Used
 
