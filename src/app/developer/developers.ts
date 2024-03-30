@@ -82,6 +82,10 @@ const x: devData = {
           platform: 'facebook',
           url: 'https://www.facebook.com/profile.php?id=100083625623282',
         },
+        {
+          platform: 'github',
+          url: 'https://github.com/The-XENO-Studios/',
+        },
       ],
       post: 'Member',
       dept: "Batch '25",
@@ -97,6 +101,14 @@ const x: devData = {
         {
           platform: 'facebook',
           url: 'https://www.facebook.com/profile.php?id=100082305411559',
+        },
+        {
+          platform: 'github',
+          url: 'https://github.com/RafsanAmin',
+        },
+        {
+          platform: 'web',
+          url: 'https://rafsanamin.epizy.com',
         },
       ],
       post: 'Member',

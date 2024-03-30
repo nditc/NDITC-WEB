@@ -6,16 +6,35 @@ import Image from 'next/image';
 import ImageViewer from './ImageViewer';
 type props = {
   images: string[];
-  layout: number;
+  layoutID: number;
 };
-const ImageGrid = ({ images, layout }: props) => {
+const ImageGrid = ({ images, layoutID }: props) => {
   let imgs: string[] = [];
-  if (layout === 1) {
-    imgs = images.slice(1, 6);
-  } else if (layout === 2 || layout === 3) {
-    imgs = images.slice(1, 5);
-  } else if (layout === 4) {
-    imgs = images.slice(1, 4);
+  let layout = layoutID;
+  if (!layoutID) {
+    if (images.length >= 2 && images.length <= 5) {
+      layout = 8 - images.length; // shortcut: if (images.length -> layoutID) then 2 -> 6, 3 -> 5, 4 -> 4, ...
+    } else if (images.length > 5) {
+      layout = 1;
+    }
+  }
+  switch (layout) {
+    case 1:
+      imgs = images.slice(1, 6);
+      break;
+    case 2:
+    case 3:
+      imgs = images.slice(1, 5);
+      break;
+    case 4:
+      imgs = images.slice(1, 4);
+      break;
+    case 5:
+      imgs = images.slice(1, 3);
+      break;
+    case 6:
+      imgs = images.slice(1, 2);
+      break;
   }
   const [imageViewerState, setImageViewerState] = useState<boolean>(false);
   const [initIndex, setInitIndex] = useState<number>(0);
