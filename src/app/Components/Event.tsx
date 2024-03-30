@@ -2,7 +2,7 @@ import { AES } from 'crypto-js';
 import Image from 'next/image';
 import Link from 'next/link';
 import { MdOutlineDateRange } from 'react-icons/md';
-
+import '../styles/eventCard.css';
 interface Props {
   title: string;
   imageURL: string;
@@ -10,16 +10,17 @@ interface Props {
   type: string;
   timestamp: number;
   shortDesc: string;
+  isOngoing: boolean;
 }
 
-const Event = ({ title, imageURL, descURL, type, timestamp, shortDesc }: Props) => {
+const Event = ({ title, imageURL, descURL, type, timestamp, shortDesc, isOngoing }: Props) => {
   const DateData = new Date(timestamp * 1000);
   const detailsEncrypt = AES.encrypt(descURL, 'SWAPNIL');
   return (
     <div id="init" className="card flex flex-col relative">
-      {timestamp * 1000 - new Date().getTime() > 0 ? (
-        <div className="absolute text-sm top-2 right-3 bg-red-600 text-white px-3 py-1 rounded-md shadow-md">
-          Upcoming!
+      {isOngoing ? (
+        <div className="absolute text-sm top-2 right-3 bg-orange-600 text-white px-3 py-1 rounded-md shadow-md">
+          On Going!
         </div>
       ) : null}
       <Image src={imageURL} alt={'Card Image'} className="card_banner" width={1024} height={512} />

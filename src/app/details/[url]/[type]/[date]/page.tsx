@@ -1,21 +1,22 @@
-import React from "react";
-import Image from "next/image";
-import Link from "next/link";
-import { MdOutlineDateRange } from "react-icons/md";
-import { notFound } from "next/navigation";
-import { AES, enc } from "crypto-js";
-import ImageGrid from "@/app/Components/ImageGrid";
-import Markdown from "react-markdown";
+import React from 'react';
+import Image from 'next/image';
+import Link from 'next/link';
+import { MdOutlineDateRange } from 'react-icons/md';
+import { notFound } from 'next/navigation';
+import { AES, enc } from 'crypto-js';
+import ImageGrid from '@/app/Components/ImageComponents/ImageGrid';
+import Markdown from 'react-markdown';
+import remarkGfm from 'remark-gfm';
 
 type ParamType = { url: string; type: string; date: number };
 
 const fetchData = async (params: ParamType) => {
   const url = decodeURIComponent(params.url);
-  const cypher = AES.decrypt(url, "SWAPNIL");
+  const cypher = AES.decrypt(url, 'SWAPNIL');
   const text = cypher.toString(enc.Utf8);
 
   try {
-    const res = await fetch(text, { cache: "no-cache" });
+    const res = await fetch(text, { cache: 'no-cache' });
     if (!res.ok) {
       notFound();
     } else {
@@ -31,27 +32,25 @@ const fetchData = async (params: ParamType) => {
 const Page = async ({ params }: { params: ParamType }) => {
   const data = await fetchData(params);
   const DateData = new Date(params.date * 1000);
-  const titleArray = data.title.split(" ");
-  const firstPart = titleArray.splice(0, 1) + " ";
+  const titleArray = data.title.split(' ');
+  const firstPart = titleArray.splice(0, 1) + ' ';
 
   return (
     <div className="w-screen bg-[#F6F6F6]">
       <div className="container pt-[81px] py-10 flex flex-col items-center gap-10 bg-transparent relative">
         <div className="w-screen bg-white shadow-xl ">
           <div className="container flex flex-col md:flex-row gap-0 md:gap-5 items-center pb-5 md:pb-0">
-            <div className="flex-1 ml-1 flex flex-col gap-2 md:gap-3 2xl:gap-5 w-full order-2 md:order-1">
+            <div className="flex-1 ml-1 md:py-8 flex flex-col gap-2 md:gap-3 2xl:gap-5 w-full order-2 md:order-1">
               <Link href={`/activities?type=${params.type}`}>
-                <h1 className="text-2xl pt-5 md:pt-0 hover:text-blue-500">
-                  {params.type}&gt;
-                </h1>
+                <h1 className="text-2xl pt-5 md:pt-0 hover:text-blue-500">{params.type}&gt;</h1>
               </Link>
 
               <h1 className="text-4xl  2xl:text-5xl ">
                 <span className="text-blue-500">{firstPart}</span>
-                {titleArray.join(" ")}
+                {titleArray.join(' ')}
               </h1>
               <p className="line-clamp-5  font-semibold flex justify-start items-center">
-                <MdOutlineDateRange className={"mr-2 w-6 h-6 text-blue-500"} />
+                <MdOutlineDateRange className={'mr-2 w-6 h-6 text-blue-500'} />
 
                 {DateData.toDateString()}
               </p>
@@ -65,7 +64,7 @@ const Page = async ({ params }: { params: ParamType }) => {
                   >
                     <span className="relative z-10">{data.action.label}</span>
                   </a>
-                  {data.title == "Official Mobile App" && (
+                  {data.title == 'Official Mobile App' && (
                     <a
                       href="https://raw.githubusercontent.com/nditc/nditc_mobile_app/main/nditc.apk"
                       target="_blank"
@@ -76,7 +75,7 @@ const Page = async ({ params }: { params: ParamType }) => {
                   )}
                 </div>
               ) : null}
-              {params.type === "publication" ? (
+              {params.type === 'publication' ? (
                 <div className=" flex gap-2 md:gap-3 mt-2 flex-wrap   h-full items-start md:pb-5">
                   <a
                     href={data.pdf_url}
@@ -85,23 +84,18 @@ const Page = async ({ params }: { params: ParamType }) => {
                   >
                     <span className="relative z-10">Read Now</span>
                   </a>
-                  <a
-                    href={data.pdf_url}
-                    download={true}
-                    className="relative  align-middle overflow-hidden  flex-1 md:flex-[0_auto] min-w-[48%] sm:min-w-[auto]   text-center bg-white  transition-all before:absolute before:left-0 before:top-0 before:h-full before:w-0 before:duration-500 after:absolute after:right-0 after:top-0 after:h-full after:w-0 after:duration-500  hover:before:w-2/4 hover:before:bg-blue-500 hover:after:w-2/4 hover:after:bg-blue-500 self-start Bebas inline-block cursor-pointer text-xl py-2 font-Bebas px-7 font-medium text-whiterounded-lg border-2 focus:z-10 focus:ring-4  focus:ring-blue-300 border-zinc-800 hover:border-blue-500  hover:text-white rounded-lg"
-                  >
-                    <span className="relative z-10">Download</span>
-                  </a>
                 </div>
               ) : null}
             </div>
-            <Image
-              className="flex-1 order-1 md:max-h-[50vh] object-cover md:order-2 rounded-b-xl md:rounded-none md:max-w-[60%]"
-              src={data.images[0]}
-              alt=""
-              width={750}
-              height={430}
-            />
+            <div className="flex-1 md:h-[40vh] 2xl:h-[50vh] w-full order-1 md:order-2">
+              <Image
+                className="  object-cover  rounded-b-xl md:rounded-none w-full h-full"
+                src={data.images[0]}
+                alt=""
+                width={750}
+                height={430}
+              />
+            </div>
           </div>
         </div>
         <div className="self-start w-full">
@@ -115,7 +109,9 @@ const Page = async ({ params }: { params: ParamType }) => {
           ) : null}
 
           <div className="text-lg min-h-[30vh] mt-3 mb-10 text-left font-Nunito markdown">
-            <Markdown>{data.description || data.short_description}</Markdown>
+            <Markdown remarkPlugins={[remarkGfm]}>
+              {data.description || data.short_description}
+            </Markdown>
           </div>
         </div>
       </div>

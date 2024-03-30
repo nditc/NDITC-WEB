@@ -1,5 +1,5 @@
 import CodeCompass from '../Components/NewsLAndApp';
-import Upcoming from '../Components/UpcomingEvent/Upcoming';
+import Upcoming from './Upcoming';
 import EventsList from './EventsList';
 
 type Events = {

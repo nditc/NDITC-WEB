@@ -5,6 +5,8 @@ import { FaTimes } from 'react-icons/fa';
 import { BiZoomIn, BiZoomOut } from 'react-icons/bi';
 import { TransformComponent, TransformWrapper } from 'react-zoom-pan-pinch';
 import Image from 'next/image';
+import '../../styles/imageViewer.css';
+
 interface props {
   images: string[];
   state: boolean;
@@ -57,7 +59,7 @@ const ImageViewer = ({ images, state, close, initIndex }: props) => {
                 centerView(1);
                 close();
               }}
-              className="absolute z-[80] right-3 xsm:right-7 top-7 transition-all  text-xl  bg-white text-black grid place-items-center rounded-full w-12  h-12 hover:bg-black hover:fill-white"
+              className="absolute z-[80] shadow-md right-3 xsm:right-7 top-7 transition-all  text-xl  bg-white text-black grid place-items-center rounded-full w-12  h-12 hover:bg-black hover:fill-white"
             >
               <svg xmlns="http://www.w3.org/2000/svg" className="w-4 " viewBox="0 0 384 512">
                 <path d="M342.6 150.6c12.5-12.5 12.5-32.8 0-45.3s-32.8-12.5-45.3 0L192 210.7 86.6 105.4c-12.5-12.5-32.8-12.5-45.3 0s-12.5 32.8 0 45.3L146.7 256 41.4 361.4c-12.5 12.5-12.5 32.8 0 45.3s32.8 12.5 45.3 0L192 301.3 297.4 406.6c12.5 12.5 32.8 12.5 45.3 0s12.5-32.8 0-45.3L237.3 256 342.6 150.6z"></path>
@@ -70,7 +72,7 @@ const ImageViewer = ({ images, state, close, initIndex }: props) => {
                 resetTransform();
                 setTimeout(() => centerView(1, 1, 'linear'), 100);
               }}
-              className="transition-all z-[80] absolute left-0 md:left-8 top-1/2 -translate-y-1/2 md:bg-white text-white md:text-black grid place-items-center rounded-full md:w-12 w-16 h-32 md:h-12 md:hover:bg-black md:hover:text-white"
+              className="transition-all z-[80] shadow-md absolute left-0 md:left-8 top-1/2 -translate-y-1/2 md:bg-white text-white md:text-black grid place-items-center rounded-full md:w-12 w-16 h-32 md:h-12 md:hover:bg-black md:hover:text-white"
             >
               <PiCaretLeftBold />
             </button>
@@ -81,12 +83,12 @@ const ImageViewer = ({ images, state, close, initIndex }: props) => {
                 resetTransform();
                 setTimeout(() => centerView(1, 1, 'linear'), 100);
               }}
-              className="transition-all z-[80] absolute right-0 md:right-8 top-1/2 -translate-y-1/2 md:bg-white text-white md:text-black grid place-items-center rounded-full md:w-12 w-16 h-32 md:h-12 md:hover:bg-black md:hover:text-white"
+              className="transition-all z-[80] shadow-md absolute right-0 md:right-8 top-1/2 -translate-y-1/2 md:bg-white text-white md:text-black grid place-items-center rounded-full md:w-12 w-16 h-32 md:h-12 md:hover:bg-black md:hover:text-white"
             >
               <PiCaretRightBold />
             </button>
             {/* toolbar */}
-            <div className="absolute left-1/2 z-[80] top-7 bg-white rounded-3xl -translate-x-1/2 flex items-center gap-2">
+            <div className="absolute left-1/2 z-[80] shadow-md top-7 bg-white rounded-3xl -translate-x-1/2 flex items-center gap-2">
               <button
                 onClick={() => zoomIn()}
                 className="transition-all  text-xl  bg-white text-black grid place-items-center rounded-full w-12  h-12 hover:bg-black hover:text-white"

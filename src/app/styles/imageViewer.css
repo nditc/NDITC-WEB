@@ -1,0 +1,7 @@
+.imagescroll {
+  scrollbar-width: none;
+  scrollbar-color: #3b82f6 #ffffff;
+}
+.imagescroll::-webkit-scrollbar {
+  width: 0px;
+}
