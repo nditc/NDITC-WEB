@@ -38,7 +38,7 @@ const EventsList = ({ data }: { data: any[] }) => {
     } else {
       setTypeString(type);
     }
-  }, [type]);
+  }, [type, scroll]);
 
   return (
     <section className="w-full">
@@ -132,6 +132,7 @@ const EventsList = ({ data }: { data: any[] }) => {
                 descURL={
                   e.details_url || 'https://nditc.pythonanywhere.com/api/v1/' + type + 's/' + e.id
                 }
+                isOngoing={e.isUpcoming}
                 timestamp={e.timestamp}
                 shortDesc={e.short_description}
                 key={i}

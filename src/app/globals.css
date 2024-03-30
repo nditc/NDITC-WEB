@@ -35,10 +35,6 @@ html {
   display: none;
 } */
 body::-webkit-scrollbar,
-.snap-scroller::-webkit-scrollbar {
-  display: none;
-}
-
 * {
   -ms-overflow-style: none; /* IE and Edge */
   scrollbar-width: none; /* Firefox */
@@ -54,52 +50,7 @@ body::-webkit-scrollbar,
 .container-padding {
   @apply px-[5vw] md:pl-[5vw] xl:pl-[5vw] 2xl:pl-[12.5vw] md:pr-0;
 }
-.markdown ul li::before {
-  content: '- ';
-}
-.imagescroll {
-  scrollbar-width: none;
-  scrollbar-color: #3b82f6 #ffffff;
-}
-.imagescroll::-webkit-scrollbar {
-  width: 0px;
-}
 
-.card {
-  width: 100%;
-  height: 100%;
-  flex-shrink: 0;
-  border-radius: 1.16913rem;
-  background: #fff;
-  box-shadow: -11.96668px -9.57335px 37.09673px 0px rgba(255, 255, 255, 0.25),
-    8.37668px 11.96668px 37.09673px 0px rgba(168, 168, 168, 0.25);
-}
-.card_banner {
-  width: 100%;
-  height: 11.86669rem;
-  border-radius: 1.16913rem 1.16913rem 0rem 0rem;
-  object-fit: cover;
-}
-.card p {
-  width: 100%;
-  color: #000;
-  font-size: 0.93531rem;
-  font-style: normal;
-  font-weight: 400;
-  line-height: normal;
-  font-family: nunito;
-}
-
-.learn_more {
-  border-radius: 0.268rem;
-  background: #1a6eff;
-  font-family: Bebas Neue;
-  padding: 0.25rem 1rem;
-  margin-bottom: 1.5rem;
-}
-.learn_more:hover {
-  background: #0754da;
-}
 h1,
 h2,
 h3,
@@ -112,44 +63,6 @@ p {
 
 .Bebas {
   font-family: Bebas Neue;
-}
-.snap-scroller {
-  display: grid;
-  grid-auto-flow: column;
-  width: 100%;
-  overflow-x: scroll;
-  justify-content: start;
-  scroll-snap-type: inline mandatory;
-  scroll-behavior: smooth;
-}
-.snap-scroller > * {
-  scroll-snap-align: start;
-}
-.session-selector img {
-  display: none;
-}
-@media (max-width: 765px) {
-  .session-selector {
-    @apply overflow-hidden flex flex-col bg-white w-full rounded-xl mb-10 transition-all  h-[48px] z-10 shadow-lg;
-  }
-  .session-selector > .active-elem img {
-    display: block;
-  }
-  .session-selector > .session-list-item {
-    @apply order-2;
-  }
-  .open {
-    @apply h-[240px];
-  }
-
-  .session-selector > .active-elem {
-    @apply order-1;
-  }
-}
-@media (min-width: 768px) {
-  .session-selector {
-    @apply flex h-[20vw] flex-col text-xl gap-5;
-  }
 }
 
 /*----------------------------------*/

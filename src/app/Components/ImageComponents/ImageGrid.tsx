@@ -3,7 +3,7 @@
 import React, { useState } from 'react';
 import Styles from '@/app/styles/ImageGrid.module.css';
 import Image from 'next/image';
-import ImageViewer from './ImageViewer/ImageViewer';
+import ImageViewer from './ImageViewer';
 type props = {
   images: string[];
   layout: number;

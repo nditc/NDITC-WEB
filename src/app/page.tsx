@@ -2,7 +2,7 @@ import Image from 'next/image';
 import Contact from './Components/Contact';
 import ActivityCards from './Components/ActivityCards';
 import HashtechPosts from './Components/HashtechPosts';
-import SnapScroller from './Components/Utilities/SnapScroller';
+import SnapScroller from './Components/SnapScroller';
 import Link from 'next/link';
 import CodeCompass from './Components/NewsLAndApp';
 
@@ -174,7 +174,7 @@ Benefits of Li-Fi :"
           src="/image/lbg.svg"
           alt=""
         />
-        <section className="mt-8 container md:mt-16 flex flex-col items-center gap-7 relative  mb-10 md:mb-12">
+        <section className="mt-8 container md:mt-16 flex flex-col items-center gap-7 relative  mb-10 md:mb-20">
           <div className="flex flex-col md:flex-row gap-1">
             <h1 className="text-4xl md:text-5xl text-center">WHY YOU SHOULD</h1>
             <h1 className="text-blue-500 text-4xl md:text-5xl text-center">JOIN NDITC?</h1>

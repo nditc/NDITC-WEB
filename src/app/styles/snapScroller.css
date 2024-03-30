@@ -1,0 +1,15 @@
+.snap-scroller {
+  display: grid;
+  grid-auto-flow: column;
+  width: 100%;
+  overflow-x: scroll;
+  justify-content: start;
+  scroll-snap-type: inline mandatory;
+  scroll-behavior: smooth;
+}
+.snap-scroller > * {
+  scroll-snap-align: start;
+}
+.snap-scroller::-webkit-scrollbar {
+  display: none;
+}

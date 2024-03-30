@@ -1,0 +1,49 @@
+.markdown ul li {
+  list-style: lead;
+  list-style-position: inside;
+  margin-left: 0.35rem;
+}
+.markdown p {
+  padding-bottom: 0.5rem;
+}
+.markdown a {
+  color: #3b82f6;
+}
+.markdown h1 {
+  font-size: 2.25rem;
+  padding-top: 1.25rem;
+  padding-bottom: 0.5rem;
+}
+.markdown h2 {
+  font-size: 1.875rem;
+  padding-top: 1.15rem;
+  padding-bottom: 0.5rem;
+}
+.markdown h3,
+.markdown h4,
+.markdown h5,
+.markdown h6 {
+  font-size: 1.5rem;
+  padding-top: 0.65rem;
+  padding-bottom: 0.5rem;
+  font-family: Nunito;
+  font-weight: 700;
+}
+.markdown table {
+  border: 1px solid #e4e4e7;
+  border-radius: 2px;
+}
+.markdown thead tr {
+  background-color: #e4e4e7;
+}
+.markdown tbody tr:nth-child(2n-1) {
+  background-color: transparent;
+}
+.markdown tbody tr:nth-child(2n) {
+  background-color: #e4e4e7d0;
+}
+.markdown td,
+.markdown th {
+  padding: 0.5rem 2rem;
+  border: 1px solid #d1d5db;
+}
