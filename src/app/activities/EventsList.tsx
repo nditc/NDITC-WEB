@@ -33,7 +33,7 @@ const EventsList = ({ data }: { data: any[] }) => {
       document.getElementById('SCROLLHERE')?.scrollIntoView();
     }
 
-    if (type != 'events' && type != 'project' && type != 'publication' && type != 'workshop') {
+    if (type != 'event' && type != 'project' && type != 'publication' && type != 'workshop') {
       setTypeString('event');
     } else {
       setTypeString(type);

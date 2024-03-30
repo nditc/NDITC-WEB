@@ -3,6 +3,10 @@
   list-style-position: inside;
   margin-left: 0.35rem;
 }
+.markdown ul {
+  margin-top: 0.25rem;
+  margin-bottom: 0.75rem;
+}
 .markdown p {
   padding-bottom: 0.5rem;
 }
@@ -13,11 +17,13 @@
   font-size: 2.25rem;
   padding-top: 1.25rem;
   padding-bottom: 0.5rem;
+  font-weight: 400;
 }
 .markdown h2 {
   font-size: 1.875rem;
   padding-top: 1.15rem;
   padding-bottom: 0.5rem;
+  font-weight: 400;
 }
 .markdown h3,
 .markdown h4,

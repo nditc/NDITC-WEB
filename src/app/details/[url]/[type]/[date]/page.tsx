@@ -103,7 +103,7 @@ const Page = async ({ params }: { params: ParamType }) => {
             <div>
               <h1 className="text-4xl">Gallery</h1>
               <div className="py-5 w-full">
-                <ImageGrid images={data.images} layout={data.layout_id} />
+                <ImageGrid images={data.images} layoutID={data.layout_id} />
               </div>
             </div>
           ) : null}
