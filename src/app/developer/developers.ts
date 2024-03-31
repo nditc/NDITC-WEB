@@ -96,6 +96,14 @@ const x: devData = {
           platform: 'github',
           url: 'https://github.com/The-XENO-Studios/',
         },
+        {
+          platform: 'web',
+          url: 'https://rafsanamin.epizy.com',
+        },
+        {
+          platform: 'web',
+          url: 'https://rafsanamin.epizy.com',
+        },
       ],
       post: 'Member',
       dept: "Batch '25",
@@ -118,7 +126,7 @@ const x: devData = {
         },
         {
           platform: 'web',
-          url: 'https://rafsanamin.epizy.com',
+          url: 'https://xenostudios.vercel.app',
         },
       ],
       post: 'Member',
