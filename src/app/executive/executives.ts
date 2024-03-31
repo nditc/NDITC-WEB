@@ -252,7 +252,17 @@ const db: dbType = {
           image_url:
             'https://raw.githubusercontent.com/nditc/nditc_mobile_app/main/images/executives/2022-2023/15.jpg',
           modal_image_url: '/image/executives/2022-2023/15.png',
-          profile_url: [{ platform: 'facebook', url: 'https://www.facebook.com/ahammadshawki8/' }],
+          profile_url: [
+            { platform: 'facebook', url: 'https://www.facebook.com/ahammadshawki8/' },
+            {
+              platform: 'github',
+              url: 'https://github.com/ahammadshawki8/',
+            },
+            {
+              platform: 'web',
+              url: 'https://ahammadshawki8.github.io/',
+            },
+          ],
           post: 'President',
           dept: 'Web & App Development',
           group: 5,
@@ -265,7 +275,17 @@ const db: dbType = {
           image_url:
             'https://raw.githubusercontent.com/nditc/nditc_mobile_app/main/images/executives/2022-2023/16.jpg',
           modal_image_url: '/image/executives/2022-2023/16.png',
-          profile_url: [{ platform: 'facebook', url: 'https://www.facebook.com/mdnaimur020' }],
+          profile_url: [
+            { platform: 'facebook', url: 'https://www.facebook.com/mdnaimur020' },
+            {
+              platform: 'github',
+              url: 'https://github.com/mdnaimur0',
+            },
+            {
+              platform: 'web',
+              url: 'https://mdnaimur0.github.io/',
+            },
+          ],
           post: 'Secretary',
           dept: 'Web & App Development',
           group: 4,

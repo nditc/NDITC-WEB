@@ -29,7 +29,6 @@ const Contact = () => {
       formRef.current?.reset();
 
       if (!response.ok) {
-        console.log('falling over');
         throw new Error(`response status: ${response.status}`);
       }
 

@@ -16,7 +16,7 @@ const fetchData = async (params: ParamType) => {
   const text = cypher.toString(enc.Utf8);
 
   try {
-    const res = await fetch(text, { cache: 'no-cache' });
+    const res = await fetch(text, { cache: 'no-store' });
     if (!res.ok) {
       notFound();
     } else {
