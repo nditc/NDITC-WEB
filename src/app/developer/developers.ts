@@ -100,10 +100,6 @@ const x: devData = {
           platform: 'web',
           url: 'https://rafsanamin.epizy.com',
         },
-        {
-          platform: 'web',
-          url: 'https://rafsanamin.epizy.com',
-        },
       ],
       post: 'Member',
       dept: "Batch '25",
@@ -126,7 +122,7 @@ const x: devData = {
         },
         {
           platform: 'web',
-          url: 'https://xenostudios.vercel.app',
+          url: 'https://rafsanamin.epizy.com',
         },
       ],
       post: 'Member',
