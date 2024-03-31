@@ -48,7 +48,17 @@ const x: devData = {
       name: 'Nafe Ibne Delower',
       image_url: '/image/Developers/Nafe.png',
       modal_image_url: '/image/Developers/tr-Nafe.png',
-      profile_url: [{ platform: 'facebook', url: 'https://www.facebook.com/kt.prodhan' }],
+      profile_url: [
+        { platform: 'facebook', url: 'https://www.facebook.com/kt.prodhan' },
+        {
+          platform: 'github',
+          url: 'https://github.com/Nafe-Ibne-Dalower ',
+        },
+        {
+          platform: 'web',
+          url: 'https://portfolio-of-nafe.web.app/',
+        },
+      ],
       post: 'Organizer',
       dept: "Batch '24",
       group: 6,
