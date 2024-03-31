@@ -189,7 +189,7 @@ const x: devData = {
         },
         {
           platform: 'github',
-          url: 'https://github.com/AdibAdnan',
+          url: 'https://github.com/Rafsan06',
         },
       ],
       post: 'Member',
@@ -206,6 +206,10 @@ const x: devData = {
         {
           platform: 'facebook',
           url: 'https://www.facebook.com/redwanur.rahaman.7',
+        },
+        {
+          platform: 'github',
+          url: 'https://github.com/Redwanur',
         },
       ],
       post: 'Member',

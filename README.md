@@ -43,7 +43,7 @@ Please contact to info.nditc.official@gmail.com or open an issue if you find any
 
 - Tahsan Hossain Niloy - Member, Batch '25
 - Mansifur Rahman Rafsan - Member, Batch '25
-- Redwanur Rahman - Member, Batch '25
+- Redwanur Rahaman - Member, Batch '25
 
 ### Back End Web Developers
 
