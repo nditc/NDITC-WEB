@@ -1,13 +1,13 @@
-import React from "react";
-import Image from "next/image";
-import Link from "next/link";
-import { AES, enc } from "crypto-js";
+import React from 'react';
+import Image from 'next/image';
+import Link from 'next/link';
+import { AES, enc } from 'crypto-js';
 
 const Page = async ({ params }: { params: { url: string; type: string } }) => {
   const url = decodeURIComponent(params.url);
-  const cypher = AES.decrypt(url, "Anime");
+  const cypher = AES.decrypt(url, 'Anime');
   const text = cypher.toString(enc.Utf8);
-  const res = await fetch(text);
+  const res = await fetch(text, { cache: 'no-store' });
   const data = await res.json();
 
   return (
@@ -17,9 +17,7 @@ const Page = async ({ params }: { params: { url: string; type: string } }) => {
           <div className="container flex flex-col md:flex-row gap-5 items-center ">
             <div className="flex-1 ml-1 flex flex-col gap-5 w-full order-2 md:order-1">
               <Link href="/notifications">
-                <h1 className="text-2xl pt-5 underline hover:text-blue-500">
-                  {"Notifications>"}
-                </h1>
+                <h1 className="text-2xl pt-5 underline hover:text-blue-500">{'Notifications>'}</h1>
               </Link>
 
               <h1 className="text-4xl  2xl:text-5xl ">{data.title}</h1>

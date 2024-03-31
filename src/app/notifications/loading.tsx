@@ -1,3 +1,5 @@
+import '../styles/eventCard.css';
+
 const loading = () => {
   return (
     <div className="pt-32 pb-10 overflow-x-hidden bg-slate-50">
@@ -27,9 +29,7 @@ const loading = () => {
                 className="hover:cursor-pointer w-full h-[7.9rem] md:h-[8.6rem] border-gray-200 shadow-[5px_5px_30px_5px_#00000024] transition-all duration-500 hover:scale-110 rounded-xl flex justify-between"
               >
                 <div className="flex flex-col gap-1 flex-[6] p-5">
-                  <h1 className="text-base md:text-2xl">
-                    Loading Notification...
-                  </h1>
+                  <h1 className="text-base md:text-2xl">Loading Notification...</h1>
                   <p className="text-sm md:text-base break-words max-w-[90%] line-clamp-1 md:line-clamp-2">
                     Hold on tight kiddo
                   </p>

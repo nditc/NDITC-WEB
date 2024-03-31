@@ -22,7 +22,17 @@ const x: devData = {
       image_url:
         'https://raw.githubusercontent.com/nditc/nditc_mobile_app/main/images/executives/2022-2023/15.jpg',
       modal_image_url: '/image/executives/2022-2023/15.png',
-      profile_url: [{ platform: 'facebook', url: 'https://www.facebook.com/ahammadshawki8/' }],
+      profile_url: [
+        { platform: 'facebook', url: 'https://www.facebook.com/ahammadshawki8/' },
+        {
+          platform: 'github',
+          url: 'https://github.com/ahammadshawki8/',
+        },
+        {
+          platform: 'web',
+          url: 'https://ahammadshawki8.github.io/',
+        },
+      ],
       post: 'President (2022-23)',
       dept: 'Web & App Development',
       group: 5,
@@ -35,7 +45,17 @@ const x: devData = {
       image_url:
         'https://raw.githubusercontent.com/nditc/nditc_mobile_app/main/images/executives/2022-2023/16.jpg',
       modal_image_url: '/image/executives/2022-2023/16.png',
-      profile_url: [{ platform: 'facebook', url: 'https://www.facebook.com/mdnaimur020' }],
+      profile_url: [
+        { platform: 'facebook', url: 'https://www.facebook.com/mdnaimur020' },
+        {
+          platform: 'github',
+          url: 'https://github.com/mdnaimur0',
+        },
+        {
+          platform: 'web',
+          url: 'https://mdnaimur0.github.io/',
+        },
+      ],
       post: 'Secretary (2022-23)',
       dept: 'Web & App Development',
       group: 4,
@@ -74,6 +94,14 @@ const x: devData = {
           platform: 'facebook',
           url: 'https://www.facebook.com/adibAdnanHoque',
         },
+        {
+          platform: 'github',
+          url: 'https://github.com/AdibAdnan',
+        },
+        {
+          platform: 'behance',
+          url: 'https://www.behance.net/adibadnanhoque',
+        },
       ],
       post: 'Organizer',
       dept: "Batch '24",
@@ -98,7 +126,7 @@ const x: devData = {
         },
         {
           platform: 'web',
-          url: 'https://rafsanamin.epizy.com',
+          url: 'https://xenostudios.vercel.app',
         },
       ],
       post: 'Member',
@@ -159,6 +187,10 @@ const x: devData = {
           platform: 'facebook',
           url: 'https://www.facebook.com/M.Rafsan06',
         },
+        {
+          platform: 'github',
+          url: 'https://github.com/AdibAdnan',
+        },
       ],
       post: 'Member',
       dept: "Batch '25",
@@ -167,7 +199,7 @@ const x: devData = {
       email: 'mansifurrahmanr.06@gmail.com',
     },
     {
-      name: 'Redwanur Rahman',
+      name: 'Redwanur Rahaman',
       image_url: '/image/Developers/redwan.jpg',
       modal_image_url: '/image/Developers/tr-redwan.png',
       profile_url: [
@@ -193,6 +225,14 @@ const x: devData = {
           platform: 'facebook',
           url: 'https://www.facebook.com/muksifur',
         },
+        {
+          platform: 'github',
+          url: 'https://github.com/Muksifur',
+        },
+        {
+          platform: 'web',
+          url: 'https://muksifur.com/',
+        },
       ],
       post: 'Member',
       dept: "Batch '25",
@@ -208,6 +248,10 @@ const x: devData = {
         {
           platform: 'facebook',
           url: 'https://www.facebook.com/nurul.abbas.180',
+        },
+        {
+          platform: 'github',
+          url: 'https://github.com/Foisal1301',
         },
       ],
       post: 'Member',

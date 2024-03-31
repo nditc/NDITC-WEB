@@ -7,7 +7,6 @@ import ExecutiveData from './executives';
 import Modal from './Modal';
 import Member from '../Components/Member';
 import { useRouter } from 'next/navigation';
-import { profile } from 'console';
 import Link from 'next/link';
 
 const ExecutivePanel = ({

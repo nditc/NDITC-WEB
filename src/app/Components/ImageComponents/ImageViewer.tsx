@@ -101,7 +101,6 @@ const ImageViewer = ({ images, state, close, initIndex }: props) => {
                     setVal(e.target.value);
                   }}
                   onKeyUp={(e) => {
-                    console.log(e.code);
                     if (e.code === 'Enter' || e.code == 'NumpadEnter') {
                       let val = e.currentTarget.value === '' ? 0 : Number(e.currentTarget.value);
                       if (val > 0 && val <= images.length && !Number.isNaN(val)) {
