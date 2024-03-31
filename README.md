@@ -14,8 +14,8 @@ Welcome to NDITC’s official website repository. This platform is dedicated to 
 | :------------: | --- | :------: |
 |  Typescript 5  |     |  Python  |
 |   Next.js 14   |     |  SQLite  |
-|  React.js 18   |     |
-| Tailwind.css 3 |     |
+|  React.js 18   |     |          |
+| Tailwind.css 3 |     |          |
 
 ## Any Issues?
 

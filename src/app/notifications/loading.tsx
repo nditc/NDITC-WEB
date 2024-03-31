@@ -31,7 +31,7 @@ const loading = () => {
                 <div className="flex flex-col gap-1 flex-[6] p-5">
                   <h1 className="text-base md:text-2xl">Loading Notification...</h1>
                   <p className="text-sm md:text-base break-words max-w-[90%] line-clamp-1 md:line-clamp-2">
-                    Hold on tight kiddo
+                    Please wait for notifications to load...
                   </p>
                 </div>
 

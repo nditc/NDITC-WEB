@@ -171,6 +171,10 @@ const x: devData = {
           platform: 'facebook',
           url: 'https://www.facebook.com/profile.php?id=61553035394735',
         },
+        {
+          platform: 'github',
+          url: 'https://github.com/northwind-13th',
+        },
       ],
       post: 'Member',
       dept: "Batch '25",
@@ -210,6 +214,10 @@ const x: devData = {
         {
           platform: 'github',
           url: 'https://github.com/Redwanur',
+        },
+        {
+          platform: 'web',
+          url: 'https://redwanur.github.io/redwan.com/',
         },
       ],
       post: 'Member',
