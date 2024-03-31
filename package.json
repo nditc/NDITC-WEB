@@ -3,15 +3,24 @@
   "version": "0.1.0",
   "private": true,
   "scripts": {
-    "dev": "next dev",
+    "start": "node server.js",
+    "dev": "nodemon server.js",
     "build": "next build",
-    "start": "next start",
-    "lint": "next lint"
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "nodemonConfig": {
+    "ignore": [
+      "src/*",
+      ".next/*",
+      "public/*"
+    ],
+    "delay": "2500"
   },
   "dependencies": {
     "@types/crypto-js": "^4.2.1",
     "crypto-js": "^4.2.0",
     "dotenv": "^16.3.1",
+    "express": "^4.19.2",
     "framer-motion": "^10.16.5",
     "next": "14.0.2",
     "nextjs-toploader": "^1.6.4",
@@ -31,6 +40,7 @@
     "autoprefixer": "^10.0.1",
     "eslint": "^8",
     "eslint-config-next": "14.0.2",
+    "nodemon": "^3.1.0",
     "postcss": "^8",
     "tailwindcss": "^3.3.0",
     "typescript": "^5"
