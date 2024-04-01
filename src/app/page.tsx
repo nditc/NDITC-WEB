@@ -125,6 +125,11 @@ export default function Home() {
           </div>
           <SnapScroller baseSize={475} gap={16} duration={2500}>
             <HashtechPosts
+              title="Nano Robotics"
+              desc="Nanorobotics designs and controls ultra-small robots at the nanoscale for tasks such as delivering medication to specific cells or precisely handling materials."
+              redirectUrl="https://www.facebook.com/photo/?fbid=1060979518753579&set=a.762348471950020"
+            />
+            <HashtechPosts
               title="Li-Fi"
               desc="Li-Fi also known as light fidelity is a wireless communication technology that transmit utilizing LED. It is faster than Wi-Fi.
 Benefits of Li-Fi :"
@@ -146,12 +151,6 @@ Benefits of Li-Fi :"
               title="Quantum Computing"
               desc="Quantum computing is a revolutionary technology that utilizes quantum mechanics principles to process information"
               redirectUrl="https://www.facebook.com/photo?fbid=1037396531111878&set=a.762348471950020"
-            />
-
-            <HashtechPosts
-              title="DevOp"
-              desc="DevOps is a software development approach that emphasizes collaboration, integration, automation, and communication"
-              redirectUrl="https://www.facebook.com/photo?fbid=1032911361560395&set=a.762348471950020"
             />
           </SnapScroller>
         </section>
