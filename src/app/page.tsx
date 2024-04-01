@@ -127,7 +127,7 @@ export default function Home() {
             <HashtechPosts
               title="Nano Robotics"
               desc="Nanorobotics designs and controls ultra-small robots at the nanoscale for tasks such as delivering medication to specific cells or precisely handling materials."
-              redirectUrl="https://www.facebook.com/photo?fbid=1051372199714311&set=a.762348471950020"
+              redirectUrl="https://www.facebook.com/photo/?fbid=1060979518753579&set=a.762348471950020"
             />
             <HashtechPosts
               title="Li-Fi"
