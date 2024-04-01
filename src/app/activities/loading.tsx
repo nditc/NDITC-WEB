@@ -3,6 +3,7 @@ import { BsCalendar2EventFill } from 'react-icons/bs';
 import { GrWorkshop } from 'react-icons/gr';
 import { FaProjectDiagram } from 'react-icons/fa';
 import { BiSolidBook } from 'react-icons/bi';
+import '../styles/eventCard.css';
 
 const loading = () => {
   return (
