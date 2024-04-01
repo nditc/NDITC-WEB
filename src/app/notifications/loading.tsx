@@ -2,9 +2,9 @@ import '../styles/eventCard.css';
 
 const loading = () => {
   return (
-    <div className="pt-32 pb-10 overflow-x-hidden bg-slate-50">
-      <div className="flex w-screen justify-center md:justify-start gap-3 md:ml-32 items-center">
-        <div className="rounded-full w-16 h-16 grid place-items-center shadow-[010px_20px_15px_10px_#00000024]">
+    <div className="pt-32 pb-10 h-screen overflow-x-hidden bg-[#F6F6F6]">
+      <div className="container flex w-screen justify-center md:justify-start gap-3 items-center">
+        <div className="rounded-full w-16 h-16 bg-white grid place-items-center shadow-[010px_20px_15px_10px_#00000024]">
           <svg
             className="h-12 w-12 text-gray-800 hover:rotate-12 transition-all"
             aria-hidden="true"
@@ -16,20 +16,20 @@ const loading = () => {
           </svg>
         </div>
 
-        <h1 className="text-5xl md:text-7xl">ALL</h1>
-        <h1 className="text-5xl md:text-7xl text-blue-600">NOTIFICATIONS</h1>
+        <h1 className="text-4xl xsm:text-5xl md:text-6xl">ALL</h1>
+        <h1 className="text-4xl xsm:text-5xl md:text-6xl text-blue-500">NOTIFICATIONS</h1>
       </div>
 
       <div className="w-screen flex justify-center">
-        <div className="flex flex-col-reverse w-[90%] md:w-[70%] items-center gap-7 mt-10">
+        <div className="flex flex-col container items-center gap-7 mt-10">
           {[...new Array(5)].map((e, i) => {
             return (
               <div
                 key={i}
-                className="hover:cursor-pointer w-full h-[7.9rem] md:h-[8.6rem] border-gray-200 shadow-[5px_5px_30px_5px_#00000024] transition-all duration-500 hover:scale-110 rounded-xl flex justify-between"
+                className="hover:cursor-pointer w-full h-[7.9rem] md:h-[8.6rem] bg-white  border-gray-200 shadow-[5px_5px_30px_5px_#00000024] transition-all duration-500 hover:scale-110 rounded-xl flex justify-between"
               >
                 <div className="flex flex-col gap-1 flex-[6] p-5">
-                  <h1 className="text-base md:text-2xl">Loading Notification...</h1>
+                  <h1 className="text-2xl md:text-3xl">Loading Notification...</h1>
                   <p className="text-sm md:text-base break-words max-w-[90%] line-clamp-1 md:line-clamp-2">
                     Please wait for notifications to load...
                   </p>
