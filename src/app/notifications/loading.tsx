@@ -1,4 +1,4 @@
-import "../styles/eventCard.css";
+import '../styles/eventCard.css';
 
 const loading = () => {
   return (
@@ -17,23 +17,19 @@ const loading = () => {
         </div>
 
         <h1 className="text-4xl xsm:text-5xl md:text-6xl">ALL</h1>
-        <h1 className="text-4xl xsm:text-5xl md:text-6xl text-blue-500">
-          NOTIFICATIONS
-        </h1>
+        <h1 className="text-4xl xsm:text-5xl md:text-6xl text-blue-500">NOTIFICATIONS</h1>
       </div>
 
       <div className="w-screen flex justify-center">
         <div className="flex flex-col container items-center gap-7 mt-10">
-          {[...new Array(5)].map((e, i) => {
+          {[...new Array(3)].map((e, i) => {
             return (
               <div
                 key={i}
                 className="hover:cursor-pointer w-full h-[7.9rem] md:h-[8.6rem] bg-white  border-gray-200 shadow-[5px_5px_30px_5px_#00000024] transition-all duration-500 rounded-xl flex justify-between"
               >
                 <div className="flex flex-col gap-1 flex-[6] p-5">
-                  <h1 className="text-2xl md:text-3xl">
-                    Loading Notification...
-                  </h1>
+                  <h1 className="text-2xl md:text-3xl">Loading Notification...</h1>
                   <p className="text-sm md:text-base break-words max-w-[90%] line-clamp-1 md:line-clamp-2">
                     Please wait for notifications to load...
                   </p>

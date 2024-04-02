@@ -15,7 +15,7 @@ const Executive = () => {
         <img className="absolute left-0 top-1/2 z-0" src="/image/bg2.svg" alt="bg" />
         <div className="max-w-[1300px] container mx-auto relative z-10">
           <div className={'grid place-items-center w-full'}>
-            <div className="flex flex-col md:flex-row md:flex-wrap gap-16 justify-start md:justify-center">
+            <div className="flex flex-col md:flex-row md:flex-wrap gap-8 md:gap-16 justify-start md:justify-center">
               {ExecutiveData.heads.map(({ image_url, name, post, dept }) => (
                 <Member key="" img={image_url} name={name} designation={post} department={dept} />
               ))}

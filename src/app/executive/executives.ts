@@ -31,13 +31,6 @@ const db: dbType = {
       post: 'Principal & Cheif Patron',
     },
     {
-      name: 'Dr. Fr. Leonard Shankar Rozario, CSC',
-      image_url:
-        'https://raw.githubusercontent.com/nditc/nditc_mobile_app/main/images/executives/heads/dr-fr-lenard-shankar-rozario-csc.jpg',
-      profile_url: '',
-      post: 'Vice Principal & Club Co-ordinator',
-    },
-    {
       name: 'Saikat Lawrence Rozario',
       image_url:
         'https://raw.githubusercontent.com/nditc/nditc_mobile_app/main/images/executives/heads/saikatsir1.JPG',
