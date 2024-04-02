@@ -1,27 +1,23 @@
-import React from "react";
-import Image from "next/image";
-import Link from "next/link";
-import { MdOutlineDateRange } from "react-icons/md";
-import { notFound } from "next/navigation";
-import { AES, enc } from "crypto-js";
-import ImageGrid from "@/app/Components/ImageComponents/ImageGrid";
-import Markdown from "react-markdown";
-import remarkGfm from "remark-gfm";
+import React from 'react';
+import Image from 'next/image';
+import Link from 'next/link';
+import { MdOutlineDateRange } from 'react-icons/md';
+import { notFound } from 'next/navigation';
+import { AES, enc } from 'crypto-js';
+import ImageGrid from '@/app/Components/ImageComponents/ImageGrid';
+import Markdown from 'react-markdown';
+import remarkGfm from 'remark-gfm';
 
-const Page = async ({
-  params,
-}: {
-  params: { url: string; type: string; date: number };
-}) => {
+const Page = async ({ params }: { params: { url: string; type: string; date: number } }) => {
   const url = decodeURIComponent(params.url);
-  const cypher = AES.decrypt(url, "Anime");
+  const cypher = AES.decrypt(url, 'Anime');
   const text = cypher.toString(enc.Utf8);
-  const res = await fetch(text, { cache: "no-store" });
+  const res = await fetch(text, { cache: 'no-store' });
   const data = await res.json();
 
   const DateData = new Date(params.date * 1000);
-  const titleArray = data.title.split(" ");
-  const firstPart = titleArray.splice(0, 1) + " ";
+  const titleArray = data.title.split(' ');
+  const firstPart = titleArray.splice(0, 1) + ' ';
 
   return (
     <div className="w-screen bg-[#F6F6F6]">
@@ -30,16 +26,20 @@ const Page = async ({
           <div className="container flex flex-col md:flex-row gap-0 md:gap-5 items-center pb-5 md:pb-0">
             <div className="flex-1 ml-1 md:py-8 flex flex-col gap-2 md:gap-3 2xl:gap-5 w-full order-2 md:order-1">
               <Link href={`/notifications`}>
-                <h1 className="text-2xl pt-5 md:pt-0 hover:text-blue-500">
-                  NOTIFICATIONS&gt;
-                </h1>
+                <h1 className="text-2xl pt-5 md:pt-0 hover:text-blue-500">NOTIFICATIONS&gt;</h1>
               </Link>
 
               <h1 className="text-4xl  2xl:text-5xl ">
                 <span className="text-blue-500">{firstPart}</span>
-                {titleArray.join(" ")}
+                {titleArray.join(' ')}
               </h1>
+              {DateData.toDateString() !== 'Invalid Date' ? (
+                <p className="line-clamp-5  font-semibold flex justify-start items-center">
+                  <MdOutlineDateRange className={'mr-2 w-6 h-6 text-blue-500'} />
 
+                  {DateData.toDateString()}
+                </p>
+              ) : null}
               {data.subtitle ? <p>{data.subtitle}</p> : null}
               {data?.action ? (
                 <div className=" flex md:pb-5 gap-2 md:gap-3  flex-wrap mt-2 flex-col md:flex-row items-start">
@@ -50,7 +50,7 @@ const Page = async ({
                   >
                     <span className="relative z-10">{data.action.label}</span>
                   </a>
-                  {data.title == "Official Mobile App" && (
+                  {data.title == 'Official Mobile App' && (
                     <a
                       href="https://raw.githubusercontent.com/nditc/nditc_mobile_app/main/nditc.apk"
                       target="_blank"
@@ -61,7 +61,7 @@ const Page = async ({
                   )}
                 </div>
               ) : null}
-              {params.type === "publication" ? (
+              {params.type === 'publication' ? (
                 <div className=" flex gap-2 md:gap-3 mt-2 flex-wrap   h-full items-start md:pb-5">
                   <a
                     href={data.pdf_url}
@@ -73,9 +73,9 @@ const Page = async ({
                 </div>
               ) : null}
             </div>
-            <div className="flex-1 md:h-[40vh] 2xl:h-[50vh] w-full order-1 md:order-2">
+            <div className="flex-1 h-full md:min-h-[410px] max-h-[60vh] w-full order-1 md:order-2">
               <Image
-                className="  object-cover  rounded-b-xl md:rounded-none w-full h-full"
+                className="  object-cover  md:min-h-[410px] max-h-[60vh] rounded-b-xl md:rounded-none w-full h-full"
                 src={data.images[0]}
                 alt=""
                 width={750}
