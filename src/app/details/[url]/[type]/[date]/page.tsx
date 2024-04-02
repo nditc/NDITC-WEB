@@ -49,11 +49,13 @@ const Page = async ({ params }: { params: ParamType }) => {
                 <span className="text-blue-500">{firstPart}</span>
                 {titleArray.join(' ')}
               </h1>
-              <p className="line-clamp-5  font-semibold flex justify-start items-center">
-                <MdOutlineDateRange className={'mr-2 w-6 h-6 text-blue-500'} />
+              {DateData.toDateString() !== 'Invalid Date' ? (
+                <p className="line-clamp-5  font-semibold flex justify-start items-center">
+                  <MdOutlineDateRange className={'mr-2 w-6 h-6 text-blue-500'} />
 
-                {DateData.toDateString()}
-              </p>
+                  {DateData.toDateString()}
+                </p>
+              ) : null}
               {data.subtitle ? <p>{data.subtitle}</p> : null}
               {data?.action ? (
                 <div className=" flex md:pb-5 gap-2 md:gap-3  flex-wrap mt-2 flex-col md:flex-row items-start">
@@ -87,9 +89,9 @@ const Page = async ({ params }: { params: ParamType }) => {
                 </div>
               ) : null}
             </div>
-            <div className="flex-1 md:h-[40vh] 2xl:h-[50vh] w-full order-1 md:order-2">
+            <div className="flex-1 h-full md:min-h-[410px] max-h-[50vh] w-full order-1 md:order-2">
               <Image
-                className="  object-cover  rounded-b-xl md:rounded-none w-full h-full"
+                className="  object-cover  md:min-h-[410px] max-h-[50vh] rounded-b-xl md:rounded-none w-full h-full"
                 src={data.images[0]}
                 alt=""
                 width={750}
