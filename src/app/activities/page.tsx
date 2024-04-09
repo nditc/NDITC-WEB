@@ -44,6 +44,7 @@ const Activities = async ({
 }) => {
   const events = await getEventData(searchParams?.type + "s");
   const upcoming = await getEventData("upcoming");
+
   return (
     <div className="w-screen bg-[#F6F6F6]">
       <img
@@ -60,12 +61,13 @@ const Activities = async ({
             </div>
             <section className="w-full h-fit">
               <Upcoming
+                category={upcoming[0].category}
                 title={upcoming[0].title}
                 description={upcoming[0].short_description}
                 actionButtonTitle1="Register"
                 actionButtonTitle2="Learn More"
                 actionButtonRedirect1="https://init.nditc.net/registration/participant"
-                actionButtonRedirect2="https://fb.me/e/39NydpSG7"
+                actionButtonRedirect2={upcoming[0].details_url}
                 image={upcoming[0].image_url}
                 timestamp={upcoming[0].timestamp}
               />

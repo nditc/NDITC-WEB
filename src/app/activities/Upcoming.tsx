@@ -2,8 +2,11 @@
 import Image from "next/image";
 import "./upcoming.css";
 import { useState, useEffect } from "react";
+import { AES } from "crypto-js";
+import Link from "next/link";
 
 interface Props {
+  category: string;
   title: string;
   description: string;
   actionButtonTitle1: string;
@@ -61,6 +64,7 @@ const RemainingTime = ({ time }: { time: number }) => {
 };
 
 const Upcoming = ({
+  category,
   title,
   description,
   actionButtonTitle1,
@@ -76,6 +80,8 @@ const Upcoming = ({
   // Get the first two words
   const firstTwoWords = words.slice(0, 2).join(" ");
   const restOfSentence = words.slice(2).join(" ");
+
+  const detailsEncrypt = AES.encrypt(actionButtonRedirect2, "SWAPNIL");
 
   return (
     <div id="upcoming_event_container relative bg-white">
@@ -103,12 +109,14 @@ const Upcoming = ({
             >
               <div>{actionButtonTitle1}</div>
             </a>
-            <a
-              href={actionButtonRedirect2}
+            <Link
+              href={`/details/${encodeURIComponent(
+                detailsEncrypt.toString()
+              )}/${category}/${timestamp}`}
               className="learn-more-button flex items-center justify-center"
             >
               <div>{actionButtonTitle2}</div>
-            </a>
+            </Link>
           </div>
         </div>
         <RemainingTime time={timestamp} />
