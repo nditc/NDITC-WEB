@@ -28,7 +28,7 @@ const db: dbType = {
       image_url:
         'https://raw.githubusercontent.com/nditc/nditc_mobile_app/main/images/executives/heads/principal.jpg',
       profile_url: '',
-      post: 'Principal & Cheif Patron',
+      post: 'Principal & Chief Patron',
     },
     {
       name: 'Saikat Lawrence Rozario',
