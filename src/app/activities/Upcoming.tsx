@@ -26,7 +26,7 @@ const RemainingTime = ({ time }: { time: number }) => {
   function getTimeLeft(targetTime: any) {
     // Get the current time and target time
     const currentTime = new Date().getTime();
-    const remainingTime = Math.abs(targetTime * 1000 - currentTime);
+    const remainingTime = targetTime * 1000 - currentTime;
 
     // Calculate the remaining time
     const months = remainingTime / (1000 * 60 * 60 * 24 * 30);
@@ -48,15 +48,15 @@ const RemainingTime = ({ time }: { time: number }) => {
   return (
     <div className="right-part pt-5 ml-5 md:ml-0">
       <div className="circle1">
-        <div className="number text-white">{Math.floor(timeLeft.months)}</div>
+        <div className="number text-white">{RemainingTime >= 0 ? Math.floor(timeLeft.months):0}</div>
         <div className="word text-white">Months</div>
       </div>
       <div className="circle2">
-        <div className="number text-white">{Math.floor(timeLeft.days)}</div>
+        <div className="number text-white">{RemainingTime >= 0 ? Math.floor(timeLeft.days):0}</div>
         <div className="word text-white">Days</div>
       </div>
       <div className="circle3">
-        <span className="number text-white">{Math.floor(timeLeft.hours)}</span>
+        <span className="number text-white">{RemainingTime >= 0 ? Math.floor(timeLeft.hours):0}</span>
         <span className="word text-white">Hours</span>
       </div>
     </div>
