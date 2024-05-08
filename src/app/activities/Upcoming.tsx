@@ -48,15 +48,21 @@ const RemainingTime = ({ time }: { time: number }) => {
   return (
     <div className="right-part pt-5 ml-5 md:ml-0">
       <div className="circle1">
-        <div className="number text-white">{RemainingTime >= 0 ? Math.floor(timeLeft.months):0}</div>
+        <div className="number text-white">
+          {timeLeft.hours >= 1 ? Math.floor(timeLeft.months) : 0}
+        </div>
         <div className="word text-white">Months</div>
       </div>
       <div className="circle2">
-        <div className="number text-white">{RemainingTime >= 0 ? Math.floor(timeLeft.days):0}</div>
+        <div className="number text-white">
+          {timeLeft.hours >= 1 ? Math.floor(timeLeft.days) : 0}
+        </div>
         <div className="word text-white">Days</div>
       </div>
       <div className="circle3">
-        <span className="number text-white">{RemainingTime >= 0 ? Math.floor(timeLeft.hours):0}</span>
+        <span className="number text-white">
+          {timeLeft.hours >= 1 ? Math.floor(timeLeft.hours) : 0}
+        </span>
         <span className="word text-white">Hours</span>
       </div>
     </div>
