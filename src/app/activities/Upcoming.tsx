@@ -1,9 +1,12 @@
-'use client';
-import Image from 'next/image';
-import './upcoming.css';
-import { useState, useEffect } from 'react';
+"use client";
+import Image from "next/image";
+import "./upcoming.css";
+import { useState, useEffect } from "react";
+import { AES } from "crypto-js";
+import Link from "next/link";
 
 interface Props {
+  category: string;
   title: string;
   description: string;
   actionButtonTitle1: string;
@@ -23,7 +26,7 @@ const RemainingTime = ({ time }: { time: number }) => {
   function getTimeLeft(targetTime: any) {
     // Get the current time and target time
     const currentTime = new Date().getTime();
-    const remainingTime = Math.abs(targetTime * 1000 - currentTime);
+    const remainingTime = targetTime * 1000 - currentTime;
 
     // Calculate the remaining time
     const months = remainingTime / (1000 * 60 * 60 * 24 * 30);
@@ -45,15 +48,21 @@ const RemainingTime = ({ time }: { time: number }) => {
   return (
     <div className="right-part pt-5 ml-5 md:ml-0">
       <div className="circle1">
-        <div className="number text-white">{Math.floor(timeLeft.months)}</div>
+        <div className="number text-white">
+          {timeLeft.hours >= 1 ? Math.floor(timeLeft.months) : 0}
+        </div>
         <div className="word text-white">Months</div>
       </div>
       <div className="circle2">
-        <div className="number text-white">{Math.floor(timeLeft.days)}</div>
+        <div className="number text-white">
+          {timeLeft.hours >= 1 ? Math.floor(timeLeft.days) : 0}
+        </div>
         <div className="word text-white">Days</div>
       </div>
       <div className="circle3">
-        <span className="number text-white">{Math.floor(timeLeft.hours)}</span>
+        <span className="number text-white">
+          {timeLeft.hours >= 1 ? Math.floor(timeLeft.hours) : 0}
+        </span>
         <span className="word text-white">Hours</span>
       </div>
     </div>
@@ -61,6 +70,7 @@ const RemainingTime = ({ time }: { time: number }) => {
 };
 
 const Upcoming = ({
+  category,
   title,
   description,
   actionButtonTitle1,
@@ -71,19 +81,21 @@ const Upcoming = ({
   timestamp,
 }: Props) => {
   // Split the sentence into words
-  const words = title.split(' ');
+  const words = title.split(" ");
 
   // Get the first two words
-  const firstTwoWords = words.slice(0, 2).join(' ');
-  const restOfSentence = words.slice(2).join(' ');
+  const firstTwoWords = words.slice(0, 2).join(" ");
+  const restOfSentence = words.slice(2).join(" ");
+
+  const detailsEncrypt = AES.encrypt(actionButtonRedirect2, "SWAPNIL");
 
   return (
     <div id="upcoming_event_container relative bg-white">
       <div className="blog-section shadow-[09px_13px_40px_10px_#00000024]">
         <div className="absolute -z-10 right-0 w-full h-full">
           <Image
-            src={'/dummy.jpg'}
-            alt={'Image'}
+            src={image}
+            alt={"Image"}
             className="object-right object-cover gradient-mask-b-10 md:gradient-mask-l-40"
             fill
           />
@@ -91,7 +103,9 @@ const Upcoming = ({
         <div className="left-part m-5 md:ml-10 md:mr-0">
           <div id="blg_hdr">
             <h1 className="blog-title-1">{firstTwoWords}</h1>
-            <h1 className="blog-title-2 text-black break-words">{restOfSentence}</h1>
+            <h1 className="blog-title-2 text-black break-words">
+              {restOfSentence}
+            </h1>
           </div>
           <p className="blog-content line-clamp-5">{description}</p>
           <div className="buttons flex flex-col sm:flex-row gap-2 sm:gap-5 mt-2 sm:mt-4">
@@ -101,12 +115,14 @@ const Upcoming = ({
             >
               <div>{actionButtonTitle1}</div>
             </a>
-            <a
-              href={actionButtonRedirect2}
+            <Link
+              href={`/details/${encodeURIComponent(
+                detailsEncrypt.toString()
+              )}/${category}/${timestamp}`}
               className="learn-more-button flex items-center justify-center"
             >
               <div>{actionButtonTitle2}</div>
-            </a>
+            </Link>
           </div>
         </div>
         <RemainingTime time={timestamp} />
