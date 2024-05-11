@@ -3,7 +3,7 @@
 import { jsPDF } from "jspdf";
 import { useState } from "react";
 
-const page = () => {
+const Certificate = () => {
   const doc = new jsPDF();
 
   const [name, setName] = useState("");
@@ -78,4 +78,4 @@ const page = () => {
   );
 };
 
-export default page;
+export default Certificate;
