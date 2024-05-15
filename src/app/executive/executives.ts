@@ -219,7 +219,7 @@ const db: dbType = {
           image_url:
             'https://raw.githubusercontent.com/nditc/nditc_mobile_app/main/images/executives/2022-2023/13.jpg',
           modal_image_url: '/image/executives/2022-2023/13.png',
-          profile_url: [{ platform: 'facebook', url: 'https://www.facebook.com/root.mahin' }],
+          profile_url: [{ platform: 'facebook', url: 'https://www.facebook.com/mahinsu57sme' }],
           post: 'President',
           dept: 'Department of Robotics & AI',
           group: 14,
