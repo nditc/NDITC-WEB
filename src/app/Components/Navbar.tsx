@@ -204,6 +204,20 @@ const Navbar = () => {
                 Contact
               </Link>
             </li>
+
+            {windowWidth <= 768 && (
+              <li>
+                <Link
+                  onClick={() => {
+                    setShowOptions(false);
+                  }}
+                  href="/developer"
+                  className="block py-2 px-3 text-gray-900 rounded hover:bg-gray-200 md:hover:bg-transparent md:hover:text-blue-500 md:p-0"
+                >
+                  Developers
+                </Link>
+              </li>
+            )}
           </ul>
         </div>
       </div>
