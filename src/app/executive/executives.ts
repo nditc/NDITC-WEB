@@ -214,7 +214,8 @@ const db: dbType = {
 
         {
           name: "Nafe Ibne Dalower",
-          image_url: "/image/executives/2023-2024/7.png",
+          image_url:
+            "https://raw.githubusercontent.com/nditc/nditc_mobile_app/main/images/executives/2023-2024/Nafe.jpg",
           imageInCenter: true,
           modal_image_url: "/image/executives/2023-2024/7.png",
           profile_url: [
