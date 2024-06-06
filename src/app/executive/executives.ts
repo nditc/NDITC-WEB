@@ -180,7 +180,7 @@ const db: dbType = {
               url: "https://www.facebook.com/adibAdnanHoque",
             },
           ],
-          post: "Secretary",
+          post: "President",
           dept: "Department of Publications",
           group: 6,
           roll: 12406078,
