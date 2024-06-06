@@ -532,7 +532,7 @@ const db: dbType = {
           group: 8,
           roll: 12308032,
           email: "g.tahsinahmed@gmail.com",
-          phone: "+88 01568540064",
+          phone: "+88 01309990164",
         },
         {
           name: "Snigdho Roy",
