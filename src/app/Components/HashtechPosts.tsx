@@ -27,9 +27,7 @@ const HashtechPosts = async ({ title, desc, redirectUrl }: Props) => {
 
   let imgURL = "";
 
-  try {
-    imgURL = await getData(imageCode);
-  } catch (error) {}
+  imgURL = await getData(imageCode);
 
   // const inView = useInView(ref, { once: true });
   return (
