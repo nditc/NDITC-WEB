@@ -1,16 +1,31 @@
 import SaveData from "./SaveData";
 
-const NewNotification = async () => {
-  let data = [];
+async function getData() {
   const res = await fetch(
     "https://nditc.pythonanywhere.com/api/v1/notifications/web?page=1&limit=1",
     { cache: "no-store" }
   );
-  if (res.ok) {
-    data = await res.json();
+
+  if (!res.ok) {
+    return [];
+  } else {
+    return res.json();
+  }
+}
+
+const NewNotification = async () => {
+  let data: any[] = [];
+  try {
+    data = await getData();
+  } catch (error) {
+    console.log("Error");
   }
 
-  return <SaveData data={data} />;
+  if (data.length != 0) {
+    <SaveData data={data} />;
+  } else {
+    return <div></div>;
+  }
 };
 
 export default NewNotification;

@@ -6,10 +6,7 @@ interface Props {
   redirectUrl: string;
 }
 
-const HashtechPosts = async ({ title, desc, redirectUrl }: Props) => {
-  let regex = /fbid=(\d+)&/;
-  let imageCode = redirectUrl.match(regex);
-
+async function getData(imageCode: any) {
   const res = await fetch(
     imageCode
       ? `https://hashtechimg.pythonanywhere.com/${imageCode[1]}?size=360`
@@ -17,7 +14,22 @@ const HashtechPosts = async ({ title, desc, redirectUrl }: Props) => {
     { cache: "no-store" }
   );
 
-  const imgURL = await res.url;
+  if (!res.ok) {
+    return "/Logo.png";
+  } else {
+    return res.url;
+  }
+}
+
+const HashtechPosts = async ({ title, desc, redirectUrl }: Props) => {
+  let regex = /fbid=(\d+)&/;
+  let imageCode = redirectUrl.match(regex);
+
+  let imgURL = "";
+
+  try {
+    imgURL = await getData(imageCode);
+  } catch (error) {}
 
   // const inView = useInView(ref, { once: true });
   return (

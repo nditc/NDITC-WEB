@@ -5,10 +5,13 @@ import Link from "next/link";
 import { useEffect, useState } from "react";
 
 const SaveData = ({ data }: { data: any }) => {
-  const detailsEncrypt = AES.encrypt(data[0].details_url, "Anime");
+  const detailsEncrypt = AES.encrypt(
+    data.length != 0 ? data[0].details_url : "OOOPS",
+    "Anime"
+  );
   const [isNew, setIsNew] = useState(false);
 
-  const NewNotification = JSON.stringify(data[0].title);
+  const NewNotification = JSON.stringify(data[0]?.title);
 
   useEffect(() => {
     const savedNotification = localStorage.getItem("latestNotification");
