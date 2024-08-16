@@ -1,12 +1,12 @@
-import Link from 'next/link';
-import GoToTop from './GoToTop';
+import Link from "next/link";
+import GoToTop from "./GoToTop";
 
-import { BsFacebook } from 'react-icons/bs';
-import { RiInstagramFill } from 'react-icons/ri';
-import { AiFillYoutube } from 'react-icons/ai';
-import { FaGithub } from 'react-icons/fa';
-import NewNotification from './NewNotification';
-import { FaCode } from 'react-icons/fa6';
+import { BsFacebook } from "react-icons/bs";
+import { RiInstagramFill } from "react-icons/ri";
+import { AiFillYoutube } from "react-icons/ai";
+import { FaGithub } from "react-icons/fa";
+import NewNotification from "./NewNotification";
+import { FaCode } from "react-icons/fa6";
 
 const SideBar = () => {
   return (
@@ -46,7 +46,11 @@ const SideBar = () => {
           >
             <FaGithub className="w-7 h-7" />
           </a>
-          <Link href={'/developer'} title="Developers" className="hover:scale-125 transition-all">
+          <Link
+            href={"/developer"}
+            title="Developers"
+            className="hover:scale-125 transition-all"
+          >
             <FaCode className="w-7 h-7" />
           </Link>
         </div>
