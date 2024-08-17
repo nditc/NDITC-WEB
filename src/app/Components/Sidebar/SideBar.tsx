@@ -7,6 +7,7 @@ import { AiFillYoutube } from "react-icons/ai";
 import { FaGithub } from "react-icons/fa";
 import NewNotification from "./NewNotification";
 import { FaCode } from "react-icons/fa6";
+import ErrorBoundary from "./error";
 
 const SideBar = () => {
   return (
