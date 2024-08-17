@@ -15,8 +15,11 @@ async function getData() {
 
 const NewNotification = async () => {
   let data: any[] = [];
-
-  data = await getData();
+  try {
+    data = await getData();
+  } catch (error) {
+    console.log("Error");
+  }
 
   if (data.length != 0) {
     <SaveData data={data} />;
