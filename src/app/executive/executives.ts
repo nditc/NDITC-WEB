@@ -33,7 +33,7 @@ const db: dbType = {
     {
       name: 'Md. Ajimun Haque',
       image_url:
-        'https://raw.githubusercontent.com/nditc/nditc_mobile_app/main/images/executives/heads/ajimun.jpg',
+        'https://raw.githubusercontent.com/nditc/nditc_mobile_app/main/images/executives/heads/moderator.jpg',
       profile_url: '',
       post: 'Club Moderator',
     },
