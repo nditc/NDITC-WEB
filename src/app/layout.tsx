@@ -6,6 +6,7 @@ import Navbar from './Components/Navbar';
 import SideBar from './Components/Sidebar/SideBar';
 import Footer from './Components/Footer';
 import NextTopLoader from 'nextjs-toploader';
+import { Suspense } from 'react';
 
 const inter = Inter({ subsets: ['latin'] });
 
@@ -20,7 +21,9 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
     <html lang="en">
       <body className={inter.className}>
         <NextTopLoader color="#3b82f6" />
-        <Navbar />
+        <Suspense>
+          <Navbar />
+        </Suspense>
         <div id="scrollToTop" className="w-0 h-0" />
         <SideBar />
         {children}
