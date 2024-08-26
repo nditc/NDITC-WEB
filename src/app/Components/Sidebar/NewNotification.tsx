@@ -5,7 +5,7 @@ const NewNotification = async () => {
     let data = [];
 
     const res = await fetch(
-      'https://nditc.sspythonanywhere.com/api/v1/notifications/web?page=1&limit=1',
+      'https://nditc.pythonanywhere.com/api/v1/notifications/web?page=1&limit=1',
       { cache: 'no-store' }
     );
 
