@@ -1,11 +1,12 @@
-import CodeCompass from "../Components/NewsLAndApp";
-import Upcoming from "./Upcoming";
-import EventsList from "./EventsList";
+import CodeCompass from '../Components/NewsLAndApp';
+import Upcoming from './Upcoming';
+import EventsList from './EventsList';
+import { Suspense } from 'react';
 
 type Events = {
   data: [
     {
-      category: "event" | "workshop";
+      category: 'event' | 'workshop';
       details_url: string;
       image_url: string;
       subtitle: string;
@@ -17,20 +18,17 @@ type Events = {
 
 const getEventData = async (type: string) => {
   let modifiedType;
-  if (type == "projects" || type == "publications") {
+  if (type == 'projects' || type == 'publications') {
     modifiedType = type;
   } else {
-    modifiedType = "activities/" + type;
+    modifiedType = 'activities/' + type;
   }
-  const res = await fetch(
-    "https://nditc.pythonanywhere.com/api/v1/" + modifiedType,
-    {
-      cache: "no-store",
-    }
-  );
+  const res = await fetch('https://nditc.pythonanywhere.com/api/v1/' + modifiedType, {
+    cache: 'no-store',
+  });
 
   if (!res.ok) {
-    console.error("Problem Occurred");
+    console.error('Problem Occurred');
     return [];
   }
   return res.json();
@@ -42,16 +40,12 @@ const Activities = async ({
   params: {};
   searchParams: { [key: string]: string | string[] | undefined };
 }) => {
-  const events = await getEventData(searchParams?.type + "s");
-  const upcoming = await getEventData("upcoming");
+  const events = await getEventData(searchParams?.type + 's');
+  const upcoming = await getEventData('upcoming');
 
   return (
     <div className="w-screen bg-[#F6F6F6]">
-      <img
-        src="/image/bg2.svg"
-        className="absolute top-1/4 right-0 z-0"
-        alt=""
-      ></img>
+      <img src="/image/bg2.svg" className="absolute top-1/4 right-0 z-0" alt=""></img>
       <div className="container pt-28 sm:pt-[7.5rem] flex flex-col items-center  gap-5 sm:gap-10 z-10 bg-transparent relative">
         {Array.isArray(upcoming) && upcoming?.length > 0 && upcoming ? (
           <>
@@ -74,7 +68,9 @@ const Activities = async ({
             </section>
           </>
         ) : null}
-        <EventsList data={events} />
+        <Suspense>
+          <EventsList data={events} />
+        </Suspense>
         <CodeCompass />
       </div>
     </div>
