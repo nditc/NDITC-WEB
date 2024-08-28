@@ -1,4 +1,14 @@
 /** @type {import('next').NextConfig} */
+
+import pwa from "next-pwa";
+
+const withPWA = pwa({
+  dest: "public",
+  register: true,
+  //disable: process.env.NODE_ENV === "development",
+  skipWaiting: true,
+});
+
 const nextConfig = {
   transpilePackages: ["crypto-js"],
   images: {
@@ -6,11 +16,10 @@ const nextConfig = {
       {
         protocol: "https",
         hostname: "**",
-        port: "",
-        pathname: "/**",
       },
     ],
   },
+
   async headers() {
     return [
       {
@@ -34,4 +43,4 @@ const nextConfig = {
   },
 };
 
-module.exports = nextConfig;
+export default withPWA(nextConfig);

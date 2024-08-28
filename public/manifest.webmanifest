@@ -1,0 +1,28 @@
+{
+  "theme_color": "#000000",
+  "background_color": "#ffffff",
+  "icons": [
+    {
+      "purpose": "maskable",
+      "sizes": "512x512",
+      "src": "icon512_maskable.png",
+      "type": "image/png"
+    },
+    {
+      "purpose": "any",
+      "sizes": "512x512",
+      "src": "icon512_rounded.png",
+      "type": "image/png"
+    }
+  ],
+  "orientation": "any",
+  "display": "standalone",
+  "dir": "auto",
+  "lang": "en-US",
+  "name": "NDITC",
+  "short_name": "NDITC",
+  "start_url": "/",
+  "scope": "https://club.nditc.net",
+  "description": "Connect to NDITC",
+  "id": "https://club.nditc.net"
+}
