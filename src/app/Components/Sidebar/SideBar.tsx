@@ -1,54 +1,53 @@
-import Link from 'next/link';
-import GoToTop from './GoToTop';
+import Link from "next/link";
+import GoToTop from "./GoToTop";
 
-import { BsFacebook } from 'react-icons/bs';
-import { RiInstagramFill } from 'react-icons/ri';
-import { AiFillYoutube } from 'react-icons/ai';
-import { FaGithub } from 'react-icons/fa';
-import NewNotification from './NewNotification';
-import { FaCode } from 'react-icons/fa6';
+import { BsFacebook } from "react-icons/bs";
+import { RiInstagramFill } from "react-icons/ri";
+import { AiFillYoutube } from "react-icons/ai";
+import { FaGithub } from "react-icons/fa";
+import NewNotification from "./NewNotification";
+import { FaCode } from "react-icons/fa6";
+import DeveloperIcon from "./DeveloperIcon";
 
 const SideBar = () => {
   return (
-    <div className="fixed right-0 z-50 top-[50%] translate-y-[-50%]">
-      <div className="w-8 mr-2 flex flex-col items-center gap-3 justify-evenly">
+    <div className="fixed right-0 top-[50%] z-50 translate-y-[-50%]">
+      <div className="mr-2 flex w-8 flex-col items-center justify-evenly gap-3">
         <NewNotification />
 
-        <div className="h-fit rounded-full p-1 flex flex-col bg-white items-center gap-2 justify-evenly shadow-[5px_5px_20px_15px_#00000024] transition-all">
+        <div className="flex h-fit flex-col items-center justify-evenly gap-2 rounded-full bg-white p-1 shadow-[5px_5px_20px_15px_#00000024] transition-all">
           <a
             href="https://www.facebook.com/nditc.official"
             target="_blank"
-            className="mb-2 hover:scale-125 transition-all"
+            className="mb-2 transition-all hover:scale-125"
           >
-            <BsFacebook className="w-6 h-6" />
+            <BsFacebook className="h-6 w-6" />
           </a>
 
           <a
             href="https://www.facebook.com/nditc.official"
             target="_blank"
-            className="mb-2 hover:scale-125 transition-all"
+            className="mb-2 transition-all hover:scale-125"
           >
-            <RiInstagramFill className="w-7 h-7" />
+            <RiInstagramFill className="h-7 w-7" />
           </a>
 
           <a
             href="https://www.youtube.com/@nditcofficial"
-            className="hover:scale-125 transition-all"
+            className="transition-all hover:scale-125"
             target="_blank"
           >
-            <AiFillYoutube className="w-7 h-7" />
+            <AiFillYoutube className="h-7 w-7" />
           </a>
 
           <a
             href="https://github.com/nditc"
-            className="hover:scale-125 transition-all"
+            className="transition-all hover:scale-125"
             target="_blank"
           >
-            <FaGithub className="w-7 h-7" />
+            <FaGithub className="h-7 w-7" />
           </a>
-          <Link href={'/developer'} title="Developers" className="hover:scale-125 transition-all">
-            <FaCode className="w-7 h-7" />
-          </Link>
+          <DeveloperIcon />
         </div>
 
         <GoToTop />

@@ -1,6 +1,6 @@
 "use client";
 
-import Field from "@/Components/Field";
+import Field from "@/app/club/Components/Field";
 import React, { useEffect, useState } from "react";
 import Link from "next/link";
 import { auth, db, pfp } from "@/config/firebase";

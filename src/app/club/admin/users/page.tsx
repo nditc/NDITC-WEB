@@ -4,7 +4,7 @@ import { auth } from "@/config/firebase";
 import { useEffect, useState } from "react";
 import { useAuthState } from "react-firebase-hooks/auth";
 import { CgSpinner } from "react-icons/cg";
-import Error from "@/Components/Error";
+import Error from "@/app/club/Components/Error";
 import { toast } from "react-toastify";
 
 const Page = () => {

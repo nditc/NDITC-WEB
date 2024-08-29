@@ -6,7 +6,6 @@ import About from "@/app/club/Components/Home/About";
 import Rules from "@/app/club/Components/Home/Rules";
 import Contact from "@/app/club/Components/Contact";
 import FAQ from "@/app/club/Components/Home/FAQ";
-import DeveloperLink from "@/app/club/Components/DeveloperLink";
 import { AuthContextProvider } from "./Components/Layout/AuthContextProvider";
 import { UserDataContextProvider } from "./Components/Layout/UserDataProvider";
 
@@ -19,11 +18,9 @@ const page = () => {
             <Hero />
             <About />
             <Rules />
-
             <Setter />
             <FAQ />
             <Contact />
-            <DeveloperLink />
           </UserDataContextProvider>
         </AuthContextProvider>
       </main>

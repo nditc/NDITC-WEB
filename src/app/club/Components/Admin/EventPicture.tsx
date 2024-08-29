@@ -1,8 +1,7 @@
 /* eslint-disable @next/next/no-img-element */
 import Image from "next/image";
-import React, { useRef, useState } from "react";
-import Modal from "@/Components/Modal";
-import Field from "../Field";
+import { useRef, useState } from "react";
+import Modal from "@/app/club/Components/Modal";
 import { CgSpinner } from "react-icons/cg";
 import { getDownloadURL, ref, uploadBytes } from "firebase/storage";
 import { auth, db, pfp } from "@/config/firebase";
@@ -53,16 +52,16 @@ const EventPicture = ({
   return (
     <>
       <div
-        className="rounded-xl relative text-center group"
+        className="group relative rounded-xl text-center"
         onClick={() => {
           setChangeImage(true);
         }}
       >
-        <p className="absolute z-10 font-medium text-transparent  cursor-pointer select-none group-hover:text-white top-1/2 left-1/2 -translate-x-1/2  -translate-y-1/2">
+        <p className="absolute left-1/2 top-1/2 z-10 -translate-x-1/2 -translate-y-1/2 cursor-pointer select-none font-medium text-transparent group-hover:text-white">
           Click to Change
         </p>
         <Image
-          className="rounded-xl group-hover:brightness-50 transition-all cursor-pointer   min-w-[384px] max-w-[384px]  object-cover w-[384px] h-[384px]  aspect-square shadow-md  bg-white"
+          className="aspect-square h-[384px] w-[384px] min-w-[384px] max-w-[384px] cursor-pointer rounded-xl bg-white object-cover shadow-md transition-all group-hover:brightness-50"
           src={imageUrl}
           alt="profile-img"
           width={384}
@@ -71,16 +70,16 @@ const EventPicture = ({
       </div>
       <Modal state={changeImage}>
         {changeImage ? (
-          <div className="max-w-[95vw] rounded-xl bg-white p-5 absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2">
+          <div className="absolute left-1/2 top-1/2 max-w-[95vw] -translate-x-1/2 -translate-y-1/2 rounded-xl bg-white p-5">
             <div className="flex justify-end">
               <button
-                className="text-primary text-right mb-5 font-medium border-b-2 border-transparent hover:border-primary ml-2 flex gap-2 items-center"
+                className="mb-5 ml-2 flex items-center gap-2 border-b-2 border-transparent text-right font-medium text-primary hover:border-primary"
                 onClick={() => {
                   setChangeImage(false);
                   setNewImage(null);
                 }}
               >
-                <LiaTimesSolid className="w-4 h-4" />
+                <LiaTimesSolid className="h-4 w-4" />
                 Close
               </button>
             </div>
@@ -89,7 +88,7 @@ const EventPicture = ({
             </h1>
             {newImage && newImage[0] ? (
               <img
-                className="w-[384px] h-[384px] object-cover rounded-xl mx-auto my-2"
+                className="mx-auto my-2 h-[384px] w-[384px] rounded-xl object-cover"
                 src={URL.createObjectURL(newImage[0])}
                 alt=""
               />
@@ -102,7 +101,7 @@ const EventPicture = ({
                     ["image/png", "image/jpeg", "image/webp"],
                     512,
                     1,
-                    "File must have to be a .jpg, .png or .webp file"
+                    "File must have to be a .jpg, .png or .webp file",
                   );
                   setNewImage(e.target.files ? e.target.files : null);
                 } catch (err) {
@@ -111,24 +110,24 @@ const EventPicture = ({
                   toast.error(String(err));
                 }
               }}
-              className="my-5 file:bg-primary file:text-white file:border-none file:py-2 file:px-4  file:rounded-lg file:cursor-pointer file:mr-3 file:hover:bg-secondary_light file:hover:text-primary"
+              className="my-5 file:mr-3 file:cursor-pointer file:rounded-lg file:border-none file:bg-primary file:px-4 file:py-2 file:text-white file:hover:bg-secondary_light file:hover:text-primary"
               ref={FileRef}
               name="pfp"
               type={"file"}
               accept=".png, .jpg, .jpeg, .webp"
             />
-            <div className="justify-self-end w-full md:w-auto py-3 md:py-0">
+            <div className="w-full justify-self-end py-3 md:w-auto md:py-0">
               <button
                 style={{
                   pointerEvents: loading ? "none" : "auto",
                 }}
                 disabled={newImage && newImage[0] ? false : true}
-                className="bg-primary rounded-xl flex justify-center disabled:opacity-80 text-white text-lg py-2 px-8 transition-all w-full hover:bg-secondary_light hover:text-primary"
+                className="flex w-full justify-center rounded-xl bg-primary px-8 py-2 text-lg text-white transition-all hover:bg-secondary_light hover:text-primary disabled:opacity-80"
                 type="button"
                 onClick={changeEp}
               >
                 {loading ? (
-                  <CgSpinner className="w-7 h-7 animate-spin text-white" />
+                  <CgSpinner className="h-7 w-7 animate-spin text-white" />
                 ) : (
                   "Update Image"
                 )}

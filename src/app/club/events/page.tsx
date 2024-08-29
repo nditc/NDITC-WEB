@@ -1,4 +1,4 @@
-import EventCard from "@/Components/Events/EventCard";
+import EventCard from "@/app/club/Components/Events/EventCard";
 import { getFirestore, Timestamp } from "firebase-admin/firestore";
 import { initAdmin } from "@/config/firebaseAdmin";
 

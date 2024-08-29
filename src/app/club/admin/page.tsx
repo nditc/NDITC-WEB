@@ -1,8 +1,8 @@
 "use client";
-import Announcements from "@/Components/Admin/AdminAnnouncements";
-import AdminEvents from "@/Components/Admin/AdminEvents";
-import EditConfig from "@/Components/Admin/EditConfig";
-import Error from "@/Components/Error";
+import Announcements from "@/app/club/Components/Admin/AdminAnnouncements";
+import AdminEvents from "@/app/club/Components/Admin/AdminEvents";
+import EditConfig from "@/app/club/Components/Admin/EditConfig";
+import Error from "@/app/club/Components/Error";
 import { auth, db } from "@/config/firebase";
 import { collection, getDocs, query, where } from "firebase/firestore";
 import Link from "next/link";
@@ -217,7 +217,7 @@ const Page = () => {
                 className="inline-flex flex-1 items-center justify-center gap-2 rounded-lg bg-primary px-5 py-3 text-lg leading-[1.15] text-white shadow-sm transition-colors hover:bg-primary_dark hover:text-white focus:ring-2 focus:ring-secondary"
                 onClick={() => {
                   auth.signOut();
-                  Router.push("/login");
+                  Router.push("/club/login");
                 }}
               >
                 Sign Out

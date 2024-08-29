@@ -32,12 +32,12 @@ const ErrorComp = ({ statusCode, msg, location }: ErrorProp) => {
           <p className={"text-lg text-primary"}>{msg}</p>
           <button
             className={
-              "Bebas font-Bebas text-whiterounded-lg mb-2 me-2 mt-5 rounded-lg border bg-primary px-7 py-2 text-xl font-medium text-white hover:bg-primary_dark hover:text-white focus:z-10 focus:ring-4 focus:ring-secondary_light"
+              "Bebas text-whiterounded-lg mb-2 me-2 mt-5 rounded-lg border bg-primary px-7 py-2 font-Bebas text-xl font-medium text-white hover:bg-primary_dark hover:text-white focus:z-10 focus:ring-4 focus:ring-secondary_light"
             }
             onClick={() => {
               location == "again"
                 ? window.location.reload()
-                : router.push(location);
+                : router.push("/club" + location);
             }}
           >
             Try Again

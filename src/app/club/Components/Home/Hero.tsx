@@ -1,6 +1,7 @@
 import Image from "next/image";
 import { SlCalender } from "react-icons/sl";
 import Ranking from "../Dashboard/Ranking";
+import Link from "next/link";
 
 const Hero = () => {
   return (
@@ -29,12 +30,12 @@ const Hero = () => {
             alt="dealine"
             className="mt-3 w-[90%] max-w-[350px]"
           />
-          <a
-            href="/register"
-            className="before:ease Bebas font-Bebas text-whiterounded-lg relative mb-2 me-2 mt-5 flex items-center justify-center overflow-hidden rounded-lg border border-primary bg-primary px-7 py-2 text-xl font-medium text-white shadow-2xl transition-all before:absolute before:top-1/2 before:h-0 before:w-64 before:origin-center before:-translate-x-20 before:rotate-45 before:bg-secondary_light before:duration-300 hover:border-secondary_light hover:bg-zinc-700 hover:text-primary_dark hover:shadow-secondary_light hover:before:h-64 hover:before:-translate-y-32 focus:z-10 focus:ring-4 focus:ring-primary"
+          <Link
+            href="/club/register"
+            className="before:ease Bebas text-whiterounded-lg relative mb-2 me-2 mt-5 flex items-center justify-center overflow-hidden rounded-lg border border-primary bg-primary px-7 py-2 font-Bebas text-xl font-medium text-white shadow-2xl transition-all before:absolute before:top-1/2 before:h-0 before:w-64 before:origin-center before:-translate-x-20 before:rotate-45 before:bg-secondary_light before:duration-300 hover:border-secondary_light hover:bg-zinc-700 hover:text-primary_dark hover:shadow-secondary_light hover:before:h-64 hover:before:-translate-y-32 focus:z-10 focus:ring-4 focus:ring-primary"
           >
             <span className="relative z-10">REGISTER NOW</span>
-          </a>
+          </Link>
         </div>
         <Image
           src={"/Images/FTMPC-Banner.svg"}

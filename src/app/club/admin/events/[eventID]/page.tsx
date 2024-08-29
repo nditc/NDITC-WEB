@@ -1,6 +1,6 @@
 "use client";
 
-import EventPicture from "@/Components/Admin/EventPicture";
+import EventPicture from "@/app/club/Components/Admin/EventPicture";
 import NotFound from "@/app/not-found";
 import { auth, db, pfp } from "@/config/firebase";
 import {
@@ -16,12 +16,12 @@ import { CgSpinner } from "react-icons/cg";
 import { RiDeleteBin6Line } from "react-icons/ri";
 import { toast } from "react-toastify";
 import Image from "next/image";
-import Modal from "@/Components/Modal";
+import Modal from "@/app/club/Components/Modal";
 import fileValidator from "@/util/fileValidator";
 import { LiaTimesSolid } from "react-icons/lia";
 import { getDownloadURL, ref, uploadBytes } from "firebase/storage";
 import { useRouter } from "next/navigation";
-import AddQuestions from "@/Components/Admin/AddQuestions";
+import AddQuestions from "@/app/club/Components/Admin/AddQuestions";
 import { Checkbox, DatePicker } from "@nextui-org/react";
 import {
   now,
@@ -29,7 +29,7 @@ import {
   ZonedDateTime,
   parseAbsoluteToLocal,
 } from "@internationalized/date";
-import { timeValue } from "@/Components/Time";
+import { timeValue } from "@/app/club/Components/Time";
 
 const Page = ({ params }: { params: { eventID: string } }) => {
   const [adminAuth, setAdminAuth] = useState<boolean>(false);
@@ -238,7 +238,7 @@ const Page = ({ params }: { params: { eventID: string } }) => {
   //---------Navigation--------
 
   const goToAdminPanel = () => {
-    router.push("/admin");
+    router.push("/club/admin");
   };
 
   //-----------Delete Event------------

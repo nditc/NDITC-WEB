@@ -1,6 +1,3 @@
-import React, { HTMLInputTypeAttribute } from 'react';
-import { regDataInit, regDataType } from '@/config/registerData';
-
 type props = {
   name: string;
   label: string;
@@ -11,15 +8,26 @@ type props = {
   rows?: number;
 };
 
-const Textarea = ({ name, label, state, setValue, notRequired, editable = true, rows }: props) => {
+const Textarea = ({
+  name,
+  label,
+  state,
+  setValue,
+  notRequired,
+  editable = true,
+  rows,
+}: props) => {
   return (
     <div className="flex flex-col gap-1">
-      <label className="text-gray-500 ml-2 font-medium disabled:text-gray-200" htmlFor={name}>
+      <label
+        className="ml-2 font-medium text-gray-500 disabled:text-gray-200"
+        htmlFor={name}
+      >
         {label}
-        {notRequired ? ' (Optional)' : ''}:
+        {notRequired ? " (Optional)" : ""}:
       </label>
       <textarea
-        className="px-5 py-3 border-gray-200  disabled:bg-white disabled:text-gray-400 rounded-xl border focus:border-primary focus:outline-none"
+        className="rounded-xl border border-gray-200 px-5 py-3 focus:border-primary focus:outline-none disabled:bg-white disabled:text-gray-400"
         onChange={(e) => setValue(name, e.target.value)}
         value={state}
         name={name}

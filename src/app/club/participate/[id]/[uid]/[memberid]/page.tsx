@@ -1,6 +1,6 @@
-import Error from "@/Components/Error";
+import Error from "@/app/club/Components/Error";
 import { notFound } from "next/navigation";
-import AnswerSheet from "@/Components/Participate/AnswerSheet";
+import AnswerSheet from "@/app/club/Components/Participate/AnswerSheet";
 import { initAdmin } from "@/config/firebaseAdmin";
 import { Timestamp, getFirestore } from "firebase-admin/firestore";
 import { createDecipheriv } from "crypto";

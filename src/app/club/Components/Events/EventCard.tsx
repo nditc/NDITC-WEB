@@ -76,7 +76,7 @@ const EventCard = ({
 
         {!ongoingForParticipate && (
           <Link
-            href={`/eventdetails/${encodeURIComponent(title)}/${encodeURIComponent(`${dateData.date} ${dateData.monthText} ${dateData.year} | ${dateData.hour}:${dateData.minute}`)}/${encodeURIComponent(image)}/${encodeURIComponent(desc)}`}
+            href={`/club/eventdetails/${encodeURIComponent(title)}/${encodeURIComponent(`${dateData.date} ${dateData.monthText} ${dateData.year} | ${dateData.hour}:${dateData.minute}`)}/${encodeURIComponent(image)}/${encodeURIComponent(desc)}`}
             className="inline-flex items-center justify-center gap-3 rounded-lg bg-primary px-3 py-2 text-center text-base font-medium text-white hover:bg-primary_dark focus:bg-primary_darkest focus:outline-none focus:ring-4"
           >
             <TbListDetails className="h-7 w-7" />

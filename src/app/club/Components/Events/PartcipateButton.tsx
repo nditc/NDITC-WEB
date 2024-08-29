@@ -25,7 +25,7 @@ const PartcipateButton = ({ id }: { id: string }) => {
   const memberid = useUserDataContext().userData?.ndc_id;
   return (
     <Link
-      href={`/participate/${id}/${encrypt(`${uid}`)}/${encrypt(memberid == "" || memberid == undefined ? "none" : memberid)}`}
+      href={`/club/participate/${id}/${encrypt(`${uid}`)}/${encrypt(memberid == "" || memberid == undefined ? "none" : memberid)}`}
       className="inline-flex items-center justify-center gap-3 rounded-lg bg-primary px-3 py-2 text-center text-base font-medium text-white hover:bg-primary_dark focus:bg-primary_darkest focus:outline-none focus:ring-4"
     >
       <PiStudent className="h-7 w-7" />

@@ -14,14 +14,14 @@ import { FaRegEdit, FaRegTrashAlt, FaTimes } from "react-icons/fa";
 import Link from "next/link";
 
 import { useAuthState } from "react-firebase-hooks/auth";
-import EditData from "@/Components/Profile/EditData";
-import ProfilePic from "@/Components/Profile/ProfilePic";
+import EditData from "@/app/club/Components/Profile/EditData";
+import ProfilePic from "@/app/club/Components/Profile/ProfilePic";
 import { IoIosPower } from "react-icons/io";
-import Announcements from "@/Components/Profile/Announcements";
+import Announcements from "@/app/club/Components/Profile/Announcements";
 import { CgSpinner } from "react-icons/cg";
-import ContestCard from "@/Components/Profile/ContestCard";
-import ClubInfo from "@/Components/Profile/ClubInfo";
-import { useUserDataContext } from "@/Components/Layout/UserDataProvider";
+import ContestCard from "@/app/club/Components/Profile/ContestCard";
+import ClubInfo from "@/app/club/Components/Profile/ClubInfo";
+import { useUserDataContext } from "@/app/club/Components/Layout/UserDataProvider";
 
 const Page = () => {
   const [userAuth, loading, error] = useAuthState(auth);
@@ -45,7 +45,7 @@ const Page = () => {
         .then((r) => r.json())
         .then((resp) => {
           if (resp.auth) {
-            Route.push("/admin");
+            Route.push("/club/admin");
           }
         })
         .catch((err) => {
@@ -62,10 +62,10 @@ const Page = () => {
       }
     } else if (userAuth && !userAuth?.emailVerified) {
       setDLoading(false);
-      Route.push("/verify");
+      Route.push("/club/verify");
     } else if (!loading) {
       setDLoading(false);
-      Route.push("/login");
+      Route.push("/club/login");
     }
   }, [Route, userAuth, loading]);
 
@@ -121,14 +121,14 @@ const Page = () => {
             </h1>
             <div className="container flex gap-2">
               <Link
-                href="/reset-password"
+                href="/club/reset-password"
                 className="inline-flex flex-1 items-center justify-center gap-2 rounded-lg bg-white px-5 py-2 text-sm leading-[1.15] text-primary_dark shadow-sm transition-colors hover:bg-primary hover:text-white focus:ring-2 focus:ring-secondary"
               >
                 <MdLockReset className="h-8 w-8" />
                 Reset Password
               </Link>
               <Link
-                href="/delete-account"
+                href="/club/delete-account"
                 className="inline-flex flex-1 items-center justify-center gap-2 rounded-lg bg-white px-5 py-2 text-sm leading-[1.15] text-red-600 shadow-sm transition-colors hover:bg-red-600 hover:text-white focus:ring-2 focus:ring-red-300"
               >
                 <FaRegTrashAlt className="h-6 w-6" /> Delete Account

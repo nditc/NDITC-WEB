@@ -1,16 +1,14 @@
-import { auth, db } from '@/config/firebase';
-import { doc, getDoc } from 'firebase/firestore';
-import React, { useEffect, useState } from 'react';
-import { useAuthState } from 'react-firebase-hooks/auth';
-import { FaTimes } from 'react-icons/fa';
-import { IoCheckmarkDone } from 'react-icons/io5';
-import { LiaTimesSolid } from 'react-icons/lia';
-import { RxCross2 } from 'react-icons/rx';
-import { toast } from 'react-toastify';
-import nthNumber from '@/util/nthNumber';
-import { GrTrophy } from 'react-icons/gr';
-import { AiFillCode } from 'react-icons/ai';
-import { getConfig } from '@/config/config_db';
+import { auth, db } from "@/config/firebase";
+import { doc, getDoc } from "firebase/firestore";
+import { useEffect, useState } from "react";
+import { useAuthState } from "react-firebase-hooks/auth";
+import { FaTimes } from "react-icons/fa";
+import { IoCheckmarkDone } from "react-icons/io5";
+import { toast } from "react-toastify";
+import nthNumber from "@/util/nthNumber";
+import { GrTrophy } from "react-icons/gr";
+import { AiFillCode } from "react-icons/ai";
+import { getConfig } from "@/config/config_db";
 
 const ContestCard = () => {
   const [preResult, setPreResult] = useState<null | any>(null);
@@ -21,114 +19,126 @@ const ContestCard = () => {
       if (user?.uid) {
         try {
           const config = await getConfig();
-          const pre = await getDoc(doc(db, 'pre_result', user.uid));
-          const final = await getDoc(doc(db, 'final_result', user.uid));
-          setPreResult(pre.exists() && config?.pre_result_published ? pre.data() : null);
+          const pre = await getDoc(doc(db, "pre_result", user.uid));
+          const final = await getDoc(doc(db, "final_result", user.uid));
+          setPreResult(
+            pre.exists() && config?.pre_result_published ? pre.data() : null,
+          );
           setFinalResult(
-            final.exists() && config?.final_result_published && config?.pre_result_published
+            final.exists() &&
+              config?.final_result_published &&
+              config?.pre_result_published
               ? final.data()
-              : null
+              : null,
           );
         } catch (err) {
-          toast.error('Result Cannot be Loaded!');
+          toast.error("Result Cannot be Loaded!");
         }
       }
     };
     func();
   }, [user]);
   return (
-    <div className="flex-1 p-4 md:p-6  xl:ml-16 rounded-xl items-center justify-center shadow-sm  bg-secondary_lightest text-primary_dark">
+    <div className="flex-1 items-center justify-center rounded-xl bg-secondary_lightest p-4 text-primary_dark shadow-sm md:p-6 xl:ml-16">
       {/* Contest Details Coming Soon */}
-      <h1 className="text-3xl mb-5 text-center ">
-        <AiFillCode className="w-8 h-8 inline mr-1 text-secondary_light" />
+      <h1 className="mb-5 text-center text-3xl">
+        <AiFillCode className="mr-1 inline h-8 w-8 text-secondary_light" />
         YOU IN <span className="text-secondary">CONTEST</span>
       </h1>
       {}
       {preResult ? (
-        <div className="w-full flex gap-3 items-center flex-col md:flex-row  justify-center md:justify-between">
-          <h1 className="text-xl text-secondary Nunito font-bold w-32">Preliminary</h1>
-          <div className=" flex gap-3 items-center">
+        <div className="flex w-full flex-col items-center justify-center gap-3 md:flex-row md:justify-between">
+          <h1 className="Nunito w-32 text-xl font-bold text-secondary">
+            Preliminary
+          </h1>
+          <div className="flex items-center gap-3">
             <div
               className={
-                'w-32 md:w-36 py-2 px-4 flex md:text-lg  items-center text-white gap-1 rounded-lg  font-bold shadow-sm ' +
-                (preResult.selected ? 'bg-secondary' : 'bg-rose-500')
+                "flex w-32 items-center gap-1 rounded-lg px-4 py-2 font-bold text-white shadow-sm md:w-36 md:text-lg " +
+                (preResult.selected ? "bg-secondary" : "bg-rose-500")
               }
             >
               {preResult.selected ? (
                 <>
-                  <IoCheckmarkDone className="w-6 h-6 mr-1 text-secondary_lighter" />
-                  {'Selected'}
+                  <IoCheckmarkDone className="mr-1 h-6 w-6 text-secondary_lighter" />
+                  {"Selected"}
                 </>
               ) : (
                 <>
-                  <FaTimes className="w-5 h-5 mr-1 text-rose-200" />
-                  {'Eliminated'}
+                  <FaTimes className="mr-1 h-5 w-5 text-rose-200" />
+                  {"Eliminated"}
                 </>
               )}
             </div>
             <div
               className={
-                'w-32 md:w-36 py-2 px-4 flex md:text-lg  shadow-sm justify-between items-center text-secondary bg-white gap-1 rounded-lg  font-bold '
+                "flex w-32 items-center justify-between gap-1 rounded-lg bg-white px-4 py-2 font-bold text-secondary shadow-sm md:w-36 md:text-lg"
               }
             >
-              <span className="text-black font-medium">Rank:</span>
+              <span className="font-medium text-black">Rank:</span>
               {nthNumber(preResult.ranking)}
             </div>
           </div>
         </div>
       ) : (
-        <div className="w-full flex gap-3 items-center mt-3 flex-col md:flex-row  justify-center md:justify-between">
-          <h1 className="text-xl text-secondary Nunito font-bold md:w-32">Preliminary</h1>
+        <div className="mt-3 flex w-full flex-col items-center justify-center gap-3 md:flex-row md:justify-between">
+          <h1 className="Nunito text-xl font-bold text-secondary md:w-32">
+            Preliminary
+          </h1>
           <div
             className={
-              'py-2 px-4 flex md:text-lg  justify-between items-center text-green-500 bg-secondary_lighter gap-1 rounded-lg  font-bold '
+              "flex items-center justify-between gap-1 rounded-lg bg-secondary_lighter px-4 py-2 font-bold text-green-500 md:text-lg"
             }
           >
-            <span className=" font-medium">Not Published</span>
+            <span className="font-medium">Not Published</span>
           </div>
         </div>
       )}
       {finalResult ? (
-        <div className="w-full flex gap-3 items-center mt-3 flex-col md:flex-row  justify-center md:justify-between">
-          <h1 className="text-xl text-secondary Nunito font-bold md:w-32">Final</h1>
-          <div className=" flex gap-3 items-center">
+        <div className="mt-3 flex w-full flex-col items-center justify-center gap-3 md:flex-row md:justify-between">
+          <h1 className="Nunito text-xl font-bold text-secondary md:w-32">
+            Final
+          </h1>
+          <div className="flex items-center gap-3">
             <div
               className={
-                'w-32 md:w-36 py-2 px-4 flex md:text-lg  items-center text-white gap-1 rounded-lg  font-bold shadow-sm ' +
-                (finalResult.participated ? 'bg-secondary' : 'bg-rose-500')
+                "flex w-32 items-center gap-1 rounded-lg px-4 py-2 font-bold text-white shadow-sm md:w-36 md:text-lg " +
+                (finalResult.participated ? "bg-secondary" : "bg-rose-500")
               }
             >
               {finalResult.participated ? (
                 <>
-                  <GrTrophy className="w-6 h-6 mr-1 text-secondary_lighter" />
-                  {'Won'}
+                  <GrTrophy className="mr-1 h-6 w-6 text-secondary_lighter" />
+                  {"Won"}
                 </>
               ) : (
                 <>
-                  <FaTimes className="w-5 h-5 mr-1 text-rose-200" />
-                  {'Absent'}
+                  <FaTimes className="mr-1 h-5 w-5 text-rose-200" />
+                  {"Absent"}
                 </>
               )}
             </div>
             <div
               className={
-                'w-32 md:w-36 py-2 px-4 flex md:text-lg  shadow-sm justify-between items-center text-secondary bg-white gap-1 rounded-lg  font-bold '
+                "flex w-32 items-center justify-between gap-1 rounded-lg bg-white px-4 py-2 font-bold text-secondary shadow-sm md:w-36 md:text-lg"
               }
             >
-              <span className="text-black font-medium">Rank:</span>
+              <span className="font-medium text-black">Rank:</span>
               {nthNumber(finalResult.ranking)}
             </div>
           </div>
         </div>
       ) : (
-        <div className="w-full flex gap-3 items-center mt-3 flex-col md:flex-row  justify-center md:justify-between">
-          <h1 className="text-xl text-secondary Nunito font-bold md:w-32">Final</h1>
+        <div className="mt-3 flex w-full flex-col items-center justify-center gap-3 md:flex-row md:justify-between">
+          <h1 className="Nunito text-xl font-bold text-secondary md:w-32">
+            Final
+          </h1>
           <div
             className={
-              'py-2 px-4 flex md:text-lg  justify-between items-center text-green-500 bg-secondary_lighter gap-1 rounded-lg  font-bold '
+              "flex items-center justify-between gap-1 rounded-lg bg-secondary_lighter px-4 py-2 font-bold text-green-500 md:text-lg"
             }
           >
-            <span className=" font-medium">Not Published</span>
+            <span className="font-medium">Not Published</span>
           </div>
         </div>
       )}

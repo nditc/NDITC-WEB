@@ -165,7 +165,7 @@ const AnswerSheet = ({
                       onPress={() => {
                         setSubmitClicked(false);
                         onClose();
-                        router.push("/");
+                        router.push("/club");
                       }}
                     >
                       Got It!
@@ -201,7 +201,7 @@ const AnswerSheet = ({
       <button
         onClick={SubmitFunc}
         disabled={submitClicked}
-        className="before:ease Inter font-ShareTechTown relative flex w-full items-center self-center overflow-hidden rounded-lg border bg-primary_dark px-6 py-3 text-center text-sm font-medium text-white shadow-2xl transition before:absolute before:left-0 before:-ml-2 before:h-[30rem] before:w-[30rem] before:origin-top-right before:-translate-x-full before:translate-y-12 before:-rotate-90 before:bg-primary before:transition-all before:duration-300 hover:scale-110 hover:text-white hover:before:-rotate-180 focus:outline-none focus:ring-4 focus:ring-secondary md:w-fit lg:px-3 xl:px-5"
+        className="before:ease Inter relative flex w-full items-center self-center overflow-hidden rounded-lg border bg-primary_dark px-6 py-3 text-center font-ShareTechTown text-sm font-medium text-white shadow-2xl transition before:absolute before:left-0 before:-ml-2 before:h-[30rem] before:w-[30rem] before:origin-top-right before:-translate-x-full before:translate-y-12 before:-rotate-90 before:bg-primary before:transition-all before:duration-300 hover:scale-110 hover:text-white hover:before:-rotate-180 focus:outline-none focus:ring-4 focus:ring-secondary md:w-fit lg:px-3 xl:px-5"
       >
         {submitClicked ? (
           <CgSpinner className="mx-auto h-7 w-7 animate-spin text-white" />

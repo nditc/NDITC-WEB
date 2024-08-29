@@ -1,26 +1,26 @@
-'use client';
+"use client";
 
-import Field from '@/Components/Field';
-import React, { useEffect, useState } from 'react';
-import Link from 'next/link';
-import { auth, db } from '@/config/firebase';
+import Field from "@/app/club/Components/Field";
+import React, { useEffect, useState } from "react";
+import Link from "next/link";
+import { auth, db } from "@/config/firebase";
 
 import {
   deleteUser,
   sendEmailVerification,
   sendPasswordResetEmail,
   signInWithEmailAndPassword,
-} from 'firebase/auth';
+} from "firebase/auth";
 
-import { toast } from 'react-toastify';
-import { CgArrowLeft, CgSpinner } from 'react-icons/cg';
-import { useRouter } from 'next/navigation';
-import Image from 'next/image';
-import { doc, DocumentReference, deleteDoc } from 'firebase/firestore';
-import { useAuthState } from 'react-firebase-hooks/auth';
+import { toast } from "react-toastify";
+import { CgArrowLeft, CgSpinner } from "react-icons/cg";
+import { useRouter } from "next/navigation";
+import Image from "next/image";
+import { doc, DocumentReference, deleteDoc } from "firebase/firestore";
+import { useAuthState } from "react-firebase-hooks/auth";
 
 const Page = () => {
-  const [email, setEmail] = useState<string>('');
+  const [email, setEmail] = useState<string>("");
   const [loading, setLoading] = useState<boolean>(false);
   const [user] = useAuthState(auth);
   const Router = useRouter();
@@ -31,22 +31,24 @@ const Page = () => {
       .then(() => {
         setLoading(false);
         auth.signOut();
-        toast.success('Reset password link sent to you email. Reset Password then login again.');
-        Router.push('/login');
+        toast.success(
+          "Reset password link sent to you email. Reset Password then login again.",
+        );
+        Router.push("/club/login");
       })
       .catch((error) => {
         switch (error.code) {
-          case 'auth/email-already-in-use':
+          case "auth/email-already-in-use":
             toast.error(`Email address already in use.`);
             break;
-          case 'auth/invalid-email':
+          case "auth/invalid-email":
             toast.error(`Email address is invalid.`);
             break;
-          case 'auth/operation-not-allowed':
+          case "auth/operation-not-allowed":
             toast.error(`Error during sign up.`);
             break;
           default:
-            toast.error(error.message.replaceAll('Firebase: ', ''));
+            toast.error(error.message.replaceAll("Firebase: ", ""));
 
             break;
         }
@@ -59,16 +61,16 @@ const Page = () => {
     }
   }, [user]);
   return (
-    <div className="w-screen shadow-lg  shadow-secondary mt-[81px] bg-image md:min-h-[calc(100vh_-_81px)] grid place-items-center">
-      <div className="container-login w-full bg-white sm:rounded-xl flex pt-3 pb-8 sm:py-0 sm:my-16 min-h-[calc(100vh_-_81px)] md:min-h-[70vh]">
+    <div className="bg-image mt-[81px] grid w-screen place-items-center shadow-lg shadow-secondary md:min-h-[calc(100vh_-_81px)]">
+      <div className="container-login flex min-h-[calc(100vh_-_81px)] w-full bg-white pb-8 pt-3 sm:my-16 sm:rounded-xl sm:py-0 md:min-h-[70vh]">
         <form
-          className="flex flex-col grid-cols-1 gap-5 w-full lg:w-1/2 p-5 sm:p-12 justify-center"
+          className="flex w-full grid-cols-1 flex-col justify-center gap-5 p-5 sm:p-12 lg:w-1/2"
           onSubmit={handleSubmit}
         >
           <div className="flex justify-between text-sm md:text-base">
             <button
               type="button"
-              className="text-primary font-medium border-b-2 border-transparent hover:border-primary ml-2 flex gap-2 items-center"
+              className="ml-2 flex items-center gap-2 border-b-2 border-transparent font-medium text-primary hover:border-primary"
               onClick={() => Router.back()}
             >
               <CgArrowLeft /> Go Back
@@ -80,7 +82,7 @@ const Page = () => {
           <p className="text-base">
             Get password reset link to reset your password. Then login again.
           </p>
-          <div className="flex flex-col gap-5 w-full">
+          <div className="flex w-full flex-col gap-5">
             <Field
               state={email}
               setValue={(name, data) => setEmail(String(data))}
@@ -88,18 +90,18 @@ const Page = () => {
               label="E-mail"
               type="email"
             />
-            <div className="justify-self-end w-full md:w-auto">
+            <div className="w-full justify-self-end md:w-auto">
               <button
                 style={{
-                  pointerEvents: loading ? 'none' : 'auto',
+                  pointerEvents: loading ? "none" : "auto",
                 }}
-                className="bg-primary rounded-xl text-white text-lg py-2 px-8 transition-all w-full hover:bg-secondary_light hover:text-primary"
+                className="w-full rounded-xl bg-primary px-8 py-2 text-lg text-white transition-all hover:bg-secondary_light hover:text-primary"
                 type="submit"
               >
                 {loading ? (
-                  <CgSpinner className="w-7 h-7 animate-spin text-white mx-auto" />
+                  <CgSpinner className="mx-auto h-7 w-7 animate-spin text-white" />
                 ) : (
-                  'Send Password Reset Link'
+                  "Send Password Reset Link"
                 )}
               </button>
             </div>
@@ -107,7 +109,7 @@ const Page = () => {
         </form>
         <Image
           alt="login"
-          className={'hidden lg:block w-1/2 rounded-xl object-cover m-5'}
+          className={"m-5 hidden w-1/2 rounded-xl object-cover lg:block"}
           src="/Images/reg_banner.png"
           width={512}
           height={512}

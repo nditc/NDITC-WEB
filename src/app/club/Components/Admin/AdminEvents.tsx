@@ -13,7 +13,7 @@ const AdminEvents = ({ adminAuth }: { adminAuth: boolean }) => {
   useEffect(() => {
     if (!adminAuth) return;
     const docs = getDocs(
-      query(collection(db, "events"), limit(10), orderBy("addTime", "desc"))
+      query(collection(db, "events"), limit(10), orderBy("addTime", "desc")),
     ).then(async (data) => {
       const eventData: any = [];
       await data.forEach((e) => {
@@ -25,10 +25,10 @@ const AdminEvents = ({ adminAuth }: { adminAuth: boolean }) => {
   }, [adminAuth]);
 
   return (
-    <div className="container p-6 md:p-8 pb-2 md:pb-4 bg-white rounded-xl my-8">
-      <div className="flex flex-col md:flex-row gap-5 items-center justify-between">
-        <div className="flex gap-5 items-center">
-          <MdOutlineEventNote className="w-12 h-12 text-primary" />
+    <div className="container my-8 rounded-xl bg-white p-6 pb-2 md:p-8 md:pb-4">
+      <div className="flex flex-col items-center justify-between gap-5 md:flex-row">
+        <div className="flex items-center gap-5">
+          <MdOutlineEventNote className="h-12 w-12 text-primary" />
 
           <h1 className="text-4xl leading-none">
             <span className="">EVENTS</span>
@@ -37,16 +37,16 @@ const AdminEvents = ({ adminAuth }: { adminAuth: boolean }) => {
         <div>
           <Link
             type={"button"}
-            href={`/admin/events/new`}
-            className="hover:bg-primary_dark hover:text-white  text-sm flex-1 justify-center transition-colors px-5 py-2 inline-flex focus:ring-2 focus:ring-secondary bg-primary text-white items-center gap-2 rounded-lg leading-[1.15] shadow-sm"
+            href={`/club/admin/events/new`}
+            className="inline-flex flex-1 items-center justify-center gap-2 rounded-lg bg-primary px-5 py-2 text-sm leading-[1.15] text-white shadow-sm transition-colors hover:bg-primary_dark hover:text-white focus:ring-2 focus:ring-secondary"
           >
-            <FaPlus className="w-6 h-6" />
+            <FaPlus className="h-6 w-6" />
             Add Event
           </Link>
         </div>
       </div>
 
-      <div className="flex gap-5 my-10 h-[650px] resize-y overflow-y-scroll overflow-x-clip flex-wrap">
+      <div className="my-10 flex h-[650px] resize-y flex-wrap gap-5 overflow-x-clip overflow-y-scroll">
         {events.map((e: any, i: number) => {
           return (
             <AdminEventCard

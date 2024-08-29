@@ -1,7 +1,7 @@
 import React, { FormEvent, useEffect, useState } from "react";
 import { FaRegEdit, FaRegTrashAlt, FaTimes } from "react-icons/fa";
-import Field from "@/Components/Field";
-import Select from "@/Components/Select";
+import Field from "@/app/club/Components/Field";
+import Select from "@/app/club/Components/Select";
 import { FiUser } from "react-icons/fi";
 import { classes, regDataType } from "@/config/registerData";
 import { LiaTimesSolid } from "react-icons/lia";

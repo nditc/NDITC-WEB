@@ -1,7 +1,7 @@
 "use client";
 
 import { FaCode } from "react-icons/fa";
-import Member from "@/Components/Home/Member";
+import Member from "@/app/club/Components/Home/Member";
 import DevData from "./developers";
 import { useState } from "react";
 import Modal from "./Modal";

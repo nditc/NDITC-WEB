@@ -8,7 +8,7 @@ const page = ({ params }: { params: { uid: string; type: string } }) => {
     const decipher = createDecipheriv(
       "aes-256-cbc",
       Buffer.from(encryption_key),
-      Buffer.from(initialization_vector)
+      Buffer.from(initialization_vector),
     );
     let dec = decipher.update(text, "hex", "utf8");
     dec += decipher.final("utf8");
@@ -16,9 +16,9 @@ const page = ({ params }: { params: { uid: string; type: string } }) => {
   }
 
   return (
-    <main className="w-full bg-[#F6F6F6] min-h-screen">
+    <main className="min-h-screen w-full bg-[#F6F6F6]">
       <div className="container py-[81px]">
-        <h1 className="text-5xl container  mt-8">
+        <h1 className="container mt-8 text-5xl">
           <span className="text-primary">ONGOING</span> EVENTS
         </h1>
       </div>

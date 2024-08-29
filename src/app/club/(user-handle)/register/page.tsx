@@ -1,9 +1,9 @@
 "use client";
 
-import Field from "@/Components/Field";
+import Field from "@/app/club/Components/Field";
 import React, { useEffect, useReducer, useState } from "react";
 import { regDataInit, regDataType, classes } from "@/config/registerData";
-import Select from "@/Components/Select";
+import Select from "@/app/club/Components/Select";
 import { auth, db } from "@/config/firebase";
 import { doc, serverTimestamp, setDoc } from "firebase/firestore";
 
@@ -20,7 +20,7 @@ import { useRouter } from "next/navigation";
 import Link from "next/link";
 import { getConfig } from "@/config/config_db";
 import { Checkbox } from "@nextui-org/checkbox";
-import { useAuthContext } from "@/Components/Layout/AuthContextProvider";
+import { useAuthContext } from "@/app/club/Components/Layout/AuthContextProvider";
 
 type actionType = {
   type: "SET_FIELD";
@@ -88,7 +88,7 @@ const Page = () => {
                   "Email verification link sent! Please verify your email please.",
                 );
                 setLoading(false);
-                Router.push("/profile");
+                Router.push("/club/profile");
               })
               .catch((error) => {
                 switch (error.code) {
@@ -139,7 +139,7 @@ const Page = () => {
               "Email verification link sent! Please verify your email please.",
             );
             setLoading(false);
-            Router.push("/profile");
+            Router.push("/club/profile");
           })
           .catch((error) => {
             switch (error.code) {
@@ -176,7 +176,7 @@ const Page = () => {
 
   useEffect(() => {
     if (!loading && userAuth) {
-      Router.push("/profile");
+      Router.push("/club/profile");
     }
   }, [userAuth, loading]);
 
@@ -184,7 +184,7 @@ const Page = () => {
     getConfig()
       .then((config: any) => {
         if (!config.registration_status) {
-          Router.push("/registration-closed");
+          Router.push("/club/registration-closed");
         } else {
           setConfigLoading(false);
         }
@@ -216,7 +216,7 @@ const Page = () => {
               We can’t wait to see what you’ll bring to the table!{" "}
               <Link
                 className="inline border-b-2 border-transparent font-medium text-primary hover:border-primary"
-                href="/login"
+                href="/club/login"
               >
                 Login Instead
               </Link>{" "}

@@ -1,6 +1,6 @@
 "use client";
 
-import Field from "@/Components/Field";
+import Field from "@/app/club/Components/Field";
 import React, { useEffect, useState } from "react";
 import Link from "next/link";
 import { auth, db } from "@/config/firebase";
@@ -12,7 +12,7 @@ import { CgLogIn, CgSpinner } from "react-icons/cg";
 import { useRouter } from "next/navigation";
 import Image from "next/image";
 import { FirebaseError } from "firebase/app";
-import { useAuthContext } from "@/Components/Layout/AuthContextProvider";
+import { useAuthContext } from "@/app/club/Components/Layout/AuthContextProvider";
 
 const Page = () => {
   const [password, setPassword] = useState<string>("");
@@ -31,7 +31,7 @@ const Page = () => {
       .then(async (UserCred) => {
         toast.success("User logged in!");
         setLoading(false);
-        Router.push("/profile");
+        Router.push("/club/profile");
       })
       .catch((error: FirebaseError) => {
         console.dir(error);
@@ -41,7 +41,7 @@ const Page = () => {
             break;
           case "auth/too-many-requests":
             toast.error(
-              `Too many login attempts. Please reset your password to login again.`
+              `Too many login attempts. Please reset your password to login again.`,
             );
             break;
           default:
@@ -56,28 +56,28 @@ const Page = () => {
     console.log(auth);
     setAuthLoading(true);
     if (userAuth) {
-      Router.push("/profile");
+      Router.push("/club/profile");
     }
     setAuthLoading(false);
   }, [Router, userAuth]);
   return (
-    <div className="w-screen shadow-lg  shadow-secondary mt-[81px] bg-image md:min-h-[calc(100vh_-_81px)] grid place-items-center">
-      <div className="container-login w-full bg-white sm:rounded-xl flex pt-3 pb-8 sm:py-0 sm:my-16 min-h-[calc(100vh_-_81px)] md:min-h-[70vh]">
+    <div className="bg-image mt-[81px] grid w-screen place-items-center shadow-lg shadow-secondary md:min-h-[calc(100vh_-_81px)]">
+      <div className="container-login flex min-h-[calc(100vh_-_81px)] w-full bg-white pb-8 pt-3 sm:my-16 sm:rounded-xl sm:py-0 md:min-h-[70vh]">
         <form
-          className="flex flex-col grid-cols-1 gap-5 w-full lg:w-1/2 p-5 sm:p-12 justify-center"
+          className="flex w-full grid-cols-1 flex-col justify-center gap-5 p-5 sm:p-12 lg:w-1/2"
           onSubmit={handleSubmit}
         >
           {uloading || authLoading ? (
-            <div className="grid place-items-center w-full ">
-              <CgSpinner className="mx-auto w-16 h-16 animate-spin text-primary" />
+            <div className="grid w-full place-items-center">
+              <CgSpinner className="mx-auto h-16 w-16 animate-spin text-primary" />
             </div>
           ) : (
             <>
-              <CgLogIn className="w-12 h-12 text-primary" />
+              <CgLogIn className="h-12 w-12 text-primary" />
               <h1 className="text-4xl">
                 PARTICIPANT <span className="text-primary">Login</span>
               </h1>
-              <div className="flex flex-col gap-5 w-full">
+              <div className="flex w-full flex-col gap-5">
                 <Field
                   state={email}
                   setValue={(name, data) => setEmail(String(data))}
@@ -95,32 +95,32 @@ const Page = () => {
               </div>
               <div className="flex justify-between text-sm md:text-base">
                 <Link
-                  className="text-primary font-medium border-b-2 border-transparent hover:border-primary ml-2"
-                  href="/reset-password"
+                  className="ml-2 border-b-2 border-transparent font-medium text-primary hover:border-primary"
+                  href="/club/reset-password"
                 >
                   Reset Password
                 </Link>
               </div>
-              <div className="justify-self-end w-full md:w-auto flex flex-col items-center gap-3">
+              <div className="flex w-full flex-col items-center gap-3 justify-self-end md:w-auto">
                 <button
                   style={{
                     pointerEvents: loading ? "none" : "auto",
                   }}
-                  className="bg-primary rounded-xl text-white text-lg py-2 px-8 transition-all w-full hover:bg-secondary_light hover:text-primary"
+                  className="w-full rounded-xl bg-primary px-8 py-2 text-lg text-white transition-all hover:bg-secondary_light hover:text-primary"
                   type="submit"
                 >
                   {loading ? (
-                    <CgSpinner className="w-7 h-7 animate-spin text-white mx-auto" />
+                    <CgSpinner className="mx-auto h-7 w-7 animate-spin text-white" />
                   ) : (
                     "Login"
                   )}
                 </button>
 
-                <div className="font-medium text-lg">
+                <div className="text-lg font-medium">
                   Don&apos;t have an account?{" "}
                   <Link
-                    className="text-primary border-b-2 border-transparent hover:border-primary mr-2"
-                    href="/register"
+                    className="mr-2 border-b-2 border-transparent text-primary hover:border-primary"
+                    href="/club/register"
                   >
                     Register Now
                   </Link>
@@ -131,7 +131,7 @@ const Page = () => {
         </form>
         <Image
           alt="login"
-          className={"hidden lg:block w-1/2 rounded-xl object-cover m-5"}
+          className={"m-5 hidden w-1/2 rounded-xl object-cover lg:block"}
           src="/Images/reg_banner.png"
           width={512}
           height={512}

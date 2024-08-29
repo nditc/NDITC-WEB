@@ -1,11 +1,12 @@
 "use client";
 
-import { AES } from "crypto-js";
+import { encrypt } from "@/util/Encrypt";
+import { createCipheriv } from "crypto";
 import Link from "next/link";
 import { useEffect, useState } from "react";
 
 const SaveData = ({ data }: { data: any }) => {
-  const detailsEncrypt = AES.encrypt(data[0].details_url, "Anime");
+  const detailsEncrypt = encrypt(data[0].details_url);
   const [isNew, setIsNew] = useState(false);
 
   const NewNotification = JSON.stringify(data[0].title);
@@ -30,14 +31,14 @@ const SaveData = ({ data }: { data: any }) => {
         localStorage.setItem("latestNotification", NewNotification);
         setIsNew(false);
       }}
-      className="transition-all rounded-full bg-white shadow-[5px_5px_20px_15px_#00000024] p-1"
+      className="rounded-full bg-white p-1 shadow-[5px_5px_20px_15px_#00000024] transition-all"
     >
-      <Link href="/notifications" className="text-black mt-2 relative">
+      <Link href="/notifications" className="relative mt-2 text-black">
         {isNew && (
-          <div className="w-3 h-3 bg-red-700 rounded-full absolute right-0 top-0" />
+          <div className="absolute right-0 top-0 h-3 w-3 rounded-full bg-red-700" />
         )}
         <svg
-          className="bellSVG w-6 h-6 transition-all hover:scale-125"
+          className="bellSVG h-6 w-6 transition-all hover:scale-125"
           xmlns="http://www.w3.org/2000/svg"
           viewBox="0 0 19 19"
         >

@@ -15,7 +15,7 @@ import { useAuthContext } from "./AuthContextProvider";
 import { useUserDataContext } from "./UserDataProvider";
 import { ImDownload } from "react-icons/im";
 
-const Navbar = () => {
+const ClubNavbar = () => {
   const [showOptions, setShowOptions] = useState(false);
   const Route = usePathname();
   const Params = useSearchParams();
@@ -107,7 +107,7 @@ const Navbar = () => {
           className="z-50 flex items-center space-x-3 rtl:space-x-reverse"
         >
           <Image
-            src="/Images/FTMPC.svg"
+            src="/Logo.png"
             className="h-12 max-w-[7.5rem] object-contain xsm:max-w-36"
             alt="NDITC Logo"
             width={512}
@@ -120,18 +120,18 @@ const Navbar = () => {
         >
           {userAuth ? (
             <Link
-              href="/profile"
+              href="/club/profile"
               type="button"
-              className="before:ease Inter font-ShareTechTown relative flex items-center overflow-hidden rounded-lg border bg-primary_dark px-4 py-2 text-center text-sm font-medium text-white shadow-2xl before:absolute before:left-0 before:-ml-2 before:h-48 before:w-48 before:origin-top-right before:-translate-x-full before:translate-y-12 before:-rotate-90 before:bg-primary before:transition-all before:duration-300 hover:text-white hover:before:-rotate-180 focus:outline-none focus:ring-4 focus:ring-secondary lg:px-2 xl:px-4"
+              className="before:ease Inter relative flex items-center overflow-hidden rounded-lg border bg-primary_dark px-4 py-2 text-center font-ShareTechTown text-sm font-medium text-white shadow-2xl before:absolute before:left-0 before:-ml-2 before:h-48 before:w-48 before:origin-top-right before:-translate-x-full before:translate-y-12 before:-rotate-90 before:bg-primary before:transition-all before:duration-300 hover:text-white hover:before:-rotate-180 focus:outline-none focus:ring-4 focus:ring-secondary lg:px-2 xl:px-4"
             >
               <FiUser className="z-10 h-5 w-5 xsm:mr-2 xsm:h-4 xsm:w-4" />
               <span className="relative z-10 hidden xsm:inline">PROFILE</span>
             </Link>
           ) : (
             <Link
-              href="/login"
+              href="/club/login"
               type="button"
-              className="before:ease Inter font-ShareTechTown relative flex items-center overflow-hidden rounded-lg border bg-primary_dark px-4 py-2 text-center text-sm font-medium text-white shadow-2xl before:absolute before:left-0 before:-ml-2 before:h-48 before:w-48 before:origin-top-right before:-translate-x-full before:translate-y-12 before:-rotate-90 before:bg-primary before:transition-all before:duration-300 hover:text-white hover:before:-rotate-180 focus:outline-none focus:ring-4 focus:ring-secondary lg:px-2 xl:px-4"
+              className="before:ease Inter relative flex items-center overflow-hidden rounded-lg border bg-primary_dark px-4 py-2 text-center font-ShareTechTown text-sm font-medium text-white shadow-2xl before:absolute before:left-0 before:-ml-2 before:h-48 before:w-48 before:origin-top-right before:-translate-x-full before:translate-y-12 before:-rotate-90 before:bg-primary before:transition-all before:duration-300 hover:text-white hover:before:-rotate-180 focus:outline-none focus:ring-4 focus:ring-secondary lg:px-2 xl:px-4"
             >
               <LuLogIn className="z-10 h-5 w-5 xsm:mr-2 xsm:h-4 xsm:w-4" />
               <span className="relative z-10 hidden xsm:inline">LOGIN</span>
@@ -151,7 +151,7 @@ const Navbar = () => {
                 }
               }}
               type="button"
-              className="before:ease Inter font-ShareTechTown relative flex items-center overflow-hidden rounded-lg border bg-primary_dark px-4 py-2 text-center text-sm font-medium text-white shadow-2xl before:absolute before:left-0 before:-ml-2 before:h-48 before:w-48 before:origin-top-right before:-translate-x-full before:translate-y-12 before:-rotate-90 before:bg-primary before:transition-all before:duration-300 hover:text-white hover:before:-rotate-180 focus:outline-none focus:ring-4 focus:ring-secondary lg:px-2 xl:px-4"
+              className="before:ease Inter relative flex items-center overflow-hidden rounded-lg border bg-primary_dark px-4 py-2 text-center font-ShareTechTown text-sm font-medium text-white shadow-2xl before:absolute before:left-0 before:-ml-2 before:h-48 before:w-48 before:origin-top-right before:-translate-x-full before:translate-y-12 before:-rotate-90 before:bg-primary before:transition-all before:duration-300 hover:text-white hover:before:-rotate-180 focus:outline-none focus:ring-4 focus:ring-secondary lg:px-2 xl:px-4"
             >
               <ImDownload className="z-10 h-5 w-5" />
             </button>
@@ -207,7 +207,7 @@ const Navbar = () => {
                 onClick={() => {
                   setShowOptions(false);
                 }}
-                href="/"
+                href="/club/"
                 className={
                   "block rounded px-3 py-2 text-gray-900 lg:p-0 lg:hover:bg-transparent lg:hover:text-secondary" +
                   " " +
@@ -225,7 +225,7 @@ const Navbar = () => {
                 onClick={() => {
                   setShowOptions(false);
                 }}
-                href="/#about"
+                href="/club/#about"
                 className={
                   "block rounded px-3 py-2 text-gray-900 lg:p-0 lg:hover:bg-transparent lg:hover:text-secondary" +
                   " " +
@@ -242,7 +242,7 @@ const Navbar = () => {
                 onClick={() => {
                   setShowOptions(false);
                 }}
-                href="/#rules"
+                href="/club/#rules"
                 className={
                   "block rounded px-3 py-2 text-gray-900 lg:p-0 lg:hover:bg-transparent lg:hover:text-secondary" +
                   " " +
@@ -259,7 +259,7 @@ const Navbar = () => {
                 onClick={() => {
                   setShowOptions(false);
                 }}
-                href="/#setter"
+                href="/club/#setter"
                 className={
                   "block rounded px-3 py-2 text-gray-900 lg:p-0 lg:hover:bg-transparent lg:hover:text-secondary" +
                   " " +
@@ -276,7 +276,7 @@ const Navbar = () => {
                 onClick={() => {
                   setShowOptions(false);
                 }}
-                href="/#faq"
+                href="/club/#faq"
                 className={
                   "block rounded px-3 py-2 text-gray-900 lg:p-0 lg:hover:bg-transparent lg:hover:text-secondary" +
                   " " +
@@ -302,7 +302,7 @@ const Navbar = () => {
                 onClick={() => {
                   setShowOptions(false);
                 }}
-                href="/#Contact"
+                href="/club/#Contact"
                 className="block rounded px-3 py-2 text-gray-900 hover:bg-gray-200 lg:p-0 lg:hover:bg-transparent lg:hover:text-secondary"
               >
                 Contact
@@ -316,8 +316,8 @@ const Navbar = () => {
                   }}
                   href={
                     config?.final_result_published
-                      ? "/standings/final"
-                      : "/standings/preliminary"
+                      ? "/club/standings/final"
+                      : "/club/standings/preliminary"
                   }
                   className="block rounded px-3 py-2 text-gray-900 hover:bg-gray-200 lg:p-0 lg:hover:bg-transparent lg:hover:text-secondary"
                 >
@@ -332,13 +332,13 @@ const Navbar = () => {
                 }}
                 href={
                   userAuth
-                    ? `/events/${encrypt(userAuth.uid)}/${encrypt(userData?.ndc_id == "" || userData?.ndc_id == undefined ? "none" : userData?.ndc_id)}`
-                    : "/events"
+                    ? `/club/events/${encrypt(userAuth.uid)}/${encrypt(userData?.ndc_id == "" || userData?.ndc_id == undefined ? "none" : userData?.ndc_id)}`
+                    : "/club/events"
                 }
                 className={
                   "block rounded-lg border-2 border-primary px-3 py-2 text-primary lg:rounded-none lg:border-0 lg:border-b-2 lg:border-secondary lg:p-0 lg:hover:bg-transparent lg:hover:text-secondary" +
                   " " +
-                  (Route === "/"
+                  (Route === "/club/"
                     ? "bg-primary text-white hover:bg-primary_dark lg:bg-transparent lg:text-secondary"
                     : "hover:bg-primary hover:text-white lg:bg-transparent lg:text-primary")
                 }
@@ -374,4 +374,4 @@ const Navbar = () => {
   );
 };
 
-export default Navbar;
+export default ClubNavbar;
