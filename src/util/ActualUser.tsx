@@ -1,7 +1,7 @@
 "use client";
 
-import { useAuthContext } from "@/Components/Layout/AuthContextProvider";
-import Error from "@/Components/Error";
+import { useAuthContext } from "@/app/club/Components/Layout/AuthContextProvider";
+import Error from "@/app/club/Components/Error";
 import { CgSpinner } from "react-icons/cg";
 
 const ActualUser = ({ passedUID }: { passedUID: string }) => {

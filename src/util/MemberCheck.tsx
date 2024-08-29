@@ -1,6 +1,6 @@
 "use client";
 
-import { useUserDataContext } from "@/Components/Layout/UserDataProvider";
+import { useUserDataContext } from "@/app/club/Components/Layout/UserDataProvider";
 import { auth, db } from "@/config/firebase";
 import { updateDoc, doc } from "firebase/firestore";
 import { useRouter } from "next/navigation";
@@ -25,7 +25,6 @@ const MemberCheck = ({ urlMemberID }: { urlMemberID: string }) => {
 
   useEffect(() => {
     if (userData?.ndc_id != "none") {
-      console.log("YO");
       getConnectToNDITC(userData?.ndc_id, userAuth?.email || "").catch(() => {
         toast.error("You are not a member of NDITC!");
         updateDoc(doc(db, "participants", `${userAuth?.uid}`), {
