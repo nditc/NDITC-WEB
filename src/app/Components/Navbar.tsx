@@ -15,6 +15,8 @@ const Navbar = () => {
   const navRef = useRef<HTMLElement>(null);
   const [windowWidth, setWindowWidth] = useState(800);
 
+  const [deferredPrompt, setDeferredPrompt] = useState<any>(null);
+
   useEffect(() => {
     const stateHandler = () => {
       setShowOptions(false);
@@ -42,9 +44,17 @@ const Navbar = () => {
     window.addEventListener("hashchange", stateHandler);
     window.addEventListener("resize", listener);
     document.addEventListener("mousedown", handleClickOutside);
+
+    const install = (e: any) => {
+      setDeferredPrompt(e);
+    };
+
+    window.addEventListener("beforeinstallprompt", install);
+
     return () => {
       window.removeEventListener("hashchange", stateHandler);
       window.removeEventListener("resize", listener);
+      window.removeEventListener("beforeinstallprompt", install);
     };
   }, [Route, Params]);
 
@@ -75,8 +85,18 @@ const Navbar = () => {
           />
         </Link>
         <div className="z-50 flex space-x-3 md:order-2 md:space-x-0 rtl:space-x-reverse">
-          <Link
-            href="/details/U2FsdGVkX1%2BAo1HnTjk4aPrXkCt9rh1%2BNX%2FDWCpvsejwdtAoSjewOeYdKkZbh6aGaCzc66CV12V3COPzTfJdiRVwQsKY9T7hTEK5uHR6K4odMR4G%2FHndw%2BsLnz%2FamA1HVEDOV9n%2FeVAQ7U3yvYJftX0vc455XIZ3msRakGeLRfcnSfCudDzNtNO2z%2BBV3BJ3Q%2FAiKPNaCas8xNySX8iKn2q6N6OfEw4tQeh7SlogJS4%3D/project/1687651200"
+          <button
+            onClick={async () => {
+              setShowOptions(false);
+
+              if (deferredPrompt !== null) {
+                deferredPrompt.prompt();
+                const { outcome } = await deferredPrompt.userChoice;
+                if (outcome === "accepted") {
+                  setDeferredPrompt(null);
+                }
+              }
+            }}
             type="button"
             className="before:ease relative overflow-hidden rounded-lg border border-black bg-[#252525] px-4 py-2 text-center font-ShareTechTown text-sm font-medium text-white shadow-2xl before:absolute before:left-0 before:-ml-2 before:h-48 before:w-48 before:origin-top-right before:-translate-x-full before:translate-y-12 before:-rotate-90 before:bg-gray-900 before:transition-all before:duration-300 hover:bg-zinc-700 hover:text-white hover:before:-rotate-180 focus:outline-none focus:ring-4 focus:ring-blue-300 md:px-2 lg:px-4"
           >
@@ -88,7 +108,7 @@ const Navbar = () => {
               src="/image/icon/d_app.png"
               alt=""
             />
-          </Link>
+          </button>
           <button
             onClick={() => setShowOptions(!showOptions)}
             data-collapse-toggle="navbar-sticky"
@@ -221,6 +241,18 @@ const Navbar = () => {
                 </Link>
               </li>
             )}
+
+            <li>
+              <Link
+                onClick={() => {
+                  setShowOptions(false);
+                }}
+                href="/club"
+                className="block rounded px-3 py-2 text-primary-500 hover:bg-gray-200 md:p-0 md:hover:bg-transparent md:hover:text-blue-500"
+              >
+                Club
+              </Link>
+            </li>
           </ul>
         </div>
       </div>

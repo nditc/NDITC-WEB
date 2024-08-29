@@ -302,10 +302,10 @@ const ClubNavbar = () => {
                 onClick={() => {
                   setShowOptions(false);
                 }}
-                href="/club/#Contact"
+                href="/"
                 className="block rounded px-3 py-2 text-gray-900 hover:bg-gray-200 lg:p-0 lg:hover:bg-transparent lg:hover:text-secondary"
               >
-                Contact
+                Main
               </Link>
             </li>
             {config?.pre_result_published ? (
@@ -338,7 +338,7 @@ const ClubNavbar = () => {
                 className={
                   "block rounded-lg border-2 border-primary px-3 py-2 text-primary lg:rounded-none lg:border-0 lg:border-b-2 lg:border-secondary lg:p-0 lg:hover:bg-transparent lg:hover:text-secondary" +
                   " " +
-                  (Route === "/club/"
+                  (Route === "/club/events"
                     ? "bg-primary text-white hover:bg-primary_dark lg:bg-transparent lg:text-secondary"
                     : "hover:bg-primary hover:text-white lg:bg-transparent lg:text-primary")
                 }

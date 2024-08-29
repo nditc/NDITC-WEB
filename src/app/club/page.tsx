@@ -6,23 +6,17 @@ import About from "@/app/club/Components/Home/About";
 import Rules from "@/app/club/Components/Home/Rules";
 import Contact from "@/app/club/Components/Contact";
 import FAQ from "@/app/club/Components/Home/FAQ";
-import { AuthContextProvider } from "./Components/Layout/AuthContextProvider";
-import { UserDataContextProvider } from "./Components/Layout/UserDataProvider";
 
 const page = () => {
   return (
     <>
       <main className="container mx-auto flex flex-col items-center justify-center">
-        <AuthContextProvider>
-          <UserDataContextProvider>
-            <Hero />
-            <About />
-            <Rules />
-            <Setter />
-            <FAQ />
-            <Contact />
-          </UserDataContextProvider>
-        </AuthContextProvider>
+        <Hero />
+        <About />
+        <Rules />
+        <Setter />
+        <FAQ />
+        <Contact />
       </main>
     </>
   );

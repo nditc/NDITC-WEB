@@ -2,6 +2,7 @@
 
 import { auth, db } from "@/config/firebase";
 import { doc, updateDoc, getDoc } from "firebase/firestore";
+import { usePathname } from "next/navigation";
 import { createContext, useContext, useEffect, useState } from "react";
 import { useAuthState } from "react-firebase-hooks/auth";
 
@@ -18,36 +19,48 @@ export const UserDataContextProvider = ({
 }) => {
   const [userAuth, loading] = useAuthState(auth);
 
-  const [userData, setUserData] = useState<any | undefined>();
+  const [userData, setUserData] = useState<any | undefined>(null);
   const [userDataLoading, setUserDataLoading] = useState<boolean>(true);
   const [dataError, setDataError] = useState<boolean>(false);
 
+  const Route = usePathname();
+
+  const [canLoadData, setCanLoadData] = useState(false);
+
   useEffect(() => {
-    auth.currentUser?.reload();
+    if (Route.includes("club")) {
+      setCanLoadData(true);
+    }
+  }, [Route]);
 
-    if (userAuth && userAuth.emailVerified) {
-      const docRef = doc(db, "participants", userAuth.uid);
+  useEffect(() => {
+    if (canLoadData) {
+      auth.currentUser?.reload();
 
-      updateDoc(docRef, { verified: true })
-        .then(() => {
-          getDoc(doc(db, "participants", userAuth.uid))
-            .then((docs) => {
-              setUserData(docs.data());
-              setUserDataLoading(false);
-            })
-            .catch((err) => {
-              setDataError(true);
-              setUserDataLoading(false);
-            });
-        })
-        .catch((err) => {
-          setDataError(true);
-          setUserDataLoading(false);
-        });
-    } else if (userAuth && !userAuth?.emailVerified) {
-      setUserData(null);
-    } else if (!loading) {
-      setUserData(null);
+      if (userAuth && userAuth.emailVerified) {
+        const docRef = doc(db, "participants", userAuth.uid);
+
+        updateDoc(docRef, { verified: true })
+          .then(() => {
+            getDoc(doc(db, "participants", userAuth.uid))
+              .then((docs) => {
+                setUserData(docs.data());
+                setUserDataLoading(false);
+              })
+              .catch((err) => {
+                setDataError(true);
+                setUserDataLoading(false);
+              });
+          })
+          .catch((err) => {
+            setDataError(true);
+            setUserDataLoading(false);
+          });
+      } else if (userAuth && !userAuth?.emailVerified) {
+        setUserData(null);
+      } else if (!loading) {
+        setUserData(null);
+      }
     }
   }, [userAuth, loading]);
 
