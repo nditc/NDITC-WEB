@@ -19,7 +19,7 @@ const inter = Inter({ subsets: ["latin"] });
 export const metadata: Metadata = {
   title: "NDITC",
   description: "Love the light of Technology",
-  icons: { icon: "favicon.ico" },
+  icons: { icon: "/Logo.png" },
   manifest: "/manifest.webmanifest",
   openGraph: {
     images: [
