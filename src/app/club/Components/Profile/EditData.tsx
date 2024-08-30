@@ -1,4 +1,4 @@
-import React, { FormEvent, useEffect, useState } from "react";
+import { FormEvent, useEffect, useState } from "react";
 import { FaRegEdit, FaRegTrashAlt, FaTimes } from "react-icons/fa";
 import Field from "@/app/club/Components/Field";
 import Select from "@/app/club/Components/Select";
@@ -17,7 +17,7 @@ interface props {
 }
 
 const EditData = ({ userData, setUserData }: props) => {
-  const [editUserData, setEditUserData] = useState<any>();
+  const [editUserData, setEditUserData] = useState<any>(userData);
   const [editin, setEditing] = useState<boolean>(false);
   const [loading, setLoading] = useState<boolean>(false);
   const [userAuth] = useAuthState(auth);

@@ -199,7 +199,7 @@ const Page = () => {
                   <Link
                     type={"button"}
                     className="inline-flex flex-1 items-center justify-center gap-2 rounded-lg bg-primary px-5 py-2 text-sm leading-[1.15] text-white shadow-sm transition-colors hover:bg-primary_dark hover:text-white focus:ring-2 focus:ring-secondary"
-                    href={"/admin/users"}
+                    href={"/club/admin/users"}
                   >
                     <FiUsers className="h-6 w-6" />
                     Users

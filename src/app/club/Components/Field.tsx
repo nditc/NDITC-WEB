@@ -1,5 +1,4 @@
-import React, { HTMLInputTypeAttribute } from 'react';
-import { regDataInit, regDataType } from '@/config/registerData';
+import React, { HTMLInputTypeAttribute } from "react";
 
 type props = {
   name: string;
@@ -11,15 +10,26 @@ type props = {
   editable?: boolean;
 };
 
-const Field = ({ name, label, type, state, setValue, notRequired, editable = true }: props) => {
+const Field = ({
+  name,
+  label,
+  type,
+  state,
+  setValue,
+  notRequired,
+  editable = true,
+}: props) => {
   return (
     <div className="flex flex-col gap-1">
-      <label className="text-gray-500 ml-2 font-medium disabled:text-gray-200" htmlFor={name}>
+      <label
+        className="ml-2 font-medium text-gray-500 disabled:text-gray-200"
+        htmlFor={name}
+      >
         {label}
-        {notRequired ? ' (Optional)' : ''}:
+        {notRequired ? " (Optional)" : ""}:
       </label>
       <input
-        className="px-5 py-3 border-gray-200  disabled:bg-white disabled:text-gray-400 rounded-xl border focus:border-primary focus:outline-none"
+        className="rounded-xl border border-gray-200 px-5 py-3 focus:border-primary focus:outline-none disabled:bg-white disabled:text-gray-400"
         onChange={(e) => setValue(name, e.target.value)}
         value={state}
         type={type}
