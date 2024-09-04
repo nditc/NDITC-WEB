@@ -283,7 +283,7 @@ const Page = () => {
                       >
                         <img
                           src={e.data?.imageUrl}
-                          className="ml-1 h-full rounded-full p-1"
+                          className="ml-1 aspect-square h-full rounded-full p-1"
                         />
                         <div>{e.data?.name}</div>
                         <div>Class: {e.data?.class}</div>
@@ -449,7 +449,7 @@ const EditUserData = ({
             <img
               src={editUserData.imageUrl}
               alt="User Image"
-              className="w-36 rounded-full"
+              className="aspect-square size-fit w-36 rounded-full"
             />
             <Field
               state={editUserData.imageUrl}
@@ -591,6 +591,8 @@ const EditEventData = ({ uid }: { uid: string }) => {
     const eventDoc = await getDoc(doc(db, "eventparticipant", uid));
     if (!eventDoc.exists()) {
       toast.error("User hasn't participated yet");
+      setEventData(null);
+      return;
     }
     setEventData({ id: eventDoc.id, data: eventDoc.data() });
   };
