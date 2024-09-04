@@ -248,7 +248,7 @@ const Navbar = () => {
                   setShowOptions(false);
                 }}
                 href="/club"
-                className="block rounded px-3 py-2 text-primary-500 hover:bg-gray-200 md:p-0 md:hover:bg-transparent md:hover:text-blue-500"
+                className="block rounded bg-blue-500 px-3 py-2 text-white hover:bg-gray-200 md:bg-transparent md:p-0 md:text-primary-500 md:hover:bg-transparent md:hover:text-blue-500"
               >
                 Club
               </Link>

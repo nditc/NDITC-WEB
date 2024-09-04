@@ -21,6 +21,7 @@ import Link from "next/link";
 import { getConfig } from "@/config/config_db";
 import { Checkbox } from "@nextui-org/checkbox";
 import { useAuthContext } from "@/app/club/Components/Layout/AuthContextProvider";
+import PassingYear from "../../Components/PassingYear";
 
 type actionType = {
   type: "SET_FIELD";
@@ -231,12 +232,12 @@ const Page = () => {
                 label="Full Name"
                 type="text"
               />
-              <Select
-                selected={regData.class}
-                values={classes}
+              <PassingYear
                 setValue={setValue}
                 name="class"
-                label="Class"
+                label="HSC Passing Year"
+                type={"number"}
+                state={regData.class}
               />
               <Field
                 state={regData.institution}

@@ -103,7 +103,6 @@ const Page = () => {
       })
         .then((r) => r.json())
         .then((resp) => {
-          console.log(resp);
           setAdminAuth(resp.auth || false);
           setAuthLoading(false);
         })

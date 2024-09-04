@@ -10,6 +10,7 @@ import { doc, updateDoc } from "firebase/firestore";
 import { auth, db } from "@/config/firebase";
 import { useAuthState } from "react-firebase-hooks/auth";
 import { toast } from "react-toastify";
+import PassingYear from "../PassingYear";
 
 interface props {
   userData: any;
@@ -94,12 +95,12 @@ const EditData = ({ userData, setUserData }: props) => {
               type="text"
               editable={editin}
             />
-            <Select
-              selected={editUserData.class}
-              values={classes}
+            <PassingYear
+              state={editUserData.class}
               setValue={setValue}
               name="class"
-              label="Class"
+              label="HSC Passing Year"
+              type="number"
               editable={editin}
             />
             <Field
