@@ -138,7 +138,7 @@ const ClubInfo = ({
             </div>
           </div>
           {memberData && (
-            <div className="grid w-full grid-cols-1 gap-5 md:grid-cols-2">
+            <div className="grid w-full grid-cols-1 gap-5 md:grid-cols-2 2xl:grid-cols-3">
               <Info label="Name" info={memberData?.name} />
 
               <Info label="Passing Year" info={memberData?.year} />
@@ -195,9 +195,10 @@ export default ClubInfo;
 
 const Info = ({ label, info }: { label: string; info: string }) => {
   return (
-    <div className="rounded-xl border border-gray-200 px-4 py-2">
-      <span className="font-bold">{`${label}: `}</span>
-      {info}
+    <div className="rounded-xl border border-gray-200 px-5 py-3 text-gray-700">
+      <span className="text-sm font-medium text-gray-500">{`${label}: `}</span>
+      <br></br>
+      {info === "" ? "-" : info}
     </div>
   );
 };

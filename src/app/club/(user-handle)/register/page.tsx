@@ -196,131 +196,165 @@ const Page = () => {
       });
   }, [Router]);
   return (
-    <div className="bg-image mt-[81px] grid w-screen place-items-center shadow-lg shadow-secondary md:min-h-[calc(100vh_-_81px)]">
-      <div className="container-login flex w-full bg-white pb-8 pt-3 sm:my-16 sm:rounded-xl sm:py-0">
+    <div className="mt-[81px] grid w-screen place-items-center bg-[url(/image/club/lbg.jpg)] bg-cover bg-center shadow-lg shadow-secondary md:min-h-[calc(100vh_-_81px)]">
+      <div className="container-login flex w-full flex-col bg-white pb-8 pt-3 sm:my-16 sm:rounded-xl sm:py-0 lg:flex-row">
         {configLoading ? (
           <div className="grid h-[80vh] w-full place-items-center">
             <CgSpinner className="mx-auto h-16 w-16 animate-spin text-primary" />
           </div>
         ) : (
-          <form
-            className="grid w-full grid-cols-1 gap-5 p-5 sm:p-12"
-            onSubmit={handleSubmit}
-          >
-            <AiOutlineUserAdd className="h-12 w-12 text-primary" />
-            <h1 className="text-4xl">
-              <span className="text-primary">Registration</span> Form
-            </h1>
-            <p>
-              Please fill out the form below to secure your spot in the contest.
-              We can’t wait to see what you’ll bring to the table!{" "}
-              <Link
-                className="inline border-b-2 border-transparent font-medium text-primary hover:border-primary"
-                href="/club/login"
-              >
-                Login Instead
-              </Link>{" "}
-              if you have already registered. By filling out this form you are
-              agreeing, to our terms and conditions.
-            </p>
-            <div className="grid w-full grid-cols-1 gap-5 md:grid-cols-2">
-              <Field
-                state={regData.name}
-                setValue={setValue}
-                name="name"
-                label="Full Name"
-                type="text"
-              />
-              <Select
-                selected={regData.class}
-                values={classes}
-                setValue={setValue}
-                name="class"
-                label="Class"
-              />
-              <Field
-                state={regData.institution}
-                setValue={setValue}
-                name="institution"
-                label="Institution"
-                type="text"
-              />
-              <Field
-                state={regData.email}
-                setValue={setValue}
-                name="email"
-                label="E-mail"
-                type="email"
-              />
-              <Field
-                state={regData.mobile}
-                setValue={setValue}
-                name="mobile"
-                label="Mobile No."
-                type="tel"
-              />
-              <Field
-                state={regData.address}
-                setValue={setValue}
-                name="address"
-                label="Present Address"
-                type="text"
-              />
-              <Checkbox
-                size="lg"
-                isSelected={isNDCStudent}
-                onValueChange={setIsNDCStudent}
-              >
-                <label className="text-2xl font-medium text-gray-900">
-                  <span className="text-primary">NDITC</span> Member (Checkbox)
-                </label>
-              </Checkbox>
-              <Field
-                notRequired={!isNDCStudent}
-                editable={isNDCStudent}
-                state={regData.ndc_id}
-                setValue={setValue}
-                name="ndc_id"
-                label="NDC Roll"
-                type="text"
-              />
-              <Field
-                state={regData.fbLink}
-                setValue={setValue}
-                name="fbLink"
-                label="Facebook Profile Link"
-                type="text"
-                notRequired
-              />
-              <Field
-                state={regData.codeforcesHandle}
-                setValue={setValue}
-                name="codeforcesHandle"
-                label="Codeforces Handle"
-                type="text"
-                notRequired
-              />{" "}
-              <Field
-                state={password}
-                setValue={(name, data) => setPassword(String(data))}
-                name="Password"
-                label="Password"
-                type="password"
-              />{" "}
-              <Field
-                state={confirmPassword}
-                setValue={(name, data) => setConfirmPassword(String(data))}
-                name="Confirm Password"
-                label="Confirm Password"
-                type="password"
-              />
-            </div>
-            <div className="w-full justify-self-end py-3 md:w-auto md:py-0">
+          <>
+            <img
+              alt="login"
+              className={
+                "my-5 ml-5 mr-0 hidden w-[40%] flex-1 rounded-xl object-contain lg:block"
+              }
+              src="/image/club/login.svg"
+              width={400}
+              height={400}
+            />
+            <form
+              className="grid w-full flex-1 grid-cols-1 gap-5 p-5 sm:p-12"
+              onSubmit={handleSubmit}
+            >
+              <AiOutlineUserAdd className="h-12 w-12 text-primary" />
+              <h1 className="text-4xl">
+                <span className="text-primary">Registration</span> Form
+              </h1>
+              <p>
+                Please fill out the form below to secure your spot in the
+                contest. We can’t wait to see what you’ll bring to the table!{" "}
+                <Link
+                  className="inline border-b-2 border-transparent font-medium text-primary hover:border-primary"
+                  href="/club/login"
+                >
+                  Login Instead
+                </Link>{" "}
+                if you have already registered. By filling out this form you are
+                agreeing, to our terms and conditions.
+              </p>
+              <div className="my-2 flex items-center gap-4">
+                {/* <label className="ml-2 font-medium text-gray-500 disabled:text-gray-200">
+                Membership Satus:
+              </label> */}
+                <div className="flex w-full gap-1 rounded-xl border border-gray-200 p-1 text-small">
+                  <button
+                    onClick={() => setIsNDCStudent(true)}
+                    type="button"
+                    className={
+                      (isNDCStudent
+                        ? "bg-primary text-white"
+                        : "hover:bg-zinc-200 active:bg-zinc-400") +
+                      " w-[123px] flex-1 rounded-lg px-4 py-3 transition"
+                    }
+                  >
+                    Club Member
+                  </button>
+                  <button
+                    type="button"
+                    onClick={() => setIsNDCStudent(false)}
+                    className={
+                      (!isNDCStudent
+                        ? "bg-primary text-white"
+                        : "hover:bg-zinc-200 active:bg-zinc-400") +
+                      " w-[123px] flex-1 rounded-lg px-4 py-3 transition"
+                    }
+                  >
+                    Non-Member
+                  </button>
+                </div>
+              </div>
+              <div className="grid w-full grid-cols-1 gap-5 md:grid-cols-2 lg:grid-cols-1 xl:grid-cols-2">
+                {/* Non-Member Fields */}
+                {!isNDCStudent ? (
+                  <>
+                    <Field
+                      state={regData.name}
+                      setValue={setValue}
+                      name="name"
+                      label="Full Name"
+                      type="text"
+                    />
+                    <Select
+                      selected={regData.class}
+                      values={classes}
+                      setValue={setValue}
+                      name="class"
+                      label="Class"
+                    />
+                    <Field
+                      state={regData.institution}
+                      setValue={setValue}
+                      name="institution"
+                      label="Institution"
+                      type="text"
+                    />
+                    <Field
+                      state={regData.mobile}
+                      setValue={setValue}
+                      name="mobile"
+                      label="Mobile No."
+                      type="tel"
+                    />
+                    <Field
+                      state={regData.address}
+                      setValue={setValue}
+                      name="address"
+                      label="Present Address"
+                      type="text"
+                    />
+                  </>
+                ) : null}
+                {/* Member Fields */}
+                {isNDCStudent ? (
+                  <Field
+                    notRequired={!isNDCStudent}
+                    editable={isNDCStudent}
+                    state={regData.ndc_id}
+                    setValue={setValue}
+                    name="ndc_id"
+                    label="NDC Roll"
+                    type="text"
+                  />
+                ) : null}
+                {/* Common Fields */}
+                <Field
+                  state={regData.email}
+                  setValue={setValue}
+                  name="email"
+                  label="E-mail"
+                  type="email"
+                />
+                <Field
+                  state={regData.fbLink}
+                  setValue={setValue}
+                  name="fbLink"
+                  label="Facebook"
+                  type="text"
+                  notRequired
+                />
+                <br></br>
+                <Field
+                  state={password}
+                  setValue={(name, data) => setPassword(String(data))}
+                  name="Password"
+                  label="Password"
+                  type="password"
+                />{" "}
+                <Field
+                  state={confirmPassword}
+                  setValue={(name, data) => setConfirmPassword(String(data))}
+                  name="Confirm Password"
+                  label="Confirm Password"
+                  type="password"
+                />
+              </div>
+
               <button
                 style={{
                   pointerEvents: rloading ? "none" : "auto",
                 }}
-                className="w-full rounded-xl bg-primary px-8 py-2 text-lg text-white transition-all hover:bg-secondary_light hover:text-primary"
+                className="mb-4 mt-6 w-full rounded-xl bg-primary px-8 py-2 text-lg text-white transition-all hover:bg-secondary_light hover:text-primary"
                 type="submit"
               >
                 {rloading ? (
@@ -329,8 +363,8 @@ const Page = () => {
                   "Submit"
                 )}
               </button>
-            </div>
-          </form>
+            </form>
+          </>
         )}
       </div>
     </div>

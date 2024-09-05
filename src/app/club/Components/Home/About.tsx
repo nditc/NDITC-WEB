@@ -3,25 +3,29 @@ import Image from "next/image";
 const About = () => {
   return (
     <section
-      className="w-screen bg-no-repeat bg-cover bg-bottom  relative my-auto"
+      className="relative my-auto w-screen bg-cover bg-bottom bg-no-repeat"
       id="about"
     >
-      <section className="w-screen bg-image bg-no-repeat bg-cover bg-bottom  relative my-auto">
+      <section className="relative my-auto w-screen overflow-hidden bg-no-repeat backdrop-blur-lg">
         {" "}
-        <section className="flex flex-col container items-center pt-14 pb-12 my-auto">
-          <h1 className="text-[2.55rem] md:text-5xl text-white ">
+        <img
+          className="absolute -left-[1px] -right-[1px] top-0 -z-10 h-full w-[115vw] bg-[url(/image/club/lbg.jpg)] bg-cover bg-bottom"
+          alt=""
+        ></img>
+        <section className="container my-auto flex flex-col items-center pb-12 pt-14">
+          <h1 className="text-[2.55rem] text-white md:text-5xl">
             ABOUT <span className="text-secondary">FTMPC 4.0</span>
           </h1>
 
-          <div className="flex flex-col lg:flex-row gap-4 lg:gap-8 text-[#ffffffbe] text-base xl:text-lg Nunito mt-3  pb-2 items-stretch">
-            <div className="w-full flex-1 lg:w-1/2 h-[350px] lg:h-auto rounded-xl shadow grid  justify-items-center place-items-stretch">
+          <div className="Nunito mt-3 flex flex-col items-stretch gap-4 pb-2 text-base text-[#ffffffbe] lg:flex-row lg:gap-8 xl:text-lg">
+            {/* <div className="grid h-[350px] w-full flex-1 place-items-stretch justify-items-center rounded-xl shadow lg:h-auto lg:w-1/2">
               <img
-                className="w-full md:w-3/4 lg:w-full h-[350px] lg:h-auto object-cover  md:mb-4  rounded-xl mt-3"
-                src="/Images/abt.jpg"
+                className="mt-3 h-[350px] w-full rounded-xl object-cover md:mb-4 md:w-3/4 lg:h-auto lg:w-full"
+                src="/image/club/abt.jpg"
                 alt=""
               ></img>
-            </div>
-            <div className="flex-1 pb-5 mt-3">
+            </div> */}
+            <div className="mt-3 flex-1 pb-5 text-white">
               <p className="flex-1">
                 Embarking on the journey of knowledge and innovation, Notre Dame
                 Information Technology Club proudly presents the fourth

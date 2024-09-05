@@ -10,7 +10,13 @@ const context = createContext<{
   userData: any | null | undefined;
   userDataLoading: boolean;
   dataError: boolean;
-}>({ userData: null, userDataLoading: false, dataError: false });
+  updateUserData: Function;
+}>({
+  userData: null,
+  userDataLoading: false,
+  dataError: false,
+  updateUserData: () => {},
+});
 
 export const UserDataContextProvider = ({
   children,
@@ -26,6 +32,12 @@ export const UserDataContextProvider = ({
   const Route = usePathname();
 
   const [canLoadData, setCanLoadData] = useState(false);
+
+  const [forceReload, setForceReload] = useState<number>(0);
+
+  const updateUserData = () => {
+    setForceReload(Math.random());
+  };
 
   useEffect(() => {
     if (Route.includes("club")) {
@@ -62,10 +74,12 @@ export const UserDataContextProvider = ({
         setUserData(null);
       }
     }
-  }, [userAuth, loading]);
+  }, [userAuth, loading, canLoadData, forceReload]);
 
   return (
-    <context.Provider value={{ userData, userDataLoading, dataError }}>
+    <context.Provider
+      value={{ userData, userDataLoading, dataError, updateUserData }}
+    >
       {children}
     </context.Provider>
   );

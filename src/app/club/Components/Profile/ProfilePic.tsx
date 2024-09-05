@@ -11,13 +11,7 @@ import { LiaTimesSolid } from "react-icons/lia";
 import { toast } from "react-toastify";
 import fileValidator from "@/util/fileValidator";
 
-const ProfilePic = ({
-  imageUrl,
-  setImage,
-}: {
-  imageUrl: any;
-  setImage: (url: string) => void;
-}) => {
+const ProfilePic = ({ imageUrl }: { imageUrl: any }) => {
   const [changeImage, setChangeImage] = useState<boolean>();
   const [newImage, setNewImage] = useState<FileList | null>();
   const [loading, setLoading] = useState<boolean>(false);
@@ -32,7 +26,6 @@ const ProfilePic = ({
         .then(async (snapshot) => {
           const url = await getDownloadURL(storeRef);
           await updateDoc(doc(db, "participants", user.uid), { imageUrl: url });
-          setImage(url);
           setLoading(false);
           setNewImage(null);
           setChangeImage(false);
@@ -40,9 +33,7 @@ const ProfilePic = ({
         })
         .catch((error) => {
           console.dir(error);
-
           toast.error(error.message.replaceAll("Firebase: ", ""));
-
           setLoading(false);
         });
     } else {
@@ -60,12 +51,10 @@ const ProfilePic = ({
         <p className="absolute left-1/2 top-1/2 z-10 -translate-x-1/2 -translate-y-1/2 cursor-pointer select-none font-medium text-transparent group-hover:text-white">
           Click to Change
         </p>
-        <Image
+        <img
           className="aspect-square h-[200px] w-[200px] min-w-[200px] max-w-[200px] cursor-pointer rounded-full bg-white object-cover shadow-md transition-all group-hover:brightness-50"
-          src={imageUrl}
+          src={imageUrl + `?x=${Math.random()}`}
           alt="profile-img"
-          width={200}
-          height={200}
         />
       </div>
       <Modal state={changeImage}>

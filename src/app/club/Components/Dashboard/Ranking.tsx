@@ -21,7 +21,7 @@ const Ranking = async () => {
   return (
     <>
       {rankList.length != 0 && (
-        <section className="tech-bg h-fit w-screen bg-top object-cover pb-16 pt-16 text-center md:text-lg">
+        <section className="tech-bg h-fit w-screen bg-neutral-100 bg-top object-cover pb-16 pt-16 text-center md:text-lg">
           <div className="container leading-7">
             <h1 className="mx-auto mb-5 md:mb-8">
               <FaRankingStar className="mr-3 inline h-8 w-8 align-top text-primary md:h-10 md:w-10" />
@@ -73,7 +73,7 @@ const RankHolder = async ({
 
   if (infoSnapshot.exists)
     return (
-      <div className="flex flex-col items-center gap-1 rounded-lg bg-white px-3 py-1">
+      <div className="flex flex-col items-center gap-1 rounded-lg px-3 py-1">
         <div className="flex">
           <FaCrown
             className={`h-8 w-8 md:h-10 md:w-10 ${i == 0 ? "text-yellow-500" : i == 1 ? "text-gray-500" : i == 2 ? "text-yellow-300" : ""}`}
@@ -85,11 +85,13 @@ const RankHolder = async ({
           alt="Ranker"
           className="h-56 w-56 rounded-full transition hover:scale-105"
         />
-        <div className="">
-          <p className="Bebas mt-1 line-clamp-2 w-72 text-4xl tracking-tight">
+        <div className="mt-4">
+          <p className="Bebas mt-1 line-clamp-2 w-72 text-4xl leading-none tracking-tight">
             {data?.name}
           </p>
-          <p className="mt-1 line-clamp-1 w-72">{data?.institution}</p>
+          <p className="mt-1 line-clamp-1 w-72 font-semibold leading-none text-primary">
+            {data?.institution}
+          </p>
           <p className="mt-1 line-clamp-1 w-72">Points: {points}</p>
         </div>
       </div>

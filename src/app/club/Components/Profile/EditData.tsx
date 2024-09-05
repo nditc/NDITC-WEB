@@ -10,6 +10,7 @@ import { doc, updateDoc } from "firebase/firestore";
 import { auth, db } from "@/config/firebase";
 import { useAuthState } from "react-firebase-hooks/auth";
 import { toast } from "react-toastify";
+import { useUserDataContext } from "../Layout/UserDataProvider";
 
 interface props {
   userData: any;
@@ -21,6 +22,7 @@ const EditData = ({ userData, setUserData }: props) => {
   const [editin, setEditing] = useState<boolean>(false);
   const [loading, setLoading] = useState<boolean>(false);
   const [userAuth] = useAuthState(auth);
+  const { updateUserData } = useUserDataContext();
   const setValue = (fname: string, value: string | number) => {
     setEditUserData((s: regDataType) => ({ ...s, [fname]: value }));
   };
@@ -33,8 +35,10 @@ const EditData = ({ userData, setUserData }: props) => {
     if (userAuth) {
       try {
         await updateDoc(doc(db, "participants", userAuth.uid), editUserData);
+
         setUserData(editUserData);
         toast.success("Data Updated!");
+        updateUserData();
         setEditing(false);
       } catch (err) {
         console.error(err);

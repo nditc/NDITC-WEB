@@ -1,11 +1,13 @@
 import type { Metadata } from "next";
 import { Inter } from "next/font/google";
 import "./globals.css";
-import "./styles/markdown.css";
+import "./(main)/styles/markdown.css";
 import "react-toastify/dist/ReactToastify.css";
-import Navbar from "./Components/Navbar";
-import SideBar from "./Components/Sidebar/SideBar";
-import Footer from "./Components/Footer";
+// import "react-toastify/dist/ReactToastify.css.map";
+// import "react-toastify/dist/react-toastify.esm.mjs.map";
+import Navbar from "./(main)/Components/Navbar";
+import SideBar from "./(main)/Components/Sidebar/SideBar";
+import Footer from "./(main)/Components/Footer";
 import NextTopLoader from "nextjs-toploader";
 import { Suspense } from "react";
 import { ToastContainer } from "react-toastify";

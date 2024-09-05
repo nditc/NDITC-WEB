@@ -16,16 +16,18 @@ export async function POST(req: NextRequest) {
 
   const member = await memberDOC.json();
 
+  console.log(member);
+
   if (!memberDOC.ok) {
     return NextResponse.json(
       { error: "No such Club Member exists" },
-      { status: 301 },
+      { status: 404 },
     );
   } else {
     if (member.email != data.email) {
       return NextResponse.json(
         { error: "No such Club Member exists" },
-        { status: 301 },
+        { status: 404 },
       );
     }
   }

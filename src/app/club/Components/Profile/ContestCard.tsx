@@ -48,13 +48,11 @@ const ContestCard = () => {
       {}
       {preResult ? (
         <div className="flex w-full flex-col items-center justify-center gap-3 md:flex-row md:justify-between">
-          <h1 className="Nunito w-32 text-xl font-bold text-secondary">
-            Preliminary
-          </h1>
+          <h1 className="Nunito w-32 text-xl text-secondary">Preliminary</h1>
           <div className="flex items-center gap-3">
             <div
               className={
-                "flex w-32 items-center gap-1 rounded-lg px-4 py-2 font-bold text-white shadow-sm md:w-36 md:text-lg " +
+                "flex w-32 items-center gap-1 rounded-lg px-4 py-2 text-white shadow-sm md:w-36 md:text-lg " +
                 (preResult.selected ? "bg-secondary" : "bg-rose-500")
               }
             >
@@ -72,7 +70,7 @@ const ContestCard = () => {
             </div>
             <div
               className={
-                "flex w-32 items-center justify-between gap-1 rounded-lg bg-white px-4 py-2 font-bold text-secondary shadow-sm md:w-36 md:text-lg"
+                "flex w-32 items-center justify-between gap-1 rounded-lg bg-white px-4 py-2 text-secondary shadow-sm md:w-36 md:text-lg"
               }
             >
               <span className="font-medium text-black">Rank:</span>
@@ -82,12 +80,10 @@ const ContestCard = () => {
         </div>
       ) : (
         <div className="mt-3 flex w-full flex-col items-center justify-center gap-3 md:flex-row md:justify-between">
-          <h1 className="Nunito text-xl font-bold text-secondary md:w-32">
-            Preliminary
-          </h1>
+          <h1 className="Nunito text-xl text-secondary md:w-32">Preliminary</h1>
           <div
             className={
-              "flex items-center justify-between gap-1 rounded-lg bg-secondary_lighter px-4 py-2 font-bold text-green-500 md:text-lg"
+              "flex items-center justify-between gap-1 rounded-lg bg-secondary_lighter px-4 py-2 text-green-500 md:text-lg"
             }
           >
             <span className="font-medium">Not Published</span>
@@ -96,13 +92,11 @@ const ContestCard = () => {
       )}
       {finalResult ? (
         <div className="mt-3 flex w-full flex-col items-center justify-center gap-3 md:flex-row md:justify-between">
-          <h1 className="Nunito text-xl font-bold text-secondary md:w-32">
-            Final
-          </h1>
+          <h1 className="Nunito text-xl text-secondary md:w-32">Final</h1>
           <div className="flex items-center gap-3">
             <div
               className={
-                "flex w-32 items-center gap-1 rounded-lg px-4 py-2 font-bold text-white shadow-sm md:w-36 md:text-lg " +
+                "flex w-32 items-center gap-1 rounded-lg px-4 py-2 text-white shadow-sm md:w-36 md:text-lg " +
                 (finalResult.participated ? "bg-secondary" : "bg-rose-500")
               }
             >
@@ -120,7 +114,7 @@ const ContestCard = () => {
             </div>
             <div
               className={
-                "flex w-32 items-center justify-between gap-1 rounded-lg bg-white px-4 py-2 font-bold text-secondary shadow-sm md:w-36 md:text-lg"
+                "flex w-32 items-center justify-between gap-1 rounded-lg bg-white px-4 py-2 text-secondary shadow-sm md:w-36 md:text-lg"
               }
             >
               <span className="font-medium text-black">Rank:</span>
@@ -130,12 +124,10 @@ const ContestCard = () => {
         </div>
       ) : (
         <div className="mt-3 flex w-full flex-col items-center justify-center gap-3 md:flex-row md:justify-between">
-          <h1 className="Nunito text-xl font-bold text-secondary md:w-32">
-            Final
-          </h1>
+          <h1 className="Nunito text-xl text-secondary md:w-32">Final</h1>
           <div
             className={
-              "flex items-center justify-between gap-1 rounded-lg bg-secondary_lighter px-4 py-2 font-bold text-green-500 md:text-lg"
+              "flex items-center justify-between gap-1 rounded-lg bg-secondary_lighter px-4 py-2 text-green-500 md:text-lg"
             }
           >
             <span className="font-medium">Not Published</span>
