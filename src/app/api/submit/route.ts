@@ -86,7 +86,8 @@ export async function POST(req: NextRequest) {
         .collection("eventparticipant")
         .doc(data.uid)
         .collection("eventsData")
-        .add({
+        .doc(data.id)
+        .set({
           marks: marks,
           uid: data.uid,
           time: now,

@@ -52,17 +52,21 @@ export const UserDataContextProvider = ({
       if (userAuth && userAuth.emailVerified) {
         const docRef = doc(db, "participants", userAuth.uid);
 
-        updateDoc(docRef, { verified: true })
-          .then(() => {
-            getDoc(doc(db, "participants", userAuth.uid))
-              .then((docs) => {
-                setUserData(docs.data());
-                setUserDataLoading(false);
-              })
-              .catch((err) => {
-                setDataError(true);
-                setUserDataLoading(false);
-              });
+        getDoc(doc(db, "participants", userAuth.uid))
+          .then((docs) => {
+            if (!docs.data()?.verified) {
+              updateDoc(docRef, { verified: true })
+                .then(() => {
+                  location.reload();
+                })
+                .catch(() => {
+                  setDataError(true);
+                  setUserDataLoading(false);
+                });
+            } else {
+              setUserData(docs.data());
+              setUserDataLoading(false);
+            }
           })
           .catch((err) => {
             setDataError(true);

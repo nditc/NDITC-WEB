@@ -21,6 +21,7 @@ import Link from "next/link";
 import { getConfig } from "@/config/config_db";
 import { Checkbox } from "@nextui-org/checkbox";
 import { useAuthContext } from "@/app/club/Components/Layout/AuthContextProvider";
+import PassingYear from "../../Components/PassingYear";
 
 type actionType = {
   type: "SET_FIELD";
