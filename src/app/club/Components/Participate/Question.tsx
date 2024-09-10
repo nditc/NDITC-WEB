@@ -39,15 +39,17 @@ const Question = ({
   }, [selectedVal, answer]);
 
   return (
-    <div className="flex w-full flex-col py-5">
-      <div className="flex items-center justify-between py-3 text-xl md:text-3xl">
-        <p>
-          {index + 1}. {question}
-        </p>
-        <p className="text-end text-base">Mark: {point}</p>
+    <div className="flex w-full flex-col rounded-xl bg-white p-5">
+      <div className="flex items-center justify-between pb-3 text-base md:text-lg">
+        <div className="flex flex-col items-center gap-2 font-medium leading-[1.3] sm:flex-row">
+          <p className="Inter grid h-9 w-9 shrink-0 place-items-center rounded-full bg-primary text-white">
+            {index + 1}
+          </p>
+          <p className="opacity-70">{question}</p>
+        </div>
       </div>
       {mcq ? (
-        <div className="flex flex-col gap-3">
+        <div className="mt-2 grid gap-3 md:grid-cols-2">
           {optionsArr.map((e, i) => {
             return (
               <Option
@@ -79,6 +81,9 @@ const Question = ({
           </div>
         </div>
       )}
+      <p className="-mb-1 mt-3 text-end text-base text-zinc-400">
+        Mark: <b>{point}</b>
+      </p>
     </div>
   );
 };
@@ -100,17 +105,17 @@ const Option = ({
 }) => {
   return (
     <button
-      className="flex items-center gap-3"
+      className={`flex flex-1 items-center gap-3 rounded-lg px-2 py-1.5 transition-colors ${selected == index ? "bg-primary text-white" : "bg-zinc-200/70 hover:bg-zinc-300"}`}
       onClick={() => setSelected(index)}
     >
       <div
-        className={`textlg flex h-10 w-10 items-center justify-center rounded-full border border-primary_dark text-lg transition-colors md:text-xl ${
-          selected == index ? "bg-primary" : "bg-white"
-        }`}
+        className={`textlg flex h-10 w-10 items-center justify-center rounded-full text-lg font-bold md:text-xl ${selected == index ? "text-zinc-200" : "text-primary"}`}
       >
         <p>{optionI}</p>
       </div>
-      <p className="text-lg md:text-xl">{option}</p>
+      <p className="text-left text-base leading-[1.3] md:text-lg md:leading-[1.3]">
+        {option}
+      </p>
     </button>
   );
 };

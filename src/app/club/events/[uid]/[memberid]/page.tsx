@@ -4,6 +4,7 @@ import { initAdmin } from "@/config/firebaseAdmin";
 import { createDecipheriv } from "crypto";
 import ActualUser from "@/util/ActualUser";
 import MemberCheck from "@/util/MemberCheck";
+import EventList from "@/app/club/Components/Events/EventList";
 
 export const dynamic = "force-dynamic";
 
@@ -93,22 +94,7 @@ const page = async ({
               <span className="text-primary">ONGOING</span> EVENTS
             </h1>
 
-            <div className="flex flex-wrap gap-5">
-              {ongoingList.map((e, i) => {
-                return (
-                  <EventCard
-                    title={e.eventName}
-                    date={e.date}
-                    endDate={e.enddate}
-                    ongoingForParticipate={true}
-                    image={e.imageURL}
-                    desc={e.description}
-                    id={e.id}
-                    key={i}
-                  />
-                );
-              })}
-            </div>
+            <EventList eventList={ongoingList} participate />
           </div>
         )}
 
@@ -116,22 +102,7 @@ const page = async ({
           <span className="text-primary">ALL</span> EVENTS
         </h1>
 
-        <div className="flex flex-wrap justify-between gap-5">
-          {eventList.map((e, i) => {
-            return (
-              <EventCard
-                title={e.eventName}
-                date={e.date}
-                endDate={e.enddate}
-                ongoingForParticipate={false}
-                image={e.imageURL}
-                desc={e.description}
-                id={e.id}
-                key={i}
-              />
-            );
-          })}
-        </div>
+        <EventList eventList={eventList} />
       </div>
     </main>
   );

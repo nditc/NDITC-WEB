@@ -91,30 +91,35 @@ const EditData = ({ userData, setUserData }: props) => {
           </div>
           <p>Click on Edit to edit your information.</p>
           <div className="grid w-full grid-cols-1 gap-5 md:grid-cols-2">
-            <Field
-              state={editUserData.name}
-              setValue={setValue}
-              name="name"
-              label="Full Name"
-              type="text"
-              editable={editin}
-            />
-            <PassingYear
-              state={editUserData.class}
-              setValue={setValue}
-              name="class"
-              label="HSC Passing Year"
-              type="number"
-              editable={editin}
-            />
-            <Field
-              state={editUserData.institution}
-              setValue={setValue}
-              name="institution"
-              label="Institution"
-              type="text"
-              editable={editin}
-            />
+            {!userData.ndc_id ? (
+              <>
+                {" "}
+                <Field
+                  state={editUserData.name}
+                  setValue={setValue}
+                  name="name"
+                  label="Full Name"
+                  type="text"
+                  editable={editin}
+                />
+                <PassingYear
+                  state={editUserData.class}
+                  setValue={setValue}
+                  name="class"
+                  label="HSC Passing Year"
+                  type="number"
+                  editable={editin}
+                />
+                <Field
+                  state={editUserData.institution}
+                  setValue={setValue}
+                  name="institution"
+                  label="Institution"
+                  type="text"
+                  editable={editin}
+                />
+              </>
+            ) : null}
             <Field
               state={editUserData.mobile}
               setValue={setValue}

@@ -94,7 +94,7 @@ const Page = () => {
                   pointerEvents: loading ? "none" : "auto",
                 }}
                 className="block w-full rounded-xl bg-primary px-8 py-2 text-center text-lg text-white transition-all hover:bg-secondary_light hover:text-primary"
-                onClick={() => window.location.replace("/profile")}
+                onClick={() => window.location.replace("/club/profile")}
               >
                 I&apos;m Verified!
               </button>

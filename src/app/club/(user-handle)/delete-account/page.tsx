@@ -48,7 +48,7 @@ const Page = () => {
           await deleteEventParticipantDoc(UserInfo.uid);
           toast.success(`User Deleted!`);
           setLoading(false);
-          Router.push("/");
+          Router.push("/club");
         })
         .catch((error) => {
           console.dir(error);

@@ -16,6 +16,7 @@ import { FiUsers } from "react-icons/fi";
 import { GrAnnounce } from "react-icons/gr";
 import { toast } from "react-toastify";
 import * as XLSX from "xlsx";
+import Loading from "../Components/Loading";
 
 const Page = () => {
   const [adminAuth, setAdminAuth] = useState<boolean>(false);
@@ -233,9 +234,7 @@ const Page = () => {
           </div>
         </div>
       ) : authLoading ? (
-        <div className="grid h-screen w-full place-items-center">
-          <CgSpinner className="mx-auto h-16 w-16 animate-spin text-primary" />
-        </div>
+        <Loading />
       ) : (
         <Error statusCode={403} msg="Unauthorized User" location={"/"} />
       )}

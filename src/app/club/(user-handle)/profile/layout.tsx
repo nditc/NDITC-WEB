@@ -14,8 +14,10 @@ import {
 import ProfileHero from "../../Components/Profile/ProfileHero";
 import { SubNav, SubNavItem } from "../../Components/SubNav";
 import { CgProfile } from "react-icons/cg";
-import { MdAnnouncement } from "react-icons/md";
+import { MdAnnouncement, MdEvent } from "react-icons/md";
 import { IoPeopleOutline } from "react-icons/io5";
+import ContestCard from "../../Components/Profile/ContestCard";
+import Loading from "../../Components/Loading";
 
 const Page = ({ children }: { children: React.ReactNode }) => {
   const [userAuth, loading, error] = useAuthState(auth);
@@ -32,10 +34,10 @@ const Page = ({ children }: { children: React.ReactNode }) => {
       })
         .then((r) => r.json())
         .then((resp) => {
+          setDLoading(false);
           if (resp.auth) {
             Route.push("/club/admin");
           }
-          setDLoading(false);
         })
         .catch((err) => {
           setDLoading(false);
@@ -58,11 +60,14 @@ const Page = ({ children }: { children: React.ReactNode }) => {
         <div className="flex min-h-[100vh] flex-col bg-[#F6F6F6] py-28 md:py-36">
           <UserDataContextProvider>
             <div className="container">
-              <ProfileHero />
+              <div className="flex flex-col items-stretch gap-8 lg:flex-row">
+                <ProfileHero />
+                <ContestCard />
+              </div>
               <div className="mt-3">
                 <SubNav>
                   <SubNavItem href="/club/profile" icon={CgProfile}>
-                    User Data
+                    Profile
                   </SubNavItem>
                   <SubNavItem href="/club/profile/club" icon={IoPeopleOutline}>
                     Club{" "}
@@ -71,7 +76,10 @@ const Page = ({ children }: { children: React.ReactNode }) => {
                     href="/club/profile/announcements"
                     icon={MdAnnouncement}
                   >
-                    Announcements
+                    Notice
+                  </SubNavItem>
+                  <SubNavItem href="/club/profile/events" icon={MdEvent}>
+                    Events
                   </SubNavItem>
                 </SubNav>
               </div>
@@ -80,9 +88,7 @@ const Page = ({ children }: { children: React.ReactNode }) => {
           </UserDataContextProvider>
         </div>
       ) : loading || dLoading ? (
-        <div className="grid h-screen w-full place-items-center">
-          <CgSpinner className="mx-auto h-16 w-16 animate-spin text-primary" />
-        </div>
+        <Loading />
       ) : (
         <div className="grid h-screen w-full place-items-center"></div>
       )}

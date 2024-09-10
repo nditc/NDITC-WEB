@@ -80,6 +80,12 @@ const Page = () => {
                 const uid = userInfo.user.uid;
                 await setDoc(doc(db, "participants", uid), {
                   ...regData,
+                  institution: "Notre Dame College",
+                  mobile: ndc_register_json.mobile,
+                  name: ndc_register_json.name,
+                  address: ndc_register_json.address,
+                  class: ndc_register_json.year,
+
                   timestamp: serverTimestamp(),
                   imageUrl:
                     "https://firebasestorage.googleapis.com/v0/b/ftmpc-63d81.appspot.com/o/pfp%2Fno_user.webp?alt=media&token=fd930687-e7b9-4fa6-9603-f20b73bd0a86",
@@ -89,7 +95,7 @@ const Page = () => {
                   "Email verification link sent! Please verify your email please.",
                 );
                 setLoading(false);
-                Router.push("/club/profile");
+                Router.push("/club/verify");
               })
               .catch((error) => {
                 switch (error.code) {
@@ -140,7 +146,7 @@ const Page = () => {
               "Email verification link sent! Please verify your email please.",
             );
             setLoading(false);
-            Router.push("/club/profile");
+            Router.push("/club/verify");
           })
           .catch((error) => {
             switch (error.code) {
@@ -177,7 +183,7 @@ const Page = () => {
 
   useEffect(() => {
     if (!loading && userAuth) {
-      Router.push("/club/profile");
+      Router.push("/club/verify");
     }
   }, [userAuth, loading]);
 
@@ -223,8 +229,7 @@ const Page = () => {
                 <span className="text-primary">Registration</span> Form
               </h1>
               <p>
-                Please fill out the form below to secure your spot in the
-                contest. We can’t wait to see what you’ll bring to the table!{" "}
+                Please fill out the form below to register.{" "}
                 <Link
                   className="inline border-b-2 border-transparent font-medium text-primary hover:border-primary"
                   href="/club/login"
@@ -276,12 +281,13 @@ const Page = () => {
                       label="Full Name"
                       type="text"
                     />
-                    <Select
-                      selected={regData.class}
-                      values={classes}
+                    <PassingYear
+                      state={regData.class}
                       setValue={setValue}
                       name="class"
-                      label="Class"
+                      label="HSC Passing Year"
+                      type="number"
+                      editable={true}
                     />
                     <Field
                       state={regData.institution}

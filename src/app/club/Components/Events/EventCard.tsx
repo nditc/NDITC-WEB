@@ -6,6 +6,7 @@ import { PiStudent } from "react-icons/pi";
 import { TbListDetails } from "react-icons/tb";
 import { Timestamp } from "firebase/firestore";
 import PartcipateButton from "./PartcipateButton";
+import { MdOutlineTimer } from "react-icons/md";
 
 const EventCard = ({
   title,
@@ -15,6 +16,7 @@ const EventCard = ({
   image,
   desc,
   id,
+  category,
 }: {
   title: string;
   date: any;
@@ -23,6 +25,7 @@ const EventCard = ({
   image: string;
   desc: string;
   id: string;
+  category: string;
 }) => {
   const now = Timestamp.now();
 
@@ -33,56 +36,62 @@ const EventCard = ({
   const dateData = timeValue(date);
 
   return (
-    <div className="relative h-[40rem] w-[24rem] rounded-lg border border-gray-200 bg-white shadow">
+    <div className="hover: relative flex flex-col overflow-hidden rounded-xl bg-white shadow lg:h-[20rem] lg:flex-row">
       {ongoing && (
-        <div className="absolute right-0 top-0 rounded-xl bg-primary px-3 py-1 text-white">
+        <div className="absolute right-5 top-5 rounded-xl bg-primary px-3 py-1 text-sm text-white">
           Ongoing
         </div>
       )}
 
       {upcoming && (
-        <div className="absolute right-0 top-0 rounded-xl bg-primary px-3 py-1 text-white">
+        <div className="absolute right-5 top-5 rounded-xl bg-primary px-3 py-1 text-sm text-white">
           Upcoming
         </div>
       )}
 
       <img
-        className="h-[60%] w-full rounded-t-lg object-cover"
-        src={image}
+        className="h-1/3 w-full flex-1 bg-black object-cover lg:h-auto lg:w-1/3"
+        src={
+          "https://www.jesvenues.com/images/services/corporate-photography/corporate-event-photography-in-hyderabad-1.jpg" ||
+          image
+        }
         alt="Event Image"
       />
 
-      <div className="flex flex-col gap-2 p-5">
-        <h5 className="mb-2 line-clamp-1 flex items-center justify-between text-2xl font-bold tracking-wide text-gray-900">
-          {title}
-          <div className="flex items-center justify-center gap-2 rounded-xl bg-primary px-1 py-1 text-xl tracking-normal text-white">
-            <BsStopwatch />
+      <div className="flex h-full flex-1 flex-col justify-between gap-2 p-5">
+        <div className="flex h-full flex-1 flex-col justify-start pt-2 lg:pt-6">
+          <p className="Inter text-sm font-medium text-primary">{category}</p>
+          <h5 className="mb-1.5 line-clamp-1 flex items-center justify-between text-2xl Inter font-bold tracking-wide text-gray-900">
+            {title}
+          </h5>
+          <div className="Inter flex items-center gap-1 text-sm font-medium">
+            <IoCalendarOutline className="h-6 w-6 pb-1 text-primary" />
+            {`${dateData.date} ${dateData.monthText} ${dateData.year}`}{" "}
+            <span className="text-zinc-300">|</span>{" "}
+            {`${dateData.hour}:${dateData.minute}`}
+          </div>
+          <div className="Inter mb-3 flex items-center justify-start gap-1 text-sm font-medium tracking-normal text-black">
+            <MdOutlineTimer className="mt-1 h-6 w-6 pb-1 text-primary" />
             {timeValue(endDate).hour - dateData.hour > 0 &&
               `${timeValue(endDate).hour - dateData.hour}H : `}
             {timeValue(endDate).minute - dateData.minute}M
           </div>
-        </h5>
-
-        <div className="flex items-center gap-1 text-xl">
-          <IoCalendarOutline className="h-6 w-6 pb-1" />
-          {`${dateData.date} ${dateData.monthText} ${dateData.year}`} |{" "}
-          {`${dateData.hour}:${dateData.minute}`}
+          <p className="mb-2 line-clamp-3 h-[4.3rem] font-normal text-gray-700">
+            {desc}
+          </p>
         </div>
-
-        <p className="mb-3 line-clamp-3 h-[4.3rem] font-normal text-gray-700">
-          {desc}
-        </p>
-        {ongoingForParticipate && <PartcipateButton id={id} />}
-
-        {!ongoingForParticipate && (
-          <Link
-            href={`/club/eventdetails/${encodeURIComponent(title)}/${encodeURIComponent(`${dateData.date} ${dateData.monthText} ${dateData.year} | ${dateData.hour}:${dateData.minute}`)}/${encodeURIComponent(image)}/${encodeURIComponent(desc)}`}
-            className="inline-flex items-center justify-center gap-3 rounded-lg bg-primary px-3 py-2 text-center text-base font-medium text-white hover:bg-primary_dark focus:bg-primary_darkest focus:outline-none focus:ring-4"
-          >
-            <TbListDetails className="h-7 w-7" />
-            Details
-          </Link>
-        )}
+        <div>
+          {ongoingForParticipate && <PartcipateButton id={id} />}
+          {!ongoingForParticipate && (
+            <Link
+              href={`/club/eventdetails/${encodeURIComponent(title)}/${encodeURIComponent(`${dateData.date} ${dateData.monthText} ${dateData.year} | ${dateData.hour}:${dateData.minute}`)}/${encodeURIComponent(image)}/${encodeURIComponent(desc)}`}
+              className="inline-flex items-center justify-center gap-3 rounded-xl bg-primary px-6 py-2 text-center text-base font-medium text-white hover:bg-primary_dark focus:bg-primary_darkest focus:outline-none focus:ring-4"
+            >
+              <TbListDetails className="h-5 w-5" />
+              Details
+            </Link>
+          )}
+        </div>
       </div>
     </div>
   );

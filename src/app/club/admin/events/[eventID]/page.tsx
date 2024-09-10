@@ -37,6 +37,7 @@ const Page = ({ params }: { params: { eventID: string } }) => {
   const [authLoading, setAuthLoading] = useState<boolean>(true);
 
   const [eventName, setEventName] = useState("");
+  const [category, setCategory] = useState("");
   const [eventUID, setEventUID] = useState("");
   const [intra, setIntra] = useState(false);
   const [date, setDate] = useState(now(getLocalTimeZone()));
@@ -151,6 +152,7 @@ const Page = ({ params }: { params: { eventID: string } }) => {
             description: description,
             intra: intra,
             questions: questions,
+            category,
           })
             .then(() => {
               setDoc(doc(db, "answers", eventUID), {
@@ -175,6 +177,7 @@ const Page = ({ params }: { params: { eventID: string } }) => {
           description: description,
           intra: intra,
           questions: questions,
+          category,
         })
           .then(() => {
             setDoc(doc(db, "answers", eventUID), {
@@ -213,6 +216,7 @@ const Page = ({ params }: { params: { eventID: string } }) => {
       description: description,
       intra: intra,
       questions: questions,
+      category,
     })
       .then(() => {
         setDoc(doc(db, "answers", eventUID), {
@@ -416,7 +420,22 @@ const Page = ({ params }: { params: { eventID: string } }) => {
                   disabled={params.eventID != "new"}
                 />
               </div>
-
+              <div className="flex flex-col gap-1">
+                <label
+                  className="ml-2 font-medium text-gray-500"
+                  htmlFor="name"
+                >
+                  Category Name:
+                </label>
+                <input
+                  className="rounded-xl border border-gray-200 px-5 py-3 focus:border-primary focus:outline-none"
+                  onChange={(e) => setCategory(e.currentTarget.value)}
+                  value={category}
+                  name="name"
+                  placeholder="Category Name"
+                  required
+                />
+              </div>
               <div className="flex flex-col gap-1">
                 <label
                   className="ml-2 font-medium text-gray-500"

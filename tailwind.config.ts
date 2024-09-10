@@ -14,6 +14,7 @@ const config: Config = {
     extend: {
       screens: {
         xsm: "360px",
+        xxsm: "330px",
       },
       backgroundImage: {
         "gradient-radial": "radial-gradient(var(--tw-gradient-stops))",

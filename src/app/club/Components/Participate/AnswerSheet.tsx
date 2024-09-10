@@ -19,6 +19,8 @@ import {
 } from "@nextui-org/react";
 
 import { useRouter } from "next/navigation";
+import { CiCircleInfo, CiWarning } from "react-icons/ci";
+import InfoBox from "../InfoBox";
 
 interface Questions {
   mcq: boolean;
@@ -54,11 +56,19 @@ const AnswerSheet = ({
   id,
   questions,
   uid,
+  name,
+  img,
+  category,
+  description,
 }: {
   endTime: number;
   id: string;
   questions: Questions[];
   uid: string;
+  name: string;
+  img: string;
+  category: string;
+  description: string;
 }) => {
   const [answers, setAnswers] = useState<answerInterface[]>(
     Array(questions.length).fill({ option: 5, answer: "" }),
@@ -112,8 +122,25 @@ const AnswerSheet = ({
 
   return (
     <main className="min-h-screen w-full bg-[#F6F6F6]">
-      <div className="container py-[81px]">
-        <Timer endTime={endTime} onEnd={SubmitFunc} />
+      <div className="container pt-[81px]">
+        <div className="sticky top-[-16px] z-20 flex flex-col items-center justify-between gap-2 rounded-xl bg-white p-5 pb-1 shadow-md sm:top-[0] sm:pb-5 md:top-[75px] md:flex-row">
+          <div className="flex w-full flex-col items-center gap-8 md:flex-row">
+            <img
+              src={img}
+              alt=""
+              className="hidden h-[100px] w-full rounded-lg object-cover md:block md:w-[250px]"
+            />
+            <div className="flex flex-col gap-1 text-center md:text-start">
+              <p className="Inter font-semibold text-primary">
+                {category || "Contest"}
+              </p>
+              <h3 className="text-4xl">{name}</h3>
+            </div>
+          </div>
+          <div className="justify-self-end">
+            <Timer endTime={endTime} onEnd={SubmitFunc} />
+          </div>
+        </div>
 
         <Modal
           isOpen={isOpen}
@@ -124,14 +151,14 @@ const AnswerSheet = ({
           <ModalContent>
             {(onClose) => (
               <>
-                <Card className="h-full w-full border-none bg-gradient-to-br from-violet-500 to-fuchsia-500">
+                <Card className="h-full w-full border-none bg-gradient-to-br from-white to-white">
                   <CardBody className="items-center justify-center pb-0">
                     <CircularProgress
                       classNames={{
-                        svg: "w-36 h-36 drop-shadow-md",
-                        indicator: "stroke-white",
-                        track: "stroke-white/10",
-                        value: "text-3xl font-semibold text-white",
+                        svg: "w-36 h-36 ",
+                        indicator: "stroke-primary",
+                        track: "stroke-zinc-100",
+                        value: "text-3xl font-semibold text-black",
                       }}
                       value={(resultMarks / examMarks) * 100}
                       strokeWidth={4}
@@ -141,26 +168,29 @@ const AnswerSheet = ({
                   <CardFooter className="flex-col items-center justify-center gap-3 pt-0">
                     <Chip
                       classNames={{
-                        base: "border-1 border-white/30",
-                        content: "text-white/90 text-small font-semibold",
+                        base: "bg-zinc-200/60",
+                        content: "text-black/90 text-small font-semibold",
                       }}
-                      variant="bordered"
                     >
-                      {`Result: ${resultMarks} / ${examMarks}`}
+                      <span>
+                        Result:{" "}
+                        <span className="text-primary">{resultMarks}</span> /{" "}
+                        {examMarks}
+                      </span>
                     </Chip>
 
                     <Chip
                       classNames={{
-                        base: "border-1 border-white/30",
-                        content: "text-white/90 text-small font-semibold",
+                        base: "bg-zinc-200/60",
+                        content: "text-black/90 text-small font-semibold",
                       }}
-                      variant="bordered"
                     >
-                      Season's Total Marks: {totalMarks}
+                      Season's Total Marks:{" "}
+                      <span className="text-primary">{totalMarks}</span>
                     </Chip>
 
                     <Button
-                      className="w-full border bg-transparent"
+                      className="w-full border bg-primary text-white hover:bg-primary_dark"
                       color="primary"
                       onPress={() => {
                         setSubmitClicked(false);
@@ -177,7 +207,11 @@ const AnswerSheet = ({
           </ModalContent>
         </Modal>
 
-        <div>
+        <h3 className="Inter mb-2 mt-8 text-center text-3xl font-bold opacity-50">
+          Questions
+        </h3>
+
+        <div className="mt-3 grid grid-cols-1 gap-4">
           {questions.map((e, i) => {
             return (
               <Question
@@ -198,10 +232,14 @@ const AnswerSheet = ({
           })}
         </div>
       </div>
+      <InfoBox title="Warning" icon={<CiWarning />} type="warning">
+        Recheck before submitting your answers. Submission after time will not
+        be allowed
+      </InfoBox>
       <button
         onClick={SubmitFunc}
         disabled={submitClicked}
-        className="before:ease Inter relative flex w-full items-center self-center overflow-hidden rounded-lg border bg-primary_dark px-6 py-3 text-center font-ShareTechTown text-sm font-medium text-white shadow-2xl transition before:absolute before:left-0 before:-ml-2 before:h-[30rem] before:w-[30rem] before:origin-top-right before:-translate-x-full before:translate-y-12 before:-rotate-90 before:bg-primary before:transition-all before:duration-300 hover:scale-110 hover:text-white hover:before:-rotate-180 focus:outline-none focus:ring-4 focus:ring-secondary md:w-fit lg:px-3 xl:px-5"
+        className="before:ease Inter relative ml-auto flex w-full items-center justify-end self-end overflow-hidden rounded-lg border bg-primary_dark px-6 py-3 text-center font-ShareTechTown text-sm font-medium text-white shadow-2xl transition before:absolute before:left-0 before:-ml-2 before:h-[30rem] before:w-[30rem] before:origin-top-right before:-translate-x-full before:translate-y-12 before:-rotate-90 before:bg-primary before:transition-all before:duration-300 hover:scale-110 hover:text-white hover:before:-rotate-180 focus:outline-none focus:ring-4 focus:ring-secondary md:w-fit lg:px-3 xl:px-5"
       >
         {submitClicked ? (
           <CgSpinner className="mx-auto h-7 w-7 animate-spin text-white" />

@@ -39,6 +39,7 @@ import { FiUser } from "react-icons/fi";
 import { LiaTimesSolid } from "react-icons/lia";
 import PassingYear from "../../Components/PassingYear";
 import { CiEdit } from "react-icons/ci";
+import Loading from "../../Components/Loading";
 
 const Page = () => {
   const [adminAuth, setAdminAuth] = useState<boolean>(false);
@@ -279,15 +280,28 @@ const Page = () => {
                           onOpen();
                         }}
                         key={i}
-                        className="flex h-16 w-full cursor-pointer gap-5 rounded-xl shadow-[10px_10px_21px_5px_#00000024] transition hover:scale-110"
+                        className="flex h-20 w-full cursor-pointer items-center gap-5 rounded-xl border-1 border-transparent bg-white p-2 transition hover:border-secondary"
                       >
                         <img
                           src={e.data?.imageUrl}
                           className="ml-1 aspect-square h-full rounded-full p-1"
                         />
-                        <div>{e.data?.name}</div>
-                        <div>Class: {e.data?.class}</div>
-                        <div>Institution: {e.data?.institution}</div>
+                        <div className="flex flex-[1.5] flex-col gap-1 leading-none">
+                          <div className="Nunito font text-lg font-semibold leading-none">
+                            {e.data?.name}
+                          </div>
+                          <div className="Nunito text-primary">
+                            {" "}
+                            {e.data?.institution}
+                          </div>
+                        </div>
+                        <div className="flex-[1] text-center">
+                          {" "}
+                          <span className="text-sm">HSC-</span>
+                          <span className="text-lg text-primary">
+                            {e.data?.class}
+                          </span>
+                        </div>
                       </div>
                     );
                   })}
@@ -338,11 +352,9 @@ const Page = () => {
           </div>
         </div>
       ) : authLoading ? (
-        <div className="grid h-screen w-full place-items-center">
-          <CgSpinner className="mx-auto h-16 w-16 animate-spin text-primary" />
-        </div>
+        <Loading />
       ) : (
-        <Error statusCode={403} msg="Unauthorized User" location={"/"} />
+        <Error statusCode={403} msg="Unauthorized User" dest={"/"} />
       )}
     </>
   );
