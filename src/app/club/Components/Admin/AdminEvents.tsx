@@ -37,7 +37,7 @@ const AdminEvents = ({ adminAuth }: { adminAuth: boolean }) => {
         <div>
           <Link
             type={"button"}
-            href={`/club/admin/events/new`}
+            href={`/club/admin/eventEdit/new`}
             className="inline-flex flex-1 items-center justify-center gap-2 rounded-lg bg-primary px-5 py-2 text-sm leading-[1.15] text-white shadow-sm transition-colors hover:bg-primary_dark hover:text-white focus:ring-2 focus:ring-secondary"
           >
             <FaPlus className="h-6 w-6" />
@@ -46,7 +46,7 @@ const AdminEvents = ({ adminAuth }: { adminAuth: boolean }) => {
         </div>
       </div>
 
-      <div className="my-10 flex h-[650px] resize-y flex-wrap gap-5 overflow-x-clip overflow-y-scroll">
+      <div className="my-10 flex resize-y flex-wrap gap-5 overflow-x-clip overflow-y-scroll">
         {events.map((e: any, i: number) => {
           return (
             <AdminEventCard
@@ -56,6 +56,7 @@ const AdminEvents = ({ adminAuth }: { adminAuth: boolean }) => {
               image={e.data.imageURL}
               desc={e.data.description}
               ongoing={false}
+              category={e.data.category}
               id={e.id}
               key={i}
             />

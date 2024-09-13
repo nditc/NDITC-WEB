@@ -122,7 +122,7 @@ const ClubNavbar = () => {
             <Link
               href="/club/profile"
               type="button"
-              className="before:ease Inter relative flex items-center overflow-hidden rounded-lg border bg-primary_dark px-4 py-2 text-center font-ShareTechTown text-sm font-medium text-white shadow-2xl before:absolute before:left-0 before:-ml-2 before:h-48 before:w-48 before:origin-top-right before:-translate-x-full before:translate-y-12 before:-rotate-90 before:bg-primary before:transition-all before:duration-300 hover:text-white hover:before:-rotate-180 focus:outline-none focus:ring-4 focus:ring-secondary lg:px-2 xl:px-4"
+              className="before:ease Inter relative flex items-center overflow-hidden rounded-lg border bg-zinc-400 px-4 py-2 text-center font-ShareTechTown text-sm font-medium text-black shadow-2xl before:absolute before:left-0 before:-ml-2 before:h-48 before:w-48 before:origin-top-right before:-translate-x-full before:translate-y-12 before:-rotate-90 before:bg-zinc-300 before:transition-all before:duration-300 hover:before:-rotate-180 focus:outline-none focus:ring-4 focus:ring-zinc-400 lg:px-2 xl:px-4"
             >
               <FiUser className="z-10 h-5 w-5 xsm:mr-2 xsm:h-4 xsm:w-4" />
               <span className="relative z-10 hidden xsm:inline">PROFILE</span>
@@ -131,7 +131,7 @@ const ClubNavbar = () => {
             <Link
               href="/club/login"
               type="button"
-              className="before:ease Inter relative flex items-center overflow-hidden rounded-lg border bg-primary_dark px-4 py-2 text-center font-ShareTechTown text-sm font-medium text-white shadow-2xl before:absolute before:left-0 before:-ml-2 before:h-48 before:w-48 before:origin-top-right before:-translate-x-full before:translate-y-12 before:-rotate-90 before:bg-primary before:transition-all before:duration-300 hover:text-white hover:before:-rotate-180 focus:outline-none focus:ring-4 focus:ring-secondary lg:px-2 xl:px-4"
+              className="before:ease Inter relative flex items-center overflow-hidden rounded-lg border bg-zinc-400 px-4 py-2 text-center font-ShareTechTown text-sm font-medium text-black shadow-2xl before:absolute before:left-0 before:-ml-2 before:h-48 before:w-48 before:origin-top-right before:-translate-x-full before:translate-y-12 before:-rotate-90 before:bg-zinc-300 before:transition-all before:duration-300 hover:before:-rotate-180 focus:outline-none focus:ring-4 focus:ring-zinc-400 lg:px-2 xl:px-4"
             >
               <LuLogIn className="z-10 h-5 w-5 xsm:mr-2 xsm:h-4 xsm:w-4" />
               <span className="relative z-10 hidden xsm:inline">LOGIN</span>

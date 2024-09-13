@@ -43,7 +43,7 @@ const x: devData = {
       email: "wasefrahmanswapnil@gmail.com",
     },
   ],
-  "DESIGN DEVELOPER": [
+  "KEY DEVELOPER": [
     {
       name: "HRM Rafsan Amin",
       image_url: "/Images/Developers/hrm_rafsan.jpg",

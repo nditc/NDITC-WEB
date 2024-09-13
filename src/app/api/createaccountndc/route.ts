@@ -6,7 +6,7 @@ export async function POST(req: NextRequest) {
   await initAdmin();
 
   const memberDOC = await fetch(
-    `https://memberapi.nditc.net/roll/20${data.ndc_id.substring(1, 3)}/${data.ndc_id}/`,
+    `https://memberapi.nditc.net/roll/20${data?.ndc_id?.substring(1, 3)}/${data?.ndc_id}/`,
     {
       headers: { Authorization: "Token " + process.env.MEMBER_API_PRIVATE_KEY },
       method: "GET",
@@ -14,21 +14,28 @@ export async function POST(req: NextRequest) {
     },
   );
 
-  const member = await memberDOC.json();
-
   if (!memberDOC.ok) {
     return NextResponse.json(
       { error: "No such Club Member exists" },
-      { status: 301 },
+      { status: 404 },
     );
-  } else {
-    if (member.email != data.email) {
-      return NextResponse.json(
-        { error: "No such Club Member exists" },
-        { status: 301 },
-      );
-    }
   }
 
-  return NextResponse.json({ memberID: `${member.uniqueID}`, success: true });
+  const member = await memberDOC.json();
+
+  if (member.email != data.email) {
+    return NextResponse.json(
+      { error: "No such Club Member exists" },
+      { status: 404 },
+    );
+  }
+
+  return NextResponse.json({
+    memberID: `${member.uniqueID}`,
+    mobile: member.contact_number,
+    name: member.name,
+    address: member.present_address,
+    year: member.year,
+    success: true,
+  });
 }

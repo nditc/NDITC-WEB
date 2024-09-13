@@ -11,6 +11,7 @@ import { auth, db } from "@/config/firebase";
 import { useAuthState } from "react-firebase-hooks/auth";
 import { toast } from "react-toastify";
 import PassingYear from "../PassingYear";
+import { useUserDataContext } from "../Layout/UserDataProvider";
 
 interface props {
   userData: any;
@@ -22,6 +23,7 @@ const EditData = ({ userData, setUserData }: props) => {
   const [editin, setEditing] = useState<boolean>(false);
   const [loading, setLoading] = useState<boolean>(false);
   const [userAuth] = useAuthState(auth);
+  const { updateUserData } = useUserDataContext();
   const setValue = (fname: string, value: string | number) => {
     setEditUserData((s: regDataType) => ({ ...s, [fname]: value }));
   };
@@ -34,8 +36,10 @@ const EditData = ({ userData, setUserData }: props) => {
     if (userAuth) {
       try {
         await updateDoc(doc(db, "participants", userAuth.uid), editUserData);
+
         setUserData(editUserData);
         toast.success("Data Updated!");
+        updateUserData();
         setEditing(false);
       } catch (err) {
         console.error(err);
@@ -87,30 +91,35 @@ const EditData = ({ userData, setUserData }: props) => {
           </div>
           <p>Click on Edit to edit your information.</p>
           <div className="grid w-full grid-cols-1 gap-5 md:grid-cols-2">
-            <Field
-              state={editUserData.name}
-              setValue={setValue}
-              name="name"
-              label="Full Name"
-              type="text"
-              editable={editin}
-            />
-            <PassingYear
-              state={editUserData.class}
-              setValue={setValue}
-              name="class"
-              label="HSC Passing Year"
-              type="number"
-              editable={editin}
-            />
-            <Field
-              state={editUserData.institution}
-              setValue={setValue}
-              name="institution"
-              label="Institution"
-              type="text"
-              editable={editin}
-            />
+            {!userData.ndc_id ? (
+              <>
+                {" "}
+                <Field
+                  state={editUserData.name}
+                  setValue={setValue}
+                  name="name"
+                  label="Full Name"
+                  type="text"
+                  editable={editin}
+                />
+                <PassingYear
+                  state={editUserData.class}
+                  setValue={setValue}
+                  name="class"
+                  label="HSC Passing Year"
+                  type="number"
+                  editable={editin}
+                />
+                <Field
+                  state={editUserData.institution}
+                  setValue={setValue}
+                  name="institution"
+                  label="Institution"
+                  type="text"
+                  editable={editin}
+                />
+              </>
+            ) : null}
             <Field
               state={editUserData.mobile}
               setValue={setValue}

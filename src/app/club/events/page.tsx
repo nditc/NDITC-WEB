@@ -1,6 +1,7 @@
 import EventCard from "@/app/club/Components/Events/EventCard";
 import { getFirestore, Timestamp } from "firebase-admin/firestore";
 import { initAdmin } from "@/config/firebaseAdmin";
+import EventList from "../Components/Events/EventList";
 
 const page = async () => {
   await initAdmin();
@@ -27,22 +28,7 @@ const page = async () => {
           <span className="text-primary">ALL</span> EVENTS
         </h1>
 
-        <div className="flex flex-wrap justify-between gap-5">
-          {eventList.map((e, i) => {
-            return (
-              <EventCard
-                title={e.eventName}
-                date={e.date}
-                endDate={e.enddate}
-                ongoingForParticipate={false}
-                image={e.imageURL}
-                desc={e.description}
-                id={e.id}
-                key={i}
-              />
-            );
-          })}
-        </div>
+        <EventList eventList={eventList} />
       </div>
     </main>
   );

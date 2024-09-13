@@ -1,6 +1,7 @@
 const { nextui } = require("@nextui-org/react");
 import type { Config } from "tailwindcss";
 import plugin from "tailwindcss/plugin";
+import Colors from "tailwindcss/colors";
 
 const config: Config = {
   content: [
@@ -13,6 +14,7 @@ const config: Config = {
     extend: {
       screens: {
         xsm: "360px",
+        xxsm: "330px",
       },
       backgroundImage: {
         "gradient-radial": "radial-gradient(var(--tw-gradient-stops))",
@@ -22,13 +24,13 @@ const config: Config = {
         sectorsBG: 'url("/Sectors.png")',
       },
       colors: {
-        primary: "#279367",
-        primary_dark: "#176346",
-        primary_darkest: "#1d2121",
-        secondary: "#2cb87e",
-        secondary_light: "#53f295",
-        secondary_lighter: "#D1FFD9",
-        secondary_lightest: "#e6faea",
+        primary: Colors.blue["500"],
+        primary_dark: Colors.blue["600"],
+        primary_darkest: Colors.blue["700"],
+        secondary: Colors.blue["400"],
+        secondary_light: Colors.blue["300"],
+        secondary_lighter: Colors.blue["200"],
+        secondary_lightest: Colors.blue["100"],
       },
       fontFamily: {
         ShareTechTown: ["Share Tech Mono", "Mono"],

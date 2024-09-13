@@ -29,8 +29,8 @@ const Timer = ({ endTime, onEnd }: { endTime: number; onEnd: () => void }) => {
   }, []);
 
   return (
-    <div className="flex h-20 w-full items-center justify-center rounded-xl bg-primary p-1">
-      <div className="flex h-full w-full items-center justify-center gap-1 rounded-xl bg-white text-primary">
+    <div className="Inter inline-flex h-20 items-center justify-start rounded-xl">
+      <div className="flex h-full items-center justify-start gap-1 rounded-xl text-primary">
         {hours > 0 && (
           <>
             <div className="flex flex-col items-center justify-center">

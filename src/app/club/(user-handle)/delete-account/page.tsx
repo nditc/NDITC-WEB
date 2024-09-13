@@ -48,7 +48,7 @@ const Page = () => {
           await deleteEventParticipantDoc(UserInfo.uid);
           toast.success(`User Deleted!`);
           setLoading(false);
-          Router.push("/");
+          Router.push("/club");
         })
         .catch((error) => {
           console.dir(error);
@@ -72,7 +72,7 @@ const Page = () => {
   };
 
   return (
-    <div className="bg-image mt-[81px] grid w-screen place-items-center shadow-lg shadow-secondary md:min-h-[calc(100vh_-_81px)]">
+    <div className="mt-[81px] grid w-screen place-items-center bg-[url(/image/club/lbg.jpg)] bg-cover bg-center shadow-lg shadow-secondary md:min-h-[calc(100vh_-_81px)]">
       <div className="container-login flex min-h-[calc(100vh_-_81px)] w-full bg-white pb-8 pt-3 sm:my-16 sm:rounded-xl sm:py-0 md:min-h-[70vh]">
         <form
           className="flex w-full grid-cols-1 flex-col justify-center gap-5 p-5 sm:p-12 lg:w-1/2"
@@ -121,7 +121,7 @@ const Page = () => {
         <Image
           alt="login"
           className={"m-5 hidden w-1/2 rounded-xl object-cover lg:block"}
-          src="/Images/reg_banner.png"
+          src="/image/club/login.svg"
           width={512}
           height={512}
         />

@@ -77,7 +77,7 @@ const Page = () => {
     };
   }, [user, Router, loading2]);
   return (
-    <div className="bg-image mt-[81px] grid w-screen place-items-center shadow-lg shadow-secondary md:min-h-[calc(100vh_-_81px)]">
+    <div className="mt-[81px] grid w-screen place-items-center bg-[url(/image/club/lbg.jpg)] bg-cover bg-center shadow-lg shadow-secondary md:min-h-[calc(100vh_-_81px)]">
       <div className="container-login flex min-h-[calc(100vh_-_81px)] w-full bg-white pb-8 pt-3 sm:my-16 sm:rounded-xl sm:py-0 md:min-h-[70vh]">
         <div className="order-2 flex w-full grid-cols-1 flex-col justify-center gap-5 p-5 sm:p-12 lg:w-1/2">
           <h1 className="text-4xl">
@@ -94,7 +94,7 @@ const Page = () => {
                   pointerEvents: loading ? "none" : "auto",
                 }}
                 className="block w-full rounded-xl bg-primary px-8 py-2 text-center text-lg text-white transition-all hover:bg-secondary_light hover:text-primary"
-                onClick={() => window.location.replace("/profile")}
+                onClick={() => window.location.replace("/club/profile")}
               >
                 I&apos;m Verified!
               </button>
@@ -138,7 +138,7 @@ const Page = () => {
           className={
             "order-1 m-5 hidden w-1/2 rounded-xl object-cover lg:block"
           }
-          src="/Images/reg_banner.png"
+          src="/image/club/login.svg"
           width={512}
           height={512}
         />

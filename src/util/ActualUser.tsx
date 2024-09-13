@@ -16,7 +16,7 @@ const ActualUser = ({ passedUID }: { passedUID: string }) => {
             <CgSpinner className="mx-auto h-16 w-16 animate-spin text-primary" />
           </div>
         ) : (
-          <Error statusCode={403} msg="Unauthorized User" location={"/"} />
+          <Error statusCode={403} msg="Unauthorized User" dest={"/"} />
         )}
       </>
     );

@@ -4,6 +4,8 @@ import { toast } from "react-toastify";
 import { CgSpinner } from "react-icons/cg";
 import { doc, updateDoc } from "firebase/firestore";
 import { db } from "@/config/firebase";
+import { CiCircleInfo, CiWarning } from "react-icons/ci";
+import Loading from "../Loading";
 
 const getRegisteredNDC = async (ndc_id: string) => {
   const res = await fetch("/api/memberdata", {
@@ -58,7 +60,7 @@ const ClubInfo = ({
     const docRes = await getConnectToNDITC(roll, email);
 
     if (!docRes.ok) {
-      toast.error("Invalid Request Bruh");
+      toast.error("Invalid Roll or Email.");
       setLoading(false);
     } else {
       const memberID = await docRes.json();
@@ -89,6 +91,17 @@ const ClubInfo = ({
               </h1>
             </div>
           </div>
+          <p className="rounded-xl bg-yellow-100 p-5 text-yellow-950">
+            <b className="flex items-center gap-1">
+              {" "}
+              <CiWarning />
+              Warning:
+            </b>
+            You can only connect if you are a member of NDITC and submitted your
+            membership form in college. Please verify that your roll number is
+            correct. Also, confirm that you have submitted this account’s email
+            in the membership form.
+          </p>
           <div className="grid w-full grid-cols-1 gap-5">
             <div className="flex flex-col gap-1">
               <label
@@ -137,8 +150,18 @@ const ClubInfo = ({
               </h1>
             </div>
           </div>
-          {memberData && (
-            <div className="grid w-full grid-cols-1 gap-5 md:grid-cols-2">
+          <p className="rounded-xl bg-zinc-100 p-5 text-zinc-950">
+            <b className="flex items-center gap-1">
+              {" "}
+              <CiCircleInfo />
+              Info:
+            </b>
+            The information submitted in the membership forms is displayed here
+            and cannot be edited. If you need to make changes, please contact
+            the panelists.
+          </p>
+          {memberData ? (
+            <div className="grid w-full grid-cols-1 gap-5 md:grid-cols-2 2xl:grid-cols-3">
               <Info label="Name" info={memberData?.name} />
 
               <Info label="Passing Year" info={memberData?.year} />
@@ -184,6 +207,8 @@ const ClubInfo = ({
 
               <Info label="Competitions" info={memberData?.competitions} />
             </div>
+          ) : (
+            <Loading height="50vh" />
           )}
         </div>
       )}
@@ -195,9 +220,10 @@ export default ClubInfo;
 
 const Info = ({ label, info }: { label: string; info: string }) => {
   return (
-    <div className="rounded-xl border border-gray-200 px-4 py-2">
-      <span className="font-bold">{`${label}: `}</span>
-      {info}
+    <div className="rounded-xl border border-gray-200 px-5 py-3 text-gray-700">
+      <span className="text-sm font-medium text-gray-500">{`${label}: `}</span>
+      <br></br>
+      {info === "" ? "-" : info}
     </div>
   );
 };

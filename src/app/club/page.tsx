@@ -6,6 +6,7 @@ import About from "@/app/club/Components/Home/About";
 import Rules from "@/app/club/Components/Home/Rules";
 import Contact from "@/app/club/Components/Contact";
 import FAQ from "@/app/club/Components/Home/FAQ";
+import Ranking from "./Components/Dashboard/Ranking";
 
 const page = () => {
   return (
@@ -13,8 +14,7 @@ const page = () => {
       <main className="container mx-auto flex flex-col items-center justify-center">
         <Hero />
         <About />
-        <Rules />
-        <Setter />
+        <Ranking />
         <FAQ />
         <Contact />
       </main>

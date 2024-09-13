@@ -5,6 +5,8 @@ export async function POST(req: NextRequest) {
   const data = await req.json();
   await initAdmin();
 
+  console.log(data.ndc_id);
+
   const memberDOC = await fetch(
     `https://memberapi.nditc.net/uid/${data.ndc_id}/`,
     {
@@ -16,10 +18,12 @@ export async function POST(req: NextRequest) {
 
   const member = await memberDOC.json();
 
+  console.log(member);
+
   if (!memberDOC.ok) {
     return NextResponse.json(
       { error: "No such Club Member exists" },
-      { status: 301 },
+      { status: 404 },
     );
   }
 

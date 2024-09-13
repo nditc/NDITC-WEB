@@ -49,11 +49,7 @@ const page = async ({
 
   if (userSnapshot.exists && userSnapshot.data()?.events.includes(params.id)) {
     return (
-      <Error
-        statusCode={777}
-        msg="You have alraedy taken the exam!"
-        location="/"
-      />
+      <Error statusCode={403} msg="You have alraedy taken the exam!" dest="#" />
     );
   }
 
@@ -64,19 +60,11 @@ const page = async ({
 
   if (now < starTime) {
     return (
-      <Error
-        statusCode={999}
-        msg="The Exam hasn't started yet!"
-        location="again"
-      />
+      <Error statusCode={999} msg="The Exam hasn't started yet!" dest="#" />
     );
   } else if (now > endTime) {
     return (
-      <Error
-        statusCode={999}
-        msg="The Exam took place decades ago!"
-        location="again"
-      />
+      <Error statusCode={999} msg="The Exam took place decades ago!" dest="#" />
     );
   }
 
@@ -85,7 +73,7 @@ const page = async ({
       <Error
         statusCode={555}
         msg="You can't participate in this exam!"
-        location="/"
+        dest="#"
       />
     );
   }
@@ -96,12 +84,16 @@ const page = async ({
     <main className="min-h-screen w-full bg-[#F6F6F6]">
       <ActualUser passedUID={uidVal} />
       <MemberCheck urlMemberID={memberidval} />
-      <div className="container py-[81px]">
+      <div className="container py-8">
         <AnswerSheet
           endTime={endTime.toMillis()}
           id={params.id}
           uid={uidVal}
           questions={questions}
+          name={docSnapshot?.data()?.eventName}
+          img={docSnapshot?.data()?.imageURL}
+          category={docSnapshot?.data()?.category}
+          description={docSnapshot?.data()?.description}
         />
       </div>
     </main>
