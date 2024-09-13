@@ -29,15 +29,19 @@ html {
     --background-end-rgb: 0, 0, 0;
   }
 } */
+.scrollbar::-webkit-scrollbar-thumb {
+  width: 4px;
+}
 
-/* Hide scrollbar for Chrome, Safari and Opera */
-/* *::-webkit-scrollbar {
-  display: none;
-} */
+.scrollbar {
+  scrollbar-width: 4px;
+  box-sizing: border-box;
+}
+
 body::-webkit-scrollbar,
-* {
-  -ms-overflow-style: none; /* IE and Edge */
-  scrollbar-width: none; /* Firefox */
+body,
+html {
+  scrollbar-width: none;
   box-sizing: border-box;
 }
 

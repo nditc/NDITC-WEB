@@ -103,6 +103,7 @@ const Page = ({ params }: { params: { eventID: string } }) => {
           setDescription(event.data().description);
           setIntra(event.data().intra);
           setQuestions(event.data().questions);
+          setCategory(event.data().category);
 
           const ans = getDoc(doc(db, "answers", params.eventID)).then((ans) => {
             if (ans.exists()) {
@@ -242,7 +243,7 @@ const Page = ({ params }: { params: { eventID: string } }) => {
   //---------Navigation--------
 
   const goToAdminPanel = () => {
-    router.push("/club/admin");
+    router.push("/club/admin/events");
   };
 
   //-----------Delete Event------------

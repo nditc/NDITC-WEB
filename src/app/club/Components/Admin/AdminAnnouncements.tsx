@@ -1,3 +1,5 @@
+"use client";
+
 import { db } from "@/config/firebase";
 import {
   addDoc,
@@ -13,6 +15,7 @@ import {
 import React, { FormEvent, useEffect, useState } from "react";
 import { BsClock } from "react-icons/bs";
 import { CgLock, CgSpinner } from "react-icons/cg";
+
 import { GrAnnounce } from "react-icons/gr";
 import Modal from "../Modal";
 import { LiaTimesSolid } from "react-icons/lia";

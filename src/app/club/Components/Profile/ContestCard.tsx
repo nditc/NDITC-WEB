@@ -66,19 +66,6 @@ const ContestCard = () => {
             </>
           </div></div></div> */}
       <div className="flex scale-75 flex-row items-center justify-center gap-4 text-secondary xsm:scale-85 xsm:gap-8 md:scale-100 lg:justify-end">
-        {userData?.ndc_id ? (
-          <div className="col-start-2 row-span-2 row-start-1 flex aspect-square h-48 w-48 flex-col items-center justify-center rounded-full bg-[conic-gradient(#60a5fa_0%,#3b82f6_65%,#d1d5db_0)]">
-            <div className="flex h-44 w-44 flex-col items-center justify-center rounded-full bg-white text-center">
-              <div className="-mt-4 flex flex-col items-center">
-                <SiHtmlacademy className="text-3xl leading-[0] text-blue-500 sm:text-4xl 2xl:text-5xl"></SiHtmlacademy>
-                <p className="Inter text-4xl font-bold text-black">1320</p>
-                <p className="Inter text-sm font-semibold leading-none">
-                  <span className="text-black">Club</span> Contribution
-                </p>
-              </div>
-            </div>
-          </div>
-        ) : null}
         <div className="col-start-2 row-span-2 row-start-1 flex aspect-square h-48 w-48 flex-col items-center justify-center rounded-full bg-[conic-gradient(#60a5fa_30%,#3b82f6_75%,#d1d5db_0)]">
           <div className="flex h-44 w-44 flex-col items-center justify-center rounded-full bg-white text-center">
             <div className="-mt-4 flex flex-col items-center">

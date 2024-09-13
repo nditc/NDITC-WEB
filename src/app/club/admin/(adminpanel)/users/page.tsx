@@ -6,7 +6,7 @@ import { useAuthState } from "react-firebase-hooks/auth";
 import { CgSpinner } from "react-icons/cg";
 import Error from "@/app/club/Components/Error";
 import { toast } from "react-toastify";
-import Field from "../../Components/Field";
+import Field from "../../../Components/Field";
 import Select from "@/app/club/Components/Select";
 import { MdEventNote, MdOutlinePersonSearch } from "react-icons/md";
 import {
@@ -35,11 +35,12 @@ import {
   useDisclosure,
 } from "@nextui-org/react";
 import { FaCaretUp, FaFilter, FaRegEdit } from "react-icons/fa";
-import { FiUser } from "react-icons/fi";
+import { FiCheckCircle, FiUser } from "react-icons/fi";
 import { LiaTimesSolid } from "react-icons/lia";
-import PassingYear from "../../Components/PassingYear";
+import PassingYear from "../../../Components/PassingYear";
 import { CiEdit } from "react-icons/ci";
-import Loading from "../../Components/Loading";
+import Loading from "../../../Components/Loading";
+import { BiHeart } from "react-icons/bi";
 
 const Page = () => {
   const [adminAuth, setAdminAuth] = useState<boolean>(false);
@@ -160,10 +161,10 @@ const Page = () => {
       {adminAuth ? (
         <div
           suppressHydrationWarning
-          className="min-h-screen w-screen bg-[#f6f6f6]"
+          className="min-h-screen w-full bg-[#f6f6f6]"
         >
-          <div className="container flex flex-col py-[81px]">
-            <h1 className="container mt-8 text-5xl">
+          <div className="flex flex-col pb-[81px]">
+            <h1 className="mt-8 text-5xl">
               USERS <span className="text-primary">PANEL</span>
             </h1>
 
@@ -203,15 +204,15 @@ const Page = () => {
               <button
                 onClick={onFilter}
                 type={"button"}
-                className="inline-flex w-full items-center justify-center gap-2 rounded-lg bg-primary px-5 py-2 text-sm leading-[1.15] text-white shadow-sm transition-colors hover:bg-primary_dark hover:text-white focus:ring-2 focus:ring-secondary md:mt-7 md:w-60"
+                className="my-3 inline-flex w-full items-center justify-center gap-2 rounded-lg bg-primary px-5 py-2 text-sm leading-[1.15] text-white shadow-sm transition-colors hover:bg-primary_dark hover:text-white focus:ring-2 focus:ring-secondary md:my-0 md:mt-7 md:w-60"
               >
                 <MdOutlinePersonSearch className="h-6 w-6" /> Search User
               </button>
             </div>
 
-            <div className="relative flex flex-col md:flex-row">
+            <div className="relative flex w-full flex-col md:flex-row">
               <div
-                className={`mb-3 mt-8 w-full flex-col gap-1 rounded-xl bg-white md:flex md:flex-1 md:bg-transparent ${filterOpen ? "flex" : "hidden"}`}
+                className={`mb-3 mt-8 w-full flex-col gap-3 rounded-xl bg-white p-5 md:flex md:flex-1 md:bg-transparent md:p-0 ${filterOpen ? "flex" : "hidden"}`}
               >
                 <h1 className="text-3xl text-primary">FILTERS</h1>
 
@@ -245,7 +246,7 @@ const Page = () => {
                   Filter With Year
                 </Checkbox>
 
-                <div className="w-32">
+                <div className="-ml-1 mt-2 w-40">
                   <PassingYear
                     state={selectedClass}
                     setValue={(name, data) => setSelectedClass(data)}
@@ -256,55 +257,96 @@ const Page = () => {
                   />
                 </div>
               </div>
-              <div className="md:flex-[5]">
+              <div className="w-full md:flex-[5]">
                 <div className="mb-3 mt-8 flex w-full justify-between text-3xl">
                   <h1>
                     USERS <span className="text-primary">INFO</span>
                   </h1>
-
                   <button
                     type="button"
                     onClick={() => setFilterOpen(!filterOpen)}
-                    className="block shadow-md md:hidden"
+                    className="block md:hidden"
                   >
                     <FaFilter className="h-7 w-7 text-primary" />
                   </button>
                 </div>
-                <div className="flex flex-col gap-3">
-                  {usersData?.map((e: { id: string; data: any }, i: number) => {
-                    return (
-                      <div
-                        onClick={() => {
-                          setSelectedStudentData(e);
-                          setSelectedStudentIndex(i);
-                          onOpen();
-                        }}
-                        key={i}
-                        className="flex h-20 w-full cursor-pointer items-center gap-5 rounded-xl border-1 border-transparent bg-white p-2 transition hover:border-secondary"
-                      >
-                        <img
-                          src={e.data?.imageUrl}
-                          className="ml-1 aspect-square h-full rounded-full p-1"
-                        />
-                        <div className="flex flex-[1.5] flex-col gap-1 leading-none">
-                          <div className="Nunito font text-lg font-semibold leading-none">
-                            {e.data?.name}
+                <div className="scrollbar max-h-[60vh] w-full overflow-scroll pb-3 pr-3">
+                  {" "}
+                  <div className="mb-2 flex h-20 w-full min-w-[800px] items-center justify-center gap-5 rounded-xl border-1 border-transparent bg-secondary p-2 pr-8 text-white transition">
+                    <div className="basis-[68px]"></div>
+                    <div className="flex flex-[1.5] flex-col gap-1 leading-none">
+                      Name / Institution
+                    </div>
+                    <div className="flex-[1] text-center">Passing Year</div>
+                    <div className="basis-[80px] gap-2 text-center">
+                      Verified
+                    </div>
+                    <div className="basis-[80px] gap-2 text-center">
+                      Selected
+                    </div>
+                  </div>
+                  <div className="flex w-full min-w-[800px] flex-col gap-2">
+                    {usersData?.map(
+                      (e: { id: string; data: any }, i: number) => {
+                        return (
+                          <div
+                            onClick={() => {
+                              setSelectedStudentData(e);
+                              setSelectedStudentIndex(i);
+                              onOpen();
+                            }}
+                            key={i}
+                            className="flex h-20 w-full min-w-[800px] cursor-pointer items-center gap-5 rounded-xl border-1 border-transparent bg-white p-2 pr-8 transition hover:border-secondary_lighter"
+                          >
+                            <div className="basis-[68px]">
+                              <img
+                                src={e.data?.imageUrl}
+                                className="ml-1 aspect-square w-[60px] rounded-full border border-1 p-1"
+                              />
+                            </div>
+                            <div className="flex flex-[1.5] flex-col gap-1 leading-none">
+                              <div className="Nunito font break-keep text-lg font-semibold leading-none">
+                                {e.data?.name}
+                              </div>
+                              <div className="Nunito break-keep text-primary">
+                                {" "}
+                                {e.data?.institution}
+                              </div>
+                            </div>
+                            <div className="flex-[1] text-center">
+                              {" "}
+                              <span className="text-sm">HSC-</span>
+                              <span className="text-lg text-primary">
+                                {e.data?.class}
+                              </span>
+                            </div>
+                            <div
+                              className={
+                                "flex basis-[80px] justify-center gap-2 " +
+                                (e.data?.verified
+                                  ? "grayscale-[0]"
+                                  : "grayscale-[1]")
+                              }
+                              title="Verified"
+                            >
+                              <FiCheckCircle className="h-5 w-5 text-green-400" />
+                            </div>
+                            <div
+                              className={
+                                "flex basis-[80px] justify-center gap-2 " +
+                                (e.data?.selected
+                                  ? "grayscale-[0]"
+                                  : "grayscale-[1]")
+                              }
+                              title="Selected"
+                            >
+                              <BiHeart className="h-5 w-5 text-red-400" />
+                            </div>
                           </div>
-                          <div className="Nunito text-primary">
-                            {" "}
-                            {e.data?.institution}
-                          </div>
-                        </div>
-                        <div className="flex-[1] text-center">
-                          {" "}
-                          <span className="text-sm">HSC-</span>
-                          <span className="text-lg text-primary">
-                            {e.data?.class}
-                          </span>
-                        </div>
-                      </div>
-                    );
-                  })}
+                        );
+                      },
+                    )}
+                  </div>
                 </div>
               </div>
             </div>
@@ -416,10 +458,10 @@ const EditUserData = ({
     setLoading(false);
   };
   return (
-    <div className="container mb-4 flex w-full rounded-xl bg-white pb-8 pt-3 sm:mt-8 sm:py-0">
+    <div className="mb-4 flex w-full rounded-xl bg-white pb-8 pt-0 sm:py-0 md:pt-3">
       {editUserData ? (
         <form
-          className="grid w-full grid-cols-1 gap-5 p-5 sm:p-12"
+          className="grid w-full grid-cols-1 gap-5 p-5 sm:p-12 md:pt-0"
           onSubmit={submitHandler}
         >
           <div className="flex justify-between">
