@@ -68,11 +68,11 @@ const Page = ({ children }: { children: React.ReactNode }) => {
                     <h1 className="break-all text-4xl text-primary md:text-5xl">
                       WEB ADMIN
                     </h1>
-                    <h2 className="Inter break-all text-lg md:text-xl">
+                    {/*<h2 className="Inter break-all text-lg md:text-xl">
                       {userAuth.email || (
                         <div className="my-2 h-8 w-48 animate-pulse rounded-lg bg-zinc-300"></div>
                       )}
-                    </h2>
+                    </h2>*/}
                     <div className="mt-4 flex gap-2">
                       <button
                         onClick={logOut}
