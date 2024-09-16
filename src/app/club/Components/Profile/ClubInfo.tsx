@@ -64,9 +64,18 @@ const ClubInfo = ({
       setLoading(false);
     } else {
       const memberID = await docRes.json();
+
       if (memberID.success) {
+        const fields: any = {};
+
+        if (memberID.year) {
+          fields["class"] = memberID.year;
+        }
+
         await updateDoc(doc(db, "participants", uid), {
           ndc_id: memberID.memberID,
+          name: memberID.name,
+          ...fields,
         }).then(() => {
           setLoading(false);
           location.reload();
