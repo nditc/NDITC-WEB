@@ -42,6 +42,15 @@ import { CiEdit } from "react-icons/ci";
 import Loading from "../../../Components/Loading";
 import { BiHeart } from "react-icons/bi";
 
+const getMemberByRoll = async (ndc_roll: string) => {
+  const res = await fetch("/api/getmemberbyroll", {
+    method: "POST",
+    body: JSON.stringify({ ndc_id: ndc_roll }),
+  });
+
+  return res;
+};
+
 const Page = () => {
   const [adminAuth, setAdminAuth] = useState<boolean>(false);
   const [user] = useAuthState(auth);
@@ -130,17 +139,52 @@ const Page = () => {
   };
 
   const onFilter = () => {
-    getDocs(onFilterQuery(false)).then((data) => {
-      setLastUserDoc(data.docs[data.docs.length - 1]);
-      const tempArr: any[] = [];
-      data.docs.forEach((e, i) => {
-        tempArr.push({ id: e.id, data: { ...e.data() } });
-      });
+    if (searchBy == "NDC Roll") {
+      if (searchText != "") {
+        getMemberByRoll(searchText)
+          .then((r) => r.json())
+          .then((resp) => {
+            let c = [];
 
-      //setUsersData((oldArr: any) => [oldArr, ...tempArr]);
-      setUsersData(tempArr);
-      setAuthLoading(false);
-    });
+            if (isYearSelected) c.push(where("class", "==", selectedClass));
+            if (isVerified) c.push(where("verified", "==", true));
+            if (isSelected) c.push(where("selected", "==", true));
+
+            const q = query(
+              collection(db, "participants"),
+              orderBy("name"),
+              limit(docLimit),
+              where("ndc_id", "==", resp.memberID),
+              ...c,
+            );
+
+            getDocs(q).then((data) => {
+              setLastUserDoc(data.docs[data.docs.length - 1]);
+              const tempArr: any[] = [];
+              data.docs.forEach((e, i) => {
+                tempArr.push({ id: e.id, data: { ...e.data() } });
+              });
+
+              //setUsersData((oldArr: any) => [oldArr, ...tempArr]);
+              setUsersData(tempArr);
+              setAuthLoading(false);
+            });
+          })
+          .catch((e) => toast.error(e));
+      }
+    } else {
+      getDocs(onFilterQuery(false)).then((data) => {
+        setLastUserDoc(data.docs[data.docs.length - 1]);
+        const tempArr: any[] = [];
+        data.docs.forEach((e, i) => {
+          tempArr.push({ id: e.id, data: { ...e.data() } });
+        });
+
+        //setUsersData((oldArr: any) => [oldArr, ...tempArr]);
+        setUsersData(tempArr);
+        setAuthLoading(false);
+      });
+    }
   };
 
   const loadMoreUsers = () => {
@@ -179,6 +223,7 @@ const Page = () => {
                   "mobile",
                   "address",
                   "institution",
+                  "NDC Roll",
                 ]}
                 selected={searchBy}
                 setValue={(name: string, value: string | number) => {
@@ -198,7 +243,7 @@ const Page = () => {
                   value={searchText}
                   type={"text"}
                   name={"searchtext"}
-                  placeholder={"User Name ..."}
+                  placeholder={"Enter ..."}
                 />
               </div>
               <button
@@ -384,13 +429,15 @@ const Page = () => {
               </ModalContent>
             </Modal>
 
-            <button
-              onClick={loadMoreUsers}
-              type={"button"}
-              className="mt-5 inline-flex items-center justify-center gap-2 self-center rounded-lg bg-primary px-5 py-2 text-sm leading-[1.15] text-white shadow-sm transition-colors hover:bg-primary_dark hover:text-white focus:ring-2 focus:ring-secondary md:mt-7"
-            >
-              <MdOutlinePersonSearch className="h-6 w-6" /> Load More Users
-            </button>
+            {usersData.length >= docLimit && (
+              <button
+                onClick={loadMoreUsers}
+                type={"button"}
+                className="mt-5 inline-flex items-center justify-center gap-2 self-center rounded-lg bg-primary px-5 py-2 text-sm leading-[1.15] text-white shadow-sm transition-colors hover:bg-primary_dark hover:text-white focus:ring-2 focus:ring-secondary md:mt-7"
+              >
+                <MdOutlinePersonSearch className="h-6 w-6" /> Load More Users
+              </button>
+            )}
           </div>
         </div>
       ) : authLoading ? (
