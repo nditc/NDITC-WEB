@@ -1,7 +1,7 @@
-'use client'; // Error components must be Client Components
+"use client"; // Error components must be Client Components
 
-import { useEffect } from 'react';
-import ErrorComp from './Components/Error';
+import { useEffect } from "react";
+import ErrorComp from "./(main)/Components/Error";
 export default function Error({
   error,
   reset,
@@ -14,5 +14,7 @@ export default function Error({
     console.error(error);
   }, [error]);
 
-  return <ErrorComp statusCode={500} msg="Something Went Wrong!" action={reset} />;
+  return (
+    <ErrorComp statusCode={500} msg="Something Went Wrong!" action={reset} />
+  );
 }
