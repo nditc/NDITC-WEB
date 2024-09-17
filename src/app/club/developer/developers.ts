@@ -19,8 +19,8 @@ const x: devData = {
   "MAIN DEVELOPER": [
     {
       name: "Wasef Rahman Swapnil",
-      image_url: "/Images/Developers/swapnil.jpg",
-      modal_image_url: "/Images/Developers/tr-swapnil.png",
+      image_url: "/image/Developers/swapnil.jpg",
+      modal_image_url: "/image/Developers/tr-swapnil.png",
       imageInCenter: true,
       profile_url: [
         {
@@ -46,8 +46,8 @@ const x: devData = {
   "KEY DEVELOPER": [
     {
       name: "HRM Rafsan Amin",
-      image_url: "/Images/Developers/hrm_rafsan.jpg",
-      modal_image_url: "/Images/Developers/tr-hrm_rafsan.png",
+      image_url: "/image/Developers/hrm_rafsan.jpg",
+      modal_image_url: "/image/Developers/tr-hrm_rafsan.png",
       imageInCenter: false,
       profile_url: [
         {
