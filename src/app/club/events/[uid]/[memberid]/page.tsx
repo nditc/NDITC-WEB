@@ -86,7 +86,7 @@ const page = async ({
   return (
     <main className="min-h-screen w-full bg-[#F6F6F6]">
       <ActualUser passedUID={uidVal} />
-      <MemberCheck urlMemberID={memberidVal} />
+      <MemberCheck urlMemberID={memberidVal} noDeepMemberCheck={true} />
       <div className="container py-[81px]">
         {ongoingList.length != 0 && (
           <div>

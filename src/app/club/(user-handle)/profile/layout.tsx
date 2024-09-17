@@ -78,9 +78,9 @@ const Page = ({ children }: { children: React.ReactNode }) => {
                   >
                     Notice
                   </SubNavItem>
-                  <SubNavItem href="/club/profile/events" icon={MdEvent}>
+                  {/*<SubNavItem href="/club/profile/events" icon={MdEvent}>
                     Events
-                  </SubNavItem>
+                  </SubNavItem>*/}
                 </SubNav>
               </div>
               {children}

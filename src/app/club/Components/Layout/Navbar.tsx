@@ -308,24 +308,8 @@ const ClubNavbar = () => {
                 Main
               </Link>
             </li>
-            {config?.pre_result_published ? (
-              <li className="w-full text-center lg:w-auto">
-                <Link
-                  onClick={() => {
-                    setShowOptions(false);
-                  }}
-                  href={
-                    config?.final_result_published
-                      ? "/club/standings/final"
-                      : "/club/standings/preliminary"
-                  }
-                  className="block rounded px-3 py-2 text-gray-900 hover:bg-gray-200 lg:p-0 lg:hover:bg-transparent lg:hover:text-secondary"
-                >
-                  Result
-                </Link>
-              </li>
-            ) : null}
-            <li className="w-full text-center lg:w-auto">
+
+            {/*<li className="w-full text-center lg:w-auto">
               <Link
                 onClick={() => {
                   setShowOptions(false);
@@ -345,7 +329,7 @@ const ClubNavbar = () => {
               >
                 Events
               </Link>
-            </li>
+            </li>*/}
 
             <li className="w-full text-center lg:hidden lg:w-auto">
               <button

@@ -17,14 +17,20 @@ const getConnectToNDITC = async (ndc_id: string, email: string) => {
   return res;
 };
 
-const MemberCheck = ({ urlMemberID }: { urlMemberID: string }) => {
+const MemberCheck = ({
+  urlMemberID,
+  noDeepMemberCheck,
+}: {
+  urlMemberID: string;
+  noDeepMemberCheck?: boolean;
+}) => {
   const { userData, userDataLoading, dataError } = useUserDataContext();
   const [userAuth, loading, error] = useAuthState(auth);
 
   const router = useRouter();
 
   useEffect(() => {
-    if (userData?.ndc_id != "none") {
+    if (userData?.ndc_id != "none" && !noDeepMemberCheck) {
       getConnectToNDITC(userData?.ndc_id, userAuth?.email || "").catch(() => {
         toast.error("You are not a member of NDITC!");
         updateDoc(doc(db, "participants", `${userAuth?.uid}`), {
