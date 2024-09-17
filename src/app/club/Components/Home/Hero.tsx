@@ -21,7 +21,7 @@ const Hero = () => {
           </h1>
 
           <p className="Nunito mt-3 w-[85vw] break-words text-center text-base md:w-fit md:max-w-[90%] 2xl:text-[1.375rem] 2xl:leading-8">
-            Join the ultimate event experience at FusionFest – where everyone is
+            Join the ultimate event experience at NDITC – where everyone is
             welcome to connect, create, and celebrate together!
           </p>
 

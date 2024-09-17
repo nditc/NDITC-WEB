@@ -1,3 +1,4 @@
+import { getConfig } from "@/config/config_db";
 import { initAdmin } from "@/config/firebaseAdmin";
 import { getFirestore } from "firebase-admin/firestore";
 import { FaCrown, FaRankingStar } from "react-icons/fa6";
@@ -6,6 +7,14 @@ const Ranking = async () => {
   await initAdmin();
 
   const firestore = getFirestore();
+
+  const rank_visible = (
+    await firestore.collection("config").doc("config").get()
+  ).data()?.rank_visible;
+
+  if (!rank_visible) {
+    return <div />;
+  }
 
   const rankSnapshot = await firestore
     .collection("eventparticipant")
