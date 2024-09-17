@@ -237,40 +237,7 @@ const ClubNavbar = () => {
                 About
               </Link>
             </li>
-            <li className="w-full text-center lg:w-auto">
-              <Link
-                onClick={() => {
-                  setShowOptions(false);
-                }}
-                href="/club/#rules"
-                className={
-                  "block rounded px-3 py-2 text-gray-900 lg:p-0 lg:hover:bg-transparent lg:hover:text-secondary" +
-                  " " +
-                  (Route === "/asasasasasassdafawreq"
-                    ? "bg-primary text-white hover:bg-primary_dark lg:bg-transparent lg:text-secondary"
-                    : "hover:bg-gray-200 lg:bg-transparent lg:text-black")
-                }
-              >
-                Rules
-              </Link>
-            </li>
-            <li className="w-full text-center lg:w-auto">
-              <Link
-                onClick={() => {
-                  setShowOptions(false);
-                }}
-                href="/club/#setter"
-                className={
-                  "block rounded px-3 py-2 text-gray-900 lg:p-0 lg:hover:bg-transparent lg:hover:text-secondary" +
-                  " " +
-                  (Route === "/asasasasasassdafawreq"
-                    ? "bg-primary text-white hover:bg-primary_dark lg:bg-transparent lg:text-secondary"
-                    : "hover:bg-gray-200 lg:bg-transparent lg:text-black")
-                }
-              >
-                Setter
-              </Link>
-            </li>
+
             <li className="w-full text-center lg:w-auto">
               <Link
                 onClick={() => {
