@@ -14,7 +14,7 @@ const About = () => {
         ></img>
         <section className="container my-auto flex flex-col items-center pb-12 pt-14">
           <h1 className="text-[2.55rem] text-white md:text-5xl">
-            ABOUT <span className="text-secondary">Club Panel</span>
+            ABOUT <span className="text-secondary">Club Portal</span>
           </h1>
 
           <div className="Nunito mt-3 flex flex-col items-stretch gap-4 pb-2 text-base text-[#ffffffbe] lg:flex-row lg:gap-8 xl:text-lg">
@@ -27,7 +27,7 @@ const About = () => {
             </div> */}
             <div className="mt-3 flex-1 pb-5 text-white">
               <p className="flex-1">
-                Welcome to the Club Panel, your gateway to an engaging and
+                Welcome to the Club Portal, your gateway to an engaging and
                 interactive club experience! Our Club Panel offers a variety of
                 features designed to enhance your participation and enjoyment
                 within the club. <br></br>

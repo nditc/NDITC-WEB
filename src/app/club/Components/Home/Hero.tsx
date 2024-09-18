@@ -17,7 +17,7 @@ const Hero = () => {
             Welcome to
           </h1>
           <h1 className="Inter mt-2 text-center text-4xl font-extrabold tracking-wide text-black md:mt-0 md:text-5xl 2xl:text-7xl">
-            <span className="text-primary">Club </span>Panel
+            <span className="text-primary">Club </span>Portal
           </h1>
 
           <p className="Nunito mt-3 w-[85vw] break-words text-center text-base md:w-fit md:max-w-[90%] 2xl:text-[1.375rem] 2xl:leading-8">
