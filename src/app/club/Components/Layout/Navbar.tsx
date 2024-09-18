@@ -14,6 +14,7 @@ import { useConfig } from "@/config/config_db";
 import { useAuthContext } from "./AuthContextProvider";
 import { useUserDataContext } from "./UserDataProvider";
 import { ImDownload } from "react-icons/im";
+import { Avatar } from "@nextui-org/react";
 
 const ClubNavbar = () => {
   const [showOptions, setShowOptions] = useState(false);
@@ -122,10 +123,14 @@ const ClubNavbar = () => {
             <Link
               href="/club/profile"
               type="button"
-              className="before:ease Inter relative flex items-center overflow-hidden rounded-lg border bg-zinc-400 px-4 py-2 text-center font-ShareTechTown text-sm font-medium text-black shadow-2xl before:absolute before:left-0 before:-ml-2 before:h-48 before:w-48 before:origin-top-right before:-translate-x-full before:translate-y-12 before:-rotate-90 before:bg-zinc-300 before:transition-all before:duration-300 hover:before:-rotate-180 focus:outline-none focus:ring-4 focus:ring-zinc-400 lg:px-2 xl:px-4"
+              className="before:ease Inter relative flex items-center overflow-hidden rounded-lg px-4 py-2 text-center font-ShareTechTown text-sm font-medium text-black shadow-2xl before:absolute before:left-0 before:-ml-2 before:h-48 before:w-48 before:origin-top-right before:-translate-x-full before:translate-y-12 before:-rotate-90 before:transition-all before:duration-300 hover:before:-rotate-180 focus:outline-none focus:ring-4 lg:px-2 xl:px-4"
             >
-              <FiUser className="z-10 h-5 w-5 xsm:mr-2 xsm:h-4 xsm:w-4" />
-              <span className="relative z-10 hidden xsm:inline">PROFILE</span>
+              <Avatar
+                isBordered
+                color="primary"
+                src={userData?.imageUrl}
+                className=""
+              />
             </Link>
           ) : (
             <Link
@@ -160,7 +165,7 @@ const ClubNavbar = () => {
             onClick={() => setShowOptions(!showOptions)}
             data-collapse-toggle="navbar-sticky"
             type="button"
-            className="inline-flex h-10 w-10 items-center justify-center rounded-lg p-2 text-sm text-gray-500 hover:bg-gray-200 focus:outline-none focus:ring-2 focus:ring-gray-200 lg:hidden"
+            className="mt-2 inline-flex h-10 w-10 items-center justify-center rounded-lg p-2 text-sm text-gray-500 hover:bg-gray-200 focus:outline-none focus:ring-2 focus:ring-gray-200 lg:hidden"
             aria-controls="navbar-sticky"
             aria-expanded="false"
           >
