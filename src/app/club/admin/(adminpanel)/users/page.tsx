@@ -61,12 +61,6 @@ const Page = () => {
 
   const docLimit = 10;
 
-  const firstQuery = query(
-    collection(db, "participants"),
-    limit(docLimit),
-    orderBy("name"),
-  );
-
   useEffect(() => {
     if (user && user.email) {
       fetch("/api/admin", {
@@ -77,7 +71,8 @@ const Page = () => {
         .then((resp) => {
           setAdminAuth(resp.auth || false);
 
-          getDocs(firstQuery).then((data) => {
+          getDocs(onFilterQuery(false)).then((data) => {
+            console.log(data.docs[data.docs.length - 1]);
             setLastUserDoc(data.docs[data.docs.length - 1]);
             const tempArr: any[] = [];
             data.docs.forEach((e, i) => {
@@ -189,6 +184,7 @@ const Page = () => {
 
   const loadMoreUsers = () => {
     getDocs(onFilterQuery(true)).then((data) => {
+      setLastUserDoc(data.docs[data.docs.length - 1]);
       const tempArr: any[] = [];
       data.docs.forEach((e) => {
         tempArr.push({ id: e.id, data: { ...e.data() } });
