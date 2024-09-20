@@ -10,19 +10,28 @@ import { doc, updateDoc } from "firebase/firestore";
 import { LiaTimesSolid } from "react-icons/lia";
 import { toast } from "react-toastify";
 import fileValidator from "@/util/fileValidator";
+import imageCompression from "browser-image-compression";
 
 const ProfilePic = ({ imageUrl }: { imageUrl: any }) => {
   const [changeImage, setChangeImage] = useState<boolean>();
-  const [newImage, setNewImage] = useState<FileList | null>();
+  const [newImage, setNewImage] = useState<File | null>();
   const [loading, setLoading] = useState<boolean>(false);
+  const [compressing, setCompressing] = useState<boolean>(false);
   const [user] = useAuthState(auth);
 
   const FileRef = useRef<HTMLInputElement>(null);
-  const changePfp = () => {
+  const changePfp = async () => {
     if (user?.uid && newImage) {
       setLoading(true);
       const storeRef = ref(pfp, "pfp/" + user.uid);
-      uploadBytes(storeRef, newImage[0])
+      const options = {
+        maxSizeMB: 0.25,
+        maxWidthOrHeight: 420,
+        useWebWorker: true,
+      };
+      const compressedFile = await imageCompression(newImage, options);
+
+      uploadBytes(storeRef, compressedFile)
         .then(async (snapshot) => {
           const url = await getDownloadURL(storeRef);
           await updateDoc(doc(db, "participants", user.uid), { imageUrl: url });
@@ -75,28 +84,44 @@ const ProfilePic = ({ imageUrl }: { imageUrl: any }) => {
             <h1 className="text-4xl">
               UPLOAD <span className="text-primary">PROFILE PICTURE</span>
             </h1>
-            {newImage && newImage[0] ? (
+            {compressing ? (
+              <div className="my-3 flex items-center justify-center gap-2">
+                <CgSpinner className="h-7 w-7 animate-spin text-primary" />
+                Image Compressing
+              </div>
+            ) : null}
+            {newImage ? (
               <img
                 className="mx-auto my-2 h-[200px] w-[200px] rounded-full object-cover"
-                src={URL.createObjectURL(newImage[0])}
+                src={URL.createObjectURL(newImage)}
                 alt=""
               />
             ) : null}
             <input
               onChange={async (e) => {
-                try {
-                  await fileValidator(
-                    e.target.files || [],
-                    ["image/png", "image/jpeg", "image/webp"],
-                    512,
-                    1,
-                    "File must have to be a .jpg, .png or .webp file",
-                  );
-                  setNewImage(e.target.files ? e.target.files : null);
-                } catch (err) {
-                  e.target.value = "";
+                if (e?.target?.files && e.target.files[0]) {
+                  try {
+                    const options = {
+                      maxSizeMB: 0.25,
+                      maxWidthOrHeight: 1920,
+                      useWebWorker: true,
+                    };
+                    await fileValidator(
+                      e.target.files || [],
+                      ["image/png", "image/jpeg", "image/webp"],
+                      5120,
+                      1,
+                      "File must have to be a .jpg, .png or .webp file",
+                    );
 
-                  toast.error(String(err));
+                    setNewImage(e.target.files[0]);
+                    setCompressing(false);
+                    console.log("complete compressing");
+                  } catch (err) {
+                    e.target.value = "";
+
+                    toast.error(String(err));
+                  }
                 }
               }}
               className="my-5 file:mr-3 file:cursor-pointer file:rounded-lg file:border-none file:bg-primary file:px-4 file:py-2 file:text-white file:hover:bg-secondary_light file:hover:text-primary"
@@ -110,7 +135,7 @@ const ProfilePic = ({ imageUrl }: { imageUrl: any }) => {
                 style={{
                   pointerEvents: loading ? "none" : "auto",
                 }}
-                disabled={newImage && newImage[0] ? false : true}
+                disabled={newImage ? false : true}
                 className="flex w-full justify-center rounded-xl bg-primary px-8 py-2 text-lg text-white transition-all hover:bg-secondary_light hover:text-primary disabled:opacity-80"
                 type="button"
                 onClick={changePfp}
