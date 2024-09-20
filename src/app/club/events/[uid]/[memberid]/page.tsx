@@ -75,7 +75,7 @@ const page = async ({
   const collectionSnapshot = await firestore
     .collection("events")
     .orderBy("date", "desc")
-    .limit(9)
+    .limit(5)
     .get();
 
   const eventList: any[] = collectionSnapshot.docs.map((e) => ({

@@ -5,27 +5,24 @@ import { BsQuestionCircle } from "react-icons/bs";
 
 const FAQS = [
   {
-    title:
-      "What is FTMPC 4.0, and why is the contest named in Father Richard William Timm's honor?",
-    desc: "FTMPC 4.0 stands for the Father Timm Memorial Programming Contest, which is the fourth installment of this prestigious event. The contest is named in honor of Father Richard William Timm, a notable figure known for his contributions to academia, humanitarianism, and biodiversity exploration. The contest aims to celebrate his enduring influence and legacy in these realms.",
+    title: "What is NDITC?",
+    desc: "The Notre Dame Information Technology Club (NDITC) is a co-curricular club at Notre Dame College, Dhaka, established in 2018. Our mission is to promote technology awareness and provide students with opportunities to engage in areas like Web Development, competitive programming, robotics, graphics design, and content creation.",
   },
   {
-    title:
-      "What educational backgrounds are eligible to participate in FTMPC 4.0?",
-    desc: "FTMPC 4.0 is open to students from various educational backgrounds, including schools, colleges (including HSC batch-2023), and corresponding institutions such as polytechnic institutes (4th year and below).",
+    title: "How do we operate?",
+    desc: "We organize various events, workshops, and competitions to encourage active learning. Our signature events, such as the Father Timm Memorial Programming Contest (FTMPC) and PixelCon, provide a platform for students to showcase their tech skills.",
   },
   {
-    title: "What programming languages can participants use in the contest?",
-    desc: "Participants can use Python, C, or C++ programming languages to tackle challenges inspired by the International Olympiad in Informatics (IOI) format.",
+    title: "How do I register for an account?",
+    desc: "Click on the register button. Then enter the required information. Then set up your password and enter click. After that you will receive a verification email and after verifying you're all set!",
   },
   {
-    title:
-      "What measures are in place to address plagiarism issues during the contest?",
-    desc: "Participants can use Python, C, or C++ programming languages to tackle challenges inspired by the International Olympiad in Informatics (IOI) format.",
+    title: "How do I register for an account as a member?",
+    desc: "After you officialy become our club member, click on the register button on the website, enter your college roll number, email address you entered in the club registration form. Then set up your password and enter click. After that you will receive a verification email and after verifying you're all set!",
   },
   {
-    title: "Do I need to bring laptop for Offline Round?",
-    desc: "Contestants who are selected in preliminary round must have to bring their laptops for Offline Round.",
+    title: "What is the purpose of this website?",
+    desc: "We will host intra-college, intra-club and inter college quizzes on this websites. Based on the results, we will display a leaderboard. Also, you will get updates of any club activities through your profile.",
   },
 ];
 const FAQ = () => {

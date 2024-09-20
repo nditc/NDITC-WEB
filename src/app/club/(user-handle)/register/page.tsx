@@ -22,6 +22,7 @@ import { getConfig } from "@/config/config_db";
 import { Checkbox } from "@nextui-org/checkbox";
 import { useAuthContext } from "@/app/club/Components/Layout/AuthContextProvider";
 import PassingYear from "../../Components/PassingYear";
+import { CiWarning } from "react-icons/ci";
 
 type actionType = {
   type: "SET_FIELD";
@@ -239,6 +240,21 @@ const Page = () => {
                 if you have already registered. By filling out this form you are
                 agreeing, to our terms and conditions.
               </p>
+
+              {isNDCStudent && (
+                <p className="rounded-xl bg-yellow-100 p-5 text-yellow-950">
+                  <b className="flex items-center gap-1">
+                    {" "}
+                    <CiWarning />
+                    Notice:
+                  </b>
+                  All Batch '26 Students are requested to create a Non-member
+                  Account right now as all of your Club Forms haven't been
+                  submitted yet. After we announce, you can enter your Roll in
+                  your profile and it will be converted to a Member account
+                  automatically.
+                </p>
+              )}
               <div className="my-2 flex items-center gap-4">
                 {/* <label className="ml-2 font-medium text-gray-500 disabled:text-gray-200">
                 Membership Satus:

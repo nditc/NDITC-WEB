@@ -63,10 +63,6 @@ const ContestCard = () => {
     func();
   }, []);
 
-  if (points <= 0) {
-    return <div />;
-  }
-
   return (
     <div className="flex flex-1 flex-col items-center justify-end rounded-xl lg:flex-row lg:gap-8 xl:ml-16">
       {/* Contest Details Coming Soon */}
@@ -94,7 +90,9 @@ const ContestCard = () => {
           <div className="flex h-44 w-44 flex-col items-center justify-center rounded-full bg-white text-center">
             <div className="-mt-4 flex flex-col items-center">
               <CgTrophy className="text-3xl leading-[0] text-blue-500 sm:text-4xl 2xl:text-5xl"></CgTrophy>
-              <p className="Inter text-4xl font-bold text-black">{points}</p>
+              <p className="Inter text-4xl font-bold text-black">
+                {points || 0}
+              </p>
               <p className="Inter text-sm font-semibold leading-none">
                 <span className="text-black">Season</span> Points
               </p>
