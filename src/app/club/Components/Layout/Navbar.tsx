@@ -107,7 +107,7 @@ const ClubNavbar = () => {
           }}
           className="z-50 flex items-center space-x-3 rtl:space-x-reverse"
         >
-          <Image
+          <img
             src="/Logo.png"
             className="h-12 max-w-[7.5rem] object-contain xsm:max-w-36"
             alt="NDITC Logo"

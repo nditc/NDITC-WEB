@@ -52,7 +52,7 @@ const ImageGrid = ({ images, layoutID }: props) => {
               }}
               key={index}
             >
-              <Image
+              <img
                 width={780}
                 height={780}
                 className={Styles["i" + (index + 1)]}
@@ -72,7 +72,7 @@ const ImageGrid = ({ images, layoutID }: props) => {
           ... View More Images
         </button>
       </div>
-      <ImageViewer
+      <imgViewer
         close={() => {
           setImageViewerState(false);
           setInitIndex(0);

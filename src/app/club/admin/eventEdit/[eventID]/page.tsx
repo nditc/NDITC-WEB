@@ -296,7 +296,7 @@ const Page = ({ params }: { params: { eventID: string } }) => {
                     <p className="absolute left-1/2 top-1/2 z-10 -translate-x-1/2 -translate-y-1/2 cursor-pointer select-none font-medium text-transparent text-white">
                       Click to Change
                     </p>
-                    <Image
+                    <img
                       className="aspect-square h-[384px] w-[384px] min-w-[384px] max-w-[384px] cursor-pointer rounded-xl bg-white object-cover shadow-md brightness-50 transition-all"
                       src={
                         newImage ? URL.createObjectURL(newImage[0]) : imageURL

@@ -38,7 +38,7 @@ const SingleNotification = ({
       </div>
 
       <div className="relative h-full flex-[10] rounded-r-xl bg-black object-cover gradient-mask-l-50">
-        <Image
+        <img
           src={imageURL}
           alt="Image"
           className="absolute w-full object-cover"

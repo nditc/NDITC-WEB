@@ -31,7 +31,7 @@ const Event = ({
           On Going!
         </div>
       ) : null}
-      <Image
+      <img
         src={imageURL}
         alt={"Card Image"}
         className="card_banner"

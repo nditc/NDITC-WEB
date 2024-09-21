@@ -129,7 +129,7 @@ const Page = () => {
             </>
           )}
         </form>
-        <Image
+        <img
           alt="login"
           className={"m-5 hidden w-1/2 rounded-xl object-cover lg:block"}
           src="/image/club/login.svg"

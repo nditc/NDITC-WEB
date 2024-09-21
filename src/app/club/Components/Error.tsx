@@ -15,7 +15,7 @@ const Error = ({ statusCode, msg, action, dest }: ErrorProp) => {
     <div className="mt-[81px] grid h-[calc(100vh-81px)] place-items-center">
       <div className="container flex h-3/4 flex-col items-center justify-center gap-12 rounded-xl p-5 md:flex-row">
         <div className="">
-          <Image width={256} height={256} src="/image/icon/bot.svg" alt="" />
+          <img width={256} height={256} src="/image/icon/bot.svg" alt="" />
         </div>
         <div className="hidden rotate-90 bg-slate-500 md:block md:h-1/2 md:w-1 md:rotate-0"></div>
         <div className="w-min text-center md:text-left">

@@ -44,7 +44,7 @@ const Member = ({
         >
           {hoverText}
         </span>
-        <Image
+        <img
           className={`rounded-full max-w-[120px] md:max-w-[280px] w-full transition-all aspect-square object-cover ${
             hasClickHandler && hover
               ? "brightness-50 object-center"
