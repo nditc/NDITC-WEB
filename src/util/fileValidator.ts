@@ -3,7 +3,7 @@ const fileValidator = (
   accessType: string[],
   sizeLimit: number,
   fileLimit: number,
-  accessTypeWarning: string
+  accessTypeWarning: string,
 ) =>
   new Promise((rs, rj) => {
     const ret = [];
@@ -32,7 +32,7 @@ const fileValidator = (
         rj(`Maximum ${fileLimit} files are allowed.`);
       }
     } else {
-      rj('Unexpected Error!');
+      rj("Unexpected Error!");
     }
   });
 
