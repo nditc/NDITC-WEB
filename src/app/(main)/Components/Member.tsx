@@ -30,35 +30,36 @@ const Member = ({
         setHover(false);
       }}
       className={
-        "text-center flex md:flex-col place-items-center md:gap-2 gap-4 hover:scale-105 transition-all " +
+        "flex place-items-center gap-4 text-center transition-all hover:scale-105 md:flex-col md:gap-2 " +
         (hasClickHandler ? "cursor-pointer" : "saa")
       }
     >
-      <div className="w-full grid place-items-center max-w-[120px] md:max-w-[280px]">
+      <div className="grid w-full max-w-[120px] place-items-center md:max-w-[280px]">
         <span
           className={
-            "absolute z-10 font-semibold font-Bebas text-white transition-opacity opacity-0" +
+            "absolute z-10 font-Bebas font-semibold text-white opacity-0 transition-opacity" +
             " " +
-            (hasClickHandler && hover ? "opacity-100 " : "")
+            (hasClickHandler && hover ? "opacity-100" : "")
           }
         >
           {hoverText}
         </span>
-        <Image
-          className={`rounded-full max-w-[120px] md:max-w-[280px] w-full transition-all aspect-square object-cover ${
+        <img
+          className={`aspect-square w-full max-w-[120px] rounded-full object-cover transition-all md:max-w-[280px] ${
             hasClickHandler && hover
-              ? "brightness-50 object-center"
+              ? "object-center brightness-50"
               : `${imgInCenter ? "" : "object-top"}`
           }`}
           width={320}
           height={320}
           src={img}
           alt=""
-        ></Image>
+          loading="lazy"
+        />
       </div>
       <div className="text-left md:text-center">
         <h3 className="text-2xl">{name}</h3>
-        <p className="text-blue-500 font-bold">{designation}</p>
+        <p className="font-bold text-blue-500">{designation}</p>
         <p>{department}</p>
       </div>
     </div>

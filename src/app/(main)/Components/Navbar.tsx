@@ -76,7 +76,7 @@ const Navbar = () => {
           }}
           className="z-50 flex items-center space-x-3 rtl:space-x-reverse"
         >
-          <Image
+          <img
             src="/Logo.png"
             className="h-12 w-32"
             alt="NDITC Logo"
