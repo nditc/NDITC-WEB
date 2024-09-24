@@ -86,7 +86,6 @@ const Page = () => {
                   name: ndc_register_json.name,
                   address: ndc_register_json.address,
                   class: ndc_register_json.year,
-
                   timestamp: serverTimestamp(),
                   imageUrl:
                     "https://firebasestorage.googleapis.com/v0/b/ftmpc-63d81.appspot.com/o/pfp%2Fno_user.webp?alt=media&token=fd930687-e7b9-4fa6-9603-f20b73bd0a86",

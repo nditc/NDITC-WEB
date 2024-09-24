@@ -38,7 +38,7 @@ export async function POST(req: NextRequest) {
   if (participatedEvents && participatedEvents.includes(data.id)) {
     return NextResponse.json(
       { error: "You have already taken the exam!" },
-      { status: 777 },
+      { status: 555 },
     );
   }
 

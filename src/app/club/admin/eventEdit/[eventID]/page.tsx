@@ -22,7 +22,7 @@ import { LiaTimesSolid } from "react-icons/lia";
 import { getDownloadURL, ref, uploadBytes } from "firebase/storage";
 import { useRouter } from "next/navigation";
 import AddQuestions from "@/app/club/Components/Admin/AddQuestions";
-import { Checkbox, DatePicker } from "@nextui-org/react";
+import { Checkbox, DatePicker, Radio, RadioGroup } from "@nextui-org/react";
 import {
   now,
   getLocalTimeZone,
@@ -39,7 +39,41 @@ const Page = ({ params }: { params: { eventID: string } }) => {
   const [eventName, setEventName] = useState("");
   const [category, setCategory] = useState("");
   const [eventUID, setEventUID] = useState("");
+
+  const [showResult, setShowResult] = useState(true);
+
   const [intra, setIntra] = useState(false);
+  const [intraCollege, setIntraCollege] = useState(false);
+  const [publicQuiz, setPublicQuiz] = useState(true);
+
+  const [selectedEventType, setSelectedEventType] = useState("public");
+
+  useEffect(() => {
+    if (selectedEventType == "public") {
+      setIntra(false);
+      setIntraCollege(false);
+      setPublicQuiz(true);
+    }
+
+    if (selectedEventType == "intra_college") {
+      setIntra(false);
+      setIntraCollege(true);
+      setPublicQuiz(false);
+    }
+
+    if (selectedEventType == "intra_club") {
+      setIntra(true);
+      setIntraCollege(false);
+      setPublicQuiz(false);
+    }
+  }, [selectedEventType]);
+
+  useEffect(() => {
+    if (intra) setSelectedEventType("intra_club");
+    if (intraCollege) setSelectedEventType("intra_college");
+    if (publicQuiz) setSelectedEventType("public");
+  }, [intra, intraCollege, publicQuiz]);
+
   const [date, setDate] = useState(now(getLocalTimeZone()));
   const [endDate, setEndDate] = useState(now(getLocalTimeZone()));
   const [addTime, setAddTime] = useState<any>();
@@ -101,7 +135,10 @@ const Page = ({ params }: { params: { eventID: string } }) => {
           setEventUID(event.id);
           setImageURL(event.data().imageURL);
           setDescription(event.data().description);
+          setPublicQuiz(event.data().public);
+          setIntraCollege(event.data().intraCollege);
           setIntra(event.data().intra);
+          setShowResult(event.data().showResult);
           setQuestions(event.data().questions);
           setCategory(event.data().category);
 
@@ -151,12 +188,18 @@ const Page = ({ params }: { params: { eventID: string } }) => {
             enddate: endDate.toDate(),
             imageURL: url,
             description: description,
+            public: publicQuiz,
+            intraCollege: intraCollege,
             intra: intra,
+            showResult: showResult,
             questions: questions,
             category,
           })
             .then(() => {
               setDoc(doc(db, "answers", eventUID), {
+                public: publicQuiz,
+                intraCollege: intraCollege,
+                intra: intra,
                 answers: answers,
                 date: date.toDate(),
                 enddate: endDate.toDate(),
@@ -176,12 +219,18 @@ const Page = ({ params }: { params: { eventID: string } }) => {
           enddate: endDate.toDate(),
           imageURL: imageURL,
           description: description,
+          public: publicQuiz,
+          intraCollege: intraCollege,
           intra: intra,
+          showResult: showResult,
           questions: questions,
           category,
         })
           .then(() => {
             setDoc(doc(db, "answers", eventUID), {
+              public: publicQuiz,
+              intraCollege: intraCollege,
+              intra: intra,
               answers: answers,
               date: date.toDate(),
               enddate: endDate.toDate(),
@@ -215,12 +264,18 @@ const Page = ({ params }: { params: { eventID: string } }) => {
       enddate: endDate.toDate(),
       imageURL: imageURL,
       description: description,
+      public: publicQuiz,
+      intraCollege: intraCollege,
       intra: intra,
+      showResult: showResult,
       questions: questions,
       category,
     })
       .then(() => {
         setDoc(doc(db, "answers", eventUID), {
+          public: publicQuiz,
+          intraCollege: intraCollege,
+          intra: intra,
           answers: answers,
           date: date.toDate(),
           enddate: endDate.toDate(),
@@ -482,10 +537,40 @@ const Page = ({ params }: { params: { eventID: string } }) => {
                 />
               </div>
 
-              <Checkbox size="lg" isSelected={intra} onValueChange={setIntra}>
-                <label className="text-2xl font-medium text-gray-900">
-                  <span className="text-primary">Intra</span> Event (Checkbox)
-                </label>
+              <RadioGroup
+                value={selectedEventType}
+                onValueChange={setSelectedEventType}
+                label="Select the Event Type"
+                color="primary"
+              >
+                <Radio
+                  value="public"
+                  description="Seasonal Event. Anyone can participate"
+                >
+                  Open-For-All
+                </Radio>
+                <Radio
+                  value="intra_college"
+                  description="Quiz for all NDC Students"
+                >
+                  Intra College
+                </Radio>
+                <Radio
+                  value="intra_club"
+                  description="Quiz only for all NDITC Members"
+                >
+                  Intra Club
+                </Radio>
+              </RadioGroup>
+            </div>
+
+            <div className="flex flex-col gap-2">
+              <Checkbox
+                size="lg"
+                isSelected={showResult}
+                onValueChange={setShowResult}
+              >
+                Show Result To User After Submission ?
               </Checkbox>
             </div>
 
