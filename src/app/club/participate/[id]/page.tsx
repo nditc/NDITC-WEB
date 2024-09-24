@@ -47,18 +47,6 @@ const Page = ({ params }: { params: { id: string } }) => {
   const uidVal = userAuth?.uid;
   const memberidval = userData?.ndc_id;
 
-  if (userDataLoading || loading)
-    return (
-      <div className="grid h-screen w-full place-items-center">
-        <CgSpinner className="mx-auto h-16 w-16 animate-spin text-primary" />
-      </div>
-    );
-
-  if (error || dataError)
-    return <Error statusCode={403} msg="Authorization Error" dest="/club" />;
-
-  // Get those functionalities in the getQuestion API Route
-
   const [docSnapshot, setDocSnapShot] = useState<any>(null);
 
   const [isLoading, setIsLoading] = useState(true);
