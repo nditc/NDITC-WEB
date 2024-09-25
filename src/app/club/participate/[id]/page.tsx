@@ -59,11 +59,12 @@ const Page = ({ params }: { params: { id: string } }) => {
         .then((r) => r.json())
         .then((resp) => {
           setIsLoading(false);
+          console.log(resp);
           setDocSnapShot(resp);
         })
-        .catch(() => {
+        .catch((e) => {
           setIsLoading(false);
-          setIsError("Error Occurred");
+          setIsError(e.error || "Error Occurred");
         });
     }
 
@@ -81,7 +82,7 @@ const Page = ({ params }: { params: { id: string } }) => {
         <div className="container py-8">
           <AnswerSheet
             endTime={docSnapshot?.enddate}
-            id={params.id}
+            id={id}
             questions={docSnapshot?.questions}
             name={docSnapshot?.eventName}
             img={docSnapshot?.imageURL}

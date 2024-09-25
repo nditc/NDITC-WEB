@@ -21,7 +21,11 @@ export async function POST(req: NextRequest) {
 
   const docSnapshot = await firestore.collection("events").doc(data.id).get();
 
-  if (!docSnapshot.exists) return NextResponse.error();
+  if (!docSnapshot.exists)
+    return NextResponse.json(
+      { error: "No such Event exists" },
+      { status: 404 },
+    );
 
   const userSnapshot = await firestore
     .collection("eventparticipant")
@@ -29,7 +33,10 @@ export async function POST(req: NextRequest) {
     .get();
 
   if (userSnapshot.exists && userSnapshot.data()?.events.includes(data.id)) {
-    return NextResponse.error();
+    return NextResponse.json(
+      { error: "You have already taken the exam" },
+      { status: 404 },
+    );
   }
 
   const starTime: Timestamp = await docSnapshot.data()?.date;
@@ -40,20 +47,37 @@ export async function POST(req: NextRequest) {
   const publicQuiz = await docSnapshot.data()?.public;
 
   if (now < starTime) {
-    return NextResponse.error();
+    return NextResponse.json(
+      { error: "The exam hasn't started yet" },
+      { status: 404 },
+    );
   } else if (now > endTime) {
-    return NextResponse.error();
+    return NextResponse.json(
+      { error: "The exam was over decaded ago" },
+      { status: 404 },
+    );
   }
 
   if ((data.ndc_id == "" || data.ndc_id == "none") && intra) {
-    return NextResponse.error();
+    return NextResponse.json({ error: "Authorization Error" }, { status: 404 });
   }
 
   if (data.ndc_id != "" && data.ndc_id != "none" && intra) {
     getConnectToNDITC(data.ndc_id, data.email)
-      .then(() => {})
+      .then((r) => r.json())
+      .then((resp) => {
+        if (!resp.success) {
+          return NextResponse.json(
+            { error: "No such Member exists" },
+            { status: 404 },
+          );
+        }
+      })
       .catch(() => {
-        return NextResponse.error();
+        return NextResponse.json(
+          { error: "No such Member exists" },
+          { status: 404 },
+        );
       });
   }
 
