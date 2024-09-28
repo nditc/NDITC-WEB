@@ -14,10 +14,17 @@ const getQuestions = async (
   ndc_id: string,
   uid: string,
   email: string,
+  ndc_roll: string,
 ) => {
   const res = await fetch("/api/getquestion", {
     method: "POST",
-    body: JSON.stringify({ id: id, ndc_id: ndc_id, uid: uid, email: email }),
+    body: JSON.stringify({
+      id: id,
+      ndc_id: ndc_id,
+      uid: uid,
+      email: email,
+      ndc_roll,
+    }),
   });
 
   return res;
@@ -55,16 +62,23 @@ const Page = ({ params }: { params: { id: string } }) => {
 
   useEffect(() => {
     if (!loading && !userDataLoading) {
-      getQuestions(id, memberidval, uidVal || "", userAuth?.email || "")
+      getQuestions(
+        id,
+        memberidval,
+        uidVal || "",
+        userAuth?.email || "",
+        userData?.ndc_roll || "",
+      )
         .then((r) => r.json())
         .then((resp) => {
           setIsLoading(false);
           console.log(resp);
           setDocSnapShot(resp);
-        })
-        .catch((e) => {
-          setIsLoading(false);
-          setIsError(e.error || "Error Occurred");
+
+          if (resp.error) {
+            setIsLoading(false);
+            setIsError(resp.error || "Error Occurred");
+          }
         });
     }
 
@@ -78,7 +92,7 @@ const Page = ({ params }: { params: { id: string } }) => {
     <main className="min-h-screen w-full bg-[#F6F6F6]">
       {isError != "" && <Error statusCode={999} msg={isError} dest="/club" />}
       {isLoading && <Loading />}
-      {!isLoading && isError == "" && (
+      {!isLoading && isError == "" && docSnapshot.questions && (
         <div className="container py-8">
           <AnswerSheet
             endTime={docSnapshot?.enddate}

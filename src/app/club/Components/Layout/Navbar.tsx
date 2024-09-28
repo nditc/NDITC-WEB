@@ -2,7 +2,6 @@
 
 import { createCipheriv, createDecipheriv } from "crypto";
 import { useEffect, useRef, useState } from "react";
-import Image from "next/image";
 import Link from "next/link";
 import { usePathname, useSearchParams } from "next/navigation";
 import { RxCross2 } from "react-icons/rx";
@@ -280,7 +279,7 @@ const ClubNavbar = () => {
                 }}
                 href={
                   userAuth
-                    ? `/club/events/${encrypt(userAuth.uid)}/${encrypt(userData?.ndc_id == "" || userData?.ndc_id == undefined ? "none" : userData?.ndc_id)}`
+                    ? `/club/events/nditc/all`
                     : "/club/events"
                 }
                 className={

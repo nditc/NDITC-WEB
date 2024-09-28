@@ -9,6 +9,7 @@ const regDataInit = {
   imageUrl: "",
   institution: "",
   ndc_id: "",
+  ndc_roll: "",
   mobile: "",
   name: "",
   verified: false,

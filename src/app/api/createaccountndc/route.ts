@@ -34,6 +34,7 @@ export async function POST(req: NextRequest) {
     name: member.name,
     address: member.present_address,
     year: member.year,
+    roll: member.college_roll,
     success: true,
   });
 }

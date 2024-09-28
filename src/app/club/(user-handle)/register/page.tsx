@@ -86,6 +86,7 @@ const Page = () => {
                   name: ndc_register_json.name,
                   address: ndc_register_json.address,
                   class: ndc_register_json.year,
+                  ndc_roll: ndc_register_json.roll,
                   timestamp: serverTimestamp(),
                   imageUrl:
                     "https://firebasestorage.googleapis.com/v0/b/ftmpc-63d81.appspot.com/o/pfp%2Fno_user.webp?alt=media&token=fd930687-e7b9-4fa6-9603-f20b73bd0a86",
@@ -202,6 +203,7 @@ const Page = () => {
         toast.error("Aww Snap!");
       });
   }, [Router]);
+
   return (
     <div className="mt-[81px] grid w-screen place-items-center bg-[url(/image/club/lbg.jpg)] bg-cover bg-center shadow-lg shadow-secondary md:min-h-[calc(100vh_-_81px)]">
       <div className="container-login flex w-full flex-col bg-white pb-8 pt-3 sm:my-16 sm:rounded-xl sm:py-0 lg:flex-row">

@@ -30,6 +30,7 @@ import {
   parseAbsoluteToLocal,
 } from "@internationalized/date";
 import { timeValue } from "@/app/club/Components/Time";
+import Link from "next/link";
 
 const Page = ({ params }: { params: { eventID: string } }) => {
   const [adminAuth, setAdminAuth] = useState<boolean>(false);
@@ -631,42 +632,63 @@ const Page = ({ params }: { params: { eventID: string } }) => {
               ) : null}
             </Modal>
 
-            <div className="flex items-center justify-end gap-5">
-              {params.eventID != "new" && (
+            <div className="flex items-center justify-between gap-5">
+              <div className="w-full justify-self-end py-3 md:w-auto md:py-0">
+                {params.eventID != "new" && (
+                  <Link
+                    href={`/club/admin/rankers/${publicQuiz ? "public" : eventUID}`}
+                    style={{
+                      pointerEvents: loading ? "none" : "auto",
+                    }}
+                    className="w-full rounded-xl bg-primary px-8 py-2 text-lg text-white transition-all hover:bg-secondary_light hover:text-primary"
+                    type="button"
+                  >
+                    {loading ? (
+                      <CgSpinner className="mx-auto h-7 w-7 animate-spin text-white" />
+                    ) : (
+                      "Rankers"
+                    )}
+                  </Link>
+                )}
+              </div>
+
+              <div className="flex gap-5">
+                {params.eventID != "new" && (
+                  <div className="w-full justify-self-end py-3 md:w-auto md:py-0">
+                    <button
+                      style={{
+                        pointerEvents: loading ? "none" : "auto",
+                      }}
+                      className="w-full rounded-xl bg-red-600 px-8 py-2 text-lg text-white transition-all hover:bg-red-500 hover:text-red-800"
+                      onClick={deleteWarning}
+                    >
+                      {loading ? (
+                        <CgSpinner className="mx-auto h-7 w-7 animate-spin text-white" />
+                      ) : (
+                        <div className="flex items-center justify-center gap-3">
+                          Delete
+                          <RiDeleteBin6Line />
+                        </div>
+                      )}
+                    </button>
+                  </div>
+                )}
+
                 <div className="w-full justify-self-end py-3 md:w-auto md:py-0">
                   <button
                     style={{
                       pointerEvents: loading ? "none" : "auto",
                     }}
-                    className="w-full rounded-xl bg-red-600 px-8 py-2 text-lg text-white transition-all hover:bg-red-500 hover:text-red-800"
-                    onClick={deleteWarning}
+                    className="w-full rounded-xl bg-primary px-8 py-2 text-lg text-white transition-all hover:bg-secondary_light hover:text-primary"
+                    type="submit"
                   >
                     {loading ? (
                       <CgSpinner className="mx-auto h-7 w-7 animate-spin text-white" />
                     ) : (
-                      <div className="flex items-center justify-center gap-3">
-                        Delete
-                        <RiDeleteBin6Line />
-                      </div>
+                      "Submit"
                     )}
                   </button>
                 </div>
-              )}
-
-              <div className="w-full justify-self-end py-3 md:w-auto md:py-0">
-                <button
-                  style={{
-                    pointerEvents: loading ? "none" : "auto",
-                  }}
-                  className="w-full rounded-xl bg-primary px-8 py-2 text-lg text-white transition-all hover:bg-secondary_light hover:text-primary"
-                  type="submit"
-                >
-                  {loading ? (
-                    <CgSpinner className="mx-auto h-7 w-7 animate-spin text-white" />
-                  ) : (
-                    "Submit"
-                  )}
-                </button>
               </div>
             </div>
           </form>

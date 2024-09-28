@@ -1,12 +1,12 @@
 "use client";
 
 import { auth, db } from "@/config/firebase";
-import { FormEvent, SetStateAction, useEffect, useState } from "react";
+import React, { FormEvent, SetStateAction, useEffect, useState } from "react";
 import { useAuthState } from "react-firebase-hooks/auth";
 import { CgSpinner } from "react-icons/cg";
 import Error from "@/app/club/Components/Error";
 import { toast } from "react-toastify";
-import Field from "../../../Components/Field";
+
 import Select from "@/app/club/Components/Select";
 import { MdEventNote, MdOutlinePersonSearch } from "react-icons/md";
 import {
@@ -37,21 +37,14 @@ import {
 import { FaCaretUp, FaFilter, FaRegEdit } from "react-icons/fa";
 import { FiCheckCircle, FiUser } from "react-icons/fi";
 import { LiaTimesSolid } from "react-icons/lia";
-import PassingYear from "../../../Components/PassingYear";
 import { CiEdit } from "react-icons/ci";
-import Loading from "../../../Components/Loading";
 import { BiHeart } from "react-icons/bi";
+import Field from "../../../Components/Field";
+import PassingYear from "../../../Components/PassingYear";
+import Loading from "../../../Components/Loading";
+import { useRouter } from "next/navigation";
 
-const getMemberByRoll = async (ndc_roll: string) => {
-  const res = await fetch("/api/getmemberbyroll", {
-    method: "POST",
-    body: JSON.stringify({ ndc_id: ndc_roll }),
-  });
-
-  return res;
-};
-
-const Page = () => {
+const Page = ({ params }: { params: { id: string } }) => {
   const [adminAuth, setAdminAuth] = useState<boolean>(false);
   const [user] = useAuthState(auth);
   const [authLoading, setAuthLoading] = useState<boolean>(true);
@@ -59,7 +52,17 @@ const Page = () => {
   const [usersData, setUsersData] = useState<any | undefined | null>([]);
   const [lastUserDoc, setLastUserDoc] = useState<QueryDocumentSnapshot>();
 
-  const docLimit = 10;
+  const docLimit = 5;
+
+  const router = useRouter();
+
+  const firstQ =
+    params.id == "public"
+      ? query(collection(db, "eventparticipant"), orderBy("points"))
+      : query(
+          collection(db, "answers", params.id, "eventparticipant"),
+          orderBy("marks"),
+        );
 
   useEffect(() => {
     if (user && user.email) {
@@ -71,16 +74,28 @@ const Page = () => {
         .then((resp) => {
           setAdminAuth(resp.auth || false);
 
-          getDocs(onFilterQuery(false)).then((data) => {
-            console.log(data.docs[data.docs.length - 1]);
+          getDocs(firstQ).then((data) => {
             setLastUserDoc(data.docs[data.docs.length - 1]);
             const tempArr: any[] = [];
-            data.docs.forEach((e, i) => {
-              tempArr.push({ id: e.id, data: { ...e.data() } });
+            data.docs.forEach((e) => {
+              getDoc(doc(db, "participants", e.id))
+                .then((userData) => {
+                  tempArr.push({
+                    id: e.id,
+                    data: { ...userData.data() },
+                    quizData: { ...e.data() },
+                  });
+
+                  setUsersData(tempArr);
+                })
+                .catch(() => {
+                  toast.error("Error Occurred");
+                  router.push("/club/admin");
+                });
             });
 
             //setUsersData((oldArr: any) => [oldArr, ...tempArr]);
-            setUsersData(tempArr);
+
             setAuthLoading(false);
           });
         })
@@ -100,100 +115,90 @@ const Page = () => {
   const [selectedStudentData, setSelectedStudentData] = useState<any>();
   const [selectedStudentIndex, setSelectedStudentIndex] = useState(0);
 
-  const [searchBy, setSearchBy] = useState("name");
   const [searchText, setSearchText] = useState("");
 
   //-------Filters------
 
   const [filterOpen, setFilterOpen] = useState(false);
 
-  const [isVerified, setIsVerified] = useState(false);
-  const [isSelected, setIsSelected] = useState(false);
-  const [isMember, setIsMember] = useState(false);
-
-  const [isYearSelected, setIsYearSelected] = useState(false);
-  const [selectedClass, setSelectedClass] = useState(2001);
-
-  const onFilterQuery = (loadMore: boolean) => {
-    let conditions = [];
-
-    if (searchText != "") conditions.push(where(searchBy, "==", searchText));
-    if (isYearSelected) conditions.push(where("class", "==", selectedClass));
-    if (isMember) conditions.push(where("ndc_id", "!=", ""));
-    if (isVerified) conditions.push(where("verified", "==", true));
-    if (isSelected) conditions.push(where("selected", "==", true));
-    if (loadMore) conditions.push(startAfter(lastUserDoc));
-
-    const usersQuery = query(
-      collection(db, "participants"),
-      orderBy("name"),
-      limit(docLimit),
-      ...conditions,
-    );
-    return usersQuery;
-  };
-
-  const onFilter = () => {
-    if (searchBy == "NDC Roll") {
-      if (searchText != "") {
-        getMemberByRoll(searchText)
-          .then((r) => r.json())
-          .then((resp) => {
-            let c = [];
-
-            if (isYearSelected) c.push(where("class", "==", selectedClass));
-            if (isVerified) c.push(where("verified", "==", true));
-            if (isSelected) c.push(where("selected", "==", true));
-
-            const q = query(
-              collection(db, "participants"),
-              orderBy("name"),
-              limit(docLimit),
-              where("ndc_id", "==", resp.memberID),
-              ...c,
-            );
-
-            getDocs(q).then((data) => {
-              setLastUserDoc(data.docs[data.docs.length - 1]);
-              const tempArr: any[] = [];
-              data.docs.forEach((e, i) => {
-                tempArr.push({ id: e.id, data: { ...e.data() } });
-              });
-
-              //setUsersData((oldArr: any) => [oldArr, ...tempArr]);
-              setUsersData(tempArr);
-              setAuthLoading(false);
-            });
-          })
-          .catch((e) => toast.error(e));
-      }
-    } else {
-      getDocs(onFilterQuery(false)).then((data) => {
-        setLastUserDoc(data.docs[data.docs.length - 1]);
-        const tempArr: any[] = [];
-        data.docs.forEach((e, i) => {
-          tempArr.push({ id: e.id, data: { ...e.data() } });
-        });
-
-        //setUsersData((oldArr: any) => [oldArr, ...tempArr]);
-        setUsersData(tempArr);
-        setAuthLoading(false);
-      });
-    }
-  };
-
   const loadMoreUsers = () => {
-    getDocs(onFilterQuery(true)).then((data) => {
+    const loadMoreQ =
+      params.id == "public"
+        ? query(
+            collection(db, "eventparticipant"),
+            orderBy("points"),
+            startAfter(lastUserDoc),
+          )
+        : query(
+            collection(db, "answers", params.id, "eventparticipant"),
+            orderBy("marks"),
+            startAfter(lastUserDoc),
+          );
+
+    getDocs(loadMoreQ).then((data) => {
       setLastUserDoc(data.docs[data.docs.length - 1]);
       const tempArr: any[] = [];
       data.docs.forEach((e) => {
-        tempArr.push({ id: e.id, data: { ...e.data() } });
-      });
+        getDoc(doc(db, "participants", e.id))
+          .then((userData) => {
+            tempArr.push({
+              id: e.id,
+              data: { ...userData.data() },
+              quizData: { ...e.data() },
+            });
 
-      setUsersData((oldArr: any) => [...oldArr, ...tempArr]);
+            setUsersData((oldArr: any) => [...oldArr, ...tempArr]);
+          })
+          .catch(() => {
+            toast.error("Error Occurred");
+            router.push("/club/admin");
+          });
+      });
 
       setAuthLoading(false);
     });
+  };
+
+  const onFilter = () => {
+    if (searchText == "") {
+      toast.error("Search Text is empty");
+      return;
+    }
+
+    const filterRef =
+      params.id == "public"
+        ? doc(db, "eventparticipant", searchText)
+        : doc(db, "answers", params.id, "eventparticipant", searchText);
+
+    getDoc(filterRef)
+      .then((data) => {
+        if (!data.exists) {
+          toast.error("This user hasn't participated in this Quiz yet");
+          return;
+        }
+
+        const tempArr: any[] = [];
+
+        getDoc(doc(db, "participants", data.id)).then((userData) => {
+          if (!data.exists || userData.data()?.name == "") {
+            toast.error("This user hasn't participated in this Quiz yet");
+            return;
+          }
+          tempArr.push({
+            id: data.id,
+            data: { ...userData.data() },
+            quizData: { ...data.data() },
+          });
+
+          setUsersData(tempArr);
+        });
+
+        setAuthLoading(false);
+      })
+      .catch(() => {
+        toast.error("Error Occurred");
+        router.push("/club/admin");
+      });
   };
 
   return (
@@ -201,37 +206,20 @@ const Page = () => {
       {adminAuth ? (
         <div
           suppressHydrationWarning
-          className="min-h-screen w-full bg-[#f6f6f6]"
+          className="container min-h-screen w-full bg-[#f6f6f6]"
         >
           <div className="flex flex-col pb-[81px]">
             <h1 className="mt-8 text-5xl">
-              USERS <span className="text-primary">PANEL</span>
+              RANKERS <span className="text-primary">PANEL</span>
             </h1>
 
             <div className="flex flex-col gap-1 py-6 md:flex-row md:gap-6">
-              <Select
-                name={"searchby"}
-                label={"Search By"}
-                values={[
-                  "name",
-                  "ndc_id",
-                  "email",
-                  "mobile",
-                  "address",
-                  "institution",
-                  "NDC Roll",
-                ]}
-                selected={searchBy}
-                setValue={(name: string, value: string | number) => {
-                  setSearchBy(value.toString());
-                }}
-              />
               <div className="flex w-full flex-col gap-1">
                 <label
                   className="ml-2 font-medium text-gray-500 disabled:text-gray-200"
                   htmlFor={"searchtext"}
                 >
-                  Search User
+                  Search User By UID
                 </label>
                 <input
                   className="rounded-xl border border-gray-200 px-5 py-3 focus:border-primary focus:outline-none disabled:bg-white disabled:text-gray-400"
@@ -252,56 +240,10 @@ const Page = () => {
             </div>
 
             <div className="relative flex w-full flex-col md:flex-row">
-              <div
-                className={`mb-3 mt-8 w-full flex-col gap-3 rounded-xl bg-white p-5 md:flex md:flex-1 md:bg-transparent md:p-0 ${filterOpen ? "flex" : "hidden"}`}
-              >
-                <h1 className="text-3xl text-primary">FILTERS</h1>
-
-                <Checkbox
-                  size="lg"
-                  isSelected={isMember}
-                  onValueChange={setIsMember}
-                >
-                  NDITC Member
-                </Checkbox>
-                <Checkbox
-                  size="lg"
-                  isSelected={isVerified}
-                  onValueChange={setIsVerified}
-                >
-                  Verified
-                </Checkbox>
-                <Checkbox
-                  size="lg"
-                  isSelected={isSelected}
-                  onValueChange={setIsSelected}
-                >
-                  Selected
-                </Checkbox>
-
-                <Checkbox
-                  size="lg"
-                  isSelected={isYearSelected}
-                  onValueChange={setIsYearSelected}
-                >
-                  Filter With Year
-                </Checkbox>
-
-                <div className="-ml-1 mt-2 w-40">
-                  <PassingYear
-                    state={selectedClass}
-                    setValue={(name, data) => setSelectedClass(data)}
-                    name="class"
-                    label="HSC Passing Year"
-                    type="number"
-                    editable={isYearSelected}
-                  />
-                </div>
-              </div>
               <div className="w-full md:flex-[5]">
                 <div className="mb-3 mt-8 flex w-full justify-between text-3xl">
                   <h1>
-                    USERS <span className="text-primary">INFO</span>
+                    RANKERS <span className="text-primary">INFO</span>
                   </h1>
                   <button
                     type="button"
@@ -318,6 +260,7 @@ const Page = () => {
                     <div className="flex flex-[1.5] flex-col gap-1 leading-none">
                       Name / Institution
                     </div>
+                    <div className="flex-[1] text-center">Points</div>
                     <div className="flex-[1] text-center">Passing Year</div>
                     <div className="basis-[80px] gap-2 text-center">
                       Verified
@@ -328,7 +271,14 @@ const Page = () => {
                   </div>
                   <div className="flex w-full min-w-[800px] flex-col gap-2">
                     {usersData?.map(
-                      (e: { id: string; data: any }, i: number) => {
+                      (
+                        e: {
+                          quizData: any;
+                          id: string;
+                          data: any;
+                        },
+                        i: number,
+                      ) => {
                         return (
                           <div
                             onClick={() => {
@@ -353,6 +303,12 @@ const Page = () => {
                                 {" "}
                                 {e.data?.institution}
                               </div>
+                            </div>
+                            <div className="flex-[1] text-center">
+                              {" "}
+                              <span className="text-lg text-primary">
+                                {e.quizData?.points || e.quizData.marks}
+                              </span>
                             </div>
                             <div className="flex-[1] text-center">
                               {" "}
@@ -402,9 +358,7 @@ const Page = () => {
                 {(onClose) => (
                   <>
                     <ModalHeader className="flex flex-col gap-1 text-primary">
-                      <p>Student Info</p>
-                      <br />
-                      <p>{`UID: ${selectedStudentData.id}`}</p>
+                      Student Info
                     </ModalHeader>
                     <ModalBody>
                       <EditUserData
@@ -415,7 +369,16 @@ const Page = () => {
                         uid={selectedStudentData.id}
                       />
 
-                      <EditEventData uid={selectedStudentData.id} />
+                      {params.id != "public" && (
+                        <EditEventData
+                          data={selectedStudentData.quizData}
+                          id={params.id}
+                          uid={selectedStudentData.id}
+                          allData={usersData}
+                          setAllData={setUsersData}
+                          i={selectedStudentIndex}
+                        />
+                      )}
                     </ModalBody>
                     <ModalFooter>
                       <Button color="danger" variant="light" onPress={onClose}>
@@ -479,7 +442,7 @@ const EditUserData = ({
         // No change
         return e;
       } else {
-        return { id: uid, data: editUserData };
+        return { ...e, id: uid, data: editUserData };
       }
     });
     // Re-render with the new array
@@ -678,113 +641,94 @@ const EditUserData = ({
   );
 };
 
-const EditEventData = ({ uid }: { uid: string }) => {
-  const [eventData, setEventData] = useState<any>(null);
+const EditEventData = ({
+  data,
+  id,
+  uid,
+  allData,
+  setAllData,
+  i,
+}: {
+  data: any;
+  id: string;
+  uid: string;
+  allData: any[];
+  setAllData: React.Dispatch<any>;
+  i: number;
+}) => {
+  const [eventData, setEventData] = useState<any>(data);
 
-  const [examData, setExamData] = useState<any>(null);
+  const [error, setError] = useState("");
 
-  const [error, setError] = useState();
-  const [examError, setExamError] = useState();
-
-  const loadEventData = async () => {
-    const eventDoc = await getDoc(doc(db, "eventparticipant", uid));
-    if (!eventDoc.exists()) {
-      toast.error("User hasn't participated yet");
-      setEventData(null);
-      return;
-    }
-    setEventData({ id: eventDoc.id, data: eventDoc.data() });
-  };
+  console.log(data);
 
   const updateData = async () => {
-    updateDoc(doc(db, "eventparticipant", uid), eventData.data)
-      .then(() => toast.success("Event Data Updated"))
-      .catch((err) => {
-        setError(err);
-        toast.error(err);
-      });
+    await updateDoc(
+      doc(db, "answers", id, "eventparticipant", uid),
+      eventData,
+    ).catch(() => {
+      setError("Error Occurred. Code 0");
+      toast.error("Error Occurred 0");
+    });
+
+    await updateDoc(
+      doc(db, "eventparticipant", uid, "eventsData", id),
+      eventData,
+    ).catch(() => {
+      setError("Error Occurred. Code 1");
+      toast.error("Error Occurred 1");
+    });
+
+    const nextUsers = allData.map((e, index) => {
+      if (index != i) {
+        // No change
+        return e;
+      } else {
+        return { ...e, quizData: { ...eventData } };
+      }
+    });
+    // Re-render with the new array
+    setAllData(nextUsers);
+
+    toast.success("Event Data Updated");
   };
 
-  const getExamData = async (name: any) => {
-    getDoc(doc(db, "eventparticipant", uid, "eventsData", name))
-      .then((e) => {
-        setExamData(e.data());
-      })
-      .catch((err) => {
-        setExamError(err);
-        toast.error("Error");
-      });
-  };
   return (
     <div className="flex w-full flex-col items-center gap-1">
-      <button
-        onClick={loadEventData}
-        type={"button"}
-        className="inline-flex flex-1 items-center justify-center gap-2 rounded-lg bg-secondary_light px-5 py-2 text-sm leading-[1.15] text-primary_dark shadow-sm transition-colors hover:bg-primary hover:text-white focus:ring-2 focus:ring-secondary"
-      >
-        <MdEventNote className="h-6 w-6" />
-        Edit Event Data
-      </button>
-
-      {!error && eventData && eventData?.id == uid && (
+      {error == "" && eventData && eventData?.uid == uid && (
         <div className="flex flex-col items-center gap-3">
           <Field
             returnNumber
             name={"Points"}
             label={"Points"}
             type={"number"}
-            state={eventData.data?.points || 0}
+            state={eventData.marks || 0}
             setValue={(name: string, data: string | number) => {
               setEventData((oldData: any) => {
                 return {
-                  id: oldData.id,
-                  data: { ...oldData.data, points: data },
+                  ...oldData,
+                  marks: data,
                 };
               });
             }}
           />
 
           <div>
-            {eventData.data?.events.map((e: any, i: number) => {
+            {eventData.answers.map((e: any, i: number) => {
               return (
                 <div key={i} className="flex items-center gap-3">
-                  {e}
-                  {/*<button
-                    onClick={() => {
-                      getExamData(e);
-                    }}
-                    type={"button"}
-                    className="inline-flex flex-1 items-center justify-center gap-2 rounded-lg bg-secondary_light px-5 py-2 text-sm leading-[1.15] text-primary_dark shadow-sm transition-colors hover:bg-primary hover:text-white focus:ring-2 focus:ring-secondary"
-                  >
-                    <CiEdit className="h-6 w-6" />
-                  </button>*/}
+                  {`${i + 1}. `}
+                  <div className="flex items-center gap-3">
+                    <p>{`Chosen Option: ${e.option == 0 ? "A" : e.option == 1 ? "B" : e.option == 2 ? "C" : e.option == 3 ? "D" : "Not Selected"}`}</p>
+                    <p>{`Chosen Answer: ${e.answer == "" ? "Not Answered" : e.answer}`}</p>
+                  </div>
                 </div>
               );
             })}
           </div>
 
-          {/*!examError && examData && (
-            <div className="flex flex-col items-center gap-1">
-              <ol>
-                {examData?.answers.map((answer: any, i: number) => {
-                  return (
-                    <li key={i} className="flex gap-1">
-                      {`${i + 1}.`}
-                      <div>
-                        <div>{`Chosen Option: ${answer.option}`}</div>
-                        <div>{`Given Answer: ${answer.answer}`}</div>
-                      </div>
-                    </li>
-                  );
-                })}
-              </ol>
-
-              <div>{`Marks: ${examData.marks}`}</div>
-            </div>
-          )*/}
-
           <button
-            onClick={getExamData}
+            onClick={updateData}
             type={"button"}
             className="inline-flex flex-1 items-center justify-center gap-2 rounded-lg bg-secondary_light px-5 py-2 text-sm leading-[1.15] text-primary_dark shadow-sm transition-colors hover:bg-primary hover:text-white focus:ring-2 focus:ring-secondary"
           >

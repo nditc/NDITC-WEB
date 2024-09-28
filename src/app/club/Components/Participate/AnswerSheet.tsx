@@ -203,7 +203,7 @@ const AnswerSheet = ({
                       className="w-full border bg-primary text-white hover:bg-primary_dark"
                       color="primary"
                       onPress={() => {
-                        setSubmitClicked(false);
+                        //setSubmitClicked(false);
                         onClose();
                         router.push("/club");
                       }}

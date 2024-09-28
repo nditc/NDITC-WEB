@@ -81,7 +81,15 @@ export async function POST(req: NextRequest) {
       });
   }
 
-  if (intraCollege) {
+  if (intraCollege && (!data.ndc_roll || data.ndc_roll == "")) {
+    return NextResponse.json(
+      { error: "Only Damians are allowed in this exam" },
+      { status: 404 },
+    );
+  }
+
+  if (!data.uid || data.uid == "") {
+    return NextResponse.json({ error: "Authorization Error" }, { status: 404 });
   }
 
   return NextResponse.json({

@@ -1,4 +1,4 @@
-import React from "react";
+import { Timestamp } from "firebase/firestore";
 import EventCard from "./EventCard";
 
 const EventList = ({
@@ -14,8 +14,8 @@ const EventList = ({
         return (
           <EventCard
             title={e.eventName}
-            date={e.date}
-            endDate={e.enddate}
+            date={new Timestamp(e.date._seconds, e.date._nanoseconds)}
+            endDate={new Timestamp(e.enddate._seconds, e.enddate._nanoseconds)}
             ongoingForParticipate={participate || false}
             image={e.imageURL}
             desc={e.description}

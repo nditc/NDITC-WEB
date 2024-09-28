@@ -1,5 +1,4 @@
 "use client";
-import Image from "next/image";
 import "./upcoming.css";
 import { useState, useEffect } from "react";
 import Link from "next/link";
@@ -93,11 +92,10 @@ const Upcoming = ({
     <div id="upcoming_event_container relative bg-white">
       <div className="blog-section shadow-[09px_13px_40px_10px_#00000024]">
         <div className="absolute right-0 -z-10 h-full w-full">
-          <Image
+          <img
             src={image}
             alt={"Image"}
             className="object-cover object-right gradient-mask-b-10 md:gradient-mask-l-40"
-            fill
           />
         </div>
         <div className="left-part m-5 md:ml-10 md:mr-0">
