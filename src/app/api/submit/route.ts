@@ -93,6 +93,7 @@ export async function POST(req: NextRequest) {
       .collection("eventparticipant")
       .doc(data.uid)
       .set({
+        points: totalPoints,
         events: newParticipatedEvents,
       })
       .then(() => {
