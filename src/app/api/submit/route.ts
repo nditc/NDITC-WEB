@@ -108,24 +108,24 @@ export async function POST(req: NextRequest) {
             time: now,
             answers: data.answers,
           })
-          .then(() => {
-            firestore
-              .collection("answers")
-              .doc(data.id)
-              .collection("eventparticipant")
-              .doc(data.uid)
-              .set({
-                marks: marks,
-                uid: data.uid,
-                time: now,
-                answers: data.answers,
-              })
-              .catch(() => {
-                return NextResponse.json(
-                  { error: "Internal Server Error" },
-                  { status: 500 },
-                );
-              });
+          .catch(() => {
+            return NextResponse.json(
+              { error: "Internal Server Error" },
+              { status: 500 },
+            );
+          });
+      })
+      .then(() => {
+        firestore
+          .collection("answers")
+          .doc(data.id)
+          .collection("eventparticipant")
+          .doc(data.uid)
+          .set({
+            marks: marks,
+            uid: data.uid,
+            time: now,
+            answers: data.answers,
           })
           .catch(() => {
             return NextResponse.json(
