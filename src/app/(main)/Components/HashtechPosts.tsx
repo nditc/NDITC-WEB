@@ -31,6 +31,7 @@ const HashtechPosts = async ({ title, desc, redirectUrl }: Props) => {
       className={`group flex min-w-[290px] flex-col overflow-hidden rounded-xl border border-[#ffffff31] bg-[#ffffff25] shadow-xl backdrop-blur-md duration-1000 sm:flex-row`}
     >
       <img
+        loading="lazy"
         src={imgURL}
         alt={"Image"}
         width={512}
