@@ -5,8 +5,6 @@ export async function POST(req: NextRequest) {
   const data = await req.json();
   await initAdmin();
 
-  console.log(data.ndc_id);
-
   const memberDOC = await fetch(
     `https://memberapi.nditc.net/uid/${data.ndc_id}/`,
     {

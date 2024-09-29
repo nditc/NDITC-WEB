@@ -7,6 +7,7 @@ import { TbListDetails } from "react-icons/tb";
 import { Timestamp } from "firebase/firestore";
 import PartcipateButton from "./PartcipateButton";
 import { MdOutlineTimer } from "react-icons/md";
+import { createCipheriv } from "crypto";
 
 const EventCard = ({
   title,
@@ -52,8 +53,8 @@ const EventCard = ({
       <img
         className="h-1/3 w-full flex-1 bg-black object-cover lg:h-auto lg:w-1/3"
         src={
-          "https://www.jesvenues.com/images/services/corporate-photography/corporate-event-photography-in-hyderabad-1.jpg" ||
-          image
+          image ||
+          "https://firebasestorage.googleapis.com/v0/b/nditc-event.appspot.com/o/ep%2F123456789?alt=media&token=e4b46f56-b13c-4798-a6a6-47a634c3f20b"
         }
         alt="Event Image"
       />
@@ -61,7 +62,7 @@ const EventCard = ({
       <div className="flex h-full flex-1 flex-col justify-between gap-2 p-5">
         <div className="flex h-full flex-1 flex-col justify-start pt-2 lg:pt-6">
           <p className="Inter text-sm font-medium text-primary">{category}</p>
-          <h5 className="mb-1.5 line-clamp-1 flex items-center justify-between text-2xl Inter font-bold tracking-wide text-gray-900">
+          <h5 className="Inter mb-1.5 line-clamp-1 flex items-center justify-between text-2xl font-bold tracking-wide text-gray-900">
             {title}
           </h5>
           <div className="Inter flex items-center gap-1 text-sm font-medium">
@@ -84,7 +85,7 @@ const EventCard = ({
           {ongoingForParticipate && <PartcipateButton id={id} />}
           {!ongoingForParticipate && (
             <Link
-              href={`/club/eventdetails/${encodeURIComponent(title)}/${encodeURIComponent(`${dateData.date} ${dateData.monthText} ${dateData.year} | ${dateData.hour}:${dateData.minute}`)}/${encodeURIComponent(image)}/${encodeURIComponent(desc)}`}
+              href={`/club/eventdetails/${id}`}
               className="inline-flex items-center justify-center gap-3 rounded-xl bg-primary px-6 py-2 text-center text-base font-medium text-white hover:bg-primary_dark focus:bg-primary_darkest focus:outline-none focus:ring-4"
             >
               <TbListDetails className="h-5 w-5" />

@@ -54,7 +54,8 @@ const Member = ({
           height={320}
           src={img}
           alt=""
-        ></img>
+          loading="lazy"
+        />
       </div>
       <div className="text-left md:text-center">
         <h3 className="text-2xl">{name}</h3>

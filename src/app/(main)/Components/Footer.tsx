@@ -14,6 +14,7 @@ const Footer = () => {
             </div>
             <a href="https://ndc.edu.bd" target="_blank">
               <img
+                loading="lazy"
                 src="/NDC.png"
                 alt="Logo"
                 width={128}
@@ -81,6 +82,7 @@ const Footer = () => {
           </div>
           <a href="https://ndc.edu.bd" target="_blank">
             <img
+              loading="lazy"
               src="/NDC.png"
               alt="Logo"
               width={128}

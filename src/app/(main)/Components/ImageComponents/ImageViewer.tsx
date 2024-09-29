@@ -4,7 +4,6 @@ import Modal from "../Modal";
 import { FaTimes } from "react-icons/fa";
 import { BiZoomIn, BiZoomOut } from "react-icons/bi";
 import { TransformComponent, TransformWrapper } from "react-zoom-pan-pinch";
-import Image from "next/image";
 import "../../styles/imageViewer.css";
 
 interface props {

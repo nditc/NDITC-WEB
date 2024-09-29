@@ -11,12 +11,26 @@ export async function POST(req: NextRequest) {
 
   const firestore = getFirestore();
 
-  const correctAnswerDoc = (
-    await firestore.collection("answers").doc(data.id).get()
-  ).data();
+  const correctAnswer = await firestore
+    .collection("answers")
+    .doc(data.id)
+    .get();
+
+  if (!correctAnswer.exists) {
+    return NextResponse.json(
+      { error: "Internal Server Error" },
+      { status: 500 },
+    );
+  }
+
+  const correctAnswerDoc = correctAnswer.data();
 
   const timeUp = now > correctAnswerDoc?.enddate;
   const notTime = now < correctAnswerDoc?.date;
+
+  const intra = await correctAnswerDoc?.intra;
+  const intraCollege = await correctAnswerDoc?.intraCollege;
+  const publicQuiz = await correctAnswerDoc?.public;
 
   if (timeUp || notTime) {
     return NextResponse.json({ error: "Time Error" }, { status: 999 });
@@ -38,7 +52,7 @@ export async function POST(req: NextRequest) {
   if (participatedEvents && participatedEvents.includes(data.id)) {
     return NextResponse.json(
       { error: "You have already taken the exam!" },
-      { status: 777 },
+      { status: 555 },
     );
   }
 
@@ -74,38 +88,89 @@ export async function POST(req: NextRequest) {
 
   const newParticipatedEvents = [...participatedEvents, data.id];
 
-  firestore
-    .collection("eventparticipant")
-    .doc(data.uid)
-    .set({
-      points: totalPoints + marks,
-      events: newParticipatedEvents,
-    })
-    .then(() => {
-      firestore
-        .collection("eventparticipant")
-        .doc(data.uid)
-        .collection("eventsData")
-        .doc(data.id)
-        .set({
-          marks: marks,
-          uid: data.uid,
-          time: now,
-          answers: data.answers,
-        })
-        .catch(() => {
-          return NextResponse.json(
-            { error: "Internal Server Error" },
-            { status: 500 },
-          );
-        });
-    })
-    .catch(() => {
-      return NextResponse.json(
-        { error: "Internal Server Error" },
-        { status: 500 },
-      );
-    });
+  if (intra || intraCollege) {
+    await firestore
+      .collection("eventparticipant")
+      .doc(data.uid)
+      .set({
+        points: totalPoints,
+        events: newParticipatedEvents,
+      })
+      .catch(() => {
+        return NextResponse.json(
+          { error: "Internal Server Error" },
+          { status: 500 },
+        );
+      });
+
+    await firestore
+      .collection("eventparticipant")
+      .doc(data.uid)
+      .collection("eventsData")
+      .doc(data.id)
+      .set({
+        marks: marks,
+        uid: data.uid,
+        time: now,
+        answers: data.answers,
+      })
+      .catch(() => {
+        return NextResponse.json(
+          { error: "Internal Server Error" },
+          { status: 500 },
+        );
+      });
+
+    await firestore
+      .collection("answers")
+      .doc(data.id)
+      .collection("eventparticipant")
+      .doc(data.uid)
+      .set({
+        marks: marks,
+        uid: data.uid,
+        time: now,
+        answers: data.answers,
+      })
+      .catch(() => {
+        return NextResponse.json(
+          { error: "Internal Server Error" },
+          { status: 500 },
+        );
+      });
+  } else {
+    await firestore
+      .collection("eventparticipant")
+      .doc(data.uid)
+      .set({
+        points: totalPoints + marks,
+        events: newParticipatedEvents,
+      })
+      .catch(() => {
+        return NextResponse.json(
+          { error: "Internal Server Error" },
+          { status: 500 },
+        );
+      });
+
+    await firestore
+      .collection("eventparticipant")
+      .doc(data.uid)
+      .collection("eventsData")
+      .doc(data.id)
+      .set({
+        marks: marks,
+        uid: data.uid,
+        time: now,
+        answers: data.answers,
+      })
+      .catch(() => {
+        return NextResponse.json(
+          { error: "Internal Server Error" },
+          { status: 500 },
+        );
+      });
+  }
 
   return NextResponse.json({
     examMarks: examMarks,

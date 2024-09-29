@@ -1,5 +1,4 @@
 "use client";
-import Image from "next/image";
 import "./upcoming.css";
 import { useState, useEffect } from "react";
 import Link from "next/link";
