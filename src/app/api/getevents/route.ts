@@ -56,7 +56,7 @@ export async function POST(req: NextRequest) {
 
   const ongoingList: any[] = ongoingSnapshot.docs
     .map((e) => ({
-      id: encrypt(e.id),
+      id: e.id,
       eventName: e.data().eventName,
       date: e.data().date,
       enddate: e.data().enddate,
@@ -70,7 +70,8 @@ export async function POST(req: NextRequest) {
       } else {
         return e;
       }
-    });
+    })
+    .map((e) => ({ ...e, id: encrypt(e.id) }));
 
   const collectionSnapshot = await firestore
     .collection("events")
