@@ -68,12 +68,12 @@ const Footer = () => {
             >
               Developers
             </Link>
-            <a
+            {/* <a
               href="/details/U2FsdGVkX1%2BAo1HnTjk4aPrXkCt9rh1%2BNX%2FDWCpvsejwdtAoSjewOeYdKkZbh6aGaCzc66CV12V3COPzTfJdiRVwQsKY9T7hTEK5uHR6K4odMR4G%2FHndw%2BsLnz%2FamA1HVEDOV9n%2FeVAQ7U3yvYJftX0vc455XIZ3msRakGeLRfcnSfCudDzNtNO2z%2BBV3BJ3Q%2FAiKPNaCas8xNySX8iKn2q6N6OfEw4tQeh7SlogJS4%3D/project/1687651200"
               className="cursor-pointer font-medium text-zinc-400 hover:underline"
             >
               App
-            </a>
+            </a> */}
           </div>
         </div>
         <div className="order-2 hidden flex-col items-center gap-3 md:flex">
@@ -114,24 +114,7 @@ const Footer = () => {
 
             <p>nditc.official@gmail.com</p>
           </div>
-          <div className="flex items-center gap-1 font-medium text-zinc-400 hover:underline">
-            <svg
-              className="mr-2 h-5 w-5 text-white"
-              aria-hidden="true"
-              xmlns="http://www.w3.org/2000/svg"
-              fill="none"
-              viewBox="0 0 18 18"
-            >
-              <path
-                stroke="currentColor"
-                strokeLinecap="round"
-                strokeLinejoin="round"
-                strokeWidth="2"
-                d="m16.344 12.168-1.4-1.4a1.98 1.98 0 0 0-2.8 0l-.7.7a1.98 1.98 0 0 1-2.8 0l-2.1-2.1a1.98 1.98 0 0 1 0-2.8l.7-.7a1.981 1.981 0 0 0 0-2.8l-1.4-1.4a1.828 1.828 0 0 0-2.8 0C-.638 5.323 1.1 9.542 4.78 13.22c3.68 3.678 7.9 5.418 11.564 1.752a1.828 1.828 0 0 0 0-2.804Z"
-              />
-            </svg>
-            <p>+88 01793471625</p>
-          </div>
+
           <div className="flex items-center gap-1 font-medium text-zinc-400 hover:underline">
             <svg
               className="mr-2 h-5 w-5 text-white"

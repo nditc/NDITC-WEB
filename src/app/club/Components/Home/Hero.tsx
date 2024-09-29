@@ -27,7 +27,7 @@ const Hero = () => {
 
           <RedirectButton />
         </div>
-        <Image
+        <img
           src={"/image/club/banner.png"}
           alt={"Image"}
           className="relative order-1 my-[4vh] w-[90%] max-w-[850px] object-contain xsm:w-[70%] md:order-2 md:mb-0 md:max-h-[70vh] md:w-[50%]"

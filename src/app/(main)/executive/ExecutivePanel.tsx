@@ -43,7 +43,7 @@ const ExecutivePanel = ({
                 }}
               >
                 <p>{session}</p>
-                <Image
+                <img
                   width={48}
                   height={48}
                   alt={"Image"}

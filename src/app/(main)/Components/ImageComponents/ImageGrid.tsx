@@ -52,7 +52,7 @@ const ImageGrid = ({ images, layoutID }: props) => {
               }}
               key={index}
             >
-              <Image
+              <img
                 width={780}
                 height={780}
                 className={Styles["i" + (index + 1)]}

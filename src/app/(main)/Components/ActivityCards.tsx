@@ -20,51 +20,51 @@ const Card = ({ title, desc, imgURL, href }: CardProps) => {
       <div
         onMouseEnter={() => setHover(true)}
         onMouseLeave={() => setHover(false)}
-        className={`bg-[#2E2E2E] cursor-pointer relative shadow-lg h-full rounded-xl duration-300  overflow-hidden min-h-[360px]`}
+        className={`relative h-full min-h-[360px] cursor-pointer overflow-hidden rounded-xl bg-[#2E2E2E] shadow-lg duration-300`}
       >
         <p
           className={
-            "absolute right-5 top-5 z-20 text-white font-bold transition-transform" +
+            "absolute right-5 top-5 z-20 font-bold text-white transition-transform" +
             " " +
             (hover ? "translate-x-0" : "translate-x-60")
           }
         >
           Click to know More →{" "}
         </p>
-        <Image
+        <img
           src={imgURL}
           alt={"Image"}
           width={512}
           height={512}
           className={
-            "w-full aspect-video object-cover rounded-t-xl " +
+            "aspect-video w-full rounded-t-xl object-cover " +
             " " +
             (hover ? "opacity-0" : "")
           }
         />
-        <Image
+        <img
           src={imgURL}
           alt={"Image"}
           width={512}
           height={512}
           className={
-            "w-full aspect-video object-cover rounded-t-xl transition-filter transition-all absolute top-0" +
+            "transition-filter absolute top-0 aspect-video w-full rounded-t-xl object-cover transition-all" +
             " " +
             (hover
-              ? "h-full brightness-50 blur-sm opacity-100"
+              ? "h-full opacity-100 blur-sm brightness-50"
               : "h-[250px] opacity-0")
           }
         />
         <div
           className={
-            "p-5 flex-1 flex flex-col gap-2 text-center " +
+            "flex flex-1 flex-col gap-2 p-5 text-center " +
             " " +
             (hover ? "opacity-0" : "")
           }
         >
           <h1
             className={
-              "text-white grid place-items-center text-2xl min-h-[64px] break-words" +
+              "grid min-h-[64px] place-items-center break-words text-2xl text-white" +
               " "
             }
           >
@@ -73,7 +73,7 @@ const Card = ({ title, desc, imgURL, href }: CardProps) => {
           <p
             style={{ textAlignLast: "center" }}
             className={
-              "font-Nunito text-base text-white  text-center font-light pb-2"
+              "pb-2 text-center font-Nunito text-base font-light text-white"
             }
           >
             {desc}
@@ -81,14 +81,14 @@ const Card = ({ title, desc, imgURL, href }: CardProps) => {
         </div>
         <div
           className={
-            "p-5 flex-1 flex flex-col gap-2 text-center absolute bottom-0 transition-all" +
+            "absolute bottom-0 flex flex-1 flex-col gap-2 p-5 text-center transition-all" +
             " " +
             (hover ? "-translate-y-0 opacity-100" : "-translate-y-12 opacity-0")
           }
         >
           <h1
             className={
-              "text-white grid place-items-center text-2xl min-h-[64px] break-words" +
+              "grid min-h-[64px] place-items-center break-words text-2xl text-white" +
               " "
             }
           >
@@ -97,7 +97,7 @@ const Card = ({ title, desc, imgURL, href }: CardProps) => {
           <p
             style={{ textAlignLast: "center" }}
             className={
-              "font-Nunito text-base text-white  text-center font-light pb-2"
+              "pb-2 text-center font-Nunito text-base font-light text-white"
             }
           >
             {desc}
@@ -146,7 +146,7 @@ const ActivityCards = () => {
   };
 
   return (
-    <div className="w-full gap-5 justify-center py-5 grid sm:grid-cols-2 lg:grid-cols-4">
+    <div className="grid w-full justify-center gap-5 py-5 sm:grid-cols-2 lg:grid-cols-4">
       {blogPosts.map(({ imgURL, title, href, desc }, i) => {
         return (
           <motion.div

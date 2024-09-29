@@ -1,33 +1,44 @@
-'use client';
-import { useConfig } from '@/config/config_db';
-import { pfp } from '@/config/firebase';
-import nthNumber from '@/util/nthNumber';
-import { getBlob, getBytes, getDownloadURL, ref } from 'firebase/storage';
-import Image from 'next/image';
-import Link from 'next/link';
-import React, { useEffect, useState } from 'react';
-import { BsCalendar2CheckFill, BsDownload, BsGraphUpArrow } from 'react-icons/bs';
-import { CgSpinner } from 'react-icons/cg';
-import { FaTimes } from 'react-icons/fa';
-import { FiUserCheck } from 'react-icons/fi';
-import { GrTrophy, GrWorkshop } from 'react-icons/gr';
-import { IoCheckmarkDone } from 'react-icons/io5';
-import { LuArchive } from 'react-icons/lu';
-import { toast } from 'react-toastify';
+"use client";
+import { useConfig } from "@/config/config_db";
+import { pfp } from "@/config/firebase";
+import nthNumber from "@/util/nthNumber";
+import { getBlob, getBytes, getDownloadURL, ref } from "firebase/storage";
+import Image from "next/image";
+import Link from "next/link";
+import React, { useEffect, useState } from "react";
+import {
+  BsCalendar2CheckFill,
+  BsDownload,
+  BsGraphUpArrow,
+} from "react-icons/bs";
+import { CgSpinner } from "react-icons/cg";
+import { FaTimes } from "react-icons/fa";
+import { FiUserCheck } from "react-icons/fi";
+import { GrTrophy, GrWorkshop } from "react-icons/gr";
+import { IoCheckmarkDone } from "react-icons/io5";
+import { LuArchive } from "react-icons/lu";
+import { toast } from "react-toastify";
 
 const Page = ({ params }: { params: { type: string } }) => {
   const { type } = params;
   const [config, , configLoading] = useConfig([]);
-  const [result, setResult] = useState<null | 'loading' | any>('loading');
+  const [result, setResult] = useState<null | "loading" | any>("loading");
   useEffect(() => {
-    setResult('loading');
+    setResult("loading");
     if (
-      (type === 'final' && config?.final_result_published) ||
-      (type === 'preliminary' && config?.pre_result_published)
+      (type === "final" && config?.final_result_published) ||
+      (type === "preliminary" && config?.pre_result_published)
     ) {
-      getBytes(ref(pfp, 'result/' + (type === 'preliminary' ? 'pre_result' : 'final_result')))
+      getBytes(
+        ref(
+          pfp,
+          "result/" + (type === "preliminary" ? "pre_result" : "final_result"),
+        ),
+      )
         .then((data) => {
-          const json = JSON.parse(new TextDecoder('utf-8').decode(new Uint8Array(data)));
+          const json = JSON.parse(
+            new TextDecoder("utf-8").decode(new Uint8Array(data)),
+          );
           setResult(json);
         })
         .catch((err) => {
@@ -40,32 +51,32 @@ const Page = ({ params }: { params: { type: string } }) => {
   }, [type, config, configLoading]);
 
   return (
-    <div className="py-28  md:py-32  bg-[#F6F6F6] min-h-[100vh]">
-      <h1 className="text-4xl md:text-5xl container pl-2">
-        <BsGraphUpArrow className="w-8 h-8 md:w-12 md:h-12 text-primary inline mr-3" />
+    <div className="min-h-[100vh] bg-[#F6F6F6] py-28 md:py-32">
+      <h1 className="container pl-2 text-4xl md:text-5xl">
+        <BsGraphUpArrow className="mr-3 inline h-8 w-8 text-primary md:h-12 md:w-12" />
         <span>STANDINGS </span> <span className="text-primary">| </span>
         <span className="text-secondary">{String(type)}</span>
       </h1>
       <p className="container mt-4 md:mt-8">
-        {type === 'preliminary'
-          ? 'Only Selected Students are listed here!'
-          : 'Final result have been published'}
+        {type === "preliminary"
+          ? "Only Selected Students are listed here!"
+          : "Final result have been published"}
       </p>
       {config?.pre_result_published ? (
-        <div className="container flex mt-4 md:mt-8 sm:relative my-auto gap-2 justify-between sm:justify-start  flex-wrap">
+        <div className="container my-auto mt-4 flex flex-wrap justify-between gap-2 sm:relative sm:justify-start md:mt-8">
           <Link
             href="/standings/preliminary"
             type="button"
-            className={` shadow-md sm:shadow-lg flex gap-2 basis-[calc(50%-0.25rem)] shrink-0 grow-0 sm:basis-auto items-center font-Nunito font-bold -gray-300 focus:outline-none focus:ring-4 focus:ring-gray-200 rounded-lg md:rounded-xl  text-sm md:text-base px-5 py-4 md:py-3 md:me-2 md:mb-2  transition-colors  ${
-              type == 'preliminary'
-                ? 'bg-secondary hover:bg-primary hover:text-white  text-white shadow-lg'
-                : 'bg-white text-black hover:bg-green-100 hover:text-secondary'
+            className={`-gray-300 flex shrink-0 grow-0 basis-[calc(50%-0.25rem)] items-center gap-2 rounded-lg px-5 py-4 font-Nunito text-sm font-bold shadow-md transition-colors focus:outline-none focus:ring-4 focus:ring-gray-200 sm:basis-auto sm:shadow-lg md:mb-2 md:me-2 md:rounded-xl md:py-3 md:text-base ${
+              type == "preliminary"
+                ? "bg-secondary text-white shadow-lg hover:bg-primary hover:text-white"
+                : "bg-white text-black hover:bg-green-100 hover:text-secondary"
             }`}
           >
             <FiUserCheck
               className={
-                'w-[1.125rem] h-[1.125rem] ' +
-                (type === 'preliminary' ? 'text-green-200' : 'text-secondary')
+                "h-[1.125rem] w-[1.125rem] " +
+                (type === "preliminary" ? "text-green-200" : "text-secondary")
               }
             />
             Preliminary
@@ -75,16 +86,16 @@ const Page = ({ params }: { params: { type: string } }) => {
             <Link
               href="/standings/final"
               type="button"
-              className={`shadow-md sm:shadow-lg font-Nunito basis-[calc(50%-0.25rem)] shrink-0 grow-0 sm:basis-auto flex gap-2 items-center font-bold -gray-300 focus:outline-none focus:ring-4 focus:ring-gray-200 rounded-lg md:rounded-xl  text-sm md:text-base px-5 py-4 md:py-3 md:me-2 md:mb-2  transition-colors  ${
-                type == 'final'
-                  ? 'bg-secondary hover:bg-primary hover:text-white  text-white shadow-lg'
-                  : 'bg-white text-black hover:bg-green-100 hover:text-secondary'
+              className={`-gray-300 flex shrink-0 grow-0 basis-[calc(50%-0.25rem)] items-center gap-2 rounded-lg px-5 py-4 font-Nunito text-sm font-bold shadow-md transition-colors focus:outline-none focus:ring-4 focus:ring-gray-200 sm:basis-auto sm:shadow-lg md:mb-2 md:me-2 md:rounded-xl md:py-3 md:text-base ${
+                type == "final"
+                  ? "bg-secondary text-white shadow-lg hover:bg-primary hover:text-white"
+                  : "bg-white text-black hover:bg-green-100 hover:text-secondary"
               }`}
             >
               <GrTrophy
                 className={
-                  'w-[1.125rem] h-[1.125rem] ' +
-                  (type === 'final' ? 'text-green-200' : 'text-secondary')
+                  "h-[1.125rem] w-[1.125rem] " +
+                  (type === "final" ? "text-green-200" : "text-secondary")
                 }
               />
               Final
@@ -92,13 +103,13 @@ const Page = ({ params }: { params: { type: string } }) => {
           ) : null}
         </div>
       ) : null}
-      <div className={'container mt-4 md:mt-8  '}>
-        <div className="my-2 text-base max-h-[80vh] overscroll-contain  bg-white rounded-xl p-6 pr-2 overflow-auto">
-          {((type === 'final' && config?.final_result_published) ||
-            (type === 'preliminary' && config?.pre_result_published)) &&
+      <div className={"container mt-4 md:mt-8"}>
+        <div className="my-2 max-h-[80vh] overflow-auto overscroll-contain rounded-xl bg-white p-6 pr-2 text-base">
+          {((type === "final" && config?.final_result_published) ||
+            (type === "preliminary" && config?.pre_result_published)) &&
           result?.length > 0 &&
-          result !== 'loading' ? (
-            <table className="table-padding w-full  min-w-[756px] border-collapse text-left ">
+          result !== "loading" ? (
+            <table className="table-padding w-full min-w-[756px] border-collapse text-left">
               <thead className="border-b">
                 <tr>
                   <th className="w-14 lg:w-28">Ranking</th>
@@ -114,33 +125,40 @@ const Page = ({ params }: { params: { type: string } }) => {
                       <span
                         className={`p-2 ${
                           index === 0
-                            ? 'text-white bg-rose-500 shadow'
+                            ? "bg-rose-500 text-white shadow"
                             : index === 1
-                            ? 'text-white bg-yellow-500 shadow'
-                            : index === 2
-                            ? 'text-white bg-secondary shadow'
-                            : 'bg-gray-100'
+                              ? "bg-yellow-500 text-white shadow"
+                              : index === 2
+                                ? "bg-secondary text-white shadow"
+                                : "bg-gray-100"
                         } rounded`}
                       >
                         {nthNumber(index + 1)}
                       </span>
                     </td>
-                    <td className="w-auto flex items-center gap-3">
-                      <Image
-                        className="w-14 rounded-full h-14 shadow-sm object-cover"
+                    <td className="flex w-auto items-center gap-3">
+                      <img
+                        className="h-14 w-14 rounded-full object-cover shadow-sm"
                         src={data.imageUrl}
                         width={56}
                         height={56}
                         alt="img"
                       />
                       <div>
-                        <p className=" text-lg font-semibold leading-6">{data.name}</p>
+                        <p className="text-lg font-semibold leading-6">
+                          {data.name}
+                        </p>
                         <p className="text-sm leading-6">{data.institution}</p>
                       </div>
                     </td>
                     <td className="w-36">
-                      <span className="text-lg font-bold text-secondary font-e">{data.score}</span>{' '}
-                      / <span className="text-sm text-rose-600">{data.penalty}</span>
+                      <span className="font-e text-lg font-bold text-secondary">
+                        {data.score}
+                      </span>{" "}
+                      /{" "}
+                      <span className="text-sm text-rose-600">
+                        {data.penalty}
+                      </span>
                     </td>
                     {/* <td className="w-28 Inter font-normal text-center ">
                       {data.selected ? (
@@ -158,12 +176,14 @@ const Page = ({ params }: { params: { type: string } }) => {
                 ))}
               </tbody>
             </table>
-          ) : configLoading || result === 'loading' ? (
-            <div className="grid place-items-center w-full h-[70vh] ">
-              <CgSpinner className="mx-auto w-16 h-16 animate-spin text-primary" />
+          ) : configLoading || result === "loading" ? (
+            <div className="grid h-[70vh] w-full place-items-center">
+              <CgSpinner className="mx-auto h-16 w-16 animate-spin text-primary" />
             </div>
           ) : (
-            <p className="text-center h-[60vh] pt-8 text-gray-400">Result not published yet</p>
+            <p className="h-[60vh] pt-8 text-center text-gray-400">
+              Result not published yet
+            </p>
           )}
         </div>
       </div>
