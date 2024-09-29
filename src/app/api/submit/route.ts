@@ -89,50 +89,48 @@ export async function POST(req: NextRequest) {
   const newParticipatedEvents = [...participatedEvents, data.id];
 
   if (intra || intraCollege) {
-    firestore
+    await firestore
       .collection("eventparticipant")
       .doc(data.uid)
       .set({
         points: totalPoints,
         events: newParticipatedEvents,
       })
-      .then(() => {
-        firestore
-          .collection("eventparticipant")
-          .doc(data.uid)
-          .collection("eventsData")
-          .doc(data.id)
-          .set({
-            marks: marks,
-            uid: data.uid,
-            time: now,
-            answers: data.answers,
-          })
-          .catch(() => {
-            return NextResponse.json(
-              { error: "Internal Server Error" },
-              { status: 500 },
-            );
-          });
+      .catch(() => {
+        return NextResponse.json(
+          { error: "Internal Server Error" },
+          { status: 500 },
+        );
+      });
+
+    await firestore
+      .collection("eventparticipant")
+      .doc(data.uid)
+      .collection("eventsData")
+      .doc(data.id)
+      .set({
+        marks: marks,
+        uid: data.uid,
+        time: now,
+        answers: data.answers,
       })
-      .then(() => {
-        firestore
-          .collection("answers")
-          .doc(data.id)
-          .collection("eventparticipant")
-          .doc(data.uid)
-          .set({
-            marks: marks,
-            uid: data.uid,
-            time: now,
-            answers: data.answers,
-          })
-          .catch(() => {
-            return NextResponse.json(
-              { error: "Internal Server Error" },
-              { status: 500 },
-            );
-          });
+      .catch(() => {
+        return NextResponse.json(
+          { error: "Internal Server Error" },
+          { status: 500 },
+        );
+      });
+
+    await firestore
+      .collection("answers")
+      .doc(data.id)
+      .collection("eventparticipant")
+      .doc(data.uid)
+      .set({
+        marks: marks,
+        uid: data.uid,
+        time: now,
+        answers: data.answers,
       })
       .catch(() => {
         return NextResponse.json(
@@ -141,31 +139,30 @@ export async function POST(req: NextRequest) {
         );
       });
   } else {
-    firestore
+    await firestore
       .collection("eventparticipant")
       .doc(data.uid)
       .set({
         points: totalPoints + marks,
         events: newParticipatedEvents,
       })
-      .then(() => {
-        firestore
-          .collection("eventparticipant")
-          .doc(data.uid)
-          .collection("eventsData")
-          .doc(data.id)
-          .set({
-            marks: marks,
-            uid: data.uid,
-            time: now,
-            answers: data.answers,
-          })
-          .catch(() => {
-            return NextResponse.json(
-              { error: "Internal Server Error" },
-              { status: 500 },
-            );
-          });
+      .catch(() => {
+        return NextResponse.json(
+          { error: "Internal Server Error" },
+          { status: 500 },
+        );
+      });
+
+    await firestore
+      .collection("eventparticipant")
+      .doc(data.uid)
+      .collection("eventsData")
+      .doc(data.id)
+      .set({
+        marks: marks,
+        uid: data.uid,
+        time: now,
+        answers: data.answers,
       })
       .catch(() => {
         return NextResponse.json(

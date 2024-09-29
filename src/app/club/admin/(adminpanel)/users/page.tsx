@@ -646,6 +646,16 @@ const EditUserData = ({
             </Checkbox>
 
             <Field
+              state={editUserData.ndc_roll}
+              setValue={setValue}
+              name="ndc_roll"
+              label="NDC College Roll"
+              type="text"
+              editable={editin}
+              notRequired
+            />
+
+            <Field
               state={editUserData.ndc_id}
               setValue={setValue}
               name="ndc_id"
