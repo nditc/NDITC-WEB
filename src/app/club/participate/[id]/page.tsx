@@ -73,7 +73,6 @@ const Page = ({ params }: { params: { id: string } }) => {
         .then((r) => r.json())
         .then((resp) => {
           setIsLoading(false);
-          console.log(resp);
           setDocSnapShot(resp);
 
           if (resp.error) {

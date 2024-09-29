@@ -105,6 +105,7 @@ const AnswerSheet = ({
   const [totalMarks, setTotalMarks] = useState(0);
 
   const SubmitFunc = async () => {
+    if (submitClicked) return;
     setSubmitClicked(true);
 
     getResult(answers, currentUID || "", id)
@@ -138,7 +139,12 @@ const AnswerSheet = ({
             </div>
           </div>
           <div className="justify-self-end">
-            <Timer endTime={endTime} onEnd={SubmitFunc} />
+            <Timer
+              endTime={endTime}
+              onEnd={SubmitFunc}
+              submitClicked={submitClicked}
+              setSubmitClicked={setSubmitClicked}
+            />
           </div>
         </div>
 

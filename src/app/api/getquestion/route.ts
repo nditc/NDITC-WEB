@@ -53,7 +53,7 @@ export async function POST(req: NextRequest) {
     );
   } else if (now > endTime) {
     return NextResponse.json(
-      { error: "The exam was over decaded ago" },
+      { error: "The exam was over decades ago" },
       { status: 404 },
     );
   }

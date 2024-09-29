@@ -4,7 +4,17 @@ import { useEffect, useState } from "react";
 import { timeValue } from "../Time";
 import { Timestamp } from "firebase/firestore";
 
-const Timer = ({ endTime, onEnd }: { endTime: number; onEnd: () => void }) => {
+const Timer = ({
+  endTime,
+  onEnd,
+  submitClicked,
+  setSubmitClicked,
+}: {
+  endTime: number;
+  onEnd: () => void;
+  submitClicked: boolean;
+  setSubmitClicked: (value: boolean) => void;
+}) => {
   const [hours, setHours] = useState(1);
   const [minutes, setMinutes] = useState(1);
   const [seconds, setSeconds] = useState(1);
@@ -17,7 +27,14 @@ const Timer = ({ endTime, onEnd }: { endTime: number; onEnd: () => void }) => {
     setMinutes(timeValue(Timestamp.fromMillis(timeLeft)).minute);
     setSeconds(timeValue(Timestamp.fromMillis(timeLeft)).seconds);
 
-    if (hours <= 0 && minutes <= 0 && seconds <= 5) {
+    if (
+      timeValue(Timestamp.fromMillis(timeLeft)).hour - 6 <= 0 &&
+      timeValue(Timestamp.fromMillis(timeLeft)).minute <= 0 &&
+      timeValue(Timestamp.fromMillis(timeLeft)).seconds <= 15 &&
+      !submitClicked
+    ) {
+      setSubmitClicked(true);
+      console.log("Hi");
       onEnd();
     }
   };
