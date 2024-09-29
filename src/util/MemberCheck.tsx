@@ -35,7 +35,7 @@ const MemberCheck = ({
         toast.error("You are not a member of NDITC!");
         updateDoc(doc(db, "participants", `${userAuth?.uid}`), {
           ndc_id: "",
-        }).then(() => router.push("/"));
+        }).then(() => router.push("/club"));
       });
     }
   }, []);

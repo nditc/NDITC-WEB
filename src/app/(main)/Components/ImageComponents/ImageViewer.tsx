@@ -1,11 +1,10 @@
-import React, { useState, useRef, useEffect } from 'react';
-import { PiCaretLeftBold, PiCaretRightBold } from 'react-icons/pi';
-import Modal from '../Modal';
-import { FaTimes } from 'react-icons/fa';
-import { BiZoomIn, BiZoomOut } from 'react-icons/bi';
-import { TransformComponent, TransformWrapper } from 'react-zoom-pan-pinch';
-import Image from 'next/image';
-import '../../styles/imageViewer.css';
+import React, { useState, useRef, useEffect } from "react";
+import { PiCaretLeftBold, PiCaretRightBold } from "react-icons/pi";
+import Modal from "../Modal";
+import { FaTimes } from "react-icons/fa";
+import { BiZoomIn, BiZoomOut } from "react-icons/bi";
+import { TransformComponent, TransformWrapper } from "react-zoom-pan-pinch";
+import "../../styles/imageViewer.css";
 
 interface props {
   images: string[];
@@ -32,14 +31,18 @@ const ImageViewer = ({ images, state, close, initIndex }: props) => {
   }, [Index]);
   return (
     <Modal state={state}>
-      <TransformWrapper initialScale={1} centerOnInit={true} centerZoomedOut={true}>
+      <TransformWrapper
+        initialScale={1}
+        centerOnInit={true}
+        centerZoomedOut={true}
+      >
         {({ zoomIn, zoomOut, centerView, resetTransform }) => (
           <>
-            {' '}
+            {" "}
             {loading ? (
               <svg
                 aria-hidden="true"
-                className="w-8 h-8 inline animate-spin origin-center absolute top-[calc(50%_-_1rem)] left-[calc(50%_-_1rem)]  text-gray-200  dark:text-gray-600 fill-white"
+                className="absolute left-[calc(50%_-_1rem)] top-[calc(50%_-_1rem)] inline h-8 w-8 origin-center animate-spin fill-white text-gray-200 dark:text-gray-600"
                 viewBox="0 0 100 101"
                 fill="none"
                 xmlns="http://www.w3.org/2000/svg"
@@ -53,15 +56,19 @@ const ImageViewer = ({ images, state, close, initIndex }: props) => {
                   fill="currentFill"
                 />
               </svg>
-            ) : null}{' '}
+            ) : null}{" "}
             <button
               onClick={() => {
                 centerView(1);
                 close();
               }}
-              className="absolute z-[80] shadow-md right-3 xsm:right-7 top-7 transition-all  text-xl  bg-white text-black grid place-items-center rounded-full w-12  h-12 hover:bg-black hover:fill-white"
+              className="absolute right-3 top-7 z-[80] grid h-12 w-12 place-items-center rounded-full bg-white text-xl text-black shadow-md transition-all hover:bg-black hover:fill-white xsm:right-7"
             >
-              <svg xmlns="http://www.w3.org/2000/svg" className="w-4 " viewBox="0 0 384 512">
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                className="w-4"
+                viewBox="0 0 384 512"
+              >
                 <path d="M342.6 150.6c12.5-12.5 12.5-32.8 0-45.3s-32.8-12.5-45.3 0L192 210.7 86.6 105.4c-12.5-12.5-32.8-12.5-45.3 0s-12.5 32.8 0 45.3L146.7 256 41.4 361.4c-12.5 12.5-12.5 32.8 0 45.3s32.8 12.5 45.3 0L192 301.3 297.4 406.6c12.5 12.5 32.8 12.5 45.3 0s12.5-32.8 0-45.3L237.3 256 342.6 150.6z"></path>
               </svg>
             </button>
@@ -70,9 +77,9 @@ const ImageViewer = ({ images, state, close, initIndex }: props) => {
                 setLoading(true);
                 setIndex((s) => (s != 0 ? s - 1 : 0));
                 resetTransform();
-                setTimeout(() => centerView(1, 1, 'linear'), 100);
+                setTimeout(() => centerView(1, 1, "linear"), 100);
               }}
-              className="transition-all z-[80] shadow-md absolute left-0 md:left-8 top-1/2 -translate-y-1/2 md:bg-white text-white md:text-black grid place-items-center rounded-full md:w-12 w-16 h-32 md:h-12 md:hover:bg-black md:hover:text-white"
+              className="absolute left-0 top-1/2 z-[80] grid h-32 w-16 -translate-y-1/2 place-items-center rounded-full text-white shadow-md transition-all md:left-8 md:h-12 md:w-12 md:bg-white md:text-black md:hover:bg-black md:hover:text-white"
             >
               <PiCaretLeftBold />
             </button>
@@ -81,29 +88,36 @@ const ImageViewer = ({ images, state, close, initIndex }: props) => {
                 setLoading(true);
                 setIndex((s) => (s != images.length - 1 ? s + 1 : s));
                 resetTransform();
-                setTimeout(() => centerView(1, 1, 'linear'), 100);
+                setTimeout(() => centerView(1, 1, "linear"), 100);
               }}
-              className="transition-all z-[80] shadow-md absolute right-0 md:right-8 top-1/2 -translate-y-1/2 md:bg-white text-white md:text-black grid place-items-center rounded-full md:w-12 w-16 h-32 md:h-12 md:hover:bg-black md:hover:text-white"
+              className="absolute right-0 top-1/2 z-[80] grid h-32 w-16 -translate-y-1/2 place-items-center rounded-full text-white shadow-md transition-all md:right-8 md:h-12 md:w-12 md:bg-white md:text-black md:hover:bg-black md:hover:text-white"
             >
               <PiCaretRightBold />
             </button>
             {/* toolbar */}
-            <div className="absolute left-1/2 z-[80] shadow-md top-7 bg-white rounded-3xl -translate-x-1/2 flex items-center gap-2">
+            <div className="absolute left-1/2 top-7 z-[80] flex -translate-x-1/2 items-center gap-2 rounded-3xl bg-white shadow-md">
               <button
                 onClick={() => zoomIn()}
-                className="transition-all  text-xl  bg-white text-black grid place-items-center rounded-full w-12  h-12 hover:bg-black hover:text-white"
+                className="grid h-12 w-12 place-items-center rounded-full bg-white text-xl text-black transition-all hover:bg-black hover:text-white"
               >
                 <BiZoomIn />
               </button>
-              <div className="px-3 xsm:px-5 flex">
+              <div className="flex px-3 xsm:px-5">
                 <input
                   onChange={(e) => {
                     setVal(e.target.value);
                   }}
                   onKeyUp={(e) => {
-                    if (e.code === 'Enter' || e.code == 'NumpadEnter') {
-                      let val = e.currentTarget.value === '' ? 0 : Number(e.currentTarget.value);
-                      if (val > 0 && val <= images.length && !Number.isNaN(val)) {
+                    if (e.code === "Enter" || e.code == "NumpadEnter") {
+                      let val =
+                        e.currentTarget.value === ""
+                          ? 0
+                          : Number(e.currentTarget.value);
+                      if (
+                        val > 0 &&
+                        val <= images.length &&
+                        !Number.isNaN(val)
+                      ) {
                         setIndex(val - 1);
                       } else {
                         setVal((Index + 1).toString());
@@ -111,78 +125,83 @@ const ImageViewer = ({ images, state, close, initIndex }: props) => {
                     }
                   }}
                   onBlur={(e) => {
-                    let val = e.target.value === '' ? 0 : Number(e.target.value);
+                    let val =
+                      e.target.value === "" ? 0 : Number(e.target.value);
                     if (val > 0 && val <= images.length && !Number.isNaN(val)) {
                       setIndex(val - 1);
                     } else {
                       setVal((Index + 1).toString());
                     }
                   }}
-                  className={'w-7'}
+                  className={"w-7"}
                   value={val}
                 ></input>
                 {`/${images.length}`}
               </div>
               <button
                 onClick={() => zoomOut()}
-                className="transition-all  text-xl  bg-white text-black grid place-items-center rounded-full w-12  h-12 hover:bg-black hover:text-white"
+                className="grid h-12 w-12 place-items-center rounded-full bg-white text-xl text-black transition-all hover:bg-black hover:text-white"
               >
                 <BiZoomOut />
               </button>
             </div>
             <div
-              className={`absolute transition-all top-[calc(50%_+_2.5rem)] md:top-[calc(50%_+_1.5rem)]  z-[70] left-1/2 -translate-x-1/2 -translate-y-1/2 ${
-                state ? 'scale-100' : 'scale-0'
+              className={`absolute left-1/2 top-[calc(50%_+_2.5rem)] z-[70] -translate-x-1/2 -translate-y-1/2 transition-all md:top-[calc(50%_+_1.5rem)] ${
+                state ? "scale-100" : "scale-0"
               }`}
             >
-              <div className="h-[calc(90vh-5rem)] md:h-[90vh]  w-screen md:w-[90vw]  overflow-hidden grid place-items-center">
-                <TransformComponent wrapperStyle={{ width: '100%', height: '100%' }}>
+              <div className="grid h-[calc(90vh-5rem)] w-screen place-items-center overflow-hidden md:h-[90vh] md:w-[90vw]">
+                <TransformComponent
+                  wrapperStyle={{ width: "100%", height: "100%" }}
+                >
                   <img
                     style={{
-                      opacity: loading ? '0' : '1',
+                      opacity: loading ? "0" : "1",
                     }}
                     onLoad={() => {
                       resetTransform();
-                      setTimeout(() => centerView(1, 1, 'linear'), 100);
+                      setTimeout(() => centerView(1, 1, "linear"), 100);
                       setLoading(false);
                     }}
                     className={
-                      'h-[calc(90vh-7rem)] md:h-[90vh]  w-screen md:w-[90vw] object-contain'
+                      "h-[calc(90vh-7rem)] w-screen object-contain md:h-[90vh] md:w-[90vw]"
                     }
                     src={images[Index]}
                     alt="loading"
                   />
                 </TransformComponent>
-                <div className={`h-20 mt-4 flex w-full max-w-full items-center`}>
+                <div
+                  className={`mt-4 flex h-20 w-full max-w-full items-center`}
+                >
                   <div
                     ref={ref}
-                    className="absolute mx-2 imagescroll scroll-smooth whitespace-nowrap overflow-x-scroll align-middle  max-w-full overflow-y-visible  transition-transform  shrink-0 basis-[4rem]"
+                    className="imagescroll absolute mx-2 max-w-full shrink-0 basis-[4rem] overflow-y-visible overflow-x-scroll scroll-smooth whitespace-nowrap align-middle transition-transform"
                   >
                     {images.map((url, index) => {
                       return (
                         <div
                           key={index}
                           className={
-                            'h-16 w-16 cursor-pointer inline-block mx-1 my-4' +
-                            ' ' +
+                            "mx-1 my-4 inline-block h-16 w-16 cursor-pointer" +
+                            " " +
                             (index === 0
-                              ? 'ml-[calc(50vw_-_2rem)] md:ml-5'
+                              ? "ml-[calc(50vw_-_2rem)] md:ml-5"
                               : index === images.length - 1
-                              ? 'mr-5'
-                              : '')
+                                ? "mr-5"
+                                : "")
                           }
                         >
-                          <Image
+                          <img
                             height={64}
                             width={64}
                             onClick={() => {
                               setLoading(true);
                               setIndex(index);
                               resetTransform();
-                              setTimeout(() => centerView(1, 1, 'linear'), 100);
+                              setTimeout(() => centerView(1, 1, "linear"), 100);
                             }}
-                            className={`h-full w-full transition-all object-cover rounded-md hover:brightness-75 ${
-                              index === Index ? 'ring-4 ring-blue-400' : ''
+                            className={`h-full w-full rounded-md object-cover transition-all hover:brightness-75 ${
+                              index === Index ? "ring-4 ring-blue-400" : ""
                             }`}
                             src={url}
                             alt=""

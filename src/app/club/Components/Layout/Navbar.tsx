@@ -2,7 +2,6 @@
 
 import { createCipheriv, createDecipheriv } from "crypto";
 import { useEffect, useRef, useState } from "react";
-import Image from "next/image";
 import Link from "next/link";
 import { usePathname, useSearchParams } from "next/navigation";
 import { RxCross2 } from "react-icons/rx";
@@ -107,7 +106,7 @@ const ClubNavbar = () => {
           }}
           className="z-50 flex items-center space-x-3 rtl:space-x-reverse"
         >
-          <Image
+          <img
             src="/Logo.png"
             className="h-12 max-w-[7.5rem] object-contain xsm:max-w-36"
             alt="NDITC Logo"
@@ -260,14 +259,6 @@ const ClubNavbar = () => {
                 FAQ
               </Link>
             </li>
-            {/* <li>
-                <Hover
-                  setShowOption={() => setShowOptions(false)}
-                  text="Activities"
-                  showOptions={showOptions}
-                  windowWidth={windowWidth}
-                />
-              </li> */}
 
             <li className="w-full text-center lg:w-auto">
               <Link
@@ -281,14 +272,14 @@ const ClubNavbar = () => {
               </Link>
             </li>
 
-            {/*<li className="w-full text-center lg:w-auto">
+            <li className="w-full text-center lg:w-auto">
               <Link
                 onClick={() => {
                   setShowOptions(false);
                 }}
                 href={
                   userAuth
-                    ? `/club/events/${encrypt(userAuth.uid)}/${encrypt(userData?.ndc_id == "" || userData?.ndc_id == undefined ? "none" : userData?.ndc_id)}`
+                    ? `/club/events/nditc/all`
                     : "/club/events"
                 }
                 className={
@@ -301,7 +292,7 @@ const ClubNavbar = () => {
               >
                 Events
               </Link>
-            </li>*/}
+            </li>
 
             <li className="w-full text-center lg:hidden lg:w-auto">
               <button

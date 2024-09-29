@@ -133,7 +133,7 @@ const Page = () => {
             </div>
           </div>
         </div>
-        <Image
+        <img
           alt="login"
           className={
             "order-1 m-5 hidden w-1/2 rounded-xl object-cover lg:block"

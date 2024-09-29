@@ -55,20 +55,22 @@ const AnswerSheet = ({
   endTime,
   id,
   questions,
-  uid,
+  publicQuiz,
   name,
   img,
   category,
   description,
+  showResult,
 }: {
   endTime: number;
   id: string;
   questions: Questions[];
-  uid: string;
+  publicQuiz: boolean;
   name: string;
   img: string;
   category: string;
   description: string;
+  showResult: boolean;
 }) => {
   const [answers, setAnswers] = useState<answerInterface[]>(
     Array(questions.length).fill({ option: 5, answer: "" }),
@@ -103,19 +105,18 @@ const AnswerSheet = ({
   const [totalMarks, setTotalMarks] = useState(0);
 
   const SubmitFunc = async () => {
+    if (submitClicked) return;
     setSubmitClicked(true);
-    if (currentUID != uid) {
-      setSubmitClicked(false);
-      return <ActualUser passedUID={uid} />;
-    }
 
-    getResult(answers, uid, id).then((res) => {
-      setExamMarks(res.examMarks);
-      setResultMarks(res.result);
-      setTotalMarks(res.totalMarks);
-      onOpen();
-      setSubmitClicked(false);
-    });
+    getResult(answers, currentUID || "", id)
+      .then((res) => {
+        setExamMarks(res.examMarks);
+        setResultMarks(res.result);
+        setTotalMarks(res.totalMarks);
+        onOpen();
+        //setSubmitClicked(false);
+      })
+      .catch(() => toast.error("Submission Error"));
   };
 
   const router = useRouter();
@@ -138,7 +139,12 @@ const AnswerSheet = ({
             </div>
           </div>
           <div className="justify-self-end">
-            <Timer endTime={endTime} onEnd={SubmitFunc} />
+            <Timer
+              endTime={endTime}
+              onEnd={SubmitFunc}
+              submitClicked={submitClicked}
+              setSubmitClicked={setSubmitClicked}
+            />
           </div>
         </div>
 
@@ -153,17 +159,21 @@ const AnswerSheet = ({
               <>
                 <Card className="h-full w-full border-none bg-gradient-to-br from-white to-white">
                   <CardBody className="items-center justify-center pb-0">
-                    <CircularProgress
-                      classNames={{
-                        svg: "w-36 h-36 ",
-                        indicator: "stroke-primary",
-                        track: "stroke-zinc-100",
-                        value: "text-3xl font-semibold text-black",
-                      }}
-                      value={(resultMarks / examMarks) * 100}
-                      strokeWidth={4}
-                      showValueLabel={true}
-                    />
+                    {showResult ? (
+                      <CircularProgress
+                        classNames={{
+                          svg: "w-36 h-36 ",
+                          indicator: "stroke-primary",
+                          track: "stroke-zinc-100",
+                          value: "text-3xl font-semibold text-black",
+                        }}
+                        value={(resultMarks / examMarks) * 100}
+                        strokeWidth={4}
+                        showValueLabel={true}
+                      />
+                    ) : (
+                      <div />
+                    )}
                   </CardBody>
                   <CardFooter className="flex-col items-center justify-center gap-3 pt-0">
                     <Chip
@@ -172,28 +182,34 @@ const AnswerSheet = ({
                         content: "text-black/90 text-small font-semibold",
                       }}
                     >
-                      <span>
-                        Result:{" "}
-                        <span className="text-primary">{resultMarks}</span> /{" "}
-                        {examMarks}
-                      </span>
+                      {showResult ? (
+                        <span>
+                          Result:{" "}
+                          <span className="text-primary">{resultMarks}</span> /{" "}
+                          {examMarks}
+                        </span>
+                      ) : (
+                        <span>The Result will be Published Later</span>
+                      )}
                     </Chip>
 
-                    <Chip
-                      classNames={{
-                        base: "bg-zinc-200/60",
-                        content: "text-black/90 text-small font-semibold",
-                      }}
-                    >
-                      Season's Total Marks:{" "}
-                      <span className="text-primary">{totalMarks}</span>
-                    </Chip>
+                    {publicQuiz && (
+                      <Chip
+                        classNames={{
+                          base: "bg-zinc-200/60",
+                          content: "text-black/90 text-small font-semibold",
+                        }}
+                      >
+                        Season's Total Marks:{" "}
+                        <span className="text-primary">{totalMarks}</span>
+                      </Chip>
+                    )}
 
                     <Button
                       className="w-full border bg-primary text-white hover:bg-primary_dark"
                       color="primary"
                       onPress={() => {
-                        setSubmitClicked(false);
+                        //setSubmitClicked(false);
                         onClose();
                         router.push("/club");
                       }}

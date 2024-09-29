@@ -6,6 +6,8 @@ import { doc, updateDoc } from "firebase/firestore";
 import { db } from "@/config/firebase";
 import { CiCircleInfo, CiWarning } from "react-icons/ci";
 import Loading from "../Loading";
+import { Checkbox } from "@nextui-org/checkbox";
+import { useAuthContext } from "../Layout/AuthContextProvider";
 
 const getRegisteredNDC = async (ndc_id: string) => {
   const res = await fetch("/api/memberdata", {
@@ -27,17 +29,26 @@ const getConnectToNDITC = async (ndc_id: string, email: string) => {
 
 const ClubInfo = ({
   ndc_id,
+  ndc_roll,
   email,
   uid,
+  updateUserData,
 }: {
   ndc_id: any;
+  ndc_roll: any;
   email: string;
   uid: string;
+  updateUserData: Function;
 }) => {
   const [memberData, setMemberData] = useState<any>();
 
-  const [roll, setRoll] = useState("");
+  const [roll, setRoll] = useState(ndc_roll || "");
   const [loading, setLoading] = useState(false);
+
+  const [asMember, setAsMember] = useState(false);
+
+  const userAuth = useAuthContext().userAuth;
+  const userLoading = useAuthContext().loading;
 
   useEffect(() => {
     if (ndc_id != "") {
@@ -53,33 +64,60 @@ const ClubInfo = ({
     }
   }, []);
 
+  const [editing, setEditing] = useState(false);
+
   const onSubmit = async (e: any) => {
     e.preventDefault();
+
+    if (roll == "") {
+      toast.error("Roll can't be empty");
+      return;
+    }
+
     setLoading(true);
 
-    const docRes = await getConnectToNDITC(roll, email);
+    if (asMember) {
+      const docRes = await getConnectToNDITC(roll, email);
 
-    if (!docRes.ok) {
-      toast.error("Invalid Roll or Email.");
-      setLoading(false);
-    } else {
-      const memberID = await docRes.json();
+      if (!docRes.ok) {
+        toast.error("Invalid Roll or Email.");
+        setLoading(false);
+      } else {
+        const memberID = await docRes.json();
 
-      if (memberID.success) {
-        const fields: any = {};
+        if (memberID.success) {
+          const fields: any = {};
 
-        if (memberID.year) {
-          fields["class"] = memberID.year;
+          if (memberID.year) {
+            fields["class"] = memberID.year;
+          }
+
+          await updateDoc(doc(db, "participants", uid), {
+            ndc_id: memberID.memberID,
+            name: memberID.name,
+            ...fields,
+          }).then(() => {
+            //setLoading(false);
+            location.reload();
+          });
         }
+      }
+    } else {
+      if (userAuth && !userLoading) {
+        try {
+          await updateDoc(doc(db, "participants", userAuth.uid), {
+            ndc_roll: roll,
+          });
 
-        await updateDoc(doc(db, "participants", uid), {
-          ndc_id: memberID.memberID,
-          name: memberID.name,
-          ...fields,
-        }).then(() => {
+          toast.success("Data Updated!");
+          updateUserData();
+          setEditing(false);
           setLoading(false);
-          location.reload();
-        });
+        } catch (err) {
+          console.error(err);
+
+          toast.error("Aww Snap!");
+        }
       }
     }
   };
@@ -100,19 +138,54 @@ const ClubInfo = ({
               </h1>
             </div>
           </div>
-          <p className="rounded-xl bg-yellow-100 p-5 text-yellow-950">
-            <b className="flex items-center gap-1">
-              {" "}
-              <CiWarning />
-              Warning:
-            </b>
-            You can only connect if you are a member of NDITC and submitted your
-            membership form in college. Please verify that your roll number is
-            correct. Also, confirm that you have submitted this account’s email
-            in the membership form.
-          </p>
+          {asMember ? (
+            <p className="rounded-xl bg-yellow-100 p-5 text-yellow-950">
+              <b className="flex items-center gap-1">
+                {" "}
+                <CiWarning />
+                Warning:
+              </b>
+              You can only connect if you are a member of NDITC and submitted
+              your membership form in college. Please verify that your roll
+              number is correct. Also, confirm that you have submitted this
+              account’s email in the membership form.
+            </p>
+          ) : (
+            <p className="rounded-xl bg-yellow-100 p-5 text-yellow-950">
+              <b className="flex items-center gap-1">
+                {" "}
+                <CiWarning />
+                Warning:
+              </b>
+              This section is for only Notre Dame College students. Enter your
+              correct college permanent roll. Otherwise your account may get
+              banned.
+            </p>
+          )}
           <div className="grid w-full grid-cols-1 gap-5">
             <div className="flex flex-col gap-1">
+              <div className="flex justify-between">
+                <Checkbox
+                  isSelected={asMember}
+                  onValueChange={setAsMember}
+                  className="pb-5"
+                  size="lg"
+                >
+                  NDITC Member ?
+                </Checkbox>
+
+                {!asMember && ndc_roll && ndc_roll != "" && (
+                  <Checkbox
+                    isSelected={editing}
+                    onValueChange={setEditing}
+                    className="pb-5"
+                    size="lg"
+                  >
+                    Edit Data
+                  </Checkbox>
+                )}
+              </div>
+
               <label
                 className="ml-2 font-medium text-gray-500 disabled:text-gray-200"
                 htmlFor={"roll"}
@@ -120,6 +193,7 @@ const ClubInfo = ({
                 NDC Roll:
               </label>
               <input
+                disabled={!asMember && ndc_roll && ndc_roll != "" && !editing}
                 className="rounded-xl border border-gray-200 px-5 py-3 focus:border-primary focus:outline-none disabled:bg-white disabled:text-gray-400"
                 onChange={(e) => setRoll(e.currentTarget.value)}
                 value={roll}
@@ -130,10 +204,13 @@ const ClubInfo = ({
 
             <div className="">
               <button
+                disabled={
+                  !asMember && ndc_roll != null && ndc_roll != "" && !editing
+                }
                 style={{
                   pointerEvents: loading ? "none" : "auto",
                 }}
-                className="flex w-full items-center justify-center rounded-xl bg-primary px-8 py-2 text-lg text-white transition-all hover:bg-secondary_light hover:text-primary"
+                className="flex w-full items-center justify-center rounded-xl bg-primary px-8 py-2 text-lg text-white transition-all hover:bg-secondary_light hover:text-primary disabled:bg-secondary_light"
                 type="submit"
               >
                 {loading ? (

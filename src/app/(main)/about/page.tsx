@@ -12,7 +12,7 @@ const Sections = [
     content: (
       <>
         <div className="mb-10 flex flex-col gap-8 md:mb-16 lg:flex-row">
-          <Image
+          <img
             src="/About.jpg"
             alt="Image"
             className="w-full rounded-xl object-cover lg:max-w-[50%]"

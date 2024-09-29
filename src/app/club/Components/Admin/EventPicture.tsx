@@ -60,7 +60,7 @@ const EventPicture = ({
         <p className="absolute left-1/2 top-1/2 z-10 -translate-x-1/2 -translate-y-1/2 cursor-pointer select-none font-medium text-transparent group-hover:text-white">
           Click to Change
         </p>
-        <Image
+        <img
           className="aspect-square h-[384px] w-[384px] min-w-[384px] max-w-[384px] cursor-pointer rounded-xl bg-white object-cover shadow-md transition-all group-hover:brightness-50"
           src={imageUrl}
           alt="profile-img"

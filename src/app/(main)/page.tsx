@@ -32,7 +32,7 @@ export default function Home() {
             <span className="relative z-10">LEARN MORE</span>
           </Link>
         </div>
-        <Image
+        <img
           src={"/BigImg-old.png"}
           alt={"Image"}
           className="relative order-1 aspect-square max-h-[87vh] max-w-[95vw] object-contain sm:max-w-[80vw] md:order-2 md:-ml-6 md:-mr-6 md:-mt-12 md:max-w-[55vw] md:object-right lg:mt-0 xl:ml-0 2xl:max-h-[82vh]"
@@ -58,7 +58,7 @@ export default function Home() {
         <div className="container flex flex-wrap items-stretch justify-between gap-4 md:gap-6">
           <div className="group relative z-10 flex min-w-[160px] flex-1 cursor-pointer flex-col items-center justify-center gap-3 overflow-hidden rounded-xl border border-gray-200 bg-gray-100 p-6 transition-all before:absolute before:bottom-0 before:left-0 before:z-0 before:h-full before:w-full before:origin-left before:scale-x-0 before:bg-blue-500 before:p-6 before:transition-all before:ease-in-out hover:border-blue-300 hover:text-white hover:before:scale-x-100">
             <div className="z-10 flex flex-1 flex-col items-center justify-center gap-3">
-              <Image
+              <img
                 className="w-[80px] group-hover:brightness-0 group-hover:invert md:w-[100px]"
                 width={100}
                 height={100}
@@ -70,7 +70,7 @@ export default function Home() {
           </div>
           <div className="group relative z-10 flex min-w-[160px] flex-1 cursor-pointer flex-col items-center justify-center gap-3 overflow-hidden rounded-xl border border-gray-200 bg-gray-100 p-6 transition-all before:absolute before:bottom-0 before:left-0 before:z-0 before:h-full before:w-full before:origin-left before:scale-x-0 before:bg-blue-500 before:p-6 before:transition-all before:ease-in-out hover:border-blue-300 hover:text-white hover:before:scale-x-100">
             <div className="z-10 flex flex-1 flex-col items-center justify-center gap-3">
-              <Image
+              <img
                 className="w-[80px] group-hover:brightness-0 group-hover:invert md:w-[100px]"
                 width={100}
                 height={100}
@@ -83,7 +83,7 @@ export default function Home() {
           </div>
           <div className="group relative z-10 flex min-w-[160px] flex-1 cursor-pointer flex-col items-center justify-center gap-3 overflow-hidden rounded-xl border border-gray-200 bg-gray-100 p-6 transition-all before:absolute before:bottom-0 before:left-0 before:z-0 before:h-full before:w-full before:origin-left before:scale-x-0 before:bg-blue-500 before:p-6 before:transition-all before:ease-in-out hover:border-blue-300 hover:text-white hover:before:scale-x-100">
             <div className="z-10 flex flex-1 flex-col items-center justify-center gap-3">
-              <Image
+              <img
                 className="w-[80px] group-hover:brightness-0 group-hover:invert md:w-[100px]"
                 width={100}
                 height={100}
@@ -98,7 +98,7 @@ export default function Home() {
           </div>
           <div className="group relative z-10 flex min-w-[160px] flex-1 cursor-pointer flex-col items-center justify-center gap-3 overflow-hidden rounded-xl border border-gray-200 bg-gray-100 p-6 transition-all before:absolute before:bottom-0 before:left-0 before:z-0 before:h-full before:w-full before:origin-left before:scale-x-0 before:bg-blue-500 before:p-6 before:transition-all before:ease-in-out hover:border-blue-300 hover:text-white hover:before:scale-x-100">
             <div className="z-10 flex flex-1 flex-col items-center justify-center gap-3">
-              <Image
+              <img
                 className="w-[80px] group-hover:brightness-0 group-hover:invert md:w-[100px]"
                 width={100}
                 height={100}
@@ -111,7 +111,7 @@ export default function Home() {
           </div>
           <div className="group relative z-10 flex min-w-[160px] flex-1 cursor-pointer flex-col items-center justify-center gap-3 overflow-hidden rounded-xl border border-gray-200 bg-gray-100 p-6 transition-all before:absolute before:bottom-0 before:left-0 before:z-0 before:h-full before:w-full before:origin-left before:scale-x-0 before:bg-blue-500 before:p-6 before:transition-all before:ease-in-out hover:border-blue-300 hover:text-white hover:before:scale-x-100">
             <div className="z-10 flex flex-1 flex-col items-center justify-center gap-3">
-              <Image
+              <img
                 className="w-[80px] group-hover:brightness-0 group-hover:invert md:w-[100px]"
                 width={100}
                 height={100}
@@ -199,7 +199,7 @@ Benefits of Li-Fi :"
           </div>
           <div className="flex flex-col items-center justify-center gap-10 md:flex-row">
             <div className="flex flex-col items-center gap-3">
-              <Image
+              <img
                 src={"/Ellipse1.png"}
                 alt={"Image"}
                 width={150}
@@ -217,7 +217,7 @@ Benefits of Li-Fi :"
               </p>
             </div>
             <div className="flex flex-col items-center gap-3">
-              <Image
+              <img
                 src={"/Ellipse2.png"}
                 alt={"Image"}
                 width={150}
@@ -235,7 +235,7 @@ Benefits of Li-Fi :"
               </p>
             </div>
             <div className="flex flex-col items-center gap-3">
-              <Image
+              <img
                 src={"/Ellipse3.png"}
                 alt={"Image"}
                 width={150}

@@ -81,7 +81,7 @@ const Page = async ({
               ) : null}
             </div>
             <div className="order-1 h-full max-h-[60vh] w-full flex-1 md:order-2 md:min-h-[410px]">
-              <Image
+              <img
                 className="h-full max-h-[60vh] w-full rounded-b-xl object-cover md:min-h-[410px] md:rounded-none"
                 src={data.images[0]}
                 alt=""

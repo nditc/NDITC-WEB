@@ -76,7 +76,7 @@ const Navbar = () => {
           }}
           className="z-50 flex items-center space-x-3 rtl:space-x-reverse"
         >
-          <Image
+          <img
             src="/Logo.png"
             className="h-12 w-32"
             alt="NDITC Logo"
@@ -101,7 +101,7 @@ const Navbar = () => {
             className="before:ease relative overflow-hidden rounded-lg border border-black bg-[#252525] px-4 py-2 text-center font-ShareTechTown text-sm font-medium text-white shadow-2xl before:absolute before:left-0 before:-ml-2 before:h-48 before:w-48 before:origin-top-right before:-translate-x-full before:translate-y-12 before:-rotate-90 before:bg-gray-900 before:transition-all before:duration-300 hover:bg-zinc-700 hover:text-white hover:before:-rotate-180 focus:outline-none focus:ring-4 focus:ring-blue-300 md:px-2 lg:px-4"
           >
             <span className="relative z-10 hidden xsm:inline">TRY OUR APP</span>
-            <Image
+            <img
               width={20}
               height={20}
               className="inline invert xsm:hidden"

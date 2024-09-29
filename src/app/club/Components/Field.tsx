@@ -8,6 +8,7 @@ type props = {
   setValue: (name: string, data: string | number) => void;
   notRequired?: boolean;
   editable?: boolean;
+  returnNumber?: boolean;
 };
 
 const Field = ({
@@ -18,6 +19,7 @@ const Field = ({
   setValue,
   notRequired,
   editable = true,
+  returnNumber,
 }: props) => {
   return (
     <div className="flex flex-col gap-1">
@@ -30,7 +32,9 @@ const Field = ({
       </label>
       <input
         className="rounded-xl border border-gray-200 px-5 py-3 focus:border-primary focus:outline-none disabled:bg-white disabled:text-gray-400"
-        onChange={(e) => setValue(name, e.target.value)}
+        onChange={(e) =>
+          setValue(name, returnNumber ? e.target.valueAsNumber : e.target.value)
+        }
         value={state}
         type={type}
         name={name}
