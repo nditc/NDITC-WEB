@@ -37,7 +37,7 @@ const Member = ({
       <div className="grid w-full max-w-[120px] place-items-center md:max-w-[280px]">
         <span
           className={
-            "font-Bebas absolute z-10 font-semibold text-white opacity-0 transition-opacity" +
+            "absolute z-10 font-Bebas font-semibold text-white opacity-0 transition-opacity" +
             " " +
             (hasClickHandler && hover ? "opacity-100" : "")
           }
@@ -54,7 +54,7 @@ const Member = ({
           height={320}
           src={img}
           alt=""
-        ></Image>
+        ></img>
       </div>
       <div className="text-left md:text-center">
         <h3 className="text-2xl">{name}</h3>
