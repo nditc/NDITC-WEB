@@ -72,7 +72,7 @@ const ImageGrid = ({ images, layoutID }: props) => {
           ... View More Images
         </button>
       </div>
-      <imgViewer
+      <ImageViewer
         close={() => {
           setImageViewerState(false);
           setInitIndex(0);

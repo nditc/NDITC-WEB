@@ -42,7 +42,6 @@ const SingleNotification = ({
           src={imageURL}
           alt="Image"
           className="absolute w-full object-cover"
-          fill
         />
       </div>
     </Link>

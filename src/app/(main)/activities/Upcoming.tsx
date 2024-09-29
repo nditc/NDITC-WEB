@@ -97,7 +97,6 @@ const Upcoming = ({
             src={image}
             alt={"Image"}
             className="object-cover object-right gradient-mask-b-10 md:gradient-mask-l-40"
-            fill
           />
         </div>
         <div className="left-part m-5 md:ml-10 md:mr-0">
