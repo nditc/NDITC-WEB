@@ -15,6 +15,7 @@ const getEvents = async (ndc_id: string, uid: string, ndc_roll: string) => {
       uid: uid,
       ndc_roll,
     }),
+    cache: "no-store",
   });
 
   return res;

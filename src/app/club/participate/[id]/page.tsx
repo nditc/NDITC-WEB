@@ -25,6 +25,7 @@ const getQuestions = async (
       email: email,
       ndc_roll,
     }),
+    cache: "no-store",
   });
 
   return res;
