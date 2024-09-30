@@ -272,7 +272,7 @@ const ClubNavbar = () => {
               </Link>
             </li>
 
-            <li className="w-full text-center lg:w-auto">
+            {/*<li className="w-full text-center lg:w-auto">
               <Link
                 onClick={() => {
                   setShowOptions(false);
@@ -292,7 +292,7 @@ const ClubNavbar = () => {
               >
                 Events
               </Link>
-            </li>
+            </li>*/}
 
             <li className="w-full text-center lg:hidden lg:w-auto">
               <button
