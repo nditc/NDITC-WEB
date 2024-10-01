@@ -85,9 +85,9 @@ const Upcoming = ({
   const detailsEncrypt = encrypt(actionButtonRedirect1);
 
   return (
-    <div id="upcoming_event_container relative bg-white">
+    <div id="upcoming_event_container relative bg-white z-30">
       <div className="blog-section shadow-[09px_13px_40px_10px_#00000024]">
-        <div className="absolute right-0 -z-10 h-full w-full">
+        <div className="absolute right-0 -z-10 h-full w-full bg-white">
           <img
             src={image}
             alt={"Image"}
