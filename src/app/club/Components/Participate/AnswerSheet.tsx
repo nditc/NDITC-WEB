@@ -140,6 +140,7 @@ const AnswerSheet = ({
           </div>
           <div className="justify-self-end">
             <Timer
+            currentTime={Date.now()}
               endTime={endTime}
               onEnd={SubmitFunc}
               submitClicked={submitClicked}
