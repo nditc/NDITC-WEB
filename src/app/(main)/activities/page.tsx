@@ -60,18 +60,21 @@ const Activities = async ({
               <h1 className="pb-1 text-3xl md:text-5xl">UPCOMING</h1>
               <h1 className="text-5xl text-blue-500 md:text-7xl">EVENT</h1>
             </div>
-            <section className="h-fit w-full">
-              <Upcoming
-                category={upcoming[0].category}
-                title={upcoming[0].title}
-                description={upcoming[0].short_description}
-                actionButtonTitle1="Register"
-                actionButtonTitle2="Learn More"
-                actionButtonRedirect1="https://init.nditc.net/registration/participant"
-                actionButtonRedirect2={upcoming[0].details_url}
-                image={upcoming[0].image_url}
-                timestamp={upcoming[0].timestamp}
-              />
+            <section className="mb-8 flex h-fit w-full flex-col gap-8">
+              {upcoming.map((d, ind) => {
+                return (
+                  <Upcoming
+                    key={ind}
+                    category={d.category}
+                    title={d.title}
+                    description={d.short_description}
+                    actionButtonTitle1="Learn More"
+                    actionButtonRedirect1={d.details_url}
+                    image={d.image_url}
+                    timestamp={d.timestamp}
+                  />
+                );
+              })}
             </section>
           </>
         ) : null}
