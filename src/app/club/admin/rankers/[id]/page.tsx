@@ -64,6 +64,30 @@ const Page = ({ params }: { params: { id: string } }) => {
           orderBy("marks"),
         );
 
+  const getData = async () => {
+    const docsSnap = await getDocs(firstQ);
+
+    setLastUserDoc(docsSnap.docs[docsSnap.docs.length - 1]);
+
+    const tempArr: any[] = [];
+
+    docsSnap.docs.forEach(async (e) => {
+      const userData = await getDoc(doc(db, "participants", e.id));
+
+      tempArr.push({
+        id: e.id,
+        data: { ...userData.data() },
+        quizData: { ...e.data() },
+      });
+
+      setUsersData(tempArr);
+    });
+
+    //setUsersData((oldArr: any) => [oldArr, ...tempArr]);
+
+    setAuthLoading(false);
+  };
+
   useEffect(() => {
     if (user && user.email) {
       fetch("/api/admin", {
@@ -74,30 +98,7 @@ const Page = ({ params }: { params: { id: string } }) => {
         .then((resp) => {
           setAdminAuth(resp.auth || false);
 
-          getDocs(firstQ).then((data) => {
-            setLastUserDoc(data.docs[data.docs.length - 1]);
-            const tempArr: any[] = [];
-            data.docs.forEach((e) => {
-              getDoc(doc(db, "participants", e.id))
-                .then((userData) => {
-                  tempArr.push({
-                    id: e.id,
-                    data: { ...userData.data() },
-                    quizData: { ...e.data() },
-                  });
-
-                  setUsersData(tempArr);
-                })
-                .catch(() => {
-                  toast.error("Error Occurred");
-                  router.push("/club/admin");
-                });
-            });
-
-            //setUsersData((oldArr: any) => [oldArr, ...tempArr]);
-
-            setAuthLoading(false);
-          });
+          getData();
         })
         .catch((err) => {
           toast.error("Something went wrong");
