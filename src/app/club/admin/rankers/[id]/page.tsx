@@ -61,7 +61,7 @@ const Page = ({ params }: { params: { id: string } }) => {
       ? query(collection(db, "eventparticipant"), orderBy("points"))
       : query(
           collection(db, "answers", params.id, "eventparticipant"),
-          orderBy("marks"),
+          orderBy("marks", "desc"),
         );
 
   const getData = async () => {
