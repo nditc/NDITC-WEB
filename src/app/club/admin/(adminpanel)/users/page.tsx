@@ -110,7 +110,7 @@ const Page = () => {
   const [isVerified, setIsVerified] = useState(false);
   const [isSelected, setIsSelected] = useState(false);
   const [isMember, setIsMember] = useState(false);
-  const [isTimeSort, setIsTimeSort] = useState(false);
+  const [isTimeSort, setIsTimeSort] = useState(true);
 
   const [isYearSelected, setIsYearSelected] = useState(false);
   const [selectedClass, setSelectedClass] = useState(2001);
