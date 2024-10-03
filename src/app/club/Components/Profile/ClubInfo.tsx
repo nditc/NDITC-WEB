@@ -146,9 +146,9 @@ const ClubInfo = ({
                 Warning:
               </b>
               You can only connect if you are a member of NDITC and submitted
-              your membership form in college. Please verify that your roll
-              number is correct. Also, confirm that you have submitted this
-              account’s email in the membership form.
+              your membership form in college. Batch '26 can't connect yet cause
+              we don't have your form data yet. So, keep the Member Checkmark
+              unticked
             </p>
           ) : (
             <p className="rounded-xl bg-yellow-100 p-5 text-yellow-950">
