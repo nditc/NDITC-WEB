@@ -140,7 +140,7 @@ const AnswerSheet = ({
           </div>
           <div className="justify-self-end">
             <Timer
-            currentTime={Date.now()}
+              currentTime={Date.now()}
               endTime={endTime}
               onEnd={SubmitFunc}
               submitClicked={submitClicked}
@@ -212,7 +212,7 @@ const AnswerSheet = ({
                       onPress={() => {
                         //setSubmitClicked(false);
                         onClose();
-                        router.push("/club");
+                        router.push("/club/events/nditc/all");
                       }}
                     >
                       Got It!

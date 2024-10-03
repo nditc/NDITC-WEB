@@ -2,11 +2,26 @@ import EventCard from "@/app/club/Components/Events/EventCard";
 import { getFirestore, Timestamp } from "firebase-admin/firestore";
 import { initAdmin } from "@/config/firebaseAdmin";
 import EventList from "../Components/Events/EventList";
+import { createCipheriv } from "crypto";
 
 const page = async () => {
   await initAdmin();
 
-  const now = Timestamp.now();
+  const encryption_key = "kjfofvdhjHjgrmgherTtyLJfVbshJbvQ"; // Must be 32 characters
+  const initialization_vector = "X05IGQ5qdBnIqAWD"; // Must be 16 characters
+
+  function encrypt(text: string) {
+    const cipher = createCipheriv(
+      "aes-256-cbc",
+      Buffer.from(encryption_key),
+      Buffer.from(initialization_vector),
+    );
+    var crypted = cipher.update(text, "utf8", "hex");
+    crypted += cipher.final("hex");
+    return crypted;
+  }
+
+  //const now = Timestamp.now();
 
   const firestore = getFirestore();
 
@@ -17,7 +32,7 @@ const page = async () => {
     .get();
 
   const eventList: any[] = collectionSnapshot.docs.map((e) => ({
-    id: e.id,
+    id: encrypt(e.id),
     ...e.data(),
   }));
 

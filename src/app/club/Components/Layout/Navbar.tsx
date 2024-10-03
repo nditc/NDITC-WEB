@@ -272,16 +272,12 @@ const ClubNavbar = () => {
               </Link>
             </li>
 
-            {/*<li className="w-full text-center lg:w-auto">
+            <li className="w-full text-center lg:w-auto">
               <Link
                 onClick={() => {
                   setShowOptions(false);
                 }}
-                href={
-                  userAuth
-                    ? `/club/events/nditc/all`
-                    : "/club/events"
-                }
+                href={userAuth ? `/club/events/nditc/all` : "/club/events"}
                 className={
                   "block rounded-lg border-2 border-primary px-3 py-2 text-primary lg:rounded-none lg:border-0 lg:border-b-2 lg:border-secondary lg:p-0 lg:hover:bg-transparent lg:hover:text-secondary" +
                   " " +
@@ -292,7 +288,7 @@ const ClubNavbar = () => {
               >
                 Events
               </Link>
-            </li>*/}
+            </li>
 
             <li className="w-full text-center lg:hidden lg:w-auto">
               <button

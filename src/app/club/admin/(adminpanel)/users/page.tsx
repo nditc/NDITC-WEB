@@ -110,6 +110,8 @@ const Page = () => {
   const [isVerified, setIsVerified] = useState(false);
   const [isSelected, setIsSelected] = useState(false);
   const [isMember, setIsMember] = useState(false);
+  const [isDamian, setIsDamian] = useState(false);
+  const [isTimeSort, setIsTimeSort] = useState(true);
 
   const [isYearSelected, setIsYearSelected] = useState(false);
   const [selectedClass, setSelectedClass] = useState(2001);
@@ -117,16 +119,22 @@ const Page = () => {
   const onFilterQuery = (loadMore: boolean) => {
     let conditions = [];
 
+    if (isTimeSort) {
+      conditions.push(orderBy("timestamp", "desc"));
+    } else {
+      conditions.push(orderBy("name"));
+    }
+
     if (searchText != "") conditions.push(where(searchBy, "==", searchText));
     if (isYearSelected) conditions.push(where("class", "==", selectedClass));
     if (isMember) conditions.push(where("ndc_id", "!=", ""));
+    if (isDamian) conditions.push(where("ndc_roll", "!=", ""));
     if (isVerified) conditions.push(where("verified", "==", true));
     if (isSelected) conditions.push(where("selected", "==", true));
     if (loadMore) conditions.push(startAfter(lastUserDoc));
 
     const usersQuery = query(
       collection(db, "participants"),
-      orderBy("name"),
       limit(docLimit),
       ...conditions,
     );
@@ -141,13 +149,18 @@ const Page = () => {
           .then((resp) => {
             let c = [];
 
+            if (isTimeSort) {
+              c.push(orderBy("timestamp", "desc"));
+            } else {
+              c.push(orderBy("name"));
+            }
+
             if (isYearSelected) c.push(where("class", "==", selectedClass));
             if (isVerified) c.push(where("verified", "==", true));
             if (isSelected) c.push(where("selected", "==", true));
 
             const q = query(
               collection(db, "participants"),
-              orderBy("name"),
               limit(docLimit),
               where("ndc_id", "==", resp.memberID),
               ...c,
@@ -259,10 +272,24 @@ const Page = () => {
 
                 <Checkbox
                   size="lg"
+                  isSelected={isTimeSort}
+                  onValueChange={setIsTimeSort}
+                >
+                  Sort By Time
+                </Checkbox>
+                <Checkbox
+                  size="lg"
                   isSelected={isMember}
                   onValueChange={setIsMember}
                 >
                   NDITC Member
+                </Checkbox>
+                <Checkbox
+                  size="lg"
+                  isSelected={isDamian}
+                  onValueChange={setIsDamian}
+                >
+                  Notre Damian
                 </Checkbox>
                 <Checkbox
                   size="lg"
