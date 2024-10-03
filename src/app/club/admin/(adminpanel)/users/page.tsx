@@ -110,6 +110,7 @@ const Page = () => {
   const [isVerified, setIsVerified] = useState(false);
   const [isSelected, setIsSelected] = useState(false);
   const [isMember, setIsMember] = useState(false);
+  const [isDamian, setIsDamian] = useState(false);
   const [isTimeSort, setIsTimeSort] = useState(true);
 
   const [isYearSelected, setIsYearSelected] = useState(false);
@@ -127,6 +128,7 @@ const Page = () => {
     if (searchText != "") conditions.push(where(searchBy, "==", searchText));
     if (isYearSelected) conditions.push(where("class", "==", selectedClass));
     if (isMember) conditions.push(where("ndc_id", "!=", ""));
+    if (isDamian) conditions.push(where("ndc_roll", "!=", ""));
     if (isVerified) conditions.push(where("verified", "==", true));
     if (isSelected) conditions.push(where("selected", "==", true));
     if (loadMore) conditions.push(startAfter(lastUserDoc));
@@ -281,6 +283,13 @@ const Page = () => {
                   onValueChange={setIsMember}
                 >
                   NDITC Member
+                </Checkbox>
+                <Checkbox
+                  size="lg"
+                  isSelected={isDamian}
+                  onValueChange={setIsDamian}
+                >
+                  Notre Damian
                 </Checkbox>
                 <Checkbox
                   size="lg"
