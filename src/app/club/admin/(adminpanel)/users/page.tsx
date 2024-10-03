@@ -110,12 +110,19 @@ const Page = () => {
   const [isVerified, setIsVerified] = useState(false);
   const [isSelected, setIsSelected] = useState(false);
   const [isMember, setIsMember] = useState(false);
+  const [isTimeSort, setIsTimeSort] = useState(false);
 
   const [isYearSelected, setIsYearSelected] = useState(false);
   const [selectedClass, setSelectedClass] = useState(2001);
 
   const onFilterQuery = (loadMore: boolean) => {
     let conditions = [];
+
+    if (isTimeSort) {
+      conditions.push(orderBy("timestamp", "desc"));
+    } else {
+      conditions.push(orderBy("name"));
+    }
 
     if (searchText != "") conditions.push(where(searchBy, "==", searchText));
     if (isYearSelected) conditions.push(where("class", "==", selectedClass));
@@ -126,7 +133,6 @@ const Page = () => {
 
     const usersQuery = query(
       collection(db, "participants"),
-      orderBy("name"),
       limit(docLimit),
       ...conditions,
     );
@@ -141,13 +147,18 @@ const Page = () => {
           .then((resp) => {
             let c = [];
 
+            if (isTimeSort) {
+              c.push(orderBy("timestamp", "desc"));
+            } else {
+              c.push(orderBy("name"));
+            }
+
             if (isYearSelected) c.push(where("class", "==", selectedClass));
             if (isVerified) c.push(where("verified", "==", true));
             if (isSelected) c.push(where("selected", "==", true));
 
             const q = query(
               collection(db, "participants"),
-              orderBy("name"),
               limit(docLimit),
               where("ndc_id", "==", resp.memberID),
               ...c,
@@ -257,6 +268,13 @@ const Page = () => {
               >
                 <h1 className="text-3xl text-primary">FILTERS</h1>
 
+                <Checkbox
+                  size="lg"
+                  isSelected={isTimeSort}
+                  onValueChange={setIsTimeSort}
+                >
+                  Sort By Time
+                </Checkbox>
                 <Checkbox
                   size="lg"
                   isSelected={isMember}
