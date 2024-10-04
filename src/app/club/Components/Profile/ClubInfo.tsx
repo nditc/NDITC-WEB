@@ -109,7 +109,7 @@ const ClubInfo = ({
             ndc_roll: roll,
           });
 
-          toast.success("Data Updated!");
+          toast.success("NDC Roll Updated!");
           updateUserData();
           setEditing(false);
           setLoading(false);
