@@ -10,6 +10,7 @@ import { firestore } from "firebase-admin";
 import { getFirestore, Timestamp } from "firebase-admin/firestore";
 import { timeValue } from "../../Components/Time";
 import ParticipateButton from "./ParticipateButton";
+import Eligibility from "./Eligibility";
 
 type ParamType = { id: string };
 
@@ -69,9 +70,15 @@ const page = async ({ params }: { params: ParamType }) => {
                 {`${DateData.hour}:${DateData.minute}`}
               </p>
 
-              {!timeUp && !notTime && (
+              {!timeUp && !notTime ? (
                 <ParticipateButton
                   id={params.id}
+                  intra_club={data?.intra}
+                  intra_college={data?.intraCollege}
+                  publicQuiz={data?.public}
+                />
+              ) : (
+                <Eligibility
                   intra_club={data?.intra}
                   intra_college={data?.intraCollege}
                   publicQuiz={data?.public}

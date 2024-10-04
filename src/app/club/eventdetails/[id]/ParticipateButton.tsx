@@ -57,7 +57,7 @@ const ParticipateButton = ({
     );
   }
 
-  return <div>You are not eligible for this exam</div>;
+  return <div />;
 };
 
 export default ParticipateButton;
