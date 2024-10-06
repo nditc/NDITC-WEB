@@ -7,6 +7,7 @@ import Rules from "@/app/club/Components/Home/Rules";
 import Contact from "@/app/club/Components/Contact";
 import FAQ from "@/app/club/Components/Home/FAQ";
 import Ranking from "./Components/Dashboard/Ranking";
+import DamianPopUp from "./Components/Home/DamianPopUp";
 
 const page = () => {
   return (
@@ -17,6 +18,7 @@ const page = () => {
         <Ranking />
         <FAQ />
         <Contact />
+        <DamianPopUp />
       </main>
     </>
   );
