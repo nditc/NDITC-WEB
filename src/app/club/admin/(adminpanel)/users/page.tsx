@@ -12,6 +12,7 @@ import { MdEventNote, MdOutlinePersonSearch } from "react-icons/md";
 import {
   collection,
   doc,
+  getCountFromServer,
   getDoc,
   getDocs,
   limit,
@@ -59,6 +60,8 @@ const Page = () => {
   const [usersData, setUsersData] = useState<any | undefined | null>([]);
   const [lastUserDoc, setLastUserDoc] = useState<QueryDocumentSnapshot>();
 
+  const [totalUsers, setTotalUsers] = useState(0);
+
   const docLimit = 10;
 
   useEffect(() => {
@@ -70,6 +73,9 @@ const Page = () => {
         .then((r) => r.json())
         .then((resp) => {
           setAdminAuth(resp.auth || false);
+
+          const countSnap = getCountFromServer(onFilterQuery(false, true));
+          countSnap.then((r) => r.data()).then((r) => setTotalUsers(r.count));
 
           getDocs(onFilterQuery(false)).then((data) => {
             console.log(data.docs[data.docs.length - 1]);
@@ -116,7 +122,7 @@ const Page = () => {
   const [isYearSelected, setIsYearSelected] = useState(false);
   const [selectedClass, setSelectedClass] = useState(2001);
 
-  const onFilterQuery = (loadMore: boolean) => {
+  const onFilterQuery = (loadMore: boolean, limitLess = false) => {
     let conditions = [];
 
     if (isTimeSort) {
@@ -132,12 +138,9 @@ const Page = () => {
     if (isVerified) conditions.push(where("verified", "==", true));
     if (isSelected) conditions.push(where("selected", "==", true));
     if (loadMore) conditions.push(startAfter(lastUserDoc));
+    if (!limitLess) conditions.push(limit(docLimit));
 
-    const usersQuery = query(
-      collection(db, "participants"),
-      limit(docLimit),
-      ...conditions,
-    );
+    const usersQuery = query(collection(db, "participants"), ...conditions);
     return usersQuery;
   };
 
@@ -181,6 +184,9 @@ const Page = () => {
           .catch((e) => toast.error(e));
       }
     } else {
+      const countSnap = getCountFromServer(onFilterQuery(false, true));
+      countSnap.then((r) => r.data()).then((r) => setTotalUsers(r.count));
+
       getDocs(onFilterQuery(false)).then((data) => {
         setLastUserDoc(data.docs[data.docs.length - 1]);
         const tempArr: any[] = [];
@@ -328,7 +334,8 @@ const Page = () => {
               <div className="w-full md:flex-[5]">
                 <div className="mb-3 mt-8 flex w-full justify-between text-3xl">
                   <h1>
-                    USERS <span className="text-primary">INFO</span>
+                    USERS <span className="text-primary">INFO : </span>
+                    <span>{totalUsers}</span>
                   </h1>
                   <button
                     type="button"
