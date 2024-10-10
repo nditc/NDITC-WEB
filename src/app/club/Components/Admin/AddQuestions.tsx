@@ -68,6 +68,7 @@ const AddQuestions = ({
 
   const [point, setPoint] = useState(1);
 
+
   const setOption = (i: number, value: string) => {
     switch (i) {
       case 0:
@@ -214,13 +215,14 @@ const AddQuestions = ({
           <label className="ml-2 font-medium text-gray-500" htmlFor="question">
             Question:
           </label>
-          <input
+          <textarea
             className="rounded-xl border border-gray-200 px-5 py-3 focus:border-primary focus:outline-none"
             onChange={(e) => setQuestion(e.currentTarget.value)}
             value={question}
             name="question"
             placeholder="Question ..."
             disabled={false}
+            rows={7}
           />
         </div>
 
@@ -268,7 +270,7 @@ const AddQuestions = ({
                     setCorrectOption(i);
                   }}
                   className={`h-10 w-10 rounded-full border border-primary_dark text-xl transition-colors ${
-                    correctOption == i ? "bg-primary" : "bg-white"
+                    correctOption == i ? "bg-primary text-white" : "bg-white"
                   }`}
                 >
                   {e}
@@ -388,7 +390,7 @@ const Question = ({
           <label className="ml-2 font-medium text-gray-500" htmlFor="question">
             Question:
           </label>
-          <input
+          <textarea
             className="rounded-xl border border-gray-200 px-5 py-3 focus:border-primary focus:outline-none"
             onChange={(e) => {
               setQuestionVal(e.currentTarget.value);
@@ -397,6 +399,7 @@ const Question = ({
             name="question"
             placeholder="Question ..."
             disabled={!editing}
+            rows={7}
           />
         </div>
 
@@ -426,7 +429,7 @@ const Question = ({
                   onClick={(e) => setCorrectOptionVal(i)}
                   disabled={!editing}
                   className={`h-10 w-10 rounded-full border border-primary_dark text-xl transition-colors ${
-                    correctOptionVal == i ? "bg-primary" : "bg-white"
+                    correctOptionVal == i ? "bg-primary text-white" : "bg-white"
                   }`}
                 >
                   {e}
