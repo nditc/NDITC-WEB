@@ -329,3 +329,91 @@ p {
 .container-login {
   @apply mx-auto max-w-[100vw] sm:max-w-[90vw] xl:max-w-[85vw] 2xl:max-w-[75vw];
 }
+
+.ques img {
+  max-width: 450px;
+  width: 100%;
+}
+.ques ul li {
+  list-style: lead;
+  list-style-position: inside;
+  margin-left: 0.35rem;
+}
+.ques ul {
+  margin-top: 0.25rem;
+  margin-bottom: 0.75rem;
+}
+.ques p {
+  padding-bottom: 0.5rem;
+}
+
+.ques p::first-line {
+  padding-left: 1rem;
+}
+.ques a {
+  color: #3b82f6;
+}
+.ques h1 {
+  font-size: 2.25rem;
+  padding-top: 2.5rem;
+  padding-bottom: 1rem;
+  font-weight: 400;
+}
+/* .ques h1::first-letter {
+  color: #2f4770;
+} */
+.ques h2 {
+  font-size: 1.875rem;
+  padding-top: 2.5rem;
+  padding-bottom: 0.5rem;
+  font-weight: 400;
+}
+.ques h3,
+.ques h4,
+.ques h5,
+.ques h6 {
+  font-size: 1.5rem;
+  padding-top: 0.25rem;
+  padding-bottom: 0.25rem;
+  font-family: Nunito;
+  font-weight: 700;
+}
+
+.ques h4,
+.ques h5,
+.ques h6 {
+  font-size: 1.25rem !important;
+}
+.ques table {
+  border: 1px solid #e4e4e7;
+  border-radius: 2px;
+}
+.ques thead tr {
+  background-color: #e4e4e7;
+}
+.ques tbody tr:nth-child(2n-1) {
+  background-color: transparent;
+}
+.ques tbody tr:nth-child(2n) {
+  background-color: #e4e4e7d0;
+}
+.ques td,
+.ques th {
+  padding: 0.5rem 2rem;
+  border: 1px solid #d1d5db;
+}
+
+.ques ul {
+  list-style-type: circle;
+  list-style-position: inside;
+}
+
+.ques ol {
+  list-style-type: decimal;
+  list-style-position: inside;
+}
+
+.ques li::marker {
+  color: #3b82f6;
+  font-weight: bold;
+}
