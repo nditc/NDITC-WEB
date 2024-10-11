@@ -6,6 +6,7 @@ import { useAuthContext } from "@/app/club/Components/Layout/AuthContextProvider
 import { useUserDataContext } from "@/app/club/Components/Layout/UserDataProvider";
 import { useState, useEffect } from "react";
 import Loading from "@/app/club/Components/Loading";
+import { useRouter } from "next/navigation";
 
 const getEvents = async (ndc_id: string, uid: string, ndc_roll: string) => {
   const res = await fetch("/api/getevents", {
@@ -37,7 +38,7 @@ const Page = ({ params }: { params: { uid: string; memberid: string } }) => {
 
   const [ongoingList, setOngoingList] = useState<any>(null);
   const [eventsList, setEventsList] = useState<any>(null);
-
+  const Router = useRouter();
   useEffect(() => {
     if (!loading && !userDataLoading) {
       getEvents(memberidval, uidVal || "", userData?.ndc_roll || "")
@@ -59,6 +60,10 @@ const Page = ({ params }: { params: { uid: string; memberid: string } }) => {
     if (error || dataError) {
       setIsLoading(false);
       setIsError("Error Occurred");
+    }
+
+    if (!loading && !userDataLoading && (!userData || !userAuth)) {
+      Router.push("/club/events/");
     }
   }, [userAuth, userData, loading, userDataLoading, error, dataError]);
 

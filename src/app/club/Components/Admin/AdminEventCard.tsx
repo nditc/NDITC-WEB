@@ -3,6 +3,7 @@ import { IoCalendarOutline, IoSettingsOutline } from "react-icons/io5";
 import { BsStopwatch } from "react-icons/bs";
 import { timeValue } from "../Time";
 import { Timestamp } from "firebase/firestore";
+import _L0 from "@/util/leadingzero";
 
 const AdminEventCard = ({
   title,
@@ -44,14 +45,16 @@ const AdminEventCard = ({
           {title}
           <div className="flex items-center justify-center gap-1 rounded-xl bg-primary px-1 py-1 text-xl tracking-normal text-white">
             <BsStopwatch />
-            {timeValue(endDate).minute - dateData.minute} Minutes
+            {timeValue(endDate).hour - dateData.hour > 0 &&
+              `${Math.abs(timeValue(endDate).hour - dateData.hour)}H : `}
+            {Math.abs(timeValue(endDate).minute - dateData.minute)}M
           </div>
         </h5>
         <div className="-mt-4 font-semibold text-primary">{category}</div>
         <div className="flex items-center gap-1 text-xl">
           <IoCalendarOutline className="h-6 w-6 pb-1" />
           {`${dateData.date} ${dateData.monthText} ${dateData.year}`} |{" "}
-          {`${dateData.hour}:${dateData.minute}`}
+          {`${_L0(dateData.hour - (dateData.hour > 12 ? 12 : 0))}:${_L0(dateData.minute)} ${dateData.hour >= 12 ? "PM" : "AM"}`}
         </div>
 
         <p className="mb-3 line-clamp-3 h-[4.3rem] flex-1 font-normal text-gray-700">

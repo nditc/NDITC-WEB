@@ -42,6 +42,9 @@ export const UserDataContextProvider = ({
   useEffect(() => {
     if (Route.includes("club")) {
       setCanLoadData(true);
+    } else {
+      setUserDataLoading(false);
+      setDataError(true);
     }
   }, [Route]);
 
@@ -74,8 +77,10 @@ export const UserDataContextProvider = ({
           });
       } else if (userAuth && !userAuth?.emailVerified) {
         setUserData(null);
+        setUserDataLoading(false);
       } else if (!loading) {
         setUserData(null);
+        setUserDataLoading(false);
       }
     }
   }, [userAuth, loading, canLoadData, forceReload]);

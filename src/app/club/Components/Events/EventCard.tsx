@@ -8,6 +8,7 @@ import { Timestamp } from "firebase/firestore";
 import PartcipateButton from "./PartcipateButton";
 import { MdOutlineTimer } from "react-icons/md";
 import { createCipheriv } from "crypto";
+import _L0 from "@/util/leadingzero";
 
 const EventCard = ({
   title,
@@ -69,13 +70,13 @@ const EventCard = ({
             <IoCalendarOutline className="h-6 w-6 pb-1 text-primary" />
             {`${dateData.date} ${dateData.monthText} ${dateData.year}`}{" "}
             <span className="text-zinc-300">|</span>{" "}
-            {`${dateData.hour}:${dateData.minute}`}
+            {`${_L0(dateData.hour - (dateData.hour > 12 ? 12 : 0))}:${_L0(dateData.minute)} ${dateData.hour >= 12 ? "PM" : "AM"}`}
           </div>
           <div className="Inter mb-3 flex items-center justify-start gap-1 text-sm font-medium tracking-normal text-black">
             <MdOutlineTimer className="mt-1 h-6 w-6 pb-1 text-primary" />
             {timeValue(endDate).hour - dateData.hour > 0 &&
-              `${timeValue(endDate).hour - dateData.hour}H : `}
-            {timeValue(endDate).minute - dateData.minute}M
+              `${Math.abs(timeValue(endDate).hour - dateData.hour)}H : `}
+            {Math.abs(timeValue(endDate).minute - dateData.minute)}M
           </div>
           <p className="mb-2 line-clamp-3 h-[4.3rem] font-normal text-gray-700">
             {desc}
