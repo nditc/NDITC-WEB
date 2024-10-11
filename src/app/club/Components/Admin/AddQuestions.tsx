@@ -1,8 +1,15 @@
-import { useEffect, useState } from "react";
+import { useEffect, useMemo, useState } from "react";
 import { FaPlus } from "react-icons/fa6";
 import { RiDeleteBin6Line } from "react-icons/ri";
 import { RxGear } from "react-icons/rx";
+import Markdown from "react-markdown";
 import { toast } from "react-toastify";
+import rehypeHighlight from "rehype-highlight";
+import rehypeKatex from "rehype-katex";
+import remarkGfm from "remark-gfm";
+import remarkMath from "remark-math";
+import "highlight.js/styles/atom-one-light.css";
+import "katex/dist/katex.min.css";
 
 interface questionInterface {
   mcq: boolean;
@@ -189,6 +196,24 @@ const AddQuestions = ({
     console.log("-------------");
   }, [questions, answers]);
 
+  const modifiedText = useMemo(() => {
+    const lines = (question || "").split("\n");
+
+    return lines
+      .map((line, index) => {
+        // Check if the line is part of a list
+        const isListItem = /^\s*[*\-+]\s+|^\s*\d+\.\s+/.test(line);
+        const isNextLineListItem =
+          index < lines.length - 1 &&
+          /^\s*[*\-+]\s+|^\s*\d+\.\s+/.test(lines[index + 1]);
+
+        if (isListItem || isNextLineListItem) return line;
+
+        return line + "\n";
+      })
+      .join("\n");
+  }, [question]);
+
   return (
     <section className="flex w-full flex-col gap-3 py-5">
       <div className="self-center py-3 text-3xl text-primary">
@@ -238,7 +263,18 @@ const AddQuestions = ({
             rows={7}
           />
         </div>
-
+        <div>
+          <label className="ml-2 font-medium text-gray-500">Preview:</label>
+          <div className="rounded-xl border border-gray-200 bg-white px-5 py-3">
+            <Markdown
+              className={"ques"}
+              remarkPlugins={[remarkGfm, remarkMath]}
+              rehypePlugins={[rehypeHighlight, rehypeKatex]}
+            >
+              {modifiedText}
+            </Markdown>
+          </div>
+        </div>
         <div className="flex flex-col gap-1">
           <label className="ml-2 font-medium text-gray-500" htmlFor="question">
             Points:
@@ -392,6 +428,24 @@ const Question = ({
     }
   };
 
+  const modifiedText = useMemo(() => {
+    const lines = (questionVal || "").split("\n");
+
+    return lines
+      .map((line, index) => {
+        // Check if the line is part of a list
+        const isListItem = /^\s*[*\-+]\s+|^\s*\d+\.\s+/.test(line);
+        const isNextLineListItem =
+          index < lines.length - 1 &&
+          /^\s*[*\-+]\s+|^\s*\d+\.\s+/.test(lines[index + 1]);
+
+        if (isListItem || isNextLineListItem) return line;
+
+        return line + "\n";
+      })
+      .join("\n");
+  }, [questionVal]);
+
   return (
     <div
       className={`rounded-xl border border-primary p-3 transition-opacity ${
@@ -415,7 +469,18 @@ const Question = ({
             rows={7}
           />
         </div>
-
+        <div>
+          <label className="ml-2 font-medium text-gray-500">Preview:</label>
+          <div className="rounded-xl border border-gray-200 bg-white px-5 py-3">
+            <Markdown
+              className={"ques"}
+              remarkPlugins={[remarkGfm, remarkMath]}
+              rehypePlugins={[rehypeKatex, rehypeHighlight]}
+            >
+              {modifiedText}
+            </Markdown>
+          </div>
+        </div>
         <div className="flex flex-col gap-1">
           <label className="ml-2 font-medium text-gray-500" htmlFor="question">
             Points:
