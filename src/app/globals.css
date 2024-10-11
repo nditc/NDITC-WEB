@@ -357,7 +357,7 @@ p {
   font-size: 1.75rem;
   padding-top: 0.5rem;
   padding-bottom: 0.25rem;
-  font-weight: 700;
+  font-weight: 600;
   font-family: "Inter";
 }
 /* .ques h1::first-letter {
@@ -367,7 +367,7 @@ p {
   font-size: 1.5rem;
   padding-top: 0.5rem;
   padding-bottom: 0.25rem;
-  font-weight: 700;
+  font-weight: 600;
   font-family: "Inter";
 }
 .ques h3,
@@ -379,7 +379,7 @@ p {
   padding-bottom: 0.25rem;
   font-family: "Inter";
 
-  font-weight: 700;
+  font-weight: 600;
 }
 
 .ques h4,
@@ -412,7 +412,7 @@ p {
 }
 
 .ques ol {
-  list-style-type: decimal;
+  list-style-type: inherit;
   list-style-position: inside;
 }
 
