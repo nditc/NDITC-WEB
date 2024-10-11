@@ -53,7 +53,6 @@ const Page = () => {
       });
   };
   useEffect(() => {
-    console.log(auth);
     setAuthLoading(true);
     if (userAuth) {
       Router.push("/club/profile");

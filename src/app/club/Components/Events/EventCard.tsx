@@ -9,6 +9,7 @@ import PartcipateButton from "./PartcipateButton";
 import { MdOutlineTimer } from "react-icons/md";
 import { createCipheriv } from "crypto";
 import _L0 from "@/util/leadingzero";
+import { RemainingTimeHM } from "@/util/Time";
 
 const EventCard = ({
   title,
@@ -35,12 +36,16 @@ const EventCard = ({
 
   const upcoming = now < date;
 
+  const ended = now > endDate;
+
   const dateData = timeValue(date);
+
+  const remainingTime = RemainingTimeHM(date, endDate);
 
   return (
     <div className="hover: relative flex flex-col overflow-hidden rounded-xl bg-white shadow lg:h-[20rem] lg:flex-row">
       {ongoing && (
-        <div className="absolute right-5 top-5 rounded-xl bg-primary px-3 py-1 text-sm text-white">
+        <div className="absolute right-5 top-5 animate-pulse rounded-xl bg-orange-500 px-3 py-1 text-sm text-white">
           Ongoing
         </div>
       )}
@@ -48,6 +53,12 @@ const EventCard = ({
       {upcoming && (
         <div className="absolute right-5 top-5 rounded-xl bg-primary px-3 py-1 text-sm text-white">
           Upcoming
+        </div>
+      )}
+
+      {ended && (
+        <div className="absolute right-5 top-5 rounded-xl bg-red-500 px-3 py-1 text-sm text-white">
+          Ended
         </div>
       )}
 
@@ -74,9 +85,8 @@ const EventCard = ({
           </div>
           <div className="Inter mb-3 flex items-center justify-start gap-1 text-sm font-medium tracking-normal text-black">
             <MdOutlineTimer className="mt-1 h-6 w-6 pb-1 text-primary" />
-            {timeValue(endDate).hour - dateData.hour > 0 &&
-              `${Math.abs(timeValue(endDate).hour - dateData.hour)}H : `}
-            {Math.abs(timeValue(endDate).minute - dateData.minute)}M
+            {remainingTime.hours > 0 && `${remainingTime.hours}h `}
+            {remainingTime.mins}min
           </div>
           <p className="mb-2 line-clamp-3 h-[4.3rem] font-normal text-gray-700">
             {desc}

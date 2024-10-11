@@ -354,35 +354,38 @@ p {
   color: #3b82f6;
 }
 .ques h1 {
-  font-size: 2.25rem;
-  padding-top: 2.5rem;
-  padding-bottom: 1rem;
-  font-weight: 400;
+  font-size: 1.75rem;
+  padding-top: 0.5rem;
+  padding-bottom: 0.25rem;
+  font-weight: 700;
+  font-family: "Inter";
 }
 /* .ques h1::first-letter {
   color: #2f4770;
 } */
 .ques h2 {
-  font-size: 1.875rem;
-  padding-top: 2.5rem;
-  padding-bottom: 0.5rem;
-  font-weight: 400;
+  font-size: 1.5rem;
+  padding-top: 0.5rem;
+  padding-bottom: 0.25rem;
+  font-weight: 700;
+  font-family: "Inter";
 }
 .ques h3,
 .ques h4,
 .ques h5,
 .ques h6 {
-  font-size: 1.5rem;
+  font-size: 1.25rem;
   padding-top: 0.25rem;
   padding-bottom: 0.25rem;
-  font-family: Nunito;
+  font-family: "Inter";
+
   font-weight: 700;
 }
 
 .ques h4,
 .ques h5,
 .ques h6 {
-  font-size: 1.25rem !important;
+  font-size: 1.15rem !important;
 }
 .ques table {
   border: 1px solid #e4e4e7;
