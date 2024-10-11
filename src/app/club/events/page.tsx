@@ -36,8 +36,6 @@ const page = async () => {
     ...e.data(),
   }));
 
-  console.log(eventList);
-
   return (
     <main className="min-h-screen w-full bg-[#F6F6F6]">
       <div className="container py-[81px]">

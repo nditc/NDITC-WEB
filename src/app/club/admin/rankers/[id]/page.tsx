@@ -671,8 +671,6 @@ const EditEventData = ({
 
   const [error, setError] = useState("");
 
-  console.log(data);
-
   const updateData = async () => {
     await updateDoc(
       doc(db, "answers", id, "eventparticipant", uid),

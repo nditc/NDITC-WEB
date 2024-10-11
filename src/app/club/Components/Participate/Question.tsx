@@ -1,12 +1,12 @@
 import { useEffect, useMemo, useState } from "react";
 import Markdown from "react-markdown";
 import SyntaxHighlighter from "react-syntax-highlighter";
-import { oneLight } from "react-syntax-highlighter/dist/esm/styles/prism";
 import rehypeKatex from "rehype-katex";
 import remarkGfm from "remark-gfm";
 import remarkMath from "remark-math";
 import "katex/dist/katex.min.css";
-import { docco } from "react-syntax-highlighter/dist/esm/styles/hljs";
+import rehypeHighlight from "rehype-highlight";
+import "highlight.js/styles/atom-one-light.css";
 
 interface questionInterface {
   mcq: boolean;
@@ -59,12 +59,9 @@ const Question = ({
 
         if (isListItem || isNextLineListItem) return line;
 
-        if (line.trim() === "\\") return line.replace("\\", "&nbsp;\n");
-
-        return line + "&nbsp;\n";
+        return line + "\n";
       })
-      .join("\n")
-      .replaceAll("~~", "\n --- \n");
+      .join("\n");
   }, []);
 
   return (
@@ -79,22 +76,7 @@ const Question = ({
             <Markdown
               className={"ques"}
               remarkPlugins={[remarkGfm, remarkMath]}
-              rehypePlugins={[rehypeKatex]}
-              components={{
-                code({ node, inline, className, children, ...props }: any) {
-                  const match = /language-(\w+)/.exec(className || "");
-                  console.log(inline);
-                  return !inline && match ? (
-                    <SyntaxHighlighter style={docco} language={match[1]}>
-                      {String(children).replace(/\n$/, "")}
-                    </SyntaxHighlighter>
-                  ) : (
-                    <code className={className} {...props}>
-                      {children}
-                    </code>
-                  );
-                },
-              }}
+              rehypePlugins={[rehypeKatex, rehypeHighlight]}
             >
               {modifiedText}
             </Markdown>

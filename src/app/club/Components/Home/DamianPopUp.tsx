@@ -30,7 +30,7 @@ const DamianPopUp = () => {
   const [roll, setRoll] = useState("");
 
   useEffect(() => {
-    if (!userDataLoading && userData.ndc_roll == "") {
+    if (!userDataLoading && userData?.ndc_roll) {
       onOpen();
     }
   }, [userData, userDataLoading]);

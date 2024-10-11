@@ -105,7 +105,6 @@ const Page = ({ params }: { params: { eventID: string } }) => {
       })
         .then((r) => r.json())
         .then((resp) => {
-          console.log(resp);
           setAdminAuth(resp.auth || false);
           setAuthLoading(false);
         })

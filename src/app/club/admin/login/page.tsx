@@ -56,7 +56,6 @@ const Page = () => {
       })
         .then((r) => r.json())
         .then((resp) => {
-          console.log(resp);
           if (resp.auth) {
             Router.push("/club/admin");
           } else {

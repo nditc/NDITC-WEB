@@ -36,7 +36,7 @@ const EditConfig = () => {
     }
     setLoading(false);
   };
-  console.log(configs);
+
   return (
     <div className="container mb-4 flex w-full rounded-xl bg-white pb-8 pt-3 sm:mt-8 sm:py-0">
       <form

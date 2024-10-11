@@ -57,7 +57,6 @@ const page = async ({ params }: { params: ParamType }) => {
           <div className="container flex flex-col items-center gap-0 pb-5 md:flex-row md:gap-5 md:pb-0">
             <div className="order-2 ml-1 flex w-full flex-1 flex-col gap-2 md:order-1 md:gap-3 md:py-8 2xl:gap-5">
               <h1 className="pt-5 text-2xl">
-                {"Category>"}
                 <span className="text-blue-500"> {`${data?.category}>`}</span>
               </h1>
 

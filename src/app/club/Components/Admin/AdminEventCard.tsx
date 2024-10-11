@@ -4,6 +4,7 @@ import { BsStopwatch } from "react-icons/bs";
 import { timeValue } from "../Time";
 import { Timestamp } from "firebase/firestore";
 import _L0 from "@/util/leadingzero";
+import { RemainingTimeHM } from "@/util/Time";
 
 const AdminEventCard = ({
   title,
@@ -25,6 +26,7 @@ const AdminEventCard = ({
   category: string;
 }) => {
   const dateData = timeValue(date);
+  const remainingTime = RemainingTimeHM(date, endDate);
 
   return (
     <div className="relative flex w-[24rem] flex-col rounded-lg border border-gray-200 bg-white shadow">
@@ -45,9 +47,8 @@ const AdminEventCard = ({
           {title}
           <div className="flex items-center justify-center gap-1 rounded-xl bg-primary px-1 py-1 text-xl tracking-normal text-white">
             <BsStopwatch />
-            {timeValue(endDate).hour - dateData.hour > 0 &&
-              `${Math.abs(timeValue(endDate).hour - dateData.hour)}H : `}
-            {Math.abs(timeValue(endDate).minute - dateData.minute)}M
+            {remainingTime.hours > 0 && `${remainingTime.hours}h `}
+            {remainingTime.mins}min
           </div>
         </h5>
         <div className="-mt-4 font-semibold text-primary">{category}</div>

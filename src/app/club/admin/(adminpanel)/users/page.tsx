@@ -78,7 +78,6 @@ const Page = () => {
           countSnap.then((r) => r.data()).then((r) => setTotalUsers(r.count));
 
           getDocs(onFilterQuery(false)).then((data) => {
-            console.log(data.docs[data.docs.length - 1]);
             setLastUserDoc(data.docs[data.docs.length - 1]);
             const tempArr: any[] = [];
             data.docs.forEach((e, i) => {
