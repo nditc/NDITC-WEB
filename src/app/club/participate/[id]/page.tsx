@@ -90,7 +90,7 @@ const Page = ({ params }: { params: { id: string } }) => {
 
   return (
     <main className="min-h-screen w-full bg-[#F6F6F6]">
-      {isError != "" && <Error statusCode={999} msg={isError} dest="/club" />}
+      {isError != "" && <Error statusCode={403} msg={isError} dest="/club" />}
       {isLoading && <Loading />}
       {!isLoading && isError == "" && docSnapshot.questions && (
         <div className="container py-8">

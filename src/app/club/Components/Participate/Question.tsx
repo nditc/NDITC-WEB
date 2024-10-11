@@ -1,4 +1,12 @@
-import { useEffect, useState } from "react";
+import { useEffect, useMemo, useState } from "react";
+import Markdown from "react-markdown";
+import SyntaxHighlighter from "react-syntax-highlighter";
+import { oneLight } from "react-syntax-highlighter/dist/esm/styles/prism";
+import rehypeKatex from "rehype-katex";
+import remarkGfm from "remark-gfm";
+import remarkMath from "remark-math";
+import "katex/dist/katex.min.css";
+import { docco } from "react-syntax-highlighter/dist/esm/styles/hljs";
 
 interface questionInterface {
   mcq: boolean;
@@ -38,14 +46,59 @@ const Question = ({
     setAnswerData(selectedVal, answer, index);
   }, [selectedVal, answer]);
 
+  const modifiedText = useMemo(() => {
+    const lines = (question || "").split("\n");
+
+    return lines
+      .map((line, index) => {
+        // Check if the line is part of a list
+        const isListItem = /^\s*[*\-+]\s+|^\s*\d+\.\s+/.test(line);
+        const isNextLineListItem =
+          index < lines.length - 1 &&
+          /^\s*[*\-+]\s+|^\s*\d+\.\s+/.test(lines[index + 1]);
+
+        if (isListItem || isNextLineListItem) return line;
+
+        if (line.trim() === "\\") return line.replace("\\", "&nbsp;\n");
+
+        return line + "&nbsp;\n";
+      })
+      .join("\n")
+      .replaceAll("~~", "\n --- \n");
+  }, []);
+
   return (
     <div className="flex w-full flex-col rounded-xl bg-white p-5">
       <div className="flex items-center justify-between pb-3 text-base md:text-lg">
-        <div className="flex flex-col items-center gap-2 font-medium leading-[1.3] sm:flex-row">
+        <div className="flex flex-col items-start gap-2 font-medium leading-[1.3] sm:flex-row">
           <p className="Inter grid h-9 w-9 shrink-0 place-items-center rounded-full bg-primary text-white">
             {index + 1}
           </p>
-          <p className="opacity-70">{question}</p>
+          <p className="">
+            {" "}
+            <Markdown
+              className={"ques"}
+              remarkPlugins={[remarkGfm, remarkMath]}
+              rehypePlugins={[rehypeKatex]}
+              components={{
+                code({ node, inline, className, children, ...props }: any) {
+                  const match = /language-(\w+)/.exec(className || "");
+                  console.log(inline);
+                  return !inline && match ? (
+                    <SyntaxHighlighter style={docco} language={match[1]}>
+                      {String(children).replace(/\n$/, "")}
+                    </SyntaxHighlighter>
+                  ) : (
+                    <code className={className} {...props}>
+                      {children}
+                    </code>
+                  );
+                },
+              }}
+            >
+              {modifiedText}
+            </Markdown>
+          </p>
         </div>
       </div>
       {mcq ? (
