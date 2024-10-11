@@ -416,6 +416,10 @@ p {
   list-style-position: inside;
 }
 
+.ques code {
+  line-height: 0.75;
+}
+
 .ques li::marker {
   color: #3b82f6;
   font-weight: bold;
