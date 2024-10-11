@@ -300,6 +300,17 @@ const Page = ({ params }: { params: { eventID: string } }) => {
     goToAdminPanel();
   };
 
+  const save = async (event: any) => {
+    localStorage.setItem(
+      `event.${eventUID}`,
+      JSON.stringify({
+        questions,
+        answers,
+      }),
+    );
+    toast.info("Saved questions and answers.");
+  };
+
   const loadLocal = async () => {
     const local = JSON.parse(localStorage.getItem(`event.${eventUID}`) || "{}");
     console.dir(local);
@@ -705,12 +716,25 @@ const Page = ({ params }: { params: { eventID: string } }) => {
                       <button
                         className="w-full rounded-xl bg-primary px-8 py-2 text-lg text-white transition-all hover:bg-secondary_light hover:text-primary"
                         type="button"
+                        onClick={save}
+                      >
+                        {loading ? (
+                          <CgSpinner className="mx-auto h-7 w-7 animate-spin text-white" />
+                        ) : (
+                          "💾 Questions Locally"
+                        )}
+                      </button>
+                    </div>
+                    <div className="w-full justify-self-end py-3 md:w-auto md:py-0">
+                      <button
+                        className="w-full rounded-xl bg-primary px-8 py-2 text-lg text-white transition-all hover:bg-secondary_light hover:text-primary"
+                        type="button"
                         onClick={savelocal}
                       >
                         {loading ? (
                           <CgSpinner className="mx-auto h-7 w-7 animate-spin text-white" />
                         ) : (
-                          "Save Questions Locally"
+                          "💾 Questions Locally & Quit"
                         )}
                       </button>
                     </div>
@@ -723,7 +747,7 @@ const Page = ({ params }: { params: { eventID: string } }) => {
                         {loading ? (
                           <CgSpinner className="mx-auto h-7 w-7 animate-spin text-white" />
                         ) : (
-                          "Load Local Questions"
+                          "Load Local Ques."
                         )}
                       </button>
                     </div>
