@@ -117,7 +117,7 @@ const Page = ({ params }: { params: { eventID: string } }) => {
       setAdminAuth(false);
       setAuthLoading(false);
     }
-
+    console.log("loaded");
     if (params.eventID != "new") {
       const event = getDoc(doc(db, "events", params.eventID)).then((event) => {
         if (event.exists()) {
@@ -154,7 +154,7 @@ const Page = ({ params }: { params: { eventID: string } }) => {
     } else {
       setNotfound(false);
     }
-  }, [user]);
+  }, [params.eventID, user]);
 
   const handleSubmit = async (event: any) => {
     event.preventDefault();
@@ -288,6 +288,33 @@ const Page = ({ params }: { params: { eventID: string } }) => {
       });
   };
 
+  const savelocal = async (event: any) => {
+    localStorage.setItem(
+      `event.${eventUID}`,
+      JSON.stringify({
+        questions,
+        answers,
+      }),
+    );
+    toast.info("Saved questions and answers.");
+    goToAdminPanel();
+  };
+
+  const loadLocal = async () => {
+    const local = JSON.parse(localStorage.getItem(`event.${eventUID}`) || "{}");
+    console.dir(local);
+    setData(local?.questions, local?.answers);
+    toast.info("Loaded local questions and answers.");
+  };
+
+  useEffect(() => {
+    console.log("-------------");
+
+    console.log("q", questions);
+    console.log("a", answers);
+
+    console.log("-------------");
+  }, [questions, answers]);
   const [notfound, setNotfound] = useState(false);
 
   const [changeImage, setChangeImage] = useState<boolean>();
@@ -595,6 +622,8 @@ const Page = ({ params }: { params: { eventID: string } }) => {
               questionsData={questions}
               answersData={answers}
               setData={setData}
+              setQues={(s) => setQuestions(s)}
+              setAns={(s) => setAnswers(s)}
             />
 
             <Modal state={deleteModalOpen}>
@@ -651,26 +680,54 @@ const Page = ({ params }: { params: { eventID: string } }) => {
                 )}
               </div>
 
-              <div className="flex gap-5">
+              <div className="flex flex-wrap gap-5">
                 {params.eventID != "new" && (
-                  <div className="w-full justify-self-end py-3 md:w-auto md:py-0">
-                    <button
-                      style={{
-                        pointerEvents: loading ? "none" : "auto",
-                      }}
-                      className="w-full rounded-xl bg-red-600 px-8 py-2 text-lg text-white transition-all hover:bg-red-500 hover:text-red-800"
-                      onClick={deleteWarning}
-                    >
-                      {loading ? (
-                        <CgSpinner className="mx-auto h-7 w-7 animate-spin text-white" />
-                      ) : (
-                        <div className="flex items-center justify-center gap-3">
-                          Delete
-                          <RiDeleteBin6Line />
-                        </div>
-                      )}
-                    </button>
-                  </div>
+                  <>
+                    <div className="w-full justify-self-end py-3 md:w-auto md:py-0">
+                      <button
+                        style={{
+                          pointerEvents: loading ? "none" : "auto",
+                        }}
+                        className="w-full rounded-xl bg-red-600 px-8 py-2 text-lg text-white transition-all hover:bg-red-500 hover:text-red-800"
+                        onClick={deleteWarning}
+                      >
+                        {loading ? (
+                          <CgSpinner className="mx-auto h-7 w-7 animate-spin text-white" />
+                        ) : (
+                          <div className="flex items-center justify-center gap-3">
+                            Delete
+                            <RiDeleteBin6Line />
+                          </div>
+                        )}
+                      </button>
+                    </div>
+                    <div className="w-full justify-self-end py-3 md:w-auto md:py-0">
+                      <button
+                        className="w-full rounded-xl bg-primary px-8 py-2 text-lg text-white transition-all hover:bg-secondary_light hover:text-primary"
+                        type="button"
+                        onClick={savelocal}
+                      >
+                        {loading ? (
+                          <CgSpinner className="mx-auto h-7 w-7 animate-spin text-white" />
+                        ) : (
+                          "Save Questions Locally"
+                        )}
+                      </button>
+                    </div>
+                    <div className="w-full justify-self-end py-3 md:w-auto md:py-0">
+                      <button
+                        className="w-full rounded-xl bg-primary px-8 py-2 text-lg text-white transition-all hover:bg-secondary_light hover:text-primary"
+                        type="button"
+                        onClick={loadLocal}
+                      >
+                        {loading ? (
+                          <CgSpinner className="mx-auto h-7 w-7 animate-spin text-white" />
+                        ) : (
+                          "Load Local Questions"
+                        )}
+                      </button>
+                    </div>
+                  </>
                 )}
 
                 <div className="w-full justify-self-end py-3 md:w-auto md:py-0">

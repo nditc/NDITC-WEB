@@ -40,14 +40,17 @@ const AddQuestions = ({
   questionsData,
   answersData,
   setData,
+  setQues,
+  setAns,
 }: {
   questionsData: any[];
   answersData: any[];
   setData: (questionData: any, answerData: any) => void;
+  setQues?: (s: any) => void;
+  setAns?: (s: any) => void;
 }) => {
-  const [questions, setQuestions] =
-    useState<questionInterface[]>(questionsData);
-  const [answers, setAnswers] = useState<answerInterface[]>(answersData);
+  const [questions, setQuestions] = useState<questionInterface[]>([]);
+  const [answers, setAnswers] = useState<answerInterface[]>([]);
 
   useEffect(() => {
     setAnswers(answersData);
@@ -67,7 +70,6 @@ const AddQuestions = ({
   const [correctAnswers, setCorrectAnswers] = useState("");
 
   const [point, setPoint] = useState(1);
-
 
   const setOption = (i: number, value: string) => {
     switch (i) {
@@ -94,7 +96,7 @@ const AddQuestions = ({
 
   const addQuestion = () => {
     setQuestions((oldValue: any) => {
-      return [
+      let sqd = [
         ...oldValue,
         {
           question: question,
@@ -106,10 +108,12 @@ const AddQuestions = ({
           option3: option3,
         },
       ];
+      setQues && setQues(sqd);
+      return sqd;
     });
 
     setAnswers((oldValue: any) => {
-      return [
+      let sad = [
         ...oldValue,
         {
           mcq: isMCQ,
@@ -118,6 +122,10 @@ const AddQuestions = ({
           correctAnswers: correctAnswers,
         },
       ];
+
+      setAns && setAns(sad);
+
+      return sad;
     });
 
     setQuestion("");
@@ -173,7 +181,12 @@ const AddQuestions = ({
   };
 
   useEffect(() => {
-    setData(questions, answers);
+    console.log("-------------");
+
+    console.log("qb", questions);
+    console.log("ab", answers);
+
+    console.log("-------------");
   }, [questions, answers]);
 
   return (
@@ -198,7 +211,7 @@ const AddQuestions = ({
                 correctOption={answers[i].correctOption}
                 correctAnswers={answers[i].correctAnswers}
                 index={i}
-                key={i}
+                key={i + Math.random()}
                 onValueChange={onValueChange}
                 deleteQuestion={deleteQuestion}
               />
