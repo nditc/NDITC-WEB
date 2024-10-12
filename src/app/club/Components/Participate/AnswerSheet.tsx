@@ -4,7 +4,7 @@ import { doc, setDoc } from "firebase/firestore";
 import { useAuthContext } from "../Layout/AuthContextProvider";
 import Timer from "./Timer";
 import Question from "./Question";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { RiContactsBookUploadLine } from "react-icons/ri";
 import ActualUser from "@/util/ActualUser";
 import { CgSpinner } from "react-icons/cg";
@@ -72,9 +72,9 @@ const AnswerSheet = ({
   description: string;
   showResult: boolean;
 }) => {
-  const [answers, setAnswers] = useState<answerInterface[]>(
-    Array(questions.length).fill({ option: 5, answer: "" }),
-  );
+  const KEY = `event_answer_${id}`;
+  const INIT = Array(questions.length).fill({ option: 5, answer: "" });
+  const [answers, setAnswers] = useState<answerInterface[]>(INIT);
 
   const { isOpen, onOpen, onOpenChange } = useDisclosure();
 
@@ -103,6 +103,7 @@ const AnswerSheet = ({
   const [examMarks, setExamMarks] = useState(1);
   const [resultMarks, setResultMarks] = useState(0);
   const [totalMarks, setTotalMarks] = useState(0);
+  const [loadedInit, setLoadedInit] = useState(false);
 
   const SubmitFunc = async () => {
     if (submitClicked) return;
@@ -114,10 +115,27 @@ const AnswerSheet = ({
         setResultMarks(res.result);
         setTotalMarks(res.totalMarks);
         onOpen();
+        localStorage.removeItem(KEY);
         //setSubmitClicked(false);
       })
       .catch(() => toast.error("Submission Error"));
   };
+
+  useEffect(() => {
+    if (localStorage.getItem(KEY)) {
+      const ans = JSON.parse(localStorage.getItem(KEY) || "{}");
+      setAnswers(ans);
+      setLoadedInit(true);
+    } else {
+      setLoadedInit(true);
+    }
+  }, [KEY]);
+
+  useEffect(() => {
+    if (loadedInit) {
+      localStorage.setItem(KEY, JSON.stringify(answers));
+    }
+  }, [answers, loadedInit, KEY]);
 
   const router = useRouter();
 

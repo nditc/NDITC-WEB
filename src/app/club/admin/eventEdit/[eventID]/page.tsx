@@ -31,6 +31,8 @@ import {
 } from "@internationalized/date";
 import { timeValue } from "@/app/club/Components/Time";
 import Link from "next/link";
+import InfoBox from "@/app/club/Components/InfoBox";
+import { CiWarning } from "react-icons/ci";
 
 const Page = ({ params }: { params: { eventID: string } }) => {
   const [adminAuth, setAdminAuth] = useState<boolean>(false);
@@ -288,29 +290,34 @@ const Page = ({ params }: { params: { eventID: string } }) => {
       });
   };
 
-  const savelocal = async (event: any) => {
-    localStorage.setItem(
-      `event.${eventUID}`,
-      JSON.stringify({
-        questions,
-        answers,
-      }),
-    );
-    toast.info("Saved questions and answers.");
-    goToAdminPanel();
-  };
+  // const save = async (event: any) => {
+  //   localStorage.setItem(
+  //     `event.${eventUID}`,
+  //     JSON.stringify({
+  //       questions,
+  //       answers,
+  //     }),
+  //   );
+  //   toast.info("Saved questions and answers.");
+  // };
 
-  const save = async (event: any) => {
-    localStorage.setItem(
-      `event.${eventUID}`,
-      JSON.stringify({
-        questions,
-        answers,
-      }),
-    );
-    toast.info("Saved questions and answers.");
-  };
+  useEffect(() => {
+    const t = setInterval(() => {
+      if (params.eventID !== "new") {
+        localStorage.setItem(
+          `event.${eventUID}`,
+          JSON.stringify({
+            questions,
+            answers,
+          }),
+        );
+      }
+    }, 1000 * 30);
 
+    return () => {
+      clearInterval(t);
+    };
+  }, [questions, answers, eventUID, params.eventID]);
   const loadLocal = async () => {
     const local = JSON.parse(localStorage.getItem(`event.${eventUID}`) || "{}");
     console.dir(local);
@@ -545,6 +552,7 @@ const Page = ({ params }: { params: { eventID: string } }) => {
                   showMonthAndYearPickers
                   classNames={{
                     selectorIcon: "text-primary",
+                    base: "bg-white rounded-xl shadow-none",
                   }}
                   value={date}
                   onChange={(e) => setDate(e)}
@@ -567,6 +575,7 @@ const Page = ({ params }: { params: { eventID: string } }) => {
                   showMonthAndYearPickers
                   classNames={{
                     selectorIcon: "text-primary",
+                    base: "bg-white rounded-xl shadow-none",
                   }}
                   value={endDate}
                   onChange={(e) => setEndDate(e)}
@@ -670,85 +679,64 @@ const Page = ({ params }: { params: { eventID: string } }) => {
                 </div>
               ) : null}
             </Modal>
-
-            <div className="flex items-center justify-between gap-5">
-              <div className="w-full justify-self-end py-3 md:w-auto md:py-0">
+            <InfoBox icon={<CiWarning />} title="Caution" type="warning">
+              Please do an inital save immediately after creating new event. If
+              you somehow lose your progress. you can back it up by using "Load
+              Backup" option. It will only work if you do it in same device you
+              were working on as well as not clear history and cache.
+            </InfoBox>
+            <div className="flex items-stretch justify-between gap-5">
+              <div className="flex h-full w-full py-3 md:w-auto md:py-0">
                 {params.eventID != "new" && (
                   <Link
                     href={`/club/admin/rankers/${publicQuiz ? "public" : eventUID}`}
                     style={{
                       pointerEvents: loading ? "none" : "auto",
                     }}
-                    className="w-full rounded-xl bg-primary px-8 py-2 text-lg text-white transition-all hover:bg-secondary_light hover:text-primary"
+                    className="h-full w-full rounded-xl bg-primary px-8 py-2 text-lg text-white transition-all hover:bg-secondary_light hover:text-primary"
                     type="button"
                   >
-                    {loading ? (
-                      <CgSpinner className="mx-auto h-7 w-7 animate-spin text-white" />
-                    ) : (
-                      "Rankers"
-                    )}
+                    Rankers
                   </Link>
                 )}
               </div>
 
-              <div className="flex flex-wrap gap-5">
+              <div className="flex flex-wrap items-center justify-end gap-5">
+                {loading ? (
+                  <CgSpinner className="mx-auto h-9 w-9 animate-spin justify-self-end text-primary" />
+                ) : null}
+
                 {params.eventID != "new" && (
                   <>
                     <div className="w-full justify-self-end py-3 md:w-auto md:py-0">
                       <button
                         style={{
                           pointerEvents: loading ? "none" : "auto",
+                          opacity: loading ? "0.65" : "1",
                         }}
                         className="w-full rounded-xl bg-red-600 px-8 py-2 text-lg text-white transition-all hover:bg-red-500 hover:text-red-800"
                         onClick={deleteWarning}
                       >
-                        {loading ? (
-                          <CgSpinner className="mx-auto h-7 w-7 animate-spin text-white" />
-                        ) : (
-                          <div className="flex items-center justify-center gap-3">
-                            Delete
-                            <RiDeleteBin6Line />
-                          </div>
-                        )}
+                        <div className="flex items-center justify-center gap-3">
+                          Delete
+                          <RiDeleteBin6Line />
+                        </div>
                       </button>
                     </div>
+
                     <div className="w-full justify-self-end py-3 md:w-auto md:py-0">
                       <button
+                        style={{
+                          pointerEvents: loading ? "none" : "auto",
+                          opacity: loading ? "0.65" : "1",
+                        }}
                         className="w-full rounded-xl bg-primary px-8 py-2 text-lg text-white transition-all hover:bg-secondary_light hover:text-primary"
-                        type="button"
-                        onClick={save}
-                      >
-                        {loading ? (
-                          <CgSpinner className="mx-auto h-7 w-7 animate-spin text-white" />
-                        ) : (
-                          "💾 Questions Locally"
-                        )}
-                      </button>
-                    </div>
-                    <div className="w-full justify-self-end py-3 md:w-auto md:py-0">
-                      <button
-                        className="w-full rounded-xl bg-primary px-8 py-2 text-lg text-white transition-all hover:bg-secondary_light hover:text-primary"
-                        type="button"
-                        onClick={savelocal}
-                      >
-                        {loading ? (
-                          <CgSpinner className="mx-auto h-7 w-7 animate-spin text-white" />
-                        ) : (
-                          "💾 Questions Locally & Quit"
-                        )}
-                      </button>
-                    </div>
-                    <div className="w-full justify-self-end py-3 md:w-auto md:py-0">
-                      <button
-                        className="w-full rounded-xl bg-primary px-8 py-2 text-lg text-white transition-all hover:bg-secondary_light hover:text-primary"
-                        type="button"
                         onClick={loadLocal}
+                        type="button"
                       >
-                        {loading ? (
-                          <CgSpinner className="mx-auto h-7 w-7 animate-spin text-white" />
-                        ) : (
-                          "Load Local Ques."
-                        )}
+                        <div className="flex items-center justify-center gap-3">
+                          Load Backup
+                        </div>
                       </button>
                     </div>
                   </>
@@ -758,15 +746,13 @@ const Page = ({ params }: { params: { eventID: string } }) => {
                   <button
                     style={{
                       pointerEvents: loading ? "none" : "auto",
+                      opacity: loading ? "0.65" : "1",
                     }}
                     className="w-full rounded-xl bg-primary px-8 py-2 text-lg text-white transition-all hover:bg-secondary_light hover:text-primary"
                     type="submit"
                   >
-                    {loading ? (
-                      <CgSpinner className="mx-auto h-7 w-7 animate-spin text-white" />
-                    ) : (
-                      "Submit"
-                    )}
+                    {" "}
+                    Submit
                   </button>
                 </div>
               </div>

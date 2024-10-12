@@ -20,6 +20,7 @@ const EventCard = ({
   desc,
   id,
   category,
+  participated,
 }: {
   title: string;
   date: any;
@@ -29,6 +30,7 @@ const EventCard = ({
   desc: string;
   id: string;
   category: string;
+  participated: boolean;
 }) => {
   const now = Timestamp.now();
 
@@ -44,19 +46,25 @@ const EventCard = ({
 
   return (
     <div className="hover: relative flex flex-col overflow-hidden rounded-xl bg-white shadow lg:h-[20rem] lg:flex-row">
-      {ongoing && (
+      {participated && (
+        <div className="absolute right-5 top-5 rounded-xl bg-green-500 px-3 py-1 text-sm text-white">
+          Participated
+        </div>
+      )}
+
+      {ongoing && !participated && (
         <div className="absolute right-5 top-5 animate-pulse rounded-xl bg-orange-500 px-3 py-1 text-sm text-white">
           Ongoing
         </div>
       )}
 
-      {upcoming && (
+      {upcoming && !participated && (
         <div className="absolute right-5 top-5 rounded-xl bg-primary px-3 py-1 text-sm text-white">
           Upcoming
         </div>
       )}
 
-      {ended && (
+      {ended && !participated && (
         <div className="absolute right-5 top-5 rounded-xl bg-red-500 px-3 py-1 text-sm text-white">
           Ended
         </div>

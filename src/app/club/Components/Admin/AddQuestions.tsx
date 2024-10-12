@@ -318,7 +318,7 @@ const AddQuestions = ({
                   onClick={() => {
                     setCorrectOption(i);
                   }}
-                  className={`h-10 w-10 rounded-full border border-primary_dark text-xl transition-colors ${
+                  className={`h-10 w-10 shrink-0 rounded-full border border-primary_dark text-xl transition-colors ${
                     correctOption == i ? "bg-primary text-white" : "bg-white"
                   }`}
                 >
@@ -506,7 +506,7 @@ const Question = ({
                   type="button"
                   onClick={(e) => setCorrectOptionVal(i)}
                   disabled={!editing}
-                  className={`h-10 w-10 rounded-full border border-primary_dark text-xl transition-colors ${
+                  className={`h-10 w-10 shrink-0 rounded-full border border-primary_dark text-xl transition-colors ${
                     correctOptionVal == i ? "bg-primary text-white" : "bg-white"
                   }`}
                 >
