@@ -260,7 +260,7 @@ const AddQuestions = ({
         </div>
         <div>
           <label className="ml-2 font-medium text-gray-500">Preview:</label>
-          <div className="rounded-xl border border-gray-200 bg-white px-5 py-3">
+          <div className="max-w-full overflow-x-auto rounded-xl border border-gray-200 bg-white px-5 py-3">
             <Markdown
               className={"ques"}
               remarkPlugins={[remarkGfm, remarkMath]}
@@ -464,9 +464,9 @@ const Question = ({
             rows={7}
           />
         </div>
-        <div>
+        <div className="w-full">
           <label className="ml-2 font-medium text-gray-500">Preview:</label>
-          <div className="rounded-xl border border-gray-200 bg-white px-5 py-3">
+          <div className="max-w-full overflow-x-auto rounded-xl border border-gray-200 bg-white px-5 py-3">
             <Markdown
               className={"ques"}
               remarkPlugins={[remarkGfm, remarkMath]}
