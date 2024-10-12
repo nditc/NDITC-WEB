@@ -179,22 +179,17 @@ const AddQuestions = ({
 
   const deleteQuestion = (i: number) => {
     setQuestions((arr) => {
-      return [...arr.slice(0, i), ...arr.slice(i + 1, arr.length)];
+      let a = [...arr.slice(0, i), ...arr.slice(i + 1, arr.length)];
+      setQues && setQues(a);
+      return a;
     });
 
     setAnswers((arr) => {
-      return [...arr.slice(0, i), ...arr.slice(i + 1, arr.length)];
+      let a = [...arr.slice(0, i), ...arr.slice(i + 1, arr.length)];
+      setAns && setAns(a);
+      return a;
     });
   };
-
-  useEffect(() => {
-    console.log("-------------");
-
-    console.log("qb", questions);
-    console.log("ab", answers);
-
-    console.log("-------------");
-  }, [questions, answers]);
 
   const modifiedText = useMemo(() => {
     const lines = (question || "").split("\n");

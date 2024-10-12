@@ -290,49 +290,40 @@ const Page = ({ params }: { params: { eventID: string } }) => {
       });
   };
 
-  // const save = async (event: any) => {
-  //   localStorage.setItem(
-  //     `event.${eventUID}`,
-  //     JSON.stringify({
-  //       questions,
-  //       answers,
-  //     }),
-  //   );
-  //   toast.info("Saved questions and answers.");
-  // };
+  const save = async (event: any) => {
+    localStorage.setItem(
+      `event.${eventUID}`,
+      JSON.stringify({
+        questions,
+        answers,
+      }),
+    );
+    toast.info("Saved questions and answers.");
+  };
 
-  useEffect(() => {
-    const t = setInterval(() => {
-      if (params.eventID !== "new") {
-        localStorage.setItem(
-          `event.${eventUID}`,
-          JSON.stringify({
-            questions,
-            answers,
-          }),
-        );
-      }
-    }, 1000 * 30);
+  // useEffect(() => {
+  //   const t = setInterval(() => {
+  //     if (params.eventID !== "new") {
+  //       localStorage.setItem(
+  //         `event.${eventUID}`,
+  //         JSON.stringify({
+  //           questions,
+  //           answers,
+  //         }),
+  //       );
+  //     }
+  //   }, 1000 * 30);
 
-    return () => {
-      clearInterval(t);
-    };
-  }, [questions, answers, eventUID, params.eventID]);
+  //   return () => {
+  //     clearInterval(t);
+  //   };
+  // }, [questions, answers, eventUID, params.eventID]);
   const loadLocal = async () => {
     const local = JSON.parse(localStorage.getItem(`event.${eventUID}`) || "{}");
     console.dir(local);
     setData(local?.questions, local?.answers);
     toast.info("Loaded local questions and answers.");
   };
-
-  useEffect(() => {
-    console.log("-------------");
-
-    console.log("q", questions);
-    console.log("a", answers);
-
-    console.log("-------------");
-  }, [questions, answers]);
   const [notfound, setNotfound] = useState(false);
 
   const [changeImage, setChangeImage] = useState<boolean>();
@@ -680,12 +671,14 @@ const Page = ({ params }: { params: { eventID: string } }) => {
               ) : null}
             </Modal>
             <InfoBox icon={<CiWarning />} title="Caution" type="warning">
-              Please do an inital save immediately after creating new event. If
-              you somehow lose your progress. you can back it up by using "Load
-              Backup" option. It will only work if you do it in same device you
-              were working on as well as not clear history and cache.
+              Please do an inital save immediately after creating new event.
+              Don't forget to save your progress, you can back it up by using
+              "Load Backup" option. But if you save blank then it will not work.
+              It will only work if you do it in same device you were working on
+              as well as not clear history and cache. Copy `event.[id]` in
+              localstorage to load and test questions in local.
             </InfoBox>
-            <div className="flex items-stretch justify-between gap-5">
+            <div className="flex flex-col items-stretch justify-between gap-5 lg:flex-row">
               <div className="flex h-full w-full py-3 md:w-auto md:py-0">
                 {params.eventID != "new" && (
                   <Link
@@ -693,7 +686,7 @@ const Page = ({ params }: { params: { eventID: string } }) => {
                     style={{
                       pointerEvents: loading ? "none" : "auto",
                     }}
-                    className="h-full w-full rounded-xl bg-primary px-8 py-2 text-lg text-white transition-all hover:bg-secondary_light hover:text-primary"
+                    className="h-full w-full rounded-xl bg-primary px-8 py-2 text-center text-lg text-white transition-all hover:bg-secondary_light hover:text-primary"
                     type="button"
                   >
                     Rankers
@@ -701,7 +694,7 @@ const Page = ({ params }: { params: { eventID: string } }) => {
                 )}
               </div>
 
-              <div className="flex flex-wrap items-center justify-end gap-5">
+              <div className="flex flex-col items-stretch justify-end gap-5 lg:flex-row">
                 {loading ? (
                   <CgSpinner className="mx-auto h-9 w-9 animate-spin justify-self-end text-primary" />
                 ) : null}
@@ -724,6 +717,21 @@ const Page = ({ params }: { params: { eventID: string } }) => {
                       </button>
                     </div>
 
+                    <div className="w-full justify-self-end py-3 md:w-auto md:py-0">
+                      <button
+                        style={{
+                          pointerEvents: loading ? "none" : "auto",
+                          opacity: loading ? "0.65" : "1",
+                        }}
+                        className="w-full rounded-xl bg-primary px-8 py-2 text-lg text-white transition-all hover:bg-secondary_light hover:text-primary"
+                        onClick={save}
+                        type="button"
+                      >
+                        <div className="flex items-center justify-center gap-3">
+                          Save Local
+                        </div>
+                      </button>
+                    </div>
                     <div className="w-full justify-self-end py-3 md:w-auto md:py-0">
                       <button
                         style={{

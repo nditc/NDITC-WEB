@@ -7,6 +7,7 @@ import remarkMath from "remark-math";
 import "katex/dist/katex.min.css";
 import rehypeHighlight from "rehype-highlight";
 import "highlight.js/styles/atom-one-light.css";
+import { toast } from "react-toastify";
 
 interface questionInterface {
   mcq: boolean;
@@ -36,6 +37,7 @@ const Question = ({
   givenAnswer,
 }: questionInterface) => {
   const [selectedVal, setSelectedVal] = useState(selectedOption);
+  const [savedOnce, setSavedOnce] = useState(givenAnswer === "" ? false : true);
 
   const options = [option0, option1, option2, option3];
   const optionsArr = ["A", "B", "C", "D"];
@@ -71,7 +73,7 @@ const Question = ({
 
   return (
     <div className="flex w-full flex-col rounded-xl bg-white p-5">
-      <div className="flex items-center justify-between pb-3 text-base md:text-lg">
+      <div className="flex max-w-full items-center justify-between overflow-x-scroll pb-3 text-base md:text-lg">
         <div className="flex flex-col items-start gap-2 font-medium leading-[1.3] sm:flex-row">
           <p className="Inter grid h-9 w-9 shrink-0 place-items-center rounded-full bg-primary text-white">
             {index + 1}
@@ -114,12 +116,33 @@ const Question = ({
             <input
               className="h-16 rounded-xl border border-gray-300 px-5 py-3 focus:border-primary focus:outline-none"
               onChange={(e) => {
-                setAnswerData(selectedVal, e.target.value, index);
+                setAnswer(e.target.value);
               }}
               value={answer}
               name="answer"
               placeholder="Your Answer ..."
             />
+            <div className="flex items-center justify-between">
+              <div className="ml-2 mt-2 text-sm text-gray-600">
+                {savedOnce ? (
+                  <i>
+                    <b>Saved as:</b> {givenAnswer}
+                  </i>
+                ) : (
+                  <i>Not Saved Once</i>
+                )}
+              </div>
+              <button
+                className="mt-3 rounded-xl bg-primary px-5 py-3 text-white transition hover:opacity-85 active:scale-95"
+                onClick={() => {
+                  setAnswerData(selectedVal, answer, index);
+                  toast.info("Saved Response!");
+                  setSavedOnce(true);
+                }}
+              >
+                Save
+              </button>
+            </div>
           </div>
         </div>
       )}
