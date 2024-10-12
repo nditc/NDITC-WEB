@@ -22,6 +22,7 @@ const EventList = ({
             id={e.id}
             key={i}
             category={e.category}
+            participated={e.participated}
           />
         );
       })}

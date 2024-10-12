@@ -43,8 +43,13 @@ const Question = ({
   const [answer, setAnswer] = useState(givenAnswer);
 
   useEffect(() => {
-    setAnswerData(selectedVal, answer, index);
-  }, [selectedVal, answer]);
+    setAnswer(givenAnswer);
+    setSelectedVal(selectedOption);
+  }, [givenAnswer, selectedOption]);
+
+  // useEffect(() => {
+  //   setAnswerData(selectedVal, answer, index);
+  // }, [selectedVal, answer]);
 
   const modifiedText = useMemo(() => {
     const lines = (question || "").split("\n");
@@ -92,7 +97,9 @@ const Question = ({
                 option={options[i]}
                 selected={selectedVal}
                 index={i}
-                setSelected={setSelectedVal}
+                setSelected={(i) => {
+                  setAnswerData(i, answer, index);
+                }}
                 key={i}
               />
             );
@@ -107,7 +114,7 @@ const Question = ({
             <input
               className="h-16 rounded-xl border border-gray-300 px-5 py-3 focus:border-primary focus:outline-none"
               onChange={(e) => {
-                setAnswer(e.currentTarget.value);
+                setAnswerData(selectedVal, e.target.value, index);
               }}
               value={answer}
               name="answer"
