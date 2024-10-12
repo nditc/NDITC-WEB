@@ -73,7 +73,7 @@ const Question = ({
 
   return (
     <div className="flex w-full flex-col rounded-xl bg-white p-5">
-      <div className="flex max-w-full items-center justify-between overflow-x-scroll pb-3 text-base md:text-lg">
+      <div className="flex max-w-full items-center justify-between overflow-x-auto pb-3 text-base md:text-lg">
         <div className="flex flex-col items-start gap-2 font-medium leading-[1.3] sm:flex-row">
           <p className="Inter grid h-9 w-9 shrink-0 place-items-center rounded-full bg-primary text-white">
             {index + 1}
