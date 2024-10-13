@@ -42,6 +42,7 @@ import PassingYear from "../../../Components/PassingYear";
 import { CiEdit } from "react-icons/ci";
 import Loading from "../../../Components/Loading";
 import { BiHeart } from "react-icons/bi";
+import * as XLSX from "xlsx";
 
 const getMemberByRoll = async (ndc_roll: string) => {
   const res = await fetch("/api/getmemberbyroll", {
@@ -59,6 +60,8 @@ const Page = () => {
 
   const [usersData, setUsersData] = useState<any | undefined | null>([]);
   const [lastUserDoc, setLastUserDoc] = useState<QueryDocumentSnapshot>();
+
+  const [loading, setLoading] = useState(false);
 
   const [totalUsers, setTotalUsers] = useState(0);
 
@@ -214,6 +217,47 @@ const Page = () => {
     });
   };
 
+  const getAllDocs = async (limitless: boolean) => {
+    try {
+      if (adminAuth) {
+        setLoading(true);
+        const data: any = [];
+        const x = await getDocs(onFilterQuery(false, limitless));
+
+        x.forEach((doc) => {
+          const temp = doc.data();
+          const createdAt = new Date(
+            temp?.timestamp?.seconds * 1000,
+          ).toString();
+          if (temp.timestamp) {
+            delete temp.timestamp;
+          }
+          data.push({
+            uid: doc.id,
+            createdAt,
+            ...temp,
+          });
+        });
+
+        const workBook = XLSX.utils.book_new();
+        const xlsx = XLSX.utils.json_to_sheet(data);
+        XLSX.utils.book_append_sheet(workBook, xlsx, "All Participants");
+
+        XLSX.writeFile(workBook, "Participants.xlsx");
+
+        // setUrl(URL.createObjectURL(blob));
+
+        // setTimeout(() => downloadRef.current?.click(), 3000);
+        setLoading(false);
+        toast.info("Data Downloaded as XLSX");
+      }
+    } catch (err) {
+      setLoading(false);
+      console.error(err);
+      toast.error("Something went wrong!");
+    }
+  };
+
   return (
     <>
       {adminAuth ? (
@@ -328,6 +372,29 @@ const Page = () => {
                     type="number"
                     editable={isYearSelected}
                   />
+                </div>
+
+                <div className="pr-3">
+                  <button
+                    onClick={() => {
+                      getAllDocs(false);
+                    }}
+                    type={"button"}
+                    className="my-3 inline-flex w-full items-center justify-center gap-2 rounded-lg bg-primary px-5 py-2 text-sm leading-[1.15] text-white shadow-sm transition-colors hover:bg-primary_dark hover:text-white focus:ring-2 focus:ring-secondary md:my-0 md:mt-7 md:w-60"
+                  >
+                    <MdOutlinePersonSearch className="h-6 w-6" /> Download Shown
+                    Data
+                  </button>
+                  <button
+                    onClick={() => {
+                      getAllDocs(true);
+                    }}
+                    type={"button"}
+                    className="my-3 inline-flex w-full items-center justify-center gap-2 rounded-lg bg-red-500 px-5 py-2 text-sm leading-[1.15] text-white shadow-sm transition-colors hover:bg-red-700 hover:text-white focus:ring-2 focus:ring-red-600 md:my-0 md:mt-7 md:w-60"
+                  >
+                    <MdOutlinePersonSearch className="h-6 w-6" /> Download All
+                    Data
+                  </button>
                 </div>
               </div>
               <div className="w-full md:flex-[5]">
@@ -471,7 +538,7 @@ const Page = () => {
             )}
           </div>
         </div>
-      ) : authLoading ? (
+      ) : authLoading || loading ? (
         <Loading />
       ) : (
         <Error statusCode={403} msg="Unauthorized User" dest={"/"} />
