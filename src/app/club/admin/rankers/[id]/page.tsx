@@ -43,6 +43,8 @@ import Field from "../../../Components/Field";
 import PassingYear from "../../../Components/PassingYear";
 import Loading from "../../../Components/Loading";
 import { useRouter } from "next/navigation";
+import * as XLSX from "xlsx";
+import { FaDownload } from "react-icons/fa6";
 
 const Page = ({ params }: { params: { id: string } }) => {
   const [adminAuth, setAdminAuth] = useState<boolean>(false);
@@ -202,6 +204,41 @@ const Page = ({ params }: { params: { id: string } }) => {
       });
   };
 
+  const [loading, setLoading] = useState(false);
+
+  const downloadData = async () => {
+    try {
+      setLoading(true);
+      if (adminAuth) {
+        const data: any = [];
+
+        usersData.forEach((e: any, i: number) => {
+          data.push({
+            uid: e.id,
+            ...e.data,
+            ...e.quizData,
+          });
+        });
+
+        const workBook = XLSX.utils.book_new();
+        const xlsx = XLSX.utils.json_to_sheet(data);
+        XLSX.utils.book_append_sheet(workBook, xlsx, "All Participants");
+
+        XLSX.writeFile(workBook, "Participants.xlsx");
+
+        // setUrl(URL.createObjectURL(blob));
+
+        // setTimeout(() => downloadRef.current?.click(), 3000);
+        setLoading(false);
+        toast.info("Data Downloaded as XLSX");
+      }
+    } catch (err) {
+      setLoading(false);
+      console.error(err);
+      toast.error("Something went wrong!");
+    }
+  };
+
   return (
     <>
       {adminAuth ? (
@@ -237,6 +274,15 @@ const Page = ({ params }: { params: { id: string } }) => {
                 className="my-3 inline-flex w-full items-center justify-center gap-2 rounded-lg bg-primary px-5 py-2 text-sm leading-[1.15] text-white shadow-sm transition-colors hover:bg-primary_dark hover:text-white focus:ring-2 focus:ring-secondary md:my-0 md:mt-7 md:w-60"
               >
                 <MdOutlinePersonSearch className="h-6 w-6" /> Search User
+              </button>
+
+              <button
+                onClick={downloadData}
+                disabled={loading}
+                type={"button"}
+                className="my-3 inline-flex w-full items-center justify-center gap-2 rounded-lg bg-primary px-5 py-2 text-sm leading-[1.15] text-white shadow-sm transition-colors hover:bg-primary_dark hover:text-white focus:ring-2 focus:ring-secondary md:my-0 md:mt-7 md:w-60"
+              >
+                <FaDownload className="h-6 w-6" /> Download Data
               </button>
             </div>
 
@@ -391,7 +437,7 @@ const Page = ({ params }: { params: { id: string } }) => {
               </ModalContent>
             </Modal>
 
-            {usersData.length >= docLimit && (
+            {/*usersData.length >= docLimit && (
               <button
                 onClick={loadMoreUsers}
                 type={"button"}
@@ -399,7 +445,7 @@ const Page = ({ params }: { params: { id: string } }) => {
               >
                 <MdOutlinePersonSearch className="h-6 w-6" /> Load More Users
               </button>
-            )}
+            )*/}
           </div>
         </div>
       ) : authLoading ? (
