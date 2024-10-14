@@ -51,6 +51,7 @@ const Announcements = () => {
         });
         annc.reverse();
         setAnnouncements(annc);
+        setOrder(docs.docs.length);
       })
       .catch((err) => {
         toast.error("Announcements can't be loaded");
