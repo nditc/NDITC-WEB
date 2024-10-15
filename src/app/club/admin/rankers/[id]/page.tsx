@@ -773,7 +773,7 @@ const EditEventData = ({
               return (
                 <div
                   key={i}
-                  className="flex flex-col rounded-lg p-2 shadow-large transition hover:scale-105"
+                  className="flex w-full flex-col rounded-lg p-2 shadow-large transition hover:scale-105"
                 >
                   <p className="self-center text-primary-500 underline">{`Answer No. ${i + 1}`}</p>
                   <div className="flex flex-col gap-3">
