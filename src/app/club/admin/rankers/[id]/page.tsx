@@ -768,14 +768,30 @@ const EditEventData = ({
             }}
           />
 
-          <div>
+          <div className="flex flex-col gap-3">
             {eventData.answers.map((e: any, i: number) => {
               return (
-                <div key={i} className="flex items-center gap-3">
-                  {`${i + 1}. `}
-                  <div className="flex items-center gap-3">
-                    <p>{`Chosen Option: ${e.option == 0 ? "A" : e.option == 1 ? "B" : e.option == 2 ? "C" : e.option == 3 ? "D" : "Not Selected"}`}</p>
-                    <p>{`Chosen Answer: ${e.answer == "" ? "Not Answered" : e.answer}`}</p>
+                <div
+                  key={i}
+                  className="flex flex-col rounded-lg p-2 shadow-large transition hover:scale-105"
+                >
+                  <p className="self-center text-primary-500 underline">{`Answer No. ${i + 1}`}</p>
+                  <div className="flex flex-col gap-3">
+                    <div className="flex gap-3">
+                      <span className="text-xl text-primary-300">MCQ :</span>
+                      <span className="flex h-7 w-7 shrink-0 items-center justify-center rounded-full border border-primary_dark text-xl transition-colors">
+                        <p className="h-fit w-fit">
+                          {`${e.option == 0 ? "A" : e.option == 1 ? "B" : e.option == 2 ? "C" : e.option == 3 ? "D" : "X"}`}
+                        </p>
+                      </span>
+                    </div>
+                    <div>
+                      <span className="text-xl text-primary-300 underline">
+                        Answer:
+                      </span>
+                      <br />
+                      {`${e.answer == "" ? "Not Answered" : e.answer}`}
+                    </div>
                   </div>
                 </div>
               );
