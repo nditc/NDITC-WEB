@@ -749,7 +749,7 @@ const EditEventData = ({
   };
 
   return (
-    <div className="flex w-full flex-col items-center gap-1">
+    <div className="flex w-full flex-col gap-1">
       {error == "" && eventData && eventData?.uid == uid && (
         <div className="flex flex-col items-center gap-3">
           <Field
@@ -768,7 +768,7 @@ const EditEventData = ({
             }}
           />
 
-          <div className="flex flex-col gap-3">
+          <div className="flex w-full flex-col gap-3">
             {eventData.answers.map((e: any, i: number) => {
               return (
                 <div
