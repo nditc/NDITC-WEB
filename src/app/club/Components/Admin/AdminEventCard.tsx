@@ -1,6 +1,6 @@
 import Link from "next/link";
 import { IoCalendarOutline, IoSettingsOutline } from "react-icons/io5";
-import { BsStopwatch } from "react-icons/bs";
+import { BsStopwatch, BsTrophy } from "react-icons/bs";
 import { timeValue } from "../Time";
 import { Timestamp } from "firebase/firestore";
 import _L0 from "@/util/leadingzero";
@@ -67,6 +67,13 @@ const AdminEventCard = ({
         >
           <IoSettingsOutline className="h-7 w-7" />
           EDIT
+        </Link>
+        <Link
+          href={`/club/admin/rankers/${id}`}
+          className="inline-flex items-center justify-center gap-3 rounded-lg bg-primary px-3 py-2 text-center text-base font-medium text-white hover:bg-primary_dark focus:bg-primary_darkest focus:outline-none focus:ring-4"
+        >
+          <BsTrophy className="h-7 w-7" />
+          RANKS
         </Link>
       </div>
     </div>

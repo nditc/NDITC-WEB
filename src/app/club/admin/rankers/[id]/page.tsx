@@ -42,7 +42,7 @@ import { BiHeart } from "react-icons/bi";
 import Field from "../../../Components/Field";
 import PassingYear from "../../../Components/PassingYear";
 import Loading from "../../../Components/Loading";
-import { useRouter } from "next/navigation";
+import { notFound, useRouter } from "next/navigation";
 import * as XLSX from "xlsx";
 import { FaDownload } from "react-icons/fa6";
 
@@ -52,7 +52,9 @@ const Page = ({ params }: { params: { id: string } }) => {
   const [authLoading, setAuthLoading] = useState<boolean>(true);
 
   const [usersData, setUsersData] = useState<any | undefined | null>([]);
+  const [eventAns, seteventAns] = useState<any | undefined | null>([]);
   const [lastUserDoc, setLastUserDoc] = useState<QueryDocumentSnapshot>();
+  const [eventQues, setEventQues] = useState<any | undefined | null>([]);
 
   const docLimit = 5;
 
@@ -86,6 +88,13 @@ const Page = ({ params }: { params: { id: string } }) => {
     });
 
     //setUsersData((oldArr: any) => [oldArr, ...tempArr]);
+    getDoc(doc(db, "answers", params.id)).then((event) => {
+      if (event.exists()) {
+        seteventAns(event.data());
+      } else {
+        notFound();
+      }
+    });
 
     setAuthLoading(false);
   };
@@ -244,9 +253,9 @@ const Page = ({ params }: { params: { id: string } }) => {
       {adminAuth ? (
         <div
           suppressHydrationWarning
-          className="container min-h-screen w-full bg-[#f6f6f6]"
+          className="min-h-screen w-full bg-[#f6f6f6]"
         >
-          <div className="flex flex-col pb-[81px]">
+          <div className="container flex flex-col pb-[81px]">
             <h1 className="mt-8 text-5xl">
               RANKERS <span className="text-primary">PANEL</span>
             </h1>
@@ -417,13 +426,14 @@ const Page = ({ params }: { params: { id: string } }) => {
                       />
 
                       {params.id != "public" && (
-                        <EditEventData
+                        <EditeventAns
                           data={selectedStudentData.quizData}
                           id={params.id}
                           uid={selectedStudentData.id}
                           allData={usersData}
                           setAllData={setUsersData}
                           i={selectedStudentIndex}
+                          eData={eventAns}
                         />
                       )}
                     </ModalBody>
@@ -698,29 +708,31 @@ const EditUserData = ({
   );
 };
 
-const EditEventData = ({
+const EditeventAns = ({
   data,
   id,
   uid,
   allData,
   setAllData,
+  eData,
   i,
 }: {
   data: any;
   id: string;
   uid: string;
   allData: any[];
+  eData: any;
   setAllData: React.Dispatch<any>;
   i: number;
 }) => {
-  const [eventData, setEventData] = useState<any>(data);
+  const [eventAns, seteventAns] = useState<any>(data);
 
   const [error, setError] = useState("");
 
   const updateData = async () => {
     await updateDoc(
       doc(db, "answers", id, "eventparticipant", uid),
-      eventData,
+      eventAns,
     ).catch(() => {
       setError("Error Occurred. Code 0");
       toast.error("Error Occurred 0");
@@ -728,7 +740,7 @@ const EditEventData = ({
 
     await updateDoc(
       doc(db, "eventparticipant", uid, "eventsData", id),
-      eventData,
+      eventAns,
     ).catch(() => {
       setError("Error Occurred. Code 1");
       toast.error("Error Occurred 1");
@@ -739,7 +751,7 @@ const EditEventData = ({
         // No change
         return e;
       } else {
-        return { ...e, quizData: { ...eventData } };
+        return { ...e, quizData: { ...eventAns } };
       }
     });
     // Re-render with the new array
@@ -747,19 +759,33 @@ const EditEventData = ({
 
     toast.success("Event Data Updated");
   };
+  const checkAns = (main: any, data: any) => {
+    if (main.mcq) {
+      if (data.option == main.correctOption) {
+        return true;
+      }
+    } else {
+      const correctAnswers = main.correctAnswers.toString().split(";");
 
+      if (correctAnswers.includes(data.answer)) {
+        return true;
+      }
+    }
+
+    return false;
+  };
   return (
     <div className="flex w-full flex-col gap-1">
-      {error == "" && eventData && eventData?.uid == uid && (
+      {error == "" && eventAns && eventAns?.uid == uid && (
         <div className="flex flex-col items-center gap-3">
           <Field
             returnNumber
             name={"Points"}
             label={"Points"}
             type={"number"}
-            state={eventData.marks || 0}
+            state={eventAns.marks || 0}
             setValue={(name: string, data: string | number) => {
-              setEventData((oldData: any) => {
+              seteventAns((oldData: any) => {
                 return {
                   ...oldData,
                   marks: data,
@@ -769,30 +795,74 @@ const EditEventData = ({
           />
 
           <div className="flex w-full flex-col gap-3">
-            {eventData.answers.map((e: any, i: number) => {
+            {eventAns.answers.map((e: any, i: number) => {
               return (
                 <div
                   key={i}
-                  className="flex w-full flex-col rounded-lg p-2 shadow-large transition hover:scale-105"
+                  className={
+                    "flex w-full max-w-full overflow-x-auto break-all rounded-lg p-2 transition " +
+                    (checkAns(eData.answers[i], e)
+                      ? "bg-green-100"
+                      : "bg-red-100")
+                  }
                 >
-                  <p className="self-center text-primary-500 underline">{`Answer No. ${i + 1}`}</p>
+                  <p className="ml-1 mr-4 self-center font-bold text-black/30">{`${i + 1}`}</p>
                   <div className="flex flex-col gap-3">
-                    <div className="flex gap-3">
-                      <span className="text-xl text-primary-300">MCQ :</span>
-                      <span className="flex h-7 w-7 shrink-0 items-center justify-center rounded-full border border-primary_dark text-xl transition-colors">
-                        <p className="h-fit w-fit">
-                          {`${e.option == 0 ? "A" : e.option == 1 ? "B" : e.option == 2 ? "C" : e.option == 3 ? "D" : "X"}`}
-                        </p>
-                      </span>
-                    </div>
-                    <div>
-                      <span className="text-xl text-primary-300 underline">
-                        Answer:
-                      </span>
-                      <br />
-                      {`${e.answer == "" ? "Not Answered" : e.answer}`}
-                    </div>
+                    {eData?.answers[i].mcq ? (
+                      <div className="flex items-center gap-3">
+                        <span className="text-sm text-black/30">
+                          MCQ Given:
+                        </span>
+                        <span
+                          className={
+                            "flex h-7 w-7 shrink-0 items-center justify-center rounded-full text-xl text-white transition-colors " +
+                            (checkAns(eData.answers[i], e)
+                              ? "bg-green-500"
+                              : "bg-red-500")
+                          }
+                        >
+                          <p className="h-fit w-fit">
+                            {`${e.option == 0 ? "A" : e.option == 1 ? "B" : e.option == 2 ? "C" : e.option == 3 ? "D" : "X"}`}
+                          </p>
+                        </span>
+                        <br />
+                        {!checkAns(eData.answers[i], e) && (
+                          <>
+                            {" "}
+                            <span className="text-sm text-black/30">
+                              Correct:
+                            </span>
+                            <span
+                              className={
+                                "flex h-7 w-7 shrink-0 items-center justify-center rounded-full bg-green-500 text-xl text-white transition-colors"
+                              }
+                            >
+                              <p className="h-fit w-fit">
+                                {`${eData?.answers[i].correctOption == 0 ? "A" : eData?.answers[i].correctOption == 1 ? "B" : eData?.answers[i].correctOption == 2 ? "C" : eData?.answers[i].correctOption == 3 ? "D" : "X"}`}
+                              </p>
+                            </span>
+                          </>
+                        )}
+                      </div>
+                    ) : null}
+
+                    {!eData?.answers[i].mcq ? (
+                      <div>
+                        <span className="text-sm text-black/30">Answer:</span>
+                        <br />
+                        {`${e.answer == "" ? "-" : e.answer}`}
+                        {!checkAns(eData.answers[i], e) ? (
+                          <>
+                            <br />
+                            <div className="max-w-full text-green-500/80">
+                              {`${eData?.answers[i].correctAnswers == "" ? "Not Answered" : (eData?.answers[i].correctAnswers).replaceAll(";", "  ;  ")}`}{" "}
+                            </div>
+                          </>
+                        ) : null}
+                      </div>
+                    ) : null}
                   </div>
+                  <p className="ml-1 mr-4 flex-1 shrink-0 self-center break-keep text-end font-bold text-black/30">{`${eData.answers[i].point}`}</p>
                 </div>
               );
             })}

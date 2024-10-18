@@ -18,7 +18,6 @@ const page = () => {
         <Ranking />
         <FAQ />
         <Contact />
-        <DamianPopUp />
       </main>
     </>
   );
