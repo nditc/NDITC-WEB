@@ -37,7 +37,7 @@ const Question = ({
   givenAnswer,
 }: questionInterface) => {
   const [selectedVal, setSelectedVal] = useState(selectedOption);
-  const [savedOnce, setSavedOnce] = useState(givenAnswer === "" ? false : true);
+  const [savedOnce, setSavedOnce] = useState(false);
 
   const options = [option0, option1, option2, option3];
   const optionsArr = ["A", "B", "C", "D"];
@@ -47,6 +47,9 @@ const Question = ({
   useEffect(() => {
     setAnswer(givenAnswer);
     setSelectedVal(selectedOption);
+    if (givenAnswer !== "") {
+      setSavedOnce(true);
+    }
   }, [givenAnswer, selectedOption]);
 
   // useEffect(() => {
