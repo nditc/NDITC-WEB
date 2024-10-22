@@ -6,7 +6,6 @@ import Image from "next/image";
 import Link from "next/link";
 import { usePathname, useSearchParams } from "next/navigation";
 import { RxCross2 } from "react-icons/rx";
-import ClubNavbar from "../../club/Components/Layout/Navbar";
 
 const Navbar = () => {
   const [showOptions, setShowOptions] = useState(false);
@@ -58,9 +57,7 @@ const Navbar = () => {
     };
   }, [Route, Params]);
 
-  return Route.includes("club") ? (
-    <ClubNavbar />
-  ) : (
+  return (
     <nav
       ref={navRef}
       className={
@@ -241,18 +238,6 @@ const Navbar = () => {
                 </Link>
               </li>
             )}
-
-            <li>
-              <Link
-                onClick={() => {
-                  setShowOptions(false);
-                }}
-                href="/club"
-                className="block rounded bg-blue-500 px-3 py-2 text-white hover:bg-gray-200 md:bg-transparent md:p-0 md:text-primary-500 md:hover:bg-transparent md:hover:text-blue-500"
-              >
-                Club
-              </Link>
-            </li>
           </ul>
         </div>
       </div>

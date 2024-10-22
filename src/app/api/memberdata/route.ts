@@ -16,8 +16,6 @@ export async function POST(req: NextRequest) {
 
   const member = await memberDOC.json();
 
-  console.log(member);
-
   if (!memberDOC.ok) {
     return NextResponse.json(
       { error: "No such Club Member exists" },

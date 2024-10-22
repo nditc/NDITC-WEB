@@ -52,10 +52,7 @@ export async function POST(req: NextRequest) {
       { status: 404 },
     );
   } else if (now > endTime) {
-    return NextResponse.json(
-      { error: "The exam was over decades ago" },
-      { status: 404 },
-    );
+    return NextResponse.json({ error: "The exam is over" }, { status: 404 });
   }
 
   if ((data.ndc_id == "" || data.ndc_id == "none") && intra) {
