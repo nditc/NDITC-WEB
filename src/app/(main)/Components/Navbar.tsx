@@ -6,7 +6,6 @@ import Image from "next/image";
 import Link from "next/link";
 import { usePathname, useSearchParams } from "next/navigation";
 import { RxCross2 } from "react-icons/rx";
-import ClubNavbar from "../../club/Components/Layout/Navbar";
 
 const Navbar = () => {
   const [showOptions, setShowOptions] = useState(false);
@@ -58,9 +57,7 @@ const Navbar = () => {
     };
   }, [Route, Params]);
 
-  return Route.includes("club") ? (
-    <ClubNavbar />
-  ) : (
+  return (
     <nav
       ref={navRef}
       className={
