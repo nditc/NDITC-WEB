@@ -2,7 +2,7 @@
 "use client";
 import React, { useState } from "react";
 import Member from "../Components/Member";
-import ExecutiveData from "./executives";
+import ExecutiveData from "../../../data/executives";
 import ExecutivePanel from "./ExecutivePanel";
 import Modal from "./Modal";
 

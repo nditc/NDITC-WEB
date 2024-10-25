@@ -2,7 +2,7 @@
 
 import { FaCode } from "react-icons/fa";
 import Member from "../Components/Member";
-import DevData from "./developers";
+import DevData from "../../../data/developers";
 import { useState } from "react";
 import Modal from "./Modal";
 

@@ -68,12 +68,12 @@ const Footer = () => {
             >
               Developers
             </Link>
-            {/* <a
-              href="/details/U2FsdGVkX1%2BAo1HnTjk4aPrXkCt9rh1%2BNX%2FDWCpvsejwdtAoSjewOeYdKkZbh6aGaCzc66CV12V3COPzTfJdiRVwQsKY9T7hTEK5uHR6K4odMR4G%2FHndw%2BsLnz%2FamA1HVEDOV9n%2FeVAQ7U3yvYJftX0vc455XIZ3msRakGeLRfcnSfCudDzNtNO2z%2BBV3BJ3Q%2FAiKPNaCas8xNySX8iKn2q6N6OfEw4tQeh7SlogJS4%3D/project/1687651200"
+            <Link
+              href="/details/61ca02bf8daf0e6c4ef079990a0232c3ed79d9d23739a7131ca100dc841d538b7a7198def108d9490751f50ddee87b83eb9d48481de53630f8587d86f5d069765b950e0ac33a533a8a01acb2c811678f1319baade6c623e241987053835600f74466d9c1945caf46435209af9cdd5589c954b4a275113eae0203d7b9137965ae9de9f97b38675880101087c25bf3adc6512956df3c9e1726bebf3a39ee601cac/project/1687651200"
               className="cursor-pointer font-medium text-zinc-400 hover:underline"
             >
               App
-            </a> */}
+            </Link>
           </div>
         </div>
         <div className="order-2 hidden flex-col items-center gap-3 md:flex">

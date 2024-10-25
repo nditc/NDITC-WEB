@@ -1,78 +1,23 @@
-'use client';
+"use client";
 
-import { useEffect, useState } from 'react';
-import { MdKeyboardArrowUp, MdKeyboardArrowDown } from 'react-icons/md';
+import timelineData from "@/data/timeline";
+import { useEffect, useRef, useState } from "react";
+import { MdKeyboardArrowUp, MdKeyboardArrowDown } from "react-icons/md";
 
 const Timeline = () => {
   const [selectedIndex, setSelectedIndex] = useState(0);
 
-  const timelineData = [
-    {
-      time1: '2018',
-      time2: '01 Jan',
-      title: 'Our journey began',
-      description:
-        'Born in 2018, NDITC sprouted at Notre Dame College to nurture tech talent and bridge the gap between knowledge and innovation.',
-      imgURL: '/image/timeline/1.jpg',
-    },
-    {
-      time1: '2018',
-      time2: '21 Mar',
-      title: 'College Robotics Contest Winner',
-      description:
-        'Our first achievement came when we won the 1st robotics competition for college organized by campusbd.net with a price of 1 lakh taka.',
-      imgURL: '/image/timeline/Timeline.png',
-    },
-    {
-      time1: '2018',
-      time2: '23 Nov',
-      title: 'INIT 2018: Our very first national event',
-      description:
-        'We successfully organized our first event ``NDITC_init 2018`` with 11 different segments.',
-      imgURL: '/image/timeline/3.jpg',
-    },
-    {
-      time1: '2019',
-      time2: '09 Aug',
-      title: 'Tinker, First non-human member, was born',
-      description: 'The first robot of our club.',
-      imgURL: '/image/timeline/4.jpg',
-    },
-    {
-      time1: '2023',
-      time2: '03 Apr',
-      title: 'Our AI project, EVYA.AI',
-      description:
-        'Our R&D team developed a Face Recognition application for our AI project named ‘EVYA.AI’ using the Python programming language.',
-      imgURL: '/image/timeline/5.jpg',
-    },
-    {
-      time1: '2023',
-      time2: '16 May',
-      title: 'Publishing First Monthly Newsletter',
-      description:
-        'In order to keep ourselves updated about our club activities, trending tech stories and sharing resources, we published our first monthly newsletter ``Code Compass``.',
-      imgURL: '/image/timeline/6.jpg',
-    },
-    {
-      time1: '2023',
-      time2: '15 Jun',
-      title: 'Official Android app was launched',
-      description: 'We published an android application to attend many club purposes.',
-      imgURL: '/image/timeline/7.jpg',
-    },
-    {
-      time1: '2023',
-      time2: '29 Nov',
-      title: 'First wall magazine',
-      description: "We launched our first wall magazine at the fresher's ceremony",
-      imgURL: '/image/timeline/8.jpg',
-    },
-  ];
-
   const [currentTitle, setCurrentTitle] = useState(timelineData[0].title);
 
-  const [currentDescription, setCurrentDescription] = useState(timelineData[0].description);
+  const [currentDescription, setCurrentDescription] = useState(
+    timelineData[0].description,
+  );
+
+  const scrollRef = useRef<HTMLDivElement>(null);
+
+  useEffect(() => {
+    scrollRef?.current?.scrollTo({ top: selectedIndex * (16 * 5) });
+  }, [selectedIndex]);
 
   const [currentImage, setCurrentImage] = useState(timelineData[0].imgURL);
 
@@ -101,9 +46,14 @@ const Timeline = () => {
   }, [selectedIndex]);
 
   return (
-    <section className="w-full lg:w-0 flex-1 gap-2 md:gap-0 flex flex-col md:flex-row justify-center relative">
-      <div className="hidden md:flex flex-col md:flex-row gap-2">
-        <div className="h-full flex flex-row md:flex-col flex-1 justify-center gap-5">
+    <section className="relative flex w-full flex-1 flex-col justify-center gap-2 md:flex-row md:gap-0 lg:w-0">
+      <div className="hidden max-h-[600px] flex-col gap-2 overflow-y-clip overflow-x-visible md:flex md:flex-row">
+        <div
+          style={{
+            top: (4 - selectedIndex) * 4.5 * 16,
+          }}
+          className="relative flex h-full flex-1 flex-row justify-start scrollbar-hide md:flex-col"
+        >
           {timelineData.map((e, i) => {
             return (
               <Time
@@ -117,27 +67,27 @@ const Timeline = () => {
             );
           })}
         </div>
-        <div className="h-1 w-full md:w-1 md:h-4/5 my-auto bg-gray-400 rounded-3xl md:gradient-mask-t-90-d hidden md:flex" />
+        <div className="my-auto hidden h-1 w-full rounded-3xl bg-gray-400 md:flex md:h-4/5 md:w-1 md:gradient-mask-t-90-d" />
       </div>
 
-      <div className="md:flex-[10] my-auto  md:ml-6 h-[600px]  flex justify-center items-center relative">
-        <div className="w-full h-full  bg-white rounded-xl  grid grid-rows-[auto_auto_1fr] items-stretch justify-items-start gap-5 pb-1 pt-4">
-          <div className="flex gap-2 items-center justify-between md:justify-start w-full mt-2 md:mt-0">
+      <div className="relative my-auto flex h-[600px] items-center justify-center md:ml-6 md:flex-[10]">
+        <div className="grid h-full w-full grid-rows-[auto_auto_1fr] items-stretch justify-items-start gap-5 rounded-xl bg-white pb-1 pt-4">
+          <div className="mt-2 flex w-full items-center justify-between gap-2 md:mt-0 md:justify-start">
             <MdKeyboardArrowUp
               onClick={() => {
                 if (selectedIndex > 0) {
                   setSelectedIndex(selectedIndex - 1);
                 }
               }}
-              className={`w-10 h-10 cursor-pointer p-2 -rotate-90  rounded-full  md:rotate-0 transition-all ${
+              className={`h-10 w-10 -rotate-90 cursor-pointer rounded-full p-2 transition-all md:rotate-0 ${
                 selectedIndex > 0
-                  ? 'scale-100 hover:bg-blue-100 hover:text-blue-500 bg-gray-200'
-                  : 'text-gray-500 bg-gray-100'
+                  ? "scale-100 bg-gray-200 hover:bg-blue-100 hover:text-blue-500"
+                  : "bg-gray-100 text-gray-500"
               }`}
             />
-            <p className="text-base md:text-xl flex flex-col items-center md:gap-[0.375rem] md:flex-row font-bold md:order-3">
-              <span className=" text-blue-500 leading-none  Bebas text-3xl md:text-xl  md:font-Nunito font-normal  md:font-extrabold">
-                {timelineData[selectedIndex].time1}{' '}
+            <p className="flex flex-col items-center text-base font-bold md:order-3 md:flex-row md:gap-[0.375rem] md:text-xl">
+              <span className="Bebas text-3xl font-normal leading-none text-blue-500 md:font-Nunito md:text-xl md:font-extrabold">
+                {timelineData[selectedIndex].time1}{" "}
               </span>
               {timelineData[selectedIndex].time2}
             </p>
@@ -147,22 +97,22 @@ const Timeline = () => {
                   setSelectedIndex(selectedIndex + 1);
                 }
               }}
-              className={`w-10 h-10 cursor-pointer ] p-2 z-20   rounded-full -rotate-90  md:rotate-0  transition-all ${
+              className={`] z-20 h-10 w-10 -rotate-90 cursor-pointer rounded-full p-2 transition-all md:rotate-0 ${
                 selectedIndex < timelineData.length - 1
-                  ? 'scale-100 hover:bg-blue-100 hover:text-blue-500 bg-gray-200 '
-                  : 'text-gray-500 bg-gray-100'
+                  ? "scale-100 bg-gray-200 hover:bg-blue-100 hover:text-blue-500"
+                  : "bg-gray-100 text-gray-500"
               }`}
             />
           </div>
-          <div className="gap-5 flex-col">
-            <h1 className="text-3xl md:text-4xl text-left">{currentTitle}</h1>
+          <div className="flex-col gap-5">
+            <h1 className="text-left text-3xl md:text-4xl">{currentTitle}</h1>
             <p>{currentDescription}</p>
           </div>
           <div className="flex overflow-hidden rounded-[.75rem]">
             <img
               src={currentImage}
               alt="Image"
-              className="flex-1 h-full  rounded-[.75rem] object-cover"
+              className="h-full flex-1 rounded-[.75rem] object-cover"
               width={720}
               height={720}
             />
@@ -192,22 +142,24 @@ const Time = ({
 }) => {
   return (
     <div
-      className={`relative cursor-pointer ${current ? '' : 'hidden'} md:flex mb-1 md:mb-0`}
+      className={`relative cursor-pointer ${current ? "" : "hidden"} mb-1 md:mb-0 md:flex`}
       onClick={() => {
         setCurrentAsSelected(index);
       }}
     >
-      <div className="w-16">
+      <div className="h-[4.5rem] w-16">
         <h1
           className={`transition-all ${
-            current ? 'text-3xl text-blue-500' : 'text-gray-400 text-2xl scale-85'
+            current
+              ? "text-3xl text-blue-500"
+              : "scale-85 text-2xl text-gray-400"
           }`}
         >
           {time1}
         </h1>
         <p
-          className={`transition-all  ${
-            current ? 'text-base font-bold' : 'text-gray-400 text-sm scale-85'
+          className={`transition-all ${
+            current ? "text-base font-bold" : "scale-85 text-sm text-gray-400"
           }`}
         >
           {time2}
@@ -215,11 +167,11 @@ const Time = ({
       </div>
 
       <div
-        className={`hidden transition-all duration-300 w-5 h-5 rounded-full absolute bg-blue-500 z-10 left-[50%] -translate-x-[50%] top-[4.25rem] md:translate-x-0 md:left-[4rem] md:top-[50%] md:-translate-y-[50%] md:flex items-center justify-center shadow-[5px_5px_20px_10px_#00000024] ${
-          current ? 'scale-100' : 'scale-0'
+        className={`absolute left-[50%] top-[4.25rem] z-10 hidden h-5 w-5 -translate-x-[50%] items-center justify-center rounded-full bg-blue-500 shadow-[5px_5px_20px_10px_#00000024] transition-all duration-300 md:left-[4rem] md:top-[50%] md:flex md:-translate-y-[50%] md:translate-x-0 ${
+          current ? "scale-100" : "scale-0"
         }`}
       >
-        <div className="w-3 h-3 bg-white rounded-full" />
+        <div className="h-3 w-3 rounded-full bg-white" />
       </div>
     </div>
   );
