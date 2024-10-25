@@ -6,6 +6,8 @@ import DataCard from "../Components/DataCard";
 import { FaCode } from "react-icons/fa6";
 import { PiBagSimple } from "react-icons/pi";
 import Link from "next/link";
+import ExecutivePanel from "../executive/ExecutivePanel";
+import ExecutiveData from "@/data/executives";
 const Sections = [
   {
     heading: "",
@@ -56,7 +58,7 @@ const Sections = [
                 <PiBagSimple className={"h-10 w-10 text-3xl text-blue-500"} />
                 Total Panelists{" "}
                 <span className="leading-[0.7_!important] text-blue-500">
-                  19
+                  {ExecutiveData.sessions[0].members.length}
                 </span>
               </h1>
               <div className="flex w-full flex-col gap-2 sm:w-auto md:flex-row">

@@ -1,13 +1,14 @@
-'use client';
-import { useRouter } from 'next/navigation';
-import '../styles/NewsLAndApp.css';
-import { useState } from 'react';
+"use client";
+import { useRouter } from "next/navigation";
+import "../styles/NewsLAndApp.css";
+import { useState } from "react";
+import Link from "next/link";
 type Props = {
   gap: number;
 };
 const NewsLAndApp = () => {
   const router = useRouter();
-  const [email, setEmail] = useState('');
+  const [email, setEmail] = useState("");
   return (
     <div className="container mb-12">
       <div className="gap-4 md:gap-6" id="appANDnwslttr">
@@ -16,8 +17,9 @@ const NewsLAndApp = () => {
             Subscribe to our <span>Newsletter</span>
           </h3>
           <p id="abt">
-            Code Compass is our Official newsletter. SUBSCRIBE NOW for the latest updates on - Club
-            Activities - Useful Learning Resources and many more!
+            Code Compass is our Official newsletter. SUBSCRIBE NOW for the
+            latest updates on - Club Activities - Useful Learning Resources and
+            many more!
           </p>
           <div id="usr_inf">
             <input
@@ -29,14 +31,14 @@ const NewsLAndApp = () => {
             />
             <button
               onClick={() => {
-                if (email.replaceAll(' ', '') != '') {
+                if (email.replaceAll(" ", "") != "") {
                   window.open(
-                    'https://nditc.us14.list-manage.com/subscribe?u=252af46a54f45725aea40941c&id=53b7f78f01',
-                    '_blank'
+                    "https://nditc.us14.list-manage.com/subscribe?u=252af46a54f45725aea40941c&id=53b7f78f01",
+                    "_blank",
                   );
-                  setEmail('');
+                  setEmail("");
                 } else {
-                  alert('Enter a valid Email');
+                  alert("Enter a valid Email");
                 }
               }}
               id="sbscrb"
@@ -46,8 +48,14 @@ const NewsLAndApp = () => {
           </div>
           <div id="cdcmps_div">
             <picture>
-              <source media="(min-width: 1200px)" srcSet="/image/newsl_and_app/cdcmp_txt.png" />
-              <source media="(max-width: 1200px)" srcSet="/image/newsl_and_app/code_compass.png" />
+              <source
+                media="(min-width: 1200px)"
+                srcSet="/image/newsl_and_app/cdcmp_txt.png"
+              />
+              <source
+                media="(max-width: 1200px)"
+                srcSet="/image/newsl_and_app/code_compass.png"
+              />
               <img src="" alt="" id="cdcmps" />
             </picture>
           </div>
@@ -66,20 +74,18 @@ const NewsLAndApp = () => {
           <div id="botom">
             <span id="appl">APPLICATION</span>
             <p id="inf">
-              An innovative app for our IT club that serves as a centralized hub for club members
-              and others. Check out our App right now to get connected with all Tech Enthusiasts
+              An innovative app for our IT club that serves as a centralized hub
+              for club members and others. Check out our App right now to get
+              connected with all Tech Enthusiasts
             </p>
             <div id="cvr_img"></div>
-            <button
-              onClick={() => {
-                router.push(
-                  '/details/U2FsdGVkX1%2BAo1HnTjk4aPrXkCt9rh1%2BNX%2FDWCpvsejwdtAoSjewOeYdKkZbh6aGaCzc66CV12V3COPzTfJdiRVwQsKY9T7hTEK5uHR6K4odMR4G%2FHndw%2BsLnz%2FamA1HVEDOV9n%2FeVAQ7U3yvYJftX0vc455XIZ3msRakGeLRfcnSfCudDzNtNO2z%2BBV3BJ3Q%2FAiKPNaCas8xNySX8iKn2q6N6OfEw4tQeh7SlogJS4%3D/project/1687651200'
-                );
-              }}
+            <Link
+              href="/details/61ca02bf8daf0e6c4ef079990a0232c3ed79d9d23739a7131ca100dc841d538b7a7198def108d9490751f50ddee87b83eb9d48481de53630f8587d86f5d069765b950e0ac33a533a8a01acb2c811678f1319baade6c623e241987053835600f74466d9c1945caf46435209af9cdd5589c954b4a275113eae0203d7b9137965ae9de9f97b38675880101087c25bf3adc6512956df3c9e1726bebf3a39ee601cac/project/1687651200"
               id="dwnld_btn"
+              className="grid place-items-center"
             >
               Download
-            </button>
+            </Link>
           </div>
         </div>
       </div>

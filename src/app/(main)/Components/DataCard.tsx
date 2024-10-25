@@ -1,73 +1,80 @@
-import React from 'react';
-import { BsCalendar2EventFill } from 'react-icons/bs';
-import { MdOutlinePeopleOutline } from 'react-icons/md';
-import { PiGraduationCapBold } from 'react-icons/pi';
+import AboutData from "@/data/about";
+import React from "react";
+import { BsCalendar2EventFill } from "react-icons/bs";
+import { MdOutlinePeopleOutline } from "react-icons/md";
+import { PiGraduationCapBold } from "react-icons/pi";
+
 const DataCard = () => {
   return (
-    <div className="flex-1   w-full lg:w-0  flex flex-col md:flex-row lg:flex-col  gap-4">
-      <div className="lg:h-1/2 flex-1  bg-gray-100 rounded-xl grid grid-cols-[1fr_auto] sm:grid-cols-[3fr_2fr] grid-rows-[auto_1fr] p-4 lg:p-6 text-black gap-3">
+    <div className="flex w-full flex-1 flex-col gap-4 md:flex-row lg:w-0 lg:flex-col">
+      <div className="grid flex-1 grid-cols-[1fr_auto] grid-rows-[auto_1fr] gap-3 rounded-xl bg-gray-100 p-4 text-black sm:grid-cols-[3fr_2fr] lg:h-1/2 lg:p-6">
         <div className="col-span-2 flex gap-3">
-          <BsCalendar2EventFill className={'w-11 h-11 text-blue-500'} />
+          <BsCalendar2EventFill className={"h-11 w-11 text-blue-500"} />
           <div>
-            <h3 className="text-2xl leading-none mb-[3.5px] text-blue-500 font-Nunito font-extrabold">
+            <h3 className="mb-[3.5px] font-Nunito text-2xl font-extrabold leading-none text-blue-500">
               Events
             </h3>
-            <p className="text-lg leading-none "> Organized by NDITC</p>
+            <p className="text-lg leading-none"> Organized by NDITC</p>
           </div>
         </div>
-        <div className="col-start-1 row-start-2 self-end flex flex-col sm:gap-2">
-          <p className="sm:text-lg lg:text-xl flex items-center">
+        <div className="col-start-1 row-start-2 flex flex-col self-end sm:gap-2">
+          <p className="flex items-center sm:text-lg lg:text-xl">
             Intra Events
-            <span className="ml-3 font-extrabold text-blue-500">14</span>
+            <span className="ml-3 font-extrabold text-blue-500">
+              {AboutData.events.intra}
+            </span>
           </p>
-          <p className="sm:text-lg lg:text-xl flex items-center">
+          <p className="flex items-center sm:text-lg lg:text-xl">
             National Events
-            <span className="ml-3 font-extrabold text-blue-500">6</span>
+            <span className="ml-3 font-extrabold text-blue-500">
+              {AboutData.events.national}
+            </span>
           </p>
         </div>
-        <div className="col-start-2 row-start-2 justify-self-end self-end text-right">
-          <h3 className="text-7xl sm:text-8xl mt-4 lg:text-[10rem] text-blue-500  leading-[0.8]">
-            20
+        <div className="col-start-2 row-start-2 self-end justify-self-end text-right">
+          <h3 className="mt-4 text-7xl leading-[0.8] text-blue-500 sm:text-8xl lg:text-[10rem]">
+            {AboutData.events.national + AboutData.events.intra}
           </h3>
-          <p className="flex justify-end flex-col lg:gap-[.325rem] lg:flex-row sm:text-lg lg:text-xl leading-none ">
+          <p className="flex flex-col justify-end leading-none sm:text-lg lg:flex-row lg:gap-[.325rem] lg:text-xl">
             Total <span>Events</span>
           </p>
         </div>
       </div>
-      <div className="lg:h-1/2 flex-1   bg-white grid grid-rows-2 grid-cols-[1fr_auto] gap-4 rounded-xl items-center">
-        <div className="bg-gray-100 h-full rounded-lg col-start-1 grid grid-cols-[auto_1fr_auto] p-3 lg:p-6 items-center lg:gap-3">
+      <div className="grid flex-1 grid-cols-[1fr_auto] grid-rows-2 items-center gap-4 rounded-xl bg-white lg:h-1/2">
+        <div className="col-start-1 grid h-full grid-cols-[auto_1fr_auto] items-center rounded-lg bg-gray-100 p-3 lg:gap-3 lg:p-6">
           <MdOutlinePeopleOutline
             className={
-              'row-start-1 self-end lg:self-center lg:row-start-1  w-10 xl:w-14 h-10 xl:h-14 text-blue-500'
+              "row-start-1 h-10 w-10 self-end text-blue-500 lg:row-start-1 lg:self-center xl:h-14 xl:w-14"
             }
           />
-          <p className="row-start-2 lg:row-start-1  sm:text-lg xl:text-xl leading-[1.3_!important] gap-0 2xl:gap-[0.375rem] flex flex-col 2xl:flex-row">
+          <p className="row-start-2 flex flex-col gap-0 leading-[1.3_!important] sm:text-lg lg:row-start-1 xl:text-xl 2xl:flex-row 2xl:gap-[0.375rem]">
             Total <span>Members</span>
           </p>
-          <h4 className="row-span-2 justify-self-end  lg:row-span-1 text-4xl xl:text-6xl text-blue-500">
-            286
+          <h4 className="row-span-2 justify-self-end text-4xl text-blue-500 lg:row-span-1 xl:text-6xl">
+            {AboutData.members}+
           </h4>
         </div>
-        <div className="bg-gray-100 h-full rounded-lg col-start-1 grid grid-cols-[auto_1fr_auto] p-3 lg:p-6 items-center lg:gap-3">
+        <div className="col-start-1 grid h-full grid-cols-[auto_1fr_auto] items-center rounded-lg bg-gray-100 p-3 lg:gap-3 lg:p-6">
           <PiGraduationCapBold
             className={
-              'row-start-1 self-end lg:self-center lg:row-start-1  w-10 xl:w-14 h-10 xl:h-14 text-blue-500'
+              "row-start-1 h-10 w-10 self-end text-blue-500 lg:row-start-1 lg:self-center xl:h-14 xl:w-14"
             }
           />
-          <p className="row-start-2 lg:row-start-1  sm:text-lg xl:text-xl leading-[1.3_!important] gap-0 2xl:gap-[0.375rem] flex flex-col 2xl:flex-row">
+          <p className="row-start-2 flex flex-col gap-0 leading-[1.3_!important] sm:text-lg lg:row-start-1 xl:text-xl 2xl:flex-row 2xl:gap-[0.375rem]">
             Total <span>Alumni</span>
           </p>
-          <h4 className="row-span-2 justify-self-end  lg:row-span-1 text-4xl xl:text-6xl text-blue-500">
-            2472
+          <h4 className="row-span-2 justify-self-end text-4xl text-blue-500 lg:row-span-1 xl:text-6xl">
+            {AboutData.alumni}+
           </h4>
         </div>
-        <div className="col-start-2 bg-[conic-gradient(#60a5fa_30%,#3b82f6_75%,#fff_0)]  row-start-1 row-span-2 w-32 sm:w-40 2xl:h-44 h-32 sm:h-40 2xl:w-44 rounded-full aspect-square flex flex-col justify-center items-center ">
-          <div className="bg-white  text-center  rounded-full w-28 sm:w-36 2xl:w-40 h-28 sm:h-36 2xl:h-40 flex flex-col justify-center items-center">
-            <h3 className="leading-[.7_!important] text-6xl sm:text-7xl 2xl:text-8xl  text-blue-500">
-              6
+        <div className="col-start-2 row-span-2 row-start-1 flex aspect-square h-32 w-32 flex-col items-center justify-center rounded-full bg-[conic-gradient(#60a5fa_30%,#3b82f6_75%,#fff_0)] sm:h-40 sm:w-40 2xl:h-44 2xl:w-44">
+          <div className="flex h-28 w-28 flex-col items-center justify-center rounded-full bg-white text-center sm:h-36 sm:w-36 2xl:h-40 2xl:w-40">
+            <h3 className="text-6xl leading-[.7_!important] text-blue-500 sm:text-7xl 2xl:text-8xl">
+              {AboutData.years}
             </h3>
-            <p className="leading-none text-sm sm:text-base">
-              <span className="text-lg sm:text-2xl ">Years</span> <br></br> of journey
+            <p className="text-sm leading-none sm:text-base">
+              <span className="text-lg sm:text-2xl">Years</span> <br></br> of
+              journey
             </p>
           </div>
         </div>
