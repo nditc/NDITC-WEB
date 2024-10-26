@@ -16,7 +16,7 @@ type devData = {
 };
 
 const x: devData = {
-  "MAIN DEVELOPER": [
+  "DEVELOPERS: CLUB SITE": [
     {
       name: "Wasef Rahman Swapnil",
       image_url: "/image/Developers/swapnil.jpg",
@@ -42,8 +42,6 @@ const x: devData = {
       roll: 12508025,
       email: "wasefrahmanswapnil@gmail.com",
     },
-  ],
-  "KEY DEVELOPER": [
     {
       name: "HRM Rafsan Amin",
       image_url: "/image/Developers/hrm_rafsan.jpg",
@@ -63,7 +61,7 @@ const x: devData = {
           url: "https://rafsanamin.epizy.com",
         },
       ],
-      post: "Member",
+      post: "Organizer",
       dept: "Batch '25",
       group: 5,
       roll: 12505033,

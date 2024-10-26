@@ -18,7 +18,7 @@ const Links = ({ img, href }: { img: string; href: string }) => {
       className="h-[35px] w-[35px] opacity-70 transition-opacity hover:fill-primary hover:opacity-100"
       href={href}
     >
-      <img src={"/Images/links/" + img + ".svg"} alt="" />
+      <img src={"/image/links/" + img + ".svg"} alt="" />
     </Link>
   );
 };
@@ -52,7 +52,7 @@ const Modal = ({
       >
         <img
           className="absolute bottom-0 left-0 -z-10 min-w-[55%]"
-          src="/Images/modalbg.svg"
+          src="/image/modalbg.svg"
           alt=""
         />
         <div className="mt-[6.5rem] h-full w-full overflow-y-scroll md:mt-0 md:overflow-hidden">

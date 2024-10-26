@@ -74,7 +74,7 @@ const EventCard = ({
         className="h-1/3 w-full flex-1 bg-black object-cover lg:h-auto lg:w-1/3"
         src={
           image ||
-          "https://firebasestorage.googleapis.com/v0/b/nditc-event.appspot.com/o/ep%2F123456789?alt=media&token=e4b46f56-b13c-4798-a6a6-47a634c3f20b"
+          "https://firebasestorage.googleapis.com/v0/b/nditc-club.appspot.com/o/ep%2F123456789?alt=media&token=e4b46f56-b13c-4798-a6a6-47a634c3f20b"
         }
         alt="Event Image"
       />

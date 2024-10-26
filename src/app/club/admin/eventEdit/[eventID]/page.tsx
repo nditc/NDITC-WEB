@@ -81,7 +81,7 @@ const Page = ({ params }: { params: { eventID: string } }) => {
   const [endDate, setEndDate] = useState(now(getLocalTimeZone()));
   const [addTime, setAddTime] = useState<any>();
   const [imageURL, setImageURL] = useState(
-    "https://firebasestorage.googleapis.com/v0/b/nditc-event.appspot.com/o/ep%2F356631772_874301840754682_3334138381481657833_n.jpg?alt=media&token=042e40b4-46ff-4ff6-90f0-2fb64990bffe",
+    "https://firebasestorage.googleapis.com/v0/b/nditc-club.appspot.com/o/ep%2F356631772_874301840754682_3334138381481657833_n.jpg?alt=media&token=042e40b4-46ff-4ff6-90f0-2fb64990bffe",
   );
   const [description, setDescription] = useState("");
 

@@ -45,15 +45,12 @@ const Developer = () => {
             const first = titleArr?.splice(0, 1);
             const last = titleArr?.join(" ") + " ";
             return (
-              <div
-                key={index}
-                className="flex flex-col justify-center md:items-center"
-              >
+              <div key={index} className="flex w-full flex-col">
                 <div className="mt-14 flex items-start justify-start gap-2 md:mt-16 md:flex-row md:items-end md:justify-start md:gap-3">
                   <h1 className="text-4xl text-primary md:text-5xl">{first}</h1>
                   <h1 className="text-4xl md:text-5xl">{last}</h1>
                 </div>
-                <div className="mt-4 flex flex-wrap justify-start gap-4 pt-2 grid-fluid-fill-[275px] md:mt-5 md:gap-8 md:grid-fluid-fill-[250px]">
+                <div className="mt-4 grid w-full justify-start gap-4 pt-2 grid-fluid-fill-[275px] md:mt-5 md:gap-8 md:grid-fluid-fill-[250px]">
                   {members.map(
                     ({ name, post, image_url, dept, imageInCenter }, index) => (
                       <div

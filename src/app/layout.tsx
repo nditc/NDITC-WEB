@@ -12,6 +12,9 @@ import NextTopLoader from "nextjs-toploader";
 import { Suspense } from "react";
 import { ToastContainer } from "react-toastify";
 import { NextUIProvider } from "@nextui-org/react";
+import DeveloperLink from "./club/Components/DeveloperLink";
+import { AuthContextProvider } from "./club/Components/Layout/AuthContextProvider";
+import { UserDataContextProvider } from "./club/Components/Layout/UserDataProvider";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -51,16 +54,20 @@ export default function RootLayout({
     <html lang="en">
       <body className={inter.className}>
         <NextUIProvider>
-          <NextTopLoader color="#3b82f6" />
-          <Suspense>
-            <Navbar />
-          </Suspense>
-          <div id="scrollToTop" className="h-0 w-0" />
-          <SideBar />
-          {children}
-          <Footer />
-
-          <ToastContainer bodyClassName={"Inter"} position="top-center" />
+          <AuthContextProvider>
+            <UserDataContextProvider>
+              <NextTopLoader color="#3b82f6" />
+              <Suspense>
+                <Navbar />
+              </Suspense>
+              <div id="scrollToTop" className="h-0 w-0" />
+              <SideBar />
+              {children}
+              <Footer />
+              <DeveloperLink />
+              <ToastContainer bodyClassName={"Inter"} position="top-center" />
+            </UserDataContextProvider>
+          </AuthContextProvider>
         </NextUIProvider>
       </body>
     </html>
