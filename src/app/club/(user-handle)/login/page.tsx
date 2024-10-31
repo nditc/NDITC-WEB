@@ -5,7 +5,10 @@ import React, { useEffect, useState } from "react";
 import Link from "next/link";
 import { auth, db } from "@/config/firebase";
 
-import { signInWithEmailAndPassword } from "firebase/auth";
+import {
+  createUserWithEmailAndPassword,
+  signInWithEmailAndPassword,
+} from "firebase/auth";
 
 import { toast } from "react-toastify";
 import { CgLogIn, CgSpinner } from "react-icons/cg";
@@ -13,6 +16,17 @@ import { useRouter } from "next/navigation";
 import Image from "next/image";
 import { FirebaseError } from "firebase/app";
 import { useAuthContext } from "@/app/club/Components/Layout/AuthContextProvider";
+import {
+  collection,
+  deleteDoc,
+  doc,
+  getDoc,
+  getDocs,
+  query,
+  setDoc,
+  where,
+} from "firebase/firestore";
+import { sendPasswordResetEmail } from "firebase/auth/cordova";
 
 const Page = () => {
   const [password, setPassword] = useState<string>("");
@@ -27,30 +41,60 @@ const Page = () => {
   const handleSubmit = async (event: any) => {
     event.preventDefault();
     setLoading(true);
-    signInWithEmailAndPassword(auth, email, password)
-      .then(async (UserCred) => {
-        toast.success("User logged in!");
-        setLoading(false);
-        Router.push("/club/profile");
-      })
-      .catch((error: FirebaseError) => {
-        console.dir(error);
-        switch (error.code) {
-          case "auth/invalid-credential":
-            toast.error(`Invalid email or password.`);
-            break;
-          case "auth/too-many-requests":
-            toast.error(
-              `Too many login attempts. Please reset your password to login again.`,
-            );
-            break;
-          default:
-            console.error(error.message);
-            toast.error(error.message.replaceAll("Firebase: ", ""));
-            break;
-        }
-        setLoading(false);
-      });
+
+    const response = await getDocs(
+      query(collection(db, "participants"), where("email", "==", email)),
+    );
+    const uData = response?.docs[0]?.data();
+    if (!response.empty) {
+      const pass_set = uData.pass_set;
+      signInWithEmailAndPassword(auth, email, password)
+        .then(async (UserCred) => {
+          toast.success("User logged in!");
+          setLoading(false);
+          Router.push("/club/profile");
+        })
+        .catch(async (error: FirebaseError) => {
+          console.dir(error);
+          switch (error.code) {
+            case "auth/invalid-credential":
+              if (!pass_set) {
+                const data = await createUserWithEmailAndPassword(
+                  auth,
+                  email,
+                  process.env.NEXT_PUBLIC_DEFAULT_PASS!,
+                );
+                await deleteDoc(doc(db, "participants", uData.uid));
+                await setDoc(doc(db, "participants", data.user.uid), {
+                  ...uData,
+                  uid: data.user.uid,
+                  imageUrl: uData.imageUrl.replace("nditc-event", "nditc-club"),
+                });
+                await sendPasswordResetEmail(auth, email);
+                toast.success(
+                  "Verfication & Password Set Email Sent! Verify and Login.",
+                );
+              } else {
+                toast.error(`Invalid email or password.`);
+              }
+              break;
+            case "auth/too-many-requests":
+              toast.error(
+                `Too many login attempts. Please reset your password to login again.`,
+              );
+
+              break;
+            default:
+              console.error(error.message);
+              toast.error(error.message.replaceAll("Firebase: ", ""));
+              break;
+          }
+          setLoading(false);
+        });
+    } else {
+      toast.error(`Invalid email or password.`);
+      setLoading(false);
+    }
   };
   useEffect(() => {
     setAuthLoading(true);

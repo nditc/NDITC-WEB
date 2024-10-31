@@ -64,42 +64,6 @@ const Page = () => {
 
   const docLimit = 10;
 
-  useEffect(() => {
-    if (user && user.email) {
-      fetch("/api/admin", {
-        method: "POST",
-        body: JSON.stringify({ id: user.email }),
-      })
-        .then((r) => r.json())
-        .then((resp) => {
-          setAdminAuth(resp.auth || false);
-
-          const countSnap = getCountFromServer(onFilterQuery(false, true));
-          countSnap.then((r) => r.data()).then((r) => setTotalUsers(r.count));
-
-          getDocs(onFilterQuery(false)).then((data) => {
-            setLastUserDoc(data.docs[data.docs.length - 1]);
-            const tempArr: any[] = [];
-            data.docs.forEach((e, i) => {
-              tempArr.push({ id: e.id, data: { ...e.data() } });
-            });
-
-            //setUsersData((oldArr: any) => [oldArr, ...tempArr]);
-            setUsersData(tempArr);
-            setAuthLoading(false);
-          });
-        })
-        .catch((err) => {
-          toast.error("Something went wrong");
-          setAdminAuth(false);
-          setAuthLoading(false);
-        });
-    } else {
-      setAdminAuth(false);
-      setAuthLoading(false);
-    }
-  }, [user]);
-
   const { isOpen, onOpen, onOpenChange } = useDisclosure();
 
   const [selectedStudentData, setSelectedStudentData] = useState<any>();
@@ -108,6 +72,7 @@ const Page = () => {
   const [searchBy, setSearchBy] = useState("name");
   const [searchText, setSearchText] = useState("");
 
+  console.log(selectedStudentData);
   //-------Filters------
 
   const [filterOpen, setFilterOpen] = useState(false);
@@ -138,6 +103,8 @@ const Page = () => {
     if (isSelected) conditions.push(where("selected", "==", true));
     if (loadMore) conditions.push(startAfter(lastUserDoc));
     if (!limitLess) conditions.push(limit(docLimit));
+
+    console.log(conditions);
 
     const usersQuery = query(collection(db, "participants"), ...conditions);
     return usersQuery;
@@ -199,6 +166,43 @@ const Page = () => {
       });
     }
   };
+
+  useEffect(() => {
+    if (user && user.email) {
+      fetch("/api/admin", {
+        method: "POST",
+        body: JSON.stringify({ id: user.email }),
+      })
+        .then((r) => r.json())
+        .then((resp) => {
+          setAdminAuth(resp.auth || false);
+
+          const countSnap = getCountFromServer(onFilterQuery(false, true));
+          countSnap.then((r) => r.data()).then((r) => setTotalUsers(r.count));
+
+          getDocs(onFilterQuery(false)).then((data) => {
+            console.log("dsada", data);
+            setLastUserDoc(data.docs[data.docs.length - 1]);
+            const tempArr: any[] = [];
+            data.docs.forEach((e, i) => {
+              tempArr.push({ id: e.id, data: { ...e.data() } });
+            });
+
+            //setUsersData((oldArr: any) => [oldArr, ...tempArr]);
+            setUsersData(tempArr);
+            setAuthLoading(false);
+          });
+        })
+        .catch((err) => {
+          toast.error("Something went wrong");
+          setAdminAuth(false);
+          setAuthLoading(false);
+        });
+    } else {
+      setAdminAuth(false);
+      setAuthLoading(false);
+    }
+  }, [user]);
 
   const loadMoreUsers = () => {
     getDocs(onFilterQuery(true)).then((data) => {
@@ -763,6 +767,7 @@ const EditEventData = ({ uid }: { uid: string }) => {
         toast.error("Error");
       });
   };
+
   return (
     <div className="flex w-full flex-col items-center gap-1">
       <button

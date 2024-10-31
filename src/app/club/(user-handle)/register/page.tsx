@@ -85,6 +85,7 @@ const Page = () => {
                   mobile: ndc_register_json.mobile,
                   name: ndc_register_json.name,
                   address: ndc_register_json.address,
+                  pass_set: true,
                   class: ndc_register_json.year,
                   ndc_roll: ndc_register_json.roll,
                   timestamp: serverTimestamp(),
@@ -139,6 +140,7 @@ const Page = () => {
             await setDoc(doc(db, "participants", uid), {
               ...regData,
               timestamp: serverTimestamp(),
+              pass_set: true,
               imageUrl:
                 "https://firebasestorage.googleapis.com/v0/b/ftmpc-63d81.appspot.com/o/pfp%2Fno_user.webp?alt=media&token=fd930687-e7b9-4fa6-9603-f20b73bd0a86",
             });

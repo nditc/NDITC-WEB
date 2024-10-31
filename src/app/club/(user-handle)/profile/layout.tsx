@@ -62,7 +62,7 @@ const Page = ({ children }: { children: React.ReactNode }) => {
             <div className="container">
               <div className="flex flex-col items-stretch gap-8 lg:flex-row">
                 <ProfileHero />
-                <ContestCard />
+                {/* <ContestCard /> */}
               </div>
               <div className="mt-3">
                 <SubNav>
@@ -78,9 +78,12 @@ const Page = ({ children }: { children: React.ReactNode }) => {
                   >
                     Notice
                   </SubNavItem>
-                  {/*<SubNavItem href="/club/profile/events" icon={MdEvent}>
+                  <SubNavItem
+                    href="/club/profile/events/nditc/all"
+                    icon={MdEvent}
+                  >
                     Events
-                  </SubNavItem>*/}
+                  </SubNavItem>
                 </SubNav>
               </div>
               {children}

@@ -5,6 +5,7 @@ import HashtechPosts from "./Components/HashtechPosts";
 import SnapScroller from "./Components/SnapScroller";
 import Link from "next/link";
 import CodeCompass from "./Components/NewsLAndApp";
+import FAQ from "./Components/FAQ";
 
 export default function Home() {
   return (
@@ -256,7 +257,7 @@ Benefits of Li-Fi :"
           </div>
         </section>
       </div>
-
+      <FAQ />
       <CodeCompass />
 
       <Contact />

@@ -81,7 +81,7 @@ const Page = ({ params }: { params: { eventID: string } }) => {
   const [endDate, setEndDate] = useState(now(getLocalTimeZone()));
   const [addTime, setAddTime] = useState<any>();
   const [imageURL, setImageURL] = useState(
-    "https://firebasestorage.googleapis.com/v0/b/nditc-club.appspot.com/o/ep%2F356631772_874301840754682_3334138381481657833_n.jpg?alt=media&token=042e40b4-46ff-4ff6-90f0-2fb64990bffe",
+    "https://firebasestorage.googleapis.com/v0/b/nditc-club.appspot.com/o/ep%2Ffallback.webp?alt=media&token=2607601b-5deb-49f6-a0cf-5a8d12e71112",
   );
   const [description, setDescription] = useState("");
 
@@ -363,11 +363,11 @@ const Page = ({ params }: { params: { eventID: string } }) => {
   };
 
   return (
-    <main className="min-h-screen w-screen bg-[#f6f6f6]">
+    <main className="min-h-screen bg-[#f6f6f6]">
       {!notfound ? (
-        <section>
+        <section className="container">
           <form
-            className="mt-20 grid w-full grid-cols-1 gap-5 p-5 sm:p-12"
+            className="mt-20 grid w-full grid-cols-1 gap-5 py-5 sm:py-12"
             onSubmit={params.eventID == "new" ? handleSubmit : handleUpdate}
           >
             <h1 className="text-4xl">

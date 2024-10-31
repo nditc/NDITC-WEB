@@ -18,11 +18,7 @@ const context = createContext<{
   updateUserData: () => {},
 });
 
-export const UserDataContextProvider = ({
-  children,
-}: {
-  children: React.ReactNode;
-}) => {
+export const useUserData = () => {
   const [userAuth, loading] = useAuthState(auth);
 
   const [userData, setUserData] = useState<any | undefined>(null);
@@ -58,7 +54,7 @@ export const UserDataContextProvider = ({
         getDoc(doc(db, "participants", userAuth.uid))
           .then((docs) => {
             if (!docs.data()?.verified) {
-              updateDoc(docRef, { verified: true })
+              updateDoc(docRef, { verified: true, pass_set: true })
                 .then(() => {
                   location.reload();
                 })
@@ -85,6 +81,16 @@ export const UserDataContextProvider = ({
     }
   }, [userAuth, loading, canLoadData, forceReload]);
 
+  return { userData, userDataLoading, dataError, updateUserData };
+};
+
+export const UserDataContextProvider = ({
+  children,
+}: {
+  children: React.ReactNode;
+}) => {
+  const { userData, userDataLoading, dataError, updateUserData } =
+    useUserData();
   return (
     <context.Provider
       value={{ userData, userDataLoading, dataError, updateUserData }}
