@@ -7,7 +7,7 @@ import { db } from "@/config/firebase";
 import { CiCircleInfo, CiWarning } from "react-icons/ci";
 import Loading from "../Loading";
 import { Checkbox } from "@nextui-org/checkbox";
-import { useAuthContext } from "../Layout/AuthContextProvider";
+import { useAuthContext } from "@/app/_context/AuthContextProvider";
 
 const getRegisteredNDC = async (ndc_id: string) => {
   const res = await fetch("/api/memberdata", {

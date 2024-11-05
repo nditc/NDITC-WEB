@@ -1,5 +1,5 @@
 import React from "react";
-import { useUserDataContext } from "../Layout/UserDataProvider";
+import { useUserDataContext } from "@/app/_context/UserDataProvider";
 import ProfilePic from "./ProfilePic";
 import { IoIosPower } from "react-icons/io";
 import { useRouter } from "next/navigation";

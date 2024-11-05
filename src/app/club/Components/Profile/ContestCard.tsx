@@ -9,7 +9,7 @@ import nthNumber from "@/util/nthNumber";
 import { GrTrophy } from "react-icons/gr";
 import { AiFillCode } from "react-icons/ai";
 import { getConfig } from "@/config/config_db";
-import { useUserDataContext } from "../Layout/UserDataProvider";
+import { useUserDataContext } from "@/app/_context/UserDataProvider";
 import { BiTrophy } from "react-icons/bi";
 import { CgTrophy } from "react-icons/cg";
 import { SiHtmlacademy } from "react-icons/si";

@@ -9,10 +9,10 @@ import {
   ModalHeader,
   useDisclosure,
 } from "@nextui-org/react";
-import { useUserDataContext } from "../Layout/UserDataProvider";
+import { useUserDataContext } from "@/app/_context/UserDataProvider";
 import { useEffect, useState } from "react";
 import { MdCircleNotifications } from "react-icons/md";
-import { useAuthContext } from "../Layout/AuthContextProvider";
+import { useAuthContext } from "@/app/_context/AuthContextProvider";
 import { toast } from "react-toastify";
 import { doc, updateDoc } from "firebase/firestore";
 import { db } from "@/config/firebase";

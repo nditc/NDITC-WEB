@@ -1,6 +1,6 @@
 "use client";
 
-import { useAuthContext } from "@/app/club/Components/Layout/AuthContextProvider";
+import { useAuthContext } from "@/app/_context/AuthContextProvider";
 import Error from "@/app/club/Components/Error";
 import { CgSpinner } from "react-icons/cg";
 

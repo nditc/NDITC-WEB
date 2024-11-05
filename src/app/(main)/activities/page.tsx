@@ -1,6 +1,6 @@
 import CodeCompass from "../Components/NewsLAndApp";
-import Upcoming from "./Upcoming";
-import EventsList from "./EventsList";
+import Upcoming from "./_components/Upcoming";
+import EventsList from "./_components/EventsList";
 import { Suspense } from "react";
 
 type Events = {
@@ -43,7 +43,8 @@ const Activities = async ({
   params: {};
   searchParams: { [key: string]: string | string[] | undefined };
 }) => {
-  const events = await getEventData(searchParams?.type + "s");
+  const { type } = await searchParams;
+  const events = await getEventData(type + "s");
   const upcoming = await getEventData("upcoming");
 
   return (
@@ -54,6 +55,7 @@ const Activities = async ({
         alt=""
       ></img>
       <div className="container relative z-10 flex flex-col items-center gap-5 bg-transparent pt-28 sm:gap-10 sm:pt-[7.5rem]">
+        {/* Upcoming Events */}
         {Array.isArray(upcoming) && upcoming?.length > 0 && upcoming ? (
           <>
             <div className="flex items-end justify-center gap-3 self-start md:justify-start">

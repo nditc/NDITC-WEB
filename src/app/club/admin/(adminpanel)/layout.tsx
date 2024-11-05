@@ -2,21 +2,13 @@
 "use client";
 
 import { auth } from "@/config/firebase";
-import { usePathname, useRouter } from "next/navigation";
-import React, { createContext, useContext, useEffect, useState } from "react";
+import { useRouter } from "next/navigation";
+import React, { useEffect, useState } from "react";
 import { toast } from "react-toastify";
 import { useAuthState } from "react-firebase-hooks/auth";
-import { CgSpinner } from "react-icons/cg";
-import {
-  UserDataContextProvider,
-  useUserDataContext,
-} from "@/app/club/Components/Layout/UserDataProvider";
-import ProfileHero from "../../Components/Profile/ProfileHero";
 import { SubNav, SubNavItem } from "../../Components/SubNav";
-import { CgProfile } from "react-icons/cg";
 import { MdAnnouncement, MdEvent } from "react-icons/md";
 import { IoPeopleOutline } from "react-icons/io5";
-import ContestCard from "../../Components/Profile/ContestCard";
 import Loading from "../../Components/Loading";
 import { IoIosPower } from "react-icons/io";
 import AdminContext from "../../Context/AdminContext";

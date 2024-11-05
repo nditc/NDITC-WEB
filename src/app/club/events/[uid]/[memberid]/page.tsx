@@ -2,8 +2,8 @@
 
 import Error from "@/app/club/Components/Error";
 import EventList from "@/app/club/Components/Events/EventList";
-import { useAuthContext } from "@/app/club/Components/Layout/AuthContextProvider";
-import { useUserDataContext } from "@/app/club/Components/Layout/UserDataProvider";
+import { useAuthContext } from "@/app/_context/AuthContextProvider";
+import { useUserDataContext } from "@/app/_context/UserDataProvider";
 import { useState, useEffect } from "react";
 import Loading from "@/app/club/Components/Loading";
 import { useRouter } from "next/navigation";

@@ -11,7 +11,7 @@ import { CgLogIn, CgSpinner } from "react-icons/cg";
 import { useRouter } from "next/navigation";
 import Image from "next/image";
 import { FirebaseError } from "firebase/app";
-import { useAuthContext } from "@/app/club/Components/Layout/AuthContextProvider";
+import { useAuthContext } from "@/app/_context/AuthContextProvider";
 
 const Page = () => {
   const [password, setPassword] = useState<string>("");

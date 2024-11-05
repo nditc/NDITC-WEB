@@ -1,6 +1,5 @@
 /* eslint-disable jsx-a11y/img-redundant-alt */
 
-import Setter from "@/app/club/Components/Home/Setter";
 import Hero from "@/app/club/Components/Home/Hero";
 import About from "@/app/club/Components/Home/About";
 import Rules from "@/app/club/Components/Home/Rules";

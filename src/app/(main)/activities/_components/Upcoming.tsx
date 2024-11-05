@@ -1,5 +1,5 @@
 "use client";
-import "./upcoming.css";
+import "../upcoming.css";
 import { useState, useEffect } from "react";
 import Link from "next/link";
 import { encrypt } from "@/util/Encrypt";

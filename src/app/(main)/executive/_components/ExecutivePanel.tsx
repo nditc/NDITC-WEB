@@ -3,9 +3,9 @@ import Image from "next/image";
 
 import { Dispatch, SetStateAction, memo, useState } from "react";
 import "../styles/sessionSelector.css";
-import ExecutiveData from "../../../data/executives";
-import Modal from "./Modal";
-import Member from "../Components/Member";
+import ExecutiveData from "@/data/executives";
+
+import Member from "../../Components/Member";
 import { useRouter } from "next/navigation";
 import Link from "next/link";
 

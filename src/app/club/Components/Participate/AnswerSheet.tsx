@@ -1,7 +1,7 @@
 "use client";
 
 import { doc, setDoc } from "firebase/firestore";
-import { useAuthContext } from "../Layout/AuthContextProvider";
+import { useAuthContext } from "@/app/_context/AuthContextProvider";
 import Timer from "./Timer";
 import Question from "./Question";
 import { useEffect, useState } from "react";

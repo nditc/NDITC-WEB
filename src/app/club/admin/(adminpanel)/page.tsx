@@ -4,6 +4,7 @@ import EditConfig from "@/app/club/Components/Admin/EditConfig";
 import { auth } from "@/config/firebase";
 import { useRouter } from "next/navigation";
 import React, { useState, useRef } from "react";
+import { BsDatabase } from "react-icons/bs";
 import { FaClipboardUser, FaHouseUser } from "react-icons/fa6";
 
 const Page = () => {
@@ -99,7 +100,26 @@ const Page = () => {
               </div>
             </div>
           </div>
-
+          <div className="container my-8 rounded-xl bg-white p-6 pb-2 md:p-8 md:pb-4">
+            <div className="flex flex-col items-center justify-between gap-5 md:flex-row">
+              <div className="flex items-center gap-5">
+                <BsDatabase className="h-12 w-12 text-primary" />
+                <h1 className="text-4xl leading-none">
+                  <span className="">NDITC Site DB</span>
+                </h1>
+              </div>
+              <div>
+                <a
+                  href="https://nditc.pythonanywhere.com/"
+                  target="_blank"
+                  className="inline-flex flex-1 items-center justify-center gap-2 rounded-lg bg-primary px-5 py-2 text-sm leading-[1.15] text-white shadow-sm transition-colors hover:bg-primary_dark hover:text-white focus:ring-2 focus:ring-secondary"
+                >
+                  <BsDatabase className="h-6 w-6" />
+                  Open Database
+                </a>
+              </div>
+            </div>
+          </div>
           <a
             className="hidden"
             ref={downloadRef}

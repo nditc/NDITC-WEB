@@ -1,6 +1,6 @@
 "use client";
 
-import { useUserDataContext } from "@/app/club/Components/Layout/UserDataProvider";
+import { useUserDataContext } from "@/app/_context/UserDataProvider";
 import Announcements from "@/app/club/Components/Profile/Announcements";
 import React from "react";
 

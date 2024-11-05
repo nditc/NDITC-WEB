@@ -1,5 +1,5 @@
 "use client";
-import { useUserDataContext } from "@/app/club/Components/Layout/UserDataProvider";
+import { useUserDataContext } from "@/app/_context/UserDataProvider";
 import ClubInfo from "@/app/club/Components/Profile/ClubInfo";
 import { auth } from "@/config/firebase";
 

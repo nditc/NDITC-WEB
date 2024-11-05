@@ -1,19 +1,19 @@
-import SingleNotification from './SingleNotification';
+import SingleNotification from "./_components/SingleNotification";
 
 const Notifications = async () => {
   const res = await fetch(
-    'https://nditc.pythonanywhere.com/api/v1/notifications/web?page=1&limit=5',
-    { cache: 'no-store' }
+    "https://nditc.pythonanywhere.com/api/v1/notifications/web?page=1&limit=5",
+    { cache: "no-store" },
   );
 
   const NotificationData: NotificationDataFormat[] = await res.json();
 
   return (
-    <div className="pt-32 pb-10 h-screen overflow-x-hidden bg-[#F6F6F6]">
-      <div className="container flex w-screen justify-center md:justify-start gap-3 items-center">
-        <div className="rounded-full w-16 h-16 bg-white grid place-items-center shadow-[010px_20px_15px_10px_#00000024]">
+    <div className="h-screen overflow-x-hidden bg-[#F6F6F6] pb-10 pt-32">
+      <div className="container flex w-screen items-center justify-center gap-3 md:justify-start">
+        <div className="grid h-16 w-16 place-items-center rounded-full bg-white shadow-[010px_20px_15px_10px_#00000024]">
           <svg
-            className="h-12 w-12 text-gray-800 hover:rotate-12 transition-all"
+            className="h-12 w-12 text-gray-800 transition-all hover:rotate-12"
             aria-hidden="true"
             xmlns="http://www.w3.org/2000/svg"
             fill="currentColor"
@@ -24,11 +24,13 @@ const Notifications = async () => {
         </div>
 
         <h1 className="text-4xl xsm:text-5xl md:text-6xl">ALL</h1>
-        <h1 className="text-4xl xsm:text-5xl md:text-6xl text-blue-500">NOTIFICATIONS</h1>
+        <h1 className="text-4xl text-blue-500 xsm:text-5xl md:text-6xl">
+          NOTIFICATIONS
+        </h1>
       </div>
 
-      <div className="w-screen flex justify-center">
-        <div className="flex flex-col container items-center gap-7 mt-10">
+      <div className="flex w-screen justify-center">
+        <div className="container mt-10 flex flex-col items-center gap-7">
           {NotificationData.map((e, i) => {
             return (
               <SingleNotification

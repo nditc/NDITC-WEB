@@ -11,7 +11,7 @@ import { auth, db } from "@/config/firebase";
 import { useAuthState } from "react-firebase-hooks/auth";
 import { toast } from "react-toastify";
 import PassingYear from "../PassingYear";
-import { useUserDataContext } from "../Layout/UserDataProvider";
+import { useUserDataContext } from "@/app/_context/UserDataProvider";
 
 interface props {
   userData: any;

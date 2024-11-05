@@ -1,7 +1,7 @@
 import Image from "next/image";
 import Link from "next/link";
 import { MdOutlineDateRange } from "react-icons/md";
-import "../styles/eventCard.css";
+import "../../styles/eventCard.css";
 import { encrypt } from "@/util/Encrypt";
 interface Props {
   title: string;

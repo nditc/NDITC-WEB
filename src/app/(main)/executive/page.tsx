@@ -3,14 +3,16 @@
 import React, { useState } from "react";
 import Member from "../Components/Member";
 import ExecutiveData from "../../../data/executives";
-import ExecutivePanel from "./ExecutivePanel";
-import Modal from "./Modal";
+import ExecutivePanel from "./_components/ExecutivePanel";
+import Modal from "./_components/Modal";
 
 const Executive = () => {
   const [modalState, setModalState] = useState<[number, number] | null>(null);
   return (
     <>
       <div className="relative min-h-[100vh] w-full bg-[#F6F6F6] px-5 py-[125px] md:px-12">
+        <Modal modalState={modalState} setModalState={setModalState} />
+        {/* Background */}
         <img
           className="absolute right-0 top-1/4 z-0"
           src="/image/bg.svg"
@@ -40,7 +42,6 @@ const Executive = () => {
           </h1>
           <ExecutivePanel setModalState={setModalState} />
         </div>
-        <Modal modalState={modalState} setModalState={setModalState} />
       </div>
     </>
   );

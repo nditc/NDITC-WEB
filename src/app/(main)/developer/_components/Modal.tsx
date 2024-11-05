@@ -1,7 +1,7 @@
 /* eslint-disable @next/next/no-img-element */
 import React, { Dispatch, SetStateAction, useEffect } from "react";
-import DeveloperData from "../../../data/developers";
-import ModalCont from "../Components/Modal";
+import DeveloperData from "@/data/developers";
+import ModalCont from "../../Components/ModalOverlay";
 import Link from "next/link";
 const Field = ({ title, desc }: { title: string; desc: React.ReactNode }) => {
   return (

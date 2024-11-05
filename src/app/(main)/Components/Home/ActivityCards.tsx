@@ -4,6 +4,7 @@ import React, { useState } from "react";
 import Image from "next/image";
 import Link from "next/link";
 import { motion } from "framer-motion";
+import mainActivities from "@/data/mainActivities";
 
 interface CardProps {
   title: string;
@@ -108,33 +109,6 @@ const Card = ({ title, desc, imgURL, href }: CardProps) => {
   );
 };
 const ActivityCards = () => {
-  const blogPosts: CardProps[] = [
-    {
-      title: "National Level events and festivals",
-      href: "event",
-      desc: "NDITC hosts electrifying national events like FTMPC 3.0, INIT 3.0, and Thynk 2.0, pushing boundaries in technology engagement.",
-      imgURL: "/image/activityCard/1.jpeg",
-    },
-    {
-      title: "ReGular Workshop and seminar",
-      href: "workshop",
-      desc: "The club conducts diverse workshops, from cryptography to web development bootcamps, fostering continual learning and skill enhancement.",
-      imgURL: "/image/activityCard/2.jpeg",
-    },
-    {
-      title: "Research and Development based cloud projects",
-      href: "project",
-      desc: "NDITC innovates with HashTech, Evya AI, and other cloud-based projects, pioneering research and development in the IT domain.",
-      imgURL: "/image/activityCard/3.jpeg",
-    },
-    {
-      title: "Annual publication of the club",
-      href: "publication",
-      desc: "RECURSION 2019 stands as NDITC's yearly publication, showcasing insights, achievements, and contributions in the technology landscape.",
-      imgURL: "/image/activityCard/4.jpeg",
-    },
-  ];
-
   const animationVariants = {
     initial: { opacity: 0, x: -100 },
     animate: (index: number) => ({
@@ -146,28 +120,42 @@ const ActivityCards = () => {
   };
 
   return (
-    <div className="grid w-full justify-center gap-5 py-5 sm:grid-cols-2 lg:grid-cols-4">
-      {blogPosts.map(({ imgURL, title, href, desc }, i) => {
-        return (
-          <motion.div
-            variants={animationVariants}
-            initial="initial"
-            whileInView="animate"
-            viewport={{ once: true }}
-            custom={i}
-            key={i}
-          >
-            <Card
-              title={title}
-              href={href}
-              desc={desc}
-              imgURL={imgURL}
-              key={i}
-            />
-          </motion.div>
-        );
-      })}
-    </div>
+    <>
+      <div className="relative mt-16 w-screen">
+        <section className="container relative flex w-full flex-col items-start justify-start md:gap-3">
+          <div className="flex flex-col self-center md:flex-row md:gap-2">
+            <h1 className="mx-auto text-center text-4xl text-blue-500 md:text-left md:text-5xl">
+              OUR ACTIVITIES
+            </h1>
+            <h1 className="mx-auto text-center text-4xl md:text-left md:text-5xl">
+              INCLUDE
+            </h1>
+          </div>
+          <div className="grid w-full justify-center gap-5 py-5 sm:grid-cols-2 lg:grid-cols-4">
+            {mainActivities.map(({ imgURL, title, href, desc }, i) => {
+              return (
+                <motion.div
+                  variants={animationVariants}
+                  initial="initial"
+                  whileInView="animate"
+                  viewport={{ once: true }}
+                  custom={i}
+                  key={i}
+                >
+                  <Card
+                    title={title}
+                    href={href}
+                    desc={desc}
+                    imgURL={imgURL}
+                    key={i}
+                  />
+                </motion.div>
+              );
+            })}
+          </div>
+        </section>
+      </div>
+    </>
   );
 };
 

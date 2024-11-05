@@ -10,7 +10,7 @@ import { useAuthState } from "react-firebase-hooks/auth";
 import EditData from "@/app/club/Components/Profile/EditData";
 import Announcements from "@/app/club/Components/Profile/Announcements";
 import ClubInfo from "@/app/club/Components/Profile/ClubInfo";
-import { useUserDataContext } from "@/app/club/Components/Layout/UserDataProvider";
+import { useUserDataContext } from "@/app/_context/UserDataProvider";
 import { MdLockReset } from "react-icons/md";
 
 const Page = () => {

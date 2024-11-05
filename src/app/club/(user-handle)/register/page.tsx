@@ -20,7 +20,7 @@ import { useRouter } from "next/navigation";
 import Link from "next/link";
 import { getConfig } from "@/config/config_db";
 import { Checkbox } from "@nextui-org/checkbox";
-import { useAuthContext } from "@/app/club/Components/Layout/AuthContextProvider";
+import { useAuthContext } from "@/app/_context/AuthContextProvider";
 import PassingYear from "../../Components/PassingYear";
 import { CiWarning } from "react-icons/ci";
 

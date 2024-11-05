@@ -10,7 +10,7 @@ import { CgSpinner } from "react-icons/cg";
 import {
   UserDataContextProvider,
   useUserDataContext,
-} from "@/app/club/Components/Layout/UserDataProvider";
+} from "@/app/_context/UserDataProvider";
 import ProfileHero from "../../Components/Profile/ProfileHero";
 import { SubNav, SubNavItem } from "../../Components/SubNav";
 import { CgProfile } from "react-icons/cg";

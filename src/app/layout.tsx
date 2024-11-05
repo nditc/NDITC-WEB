@@ -5,16 +5,16 @@ import "./(main)/styles/markdown.css";
 import "react-toastify/dist/ReactToastify.css";
 // import "react-toastify/dist/ReactToastify.css.map";
 // import "react-toastify/dist/react-toastify.esm.mjs.map";
-import Navbar from "./(main)/Components/Navbar";
-import SideBar from "./(main)/Components/Sidebar/SideBar";
-import Footer from "./(main)/Components/Footer";
+import Navbar from "./(main)/Components/Layout/Navbar/Navbar";
+import SideBar from "./(main)/Components/Layout/Sidebar/SideBar";
+import Footer from "./(main)/Components/Layout/Footer";
 import NextTopLoader from "nextjs-toploader";
 import { Suspense } from "react";
 import { ToastContainer } from "react-toastify";
 import { NextUIProvider } from "@nextui-org/react";
 import DeveloperLink from "./club/Components/DeveloperLink";
-import { AuthContextProvider } from "./club/Components/Layout/AuthContextProvider";
-import { UserDataContextProvider } from "./club/Components/Layout/UserDataProvider";
+import { AuthContextProvider } from "./_context/AuthContextProvider";
+import { UserDataContextProvider } from "./_context/UserDataProvider";
 
 const inter = Inter({ subsets: ["latin"] });
 

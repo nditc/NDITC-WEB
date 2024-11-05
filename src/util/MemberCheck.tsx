@@ -1,6 +1,6 @@
 "use client";
 
-import { useUserDataContext } from "@/app/club/Components/Layout/UserDataProvider";
+import { useUserDataContext } from "@/app/_context/UserDataProvider";
 import { auth, db } from "@/config/firebase";
 import { updateDoc, doc } from "firebase/firestore";
 import { useRouter } from "next/navigation";
