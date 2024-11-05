@@ -8,11 +8,12 @@ import Markdown from "react-markdown";
 import remarkGfm from "remark-gfm";
 import { decrypt } from "@/util/Encrypt";
 
-const Page = async ({
-  params,
-}: {
-  params: { url: string; type: string; date: number };
-}) => {
+const Page = async (
+  props: {
+    params: Promise<{ url: string; type: string; date: number }>;
+  }
+) => {
+  const params = await props.params;
   const url = decodeURIComponent(params.url);
   const cypher = decrypt(url);
   const res = await fetch(cypher, { cache: "no-store" });

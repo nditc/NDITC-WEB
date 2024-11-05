@@ -14,7 +14,8 @@ import Eligibility from "./Eligibility";
 
 type ParamType = { id: string };
 
-const page = async ({ params }: { params: ParamType }) => {
+const page = async (props: { params: Promise<ParamType> }) => {
+  const params = await props.params;
   await initAdmin();
   const encryption_key = "kjfofvdhjHjgrmgherTtyLJfVbshJbvQ"; // Must be 32 characters
   const initialization_vector = "X05IGQ5qdBnIqAWD"; // Must be 16 characters

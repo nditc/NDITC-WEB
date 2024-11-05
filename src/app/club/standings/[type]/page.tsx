@@ -5,7 +5,7 @@ import nthNumber from "@/util/nthNumber";
 import { getBlob, getBytes, getDownloadURL, ref } from "firebase/storage";
 import Image from "next/image";
 import Link from "next/link";
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useState, use } from "react";
 import {
   BsCalendar2CheckFill,
   BsDownload,
@@ -19,7 +19,8 @@ import { IoCheckmarkDone } from "react-icons/io5";
 import { LuArchive } from "react-icons/lu";
 import { toast } from "react-toastify";
 
-const Page = ({ params }: { params: { type: string } }) => {
+const Page = (props: { params: Promise<{ type: string }> }) => {
+  const params = use(props.params);
   const { type } = params;
   const [config, , configLoading] = useConfig([]);
   const [result, setResult] = useState<null | "loading" | any>("loading");

@@ -10,7 +10,7 @@ import {
   serverTimestamp,
   setDoc,
 } from "firebase/firestore";
-import { useState, useEffect, useReducer, useRef } from "react";
+import { useState, useEffect, useReducer, useRef, use } from "react";
 import { useAuthState } from "react-firebase-hooks/auth";
 import { CgSpinner } from "react-icons/cg";
 import { RiDeleteBin6Line } from "react-icons/ri";
@@ -34,7 +34,8 @@ import Link from "next/link";
 import InfoBox from "@/app/club/Components/InfoBox";
 import { CiWarning } from "react-icons/ci";
 
-const Page = ({ params }: { params: { eventID: string } }) => {
+const Page = (props: { params: Promise<{ eventID: string }> }) => {
+  const params = use(props.params);
   const [adminAuth, setAdminAuth] = useState<boolean>(false);
   const [user] = useAuthState(auth);
   const [authLoading, setAuthLoading] = useState<boolean>(true);

@@ -28,7 +28,8 @@ const fetchData = async (params: ParamType) => {
   }
 };
 
-const Page = async ({ params }: { params: ParamType }) => {
+const Page = async (props: { params: Promise<ParamType> }) => {
+  const params = await props.params;
   const data = await fetchData(params);
   const DateData = new Date(params.date * 1000);
   const titleArray = data.title.split(" ");

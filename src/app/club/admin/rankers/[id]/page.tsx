@@ -1,7 +1,7 @@
 "use client";
 
 import { auth, db } from "@/config/firebase";
-import React, { FormEvent, SetStateAction, useEffect, useState } from "react";
+import React, { FormEvent, SetStateAction, useEffect, useState, use } from "react";
 import { useAuthState } from "react-firebase-hooks/auth";
 import { CgSpinner } from "react-icons/cg";
 import Error from "@/app/club/Components/Error";
@@ -46,7 +46,8 @@ import { notFound, useRouter } from "next/navigation";
 import * as XLSX from "xlsx";
 import { FaDownload } from "react-icons/fa6";
 
-const Page = ({ params }: { params: { id: string } }) => {
+const Page = (props: { params: Promise<{ id: string }> }) => {
+  const params = use(props.params);
   const [adminAuth, setAdminAuth] = useState<boolean>(false);
   const [user] = useAuthState(auth);
   const [authLoading, setAuthLoading] = useState<boolean>(true);

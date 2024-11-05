@@ -6,7 +6,7 @@ import { createDecipheriv } from "crypto";
 import { useUserDataContext } from "../../Components/Layout/UserDataProvider";
 import { useAuthContext } from "../../Components/Layout/AuthContextProvider";
 import { CgSpinner } from "react-icons/cg";
-import { useEffect, useState } from "react";
+import { useEffect, useState, use } from "react";
 import Loading from "../../Components/Loading";
 
 const getQuestions = async (
@@ -31,7 +31,8 @@ const getQuestions = async (
   return res;
 };
 
-const Page = ({ params }: { params: { id: string } }) => {
+const Page = (props: { params: Promise<{ id: string }> }) => {
+  const params = use(props.params);
   const encryption_key = "kjfofvdhjHjgrmgherTtyLJfVbshJbvQ"; // Must be 32 characters
   const initialization_vector = "X05IGQ5qdBnIqAWD"; // Must be 16 characters
 
