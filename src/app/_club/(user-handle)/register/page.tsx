@@ -5,7 +5,16 @@ import React, { useEffect, useReducer, useState } from "react";
 import { regDataInit, regDataType, classes } from "@/config/registerData";
 import Select from "@/app/club/Components/Select";
 import { auth, db } from "@/config/firebase";
-import { doc, serverTimestamp, setDoc } from "firebase/firestore";
+import {
+  collection,
+  doc,
+  getDoc,
+  serverTimestamp,
+  setDoc,
+  where,
+  query,
+  getDocs,
+} from "firebase/firestore";
 
 import {
   createUserWithEmailAndPassword,
@@ -63,121 +72,132 @@ const Page = () => {
     setLoading(true);
     const [verified, massage] = verifyData(regData, password, confirmPassword);
 
-    if (isNDCStudent && regData.ndc_id != "") {
-      if (verified) {
-        const ndc_register_res = await getRegisteredNDC(regData);
-        const ndc_register_json = await ndc_register_res.json();
+    const response = await getDocs(
+      query(
+        collection(db, "participants"),
+        where("email", "==", regData.email),
+      ),
+    );
+    if (response.empty) {
+      if (isNDCStudent && regData.ndc_id != "") {
+        if (verified) {
+          const ndc_register_res = await getRegisteredNDC(regData);
+          const ndc_register_json = await ndc_register_res.json();
 
-        if (!ndc_register_res.ok) {
-          toast.error(ndc_register_json.error);
-          setLoading(false);
-          return;
-        } else {
-          if (ndc_register_json.success) {
-            regData.ndc_id = ndc_register_json.memberID;
-            createUserWithEmailAndPassword(auth, regData.email, password)
-              .then(async (userInfo) => {
-                //add userInfo in Collections
-                const uid = userInfo.user.uid;
-                await setDoc(doc(db, "participants", uid), {
-                  ...regData,
-                  institution: "Notre Dame College",
-                  mobile: ndc_register_json.mobile,
-                  name: ndc_register_json.name,
-                  address: ndc_register_json.address,
-                  pass_set: true,
-                  class: ndc_register_json.year,
-                  ndc_roll: ndc_register_json.roll,
-                  timestamp: serverTimestamp(),
-                  imageUrl:
-                    "https://firebasestorage.googleapis.com/v0/b/ftmpc-63d81.appspot.com/o/pfp%2Fno_user.webp?alt=media&token=fd930687-e7b9-4fa6-9603-f20b73bd0a86",
+          if (!ndc_register_res.ok) {
+            toast.error(ndc_register_json.error);
+            setLoading(false);
+            return;
+          } else {
+            if (ndc_register_json.success) {
+              regData.ndc_id = ndc_register_json.memberID;
+              createUserWithEmailAndPassword(auth, regData.email, password)
+                .then(async (userInfo) => {
+                  //add userInfo in Collections
+                  const uid = userInfo.user.uid;
+                  await setDoc(doc(db, "participants", uid), {
+                    ...regData,
+                    institution: "Notre Dame College",
+                    mobile: ndc_register_json.mobile,
+                    name: ndc_register_json.name,
+                    address: ndc_register_json.address,
+                    pass_set: true,
+                    class: ndc_register_json.year,
+                    ndc_roll: ndc_register_json.roll,
+                    timestamp: serverTimestamp(),
+                    imageUrl:
+                      "https://firebasestorage.googleapis.com/v0/b/ftmpc-63d81.appspot.com/o/pfp%2Fno_user.webp?alt=media&token=fd930687-e7b9-4fa6-9603-f20b73bd0a86",
+                  });
+                  await sendEmailVerification(userInfo.user);
+                  toast.success(
+                    "Email verification link sent! Please verify your email please.",
+                  );
+                  setLoading(false);
+                  Router.push("/club/verify");
+                })
+                .catch((error) => {
+                  switch (error.code) {
+                    case "auth/email-already-in-use":
+                      toast.error(`Email address already in use.`);
+                      break;
+                    case "auth/invalid-email":
+                      toast.error(`Email address is invalid.`);
+                      break;
+                    case "auth/operation-not-allowed":
+                      toast.error(`Error during sign up.`);
+                      break;
+                    case "auth/weak-password":
+                      toast.error(
+                        "Password is not strong enough. Add additional characters including special characters and numbers.",
+                      );
+                      break;
+                    default:
+                      toast.error(error.message.replaceAll("Firebase: ", ""));
+
+                      break;
+                  }
+                  setLoading(false);
                 });
-                await sendEmailVerification(userInfo.user);
-                toast.success(
-                  "Email verification link sent! Please verify your email please.",
-                );
-                setLoading(false);
-                Router.push("/club/verify");
-              })
-              .catch((error) => {
-                switch (error.code) {
-                  case "auth/email-already-in-use":
-                    toast.error(`Email address already in use.`);
-                    break;
-                  case "auth/invalid-email":
-                    toast.error(`Email address is invalid.`);
-                    break;
-                  case "auth/operation-not-allowed":
-                    toast.error(`Error during sign up.`);
-                    break;
-                  case "auth/weak-password":
-                    toast.error(
-                      "Password is not strong enough. Add additional characters including special characters and numbers.",
-                    );
-                    break;
-                  default:
-                    toast.error(error.message.replaceAll("Firebase: ", ""));
-
-                    break;
-                }
-                setLoading(false);
-              });
+            }
           }
+        } else {
+          toast.error(massage);
+          setLoading(false);
         }
       } else {
-        toast.error(massage);
-        setLoading(false);
+        if (verified) {
+          //
+
+          regData.ndc_id = "";
+          createUserWithEmailAndPassword(auth, regData.email, password)
+            .then(async (userInfo) => {
+              //add userInfo in Collections
+              const uid = userInfo.user.uid;
+              await setDoc(doc(db, "participants", uid), {
+                ...regData,
+                timestamp: serverTimestamp(),
+                pass_set: true,
+                imageUrl:
+                  "https://firebasestorage.googleapis.com/v0/b/ftmpc-63d81.appspot.com/o/pfp%2Fno_user.webp?alt=media&token=fd930687-e7b9-4fa6-9603-f20b73bd0a86",
+              });
+              await sendEmailVerification(userInfo.user);
+              toast.success(
+                "Email verification link sent! Please verify your email please.",
+              );
+              setLoading(false);
+              Router.push("/club/verify");
+            })
+            .catch((error) => {
+              switch (error.code) {
+                case "auth/email-already-in-use":
+                  toast.error(`Email address already in use.`);
+                  break;
+                case "auth/invalid-email":
+                  toast.error(`Email address is invalid.`);
+                  break;
+                case "auth/operation-not-allowed":
+                  toast.error(`Error during sign up.`);
+                  break;
+                case "auth/weak-password":
+                  toast.error(
+                    "Password is not strong enough. Add additional characters including special characters and numbers.",
+                  );
+                  break;
+                default:
+                  toast.error(error.message.replaceAll("Firebase: ", ""));
+
+                  break;
+              }
+              setLoading(false);
+            });
+        } else {
+          toast.error(massage);
+          setLoading(false);
+        }
       }
     } else {
-      if (verified) {
-        //
-
-        regData.ndc_id = "";
-        createUserWithEmailAndPassword(auth, regData.email, password)
-          .then(async (userInfo) => {
-            //add userInfo in Collections
-            const uid = userInfo.user.uid;
-            await setDoc(doc(db, "participants", uid), {
-              ...regData,
-              timestamp: serverTimestamp(),
-              pass_set: true,
-              imageUrl:
-                "https://firebasestorage.googleapis.com/v0/b/ftmpc-63d81.appspot.com/o/pfp%2Fno_user.webp?alt=media&token=fd930687-e7b9-4fa6-9603-f20b73bd0a86",
-            });
-            await sendEmailVerification(userInfo.user);
-            toast.success(
-              "Email verification link sent! Please verify your email please.",
-            );
-            setLoading(false);
-            Router.push("/club/verify");
-          })
-          .catch((error) => {
-            switch (error.code) {
-              case "auth/email-already-in-use":
-                toast.error(`Email address already in use.`);
-                break;
-              case "auth/invalid-email":
-                toast.error(`Email address is invalid.`);
-                break;
-              case "auth/operation-not-allowed":
-                toast.error(`Error during sign up.`);
-                break;
-              case "auth/weak-password":
-                toast.error(
-                  "Password is not strong enough. Add additional characters including special characters and numbers.",
-                );
-                break;
-              default:
-                toast.error(error.message.replaceAll("Firebase: ", ""));
-
-                break;
-            }
-            setLoading(false);
-          });
-      } else {
-        toast.error(massage);
-        setLoading(false);
-      }
+      toast.error(`Email address already in use.`);
+      setLoading(false);
     }
   };
   const setValue = (name: string, data: string | number) => {

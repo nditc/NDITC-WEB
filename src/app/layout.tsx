@@ -12,7 +12,6 @@ import NextTopLoader from "nextjs-toploader";
 import { Suspense } from "react";
 import { ToastContainer } from "react-toastify";
 import { NextUIProvider } from "@nextui-org/react";
-import DeveloperLink from "./club/Components/DeveloperLink";
 import { AuthContextProvider } from "./_context/AuthContextProvider";
 import { UserDataContextProvider } from "./_context/UserDataProvider";
 
@@ -64,7 +63,7 @@ export default function RootLayout({
               <SideBar />
               {children}
               <Footer />
-              <DeveloperLink />
+
               <ToastContainer bodyClassName={"Inter"} position="top-center" />
             </UserDataContextProvider>
           </AuthContextProvider>
