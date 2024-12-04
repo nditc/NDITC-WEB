@@ -3,7 +3,7 @@
 }
 @media (max-width: 765px) {
   .session-selector {
-    @apply overflow-hidden flex flex-col bg-white w-full rounded-xl mb-10 transition-all  h-[48px] z-10 shadow-lg;
+    @apply z-10 mb-10 flex max-h-[48px] w-full flex-col overflow-hidden rounded-xl bg-white shadow-lg transition-all;
   }
   .session-selector > .active-elem img {
     display: block;
@@ -12,7 +12,7 @@
     @apply order-2;
   }
   .open {
-    @apply h-[240px];
+    @apply max-h-[1000px];
   }
 
   .session-selector > .active-elem {
@@ -21,6 +21,6 @@
 }
 @media (min-width: 768px) {
   .session-selector {
-    @apply flex h-[20vw] flex-col text-xl gap-5;
+    @apply flex h-[20vw] flex-col gap-5 text-xl;
   }
 }
