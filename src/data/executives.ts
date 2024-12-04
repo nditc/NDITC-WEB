@@ -725,22 +725,7 @@ const db: dbType = {
           post: "Secretary",
           dept: "Department of A.W.S",
         },
-        {
-          name: "Sourov Das",
-          image_url:
-            "https://raw.githubusercontent.com/nditc/nditc_mobile_app/main/images/executives/2021-2022/5.jpg",
-          profile_url: "",
-          post: "Executive Member",
-          dept: null,
-        },
-        {
-          name: "Mirza Ahmed Al Mehedi",
-          image_url:
-            "https://raw.githubusercontent.com/nditc/nditc_mobile_app/main/images/executives/2021-2022/6.jpg",
-          profile_url: "",
-          post: "Executive Member",
-          dept: null,
-        },
+
         {
           name: "Saom Bin Khaled",
           image_url:
@@ -756,22 +741,6 @@ const db: dbType = {
           profile_url: "",
           post: "Secretary",
           dept: "Department of Programming",
-        },
-        {
-          name: "Abu Bakar Siddique",
-          image_url:
-            "https://raw.githubusercontent.com/nditc/nditc_mobile_app/main/images/executives/2021-2022/9.jpg",
-          profile_url: "",
-          post: "President",
-          dept: "Department of Publications",
-        },
-        {
-          name: "Rafsan Jani Bin Islam",
-          image_url:
-            "https://raw.githubusercontent.com/nditc/nditc_mobile_app/main/images/executives/2021-2022/10.jpg",
-          profile_url: "",
-          post: "Secretary",
-          dept: "Department of Publications",
         },
         {
           name: "Farhan Ishraq",
@@ -790,6 +759,23 @@ const db: dbType = {
           dept: "Department of Public Relations",
         },
         {
+          name: "Abu Bakar Siddique",
+          image_url:
+            "https://raw.githubusercontent.com/nditc/nditc_mobile_app/main/images/executives/2021-2022/9.jpg",
+          profile_url: "",
+          post: "President",
+          dept: "Department of Publications",
+        },
+        {
+          name: "Rafsan Jani Bin Islam",
+          image_url:
+            "https://raw.githubusercontent.com/nditc/nditc_mobile_app/main/images/executives/2021-2022/10.jpg",
+          profile_url: "",
+          post: "Secretary",
+          dept: "Department of Publications",
+        },
+
+        {
           name: "Md. Ashrafuzzaman Fuad",
           image_url:
             "https://raw.githubusercontent.com/nditc/nditc_mobile_app/main/images/executives/2021-2022/13.jpg",
@@ -797,6 +783,7 @@ const db: dbType = {
           post: "President",
           dept: "Department of Robotics",
         },
+
         {
           name: "Khalid Ahammed Uzzal",
           image_url:
@@ -811,6 +798,22 @@ const db: dbType = {
             "https://raw.githubusercontent.com/nditc/nditc_mobile_app/main/images/executives/2021-2022/15.jpg",
           profile_url: "",
           post: "Treasurer",
+          dept: null,
+        },
+        {
+          name: "Sourov Das",
+          image_url:
+            "https://raw.githubusercontent.com/nditc/nditc_mobile_app/main/images/executives/2021-2022/5.jpg",
+          profile_url: "",
+          post: "Executive Member",
+          dept: null,
+        },
+        {
+          name: "Mirza Ahmed Al Mehedi",
+          image_url:
+            "https://raw.githubusercontent.com/nditc/nditc_mobile_app/main/images/executives/2021-2022/6.jpg",
+          profile_url: "",
+          post: "Executive Member",
           dept: null,
         },
       ],
@@ -850,23 +853,7 @@ const db: dbType = {
           post: "Secretary",
           dept: "Department of A.W.S",
         },
-        {
-          name: "Arman Ferdous",
-          image_url:
-            "https://raw.githubusercontent.com/nditc/nditc_mobile_app/main/images/executives/2020-2021/5.jpg",
-          profile_url:
-            "https://www.facebook.com/profile.php?id=100011664880404",
-          post: "Executive Member",
-          dept: null,
-        },
-        {
-          name: "J.M. Areeb Uzair",
-          image_url:
-            "https://raw.githubusercontent.com/nditc/nditc_mobile_app/main/images/executives/2020-2021/6.jpg",
-          profile_url: "",
-          post: "Executive Member",
-          dept: null,
-        },
+
         {
           name: "Saleque Bin Hossain",
           image_url:
@@ -884,22 +871,6 @@ const db: dbType = {
           dept: "Department of Programming",
         },
         {
-          name: "Faiyad Hossain Sowad",
-          image_url:
-            "https://raw.githubusercontent.com/nditc/nditc_mobile_app/main/images/executives/2020-2021/9.jpg",
-          profile_url: "https://www.facebook.com/fhsowad",
-          post: "President",
-          dept: "Department of Publications",
-        },
-        {
-          name: "Aniruddha Chisim",
-          image_url:
-            "https://raw.githubusercontent.com/nditc/nditc_mobile_app/main/images/executives/2020-2021/10.jpg",
-          profile_url: "https://www.facebook.com/ruddha.chisim",
-          post: "Secretary",
-          dept: "Department of Publications",
-        },
-        {
           name: "Tausif Muntak Tasin",
           image_url:
             "https://raw.githubusercontent.com/nditc/nditc_mobile_app/main/images/executives/2020-2021/11.jpg",
@@ -915,6 +886,23 @@ const db: dbType = {
           post: "Secretary",
           dept: "Department of Public Relations",
         },
+        {
+          name: "Faiyad Hossain Sowad",
+          image_url:
+            "https://raw.githubusercontent.com/nditc/nditc_mobile_app/main/images/executives/2020-2021/9.jpg",
+          profile_url: "https://www.facebook.com/fhsowad",
+          post: "President",
+          dept: "Department of Publications",
+        },
+        {
+          name: "Aniruddha Chisim",
+          image_url:
+            "https://raw.githubusercontent.com/nditc/nditc_mobile_app/main/images/executives/2020-2021/10.jpg",
+          profile_url: "https://www.facebook.com/ruddha.chisim",
+          post: "Secretary",
+          dept: "Department of Publications",
+        },
+
         {
           name: "Shahriyar Haris",
           image_url:
@@ -939,33 +927,43 @@ const db: dbType = {
           post: "Treasurer",
           dept: null,
         },
+        {
+          name: "Arman Ferdous",
+          image_url:
+            "https://raw.githubusercontent.com/nditc/nditc_mobile_app/main/images/executives/2020-2021/5.jpg",
+          profile_url:
+            "https://www.facebook.com/profile.php?id=100011664880404",
+          post: "Executive Member",
+          dept: null,
+        },
+        {
+          name: "J.M. Areeb Uzair",
+          image_url:
+            "https://raw.githubusercontent.com/nditc/nditc_mobile_app/main/images/executives/2020-2021/6.jpg",
+          profile_url: "",
+          post: "Executive Member",
+          dept: null,
+        },
       ],
     },
     {
       session: "2019-2020",
       members: [
         {
-          name: "Chowdhury Isfatul Karim",
-          image_url:
-            "https://raw.githubusercontent.com/nditc/nditc_mobile_app/main/images/executives/2019-2020/1.jpg",
-          profile_url: "https://www.facebook.com/isfatul.karim",
-          post: "President",
-          dept: "Department of Programming",
-        },
-        {
-          name: "Hamidur Rahman Khan",
-          image_url:
-            "https://raw.githubusercontent.com/nditc/nditc_mobile_app/main/images/executives/2019-2020/2.jpg",
-          profile_url: "https://www.facebook.com/hamidur.rk",
-          post: "President",
-          dept: "Department of Robotics",
-        },
-        {
           name: "Fahim Murshed",
           image_url:
             "https://raw.githubusercontent.com/nditc/nditc_mobile_app/main/images/executives/2019-2020/3.jpg",
           profile_url: "https://www.facebook.com/rabby.fahimmurshed.3",
           post: "President",
+          dept: "Department of Administration",
+        },
+
+        {
+          name: "Mashfiqun Nabi",
+          image_url:
+            "https://raw.githubusercontent.com/nditc/nditc_mobile_app/main/images/executives/2019-2020/9.jpg",
+          profile_url: "https://www.facebook.com/mashfiqun.nabi",
+          post: "Secretary",
           dept: "Department of Administration",
         },
         {
@@ -977,11 +975,43 @@ const db: dbType = {
           dept: "Department of A.W.S",
         },
         {
+          name: "Hashibul Sharon",
+          image_url:
+            "https://raw.githubusercontent.com/nditc/nditc_mobile_app/main/images/executives/2019-2020/10.jpg",
+          profile_url: "https://www.facebook.com/hashibulsharon",
+          post: "Secretary",
+          dept: "Department of A.W.S",
+        },
+        {
+          name: "Chowdhury Isfatul Karim",
+          image_url:
+            "https://raw.githubusercontent.com/nditc/nditc_mobile_app/main/images/executives/2019-2020/1.jpg",
+          profile_url: "https://www.facebook.com/isfatul.karim",
+          post: "President",
+          dept: "Department of Programming",
+        },
+        {
+          name: "Nazib Abrar",
+          image_url:
+            "https://raw.githubusercontent.com/nditc/nditc_mobile_app/main/images/executives/2019-2020/7.jpg",
+          profile_url: "https://www.facebook.com/abrar.nirjh0r",
+          post: "Secretary",
+          dept: "Department of Programming",
+        },
+        {
           name: "Noor Mohammad Rifat",
           image_url:
             "https://raw.githubusercontent.com/nditc/nditc_mobile_app/main/images/executives/2019-2020/5.jpg",
           profile_url: "https://www.facebook.com/nm.rifat.925",
           post: "President",
+          dept: "Department of Public Relations",
+        },
+        {
+          name: "Mostofa Mohiuddin",
+          image_url:
+            "https://raw.githubusercontent.com/nditc/nditc_mobile_app/main/images/executives/2019-2020/11.jpg",
+          profile_url: "https://www.facebook.com/eshan.ahmed.758737",
+          post: "Secretary",
           dept: "Department of Public Relations",
         },
         {
@@ -993,12 +1023,20 @@ const db: dbType = {
           dept: "Department of Publications",
         },
         {
-          name: "Nazib Abrar",
+          name: "Zuhayer Md. Ajmain Hoque",
           image_url:
-            "https://raw.githubusercontent.com/nditc/nditc_mobile_app/main/images/executives/2019-2020/7.jpg",
-          profile_url: "https://www.facebook.com/abrar.nirjh0r",
+            "https://raw.githubusercontent.com/nditc/nditc_mobile_app/main/images/executives/2019-2020/12.jpg",
+          profile_url: "",
           post: "Secretary",
-          dept: "Department of Programming",
+          dept: "Department of Publications",
+        },
+        {
+          name: "Hamidur Rahman Khan",
+          image_url:
+            "https://raw.githubusercontent.com/nditc/nditc_mobile_app/main/images/executives/2019-2020/2.jpg",
+          profile_url: "https://www.facebook.com/hamidur.rk",
+          post: "President",
+          dept: "Department of Robotics",
         },
         {
           name: "Shihab Sarar Ahmed",
@@ -1007,38 +1045,6 @@ const db: dbType = {
           profile_url: "https://www.facebook.com/shihabsarar29",
           post: "Secretary",
           dept: "Department of Robotics",
-        },
-        {
-          name: "Mashfiqun Nabi",
-          image_url:
-            "https://raw.githubusercontent.com/nditc/nditc_mobile_app/main/images/executives/2019-2020/9.jpg",
-          profile_url: "https://www.facebook.com/mashfiqun.nabi",
-          post: "Secretary",
-          dept: "Department of Administration",
-        },
-        {
-          name: "Hashibul Sharon",
-          image_url:
-            "https://raw.githubusercontent.com/nditc/nditc_mobile_app/main/images/executives/2019-2020/10.jpg",
-          profile_url: "https://www.facebook.com/hashibulsharon",
-          post: "Secretary",
-          dept: "Department of A.W.S",
-        },
-        {
-          name: "Mostofa Mohiuddin",
-          image_url:
-            "https://raw.githubusercontent.com/nditc/nditc_mobile_app/main/images/executives/2019-2020/11.jpg",
-          profile_url: "https://www.facebook.com/eshan.ahmed.758737",
-          post: "Secretary",
-          dept: "Department of Public Relations",
-        },
-        {
-          name: "Zuhayer Md. Ajmain Hoque",
-          image_url:
-            "https://raw.githubusercontent.com/nditc/nditc_mobile_app/main/images/executives/2019-2020/12.jpg",
-          profile_url: "",
-          post: "Secretary",
-          dept: "Department of Publications",
         },
         {
           name: "Takbir Hossain Rudro",

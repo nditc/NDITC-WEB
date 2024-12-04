@@ -14,7 +14,7 @@ export default function Home() {
       <Departments />
       <HashtechPosts />
       <ActivityCards />
-      <FAQ />
+      {/* <FAQ /> */}
       <WhyNditc />
       <CodeCompass />
       <Contact />
