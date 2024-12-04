@@ -37,11 +37,9 @@ const getEventData = async (type: string) => {
   return res.json();
 };
 const Activities = async ({
-  params,
   searchParams,
 }: {
-  params: {};
-  searchParams: { [key: string]: string | string[] | undefined };
+  searchParams: Promise<{ [key: string]: string | string[] | undefined }>;
 }) => {
   const { type } = await searchParams;
   const events = await getEventData(type + "s");
