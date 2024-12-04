@@ -1,6 +1,6 @@
 import React, { useState, useRef, useEffect } from "react";
 import { PiCaretLeftBold, PiCaretRightBold } from "react-icons/pi";
-import Modal from "../Modal";
+import Modal from "../ModalOverlay";
 import { FaTimes } from "react-icons/fa";
 import { BiZoomIn, BiZoomOut } from "react-icons/bi";
 import { TransformComponent, TransformWrapper } from "react-zoom-pan-pinch";
