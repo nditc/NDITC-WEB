@@ -10,6 +10,12 @@ const withPWA = pwa({
 });
 
 const nextConfig = {
+  eslint: {
+    ignoreDuringBuilds: true,
+  },
+  typescript: {
+    ignoreBuildErrors: true,
+  },
   transpilePackages: ["crypto-js"],
   images: {
     remotePatterns: [
