@@ -107,7 +107,7 @@ const NavLinkCont = ({
           <NavLink href="/#contact">Contact</NavLink>
 
           {windowWidth <= 1024 && (
-            <NavLink href="/developers">Developers</NavLink>
+            <NavLink href="/developer">Developers</NavLink>
           )}
           {/* 
             <li>
