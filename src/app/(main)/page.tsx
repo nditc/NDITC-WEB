@@ -6,6 +6,8 @@ import FAQ from "./Components/Home/FAQ";
 import Hero from "./Components/Home/Hero";
 import Departments from "./Components/Home/Departments";
 import WhyNditc from "./Components/Home/WhyNditc";
+import Upcoming from "./activities/_components/Upcoming";
+import UpcomingEvents from "./activities/_components/UpcomingEvents";
 
 export default function Home() {
   return (
@@ -13,6 +15,9 @@ export default function Home() {
       <Hero />
       <Departments />
       <HashtechPosts />
+      <div className="mt-16 w-full">
+        <UpcomingEvents />
+      </div>
       <ActivityCards />
       {/* <FAQ /> */}
       <WhyNditc />
