@@ -164,7 +164,7 @@ const db: dbType = {
           dept: "Department of Programming",
           group: 16,
           roll: 12416094,
-          email: "mdiqtiaruddin20@gmail.com",
+          email: "maskawathhossain2005@gmail.com",
           phone: "+88 01621419326",
         },
         {
