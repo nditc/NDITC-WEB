@@ -40,6 +40,365 @@ const db: dbType = {
   ],
   sessions: [
     {
+      session: "2024-2025",
+      hasExtraDetails: true,
+      members: [
+
+        {
+          name: "Muksifur Rahman",
+          image_url: "https://raw.githubusercontent.com/nditc/nditc_mobile_app/main/images/executives/2024-2025/Muksifur Rahman.jpg",
+          imageInCenter: true,
+          modal_image_url: "/image/executives/2024-2025/Muksifur Rahman.png",
+          profile_url: [
+            { platform: "facebook", url: "https://www.facebook.com/muksifur" },
+            { platform: "linkedin", url: "https://www.linkedin.com/in/muksifur/" },
+            { platform: "github", url: "GitHub.com/muksifur" },
+            { platform: "instagram", url: "instagram.com/muksifur" },
+            { platform: "twitter", url: "X.com/muksifur" }
+          ],
+          post: "President",
+          dept: "Department of Administration",
+          group: 5,
+          roll: 12505096,
+          email: "muksifur@gmail.com",
+          phone: "+8801786258009"
+        },
+        {
+          name: "Priangshu Sutradhar",
+          image_url: "https://raw.githubusercontent.com/nditc/nditc_mobile_app/main/images/executives/2024-2025/Priangshu Sutradhar.jpg",
+          imageInCenter: true,
+          modal_image_url: "/image/executives/2024-2025/Priangshu Sutradhar.png",
+          profile_url: [],
+          post: "Vice President",
+          dept: "Department of Administration",
+          group: 15,
+          roll: 12515081,
+          email: "ph2.sutradhar@gmail.com",
+          phone: "+8801540779336"
+        },
+        {
+          name: "Md. Abu Bakor Siddik Molla",
+          image_url: "https://raw.githubusercontent.com/nditc/nditc_mobile_app/main/images/executives/2024-2025/Md. Abu Bakor Siddik Molla.jpg",
+          imageInCenter: true,
+          modal_image_url: "/image/executives/2024-2025/Md. Abu Bakor Siddik Molla.png",
+          profile_url: [
+            { platform: "facebook", url: "https://www.facebook.com/md.abu.bakar.siddik.974935" }
+          ],
+          post: "Secretary",
+          dept: "Department of Administration",
+          group: 3,
+          roll: 12503084,
+          email: "abubakarsiddik3084@gmail.com",
+          phone: "+8801304369930"
+        },
+        {
+          name: "Redwanur Rahaman",
+          image_url: "https://raw.githubusercontent.com/nditc/nditc_mobile_app/main/images/executives/2024-2025/Redwanur Rahaman.jpg",
+          imageInCenter: true,
+          modal_image_url: "/image/executives/2024-2025/Redwanur Rahaman.png",
+          profile_url: [
+            { platform: "facebook", url: "https://www.facebook.com/R3DE0N" },
+            { platform: "linkedin", url: "https://bd.linkedin.com/in/redwanurrahaman07" },
+            { platform: "github", url: "https://github.com/Redwanur" }
+          ],
+          post: "President",
+          dept: "Department of Archive, Workshop & Seminar",
+          group: 16,
+          roll: 12516038,
+          email: "redwanur2005@gmail.com",
+          phone: "+8801790390422"
+        },
+        {
+          name: "Muttaqi Mahmood Choudhury",
+          image_url: "https://raw.githubusercontent.com/nditc/nditc_mobile_app/main/images/executives/2024-2025/Muttaqi Mahmood Choudhury.jpg",
+          imageInCenter: true,
+          modal_image_url: "/image/executives/2024-2025/Muttaqi Mahmood Choudhury.png",
+          profile_url: [
+            { platform: "facebook", url: "https://www.facebook.com/muttaqi.mahmood" },
+            { platform: "instagram", url: "https://www.instagram.com/mttaqui06/" }
+          ],
+          post: "President",
+          dept: "Department of Logistics & Field Work",
+          group: 3,
+          roll: 12503061,
+          email: "muttaqimc06@gmail.com",
+          phone: "+8801790573465"
+        },
+        {
+          name: "Md. Mostakim Ferdows",
+          image_url: "https://raw.githubusercontent.com/nditc/nditc_mobile_app/main/images/executives/2024-2025/Md. Mostakim Ferdows.jpg",
+          imageInCenter: true,
+          modal_image_url: "/image/executives/2024-2025/Md. Mostakim Ferdows.png",
+          profile_url: [
+            { platform: "facebook", url: "https://www.facebook.com/mostakim.raduan/" }
+          ],
+          post: "Secretary",
+          dept: "Department of Logistics & Fieldwork",
+          group: 7,
+          roll: 12507065,
+          email: "mostakimraduan1639@gmail.com",
+          phone: "+8801721928157"
+        },
+        {
+          name: "Samin Yasar Alam",
+          image_url: "https://raw.githubusercontent.com/nditc/nditc_mobile_app/main/images/executives/2024-2025/Samin Yasar Alam.jpg",
+          imageInCenter: true,
+          modal_image_url: "/image/executives/2024-2025/Samin Yasar Alam.png",
+          profile_url: [
+            { platform: "facebook", url: "https://www.facebook.com/Samin12504069" },
+            { platform: "instagram", url: "https://www.instagram.com/_samin_4069/" },
+            { platform: "twitter", url: "https://x.com/Samin_12504069?t=oNgBA4Q5vPDd1QVA4eREeg&s=09" }
+          ],
+          post: "Photography & Videography",
+          dept: "",
+          group: 4,
+          roll: 12504069,
+          email: "saminyasar705@gmail.com",
+          phone: "+8801623804681"
+        },
+        {
+          name: "Md Raad Sharar",
+          image_url: "https://raw.githubusercontent.com/nditc/nditc_mobile_app/main/images/executives/2024-2025/Md Raad Sharar.jpg",
+          imageInCenter: true,
+          modal_image_url: "/image/executives/2024-2025/Md Raad Sharar.png",
+          profile_url: [
+            { platform: "facebook", url: "https://www.facebook.com/share/1BzBchv5VH/?mibextid=wwXIfr" }
+          ],
+          post: "Secretary",
+          dept: "",
+          group: 1,
+          roll: 12501040,
+          email: "raadsharar833@gmail.com",
+          phone: "+8801780735430"
+        },
+        {
+          name: "Wali E Zaman",
+          image_url: "https://raw.githubusercontent.com/nditc/nditc_mobile_app/main/images/executives/2024-2025/Wali E Zaman.jpg",
+          imageInCenter: true,
+          modal_image_url: "/image/executives/2024-2025/Wali E Zaman.png",
+          profile_url: [],
+          post: "Programming President",
+          dept: "",
+          group: 7,
+          roll: 12507091,
+          email: "waliezaman208@gmail.com",
+          phone: "+8801973380329"
+        },
+        {
+          name: "Kazi Nadid Hossain",
+          image_url: "https://raw.githubusercontent.com/nditc/nditc_mobile_app/main/images/executives/2024-2025/Kazi Nadid Hossain.jpg",
+          imageInCenter: true,
+          modal_image_url: "/image/executives/2024-2025/Kazi Nadid Hossain.png",
+          profile_url: [
+            { platform: "facebook", url: "https://www.facebook.com/nadid.hossain.31#" }
+          ],
+          post: "Vice President",
+          dept: "Department of Programming",
+          group: 9,
+          roll: 12509002,
+          email: "nadid450hossain@gmail.com",
+          phone: "+8801747926920"
+        },
+        {
+          name: "Anol Dey Hrithik",
+          image_url: "https://raw.githubusercontent.com/nditc/nditc_mobile_app/main/images/executives/2024-2025/Anol Dey Hrithik.jpg",
+          imageInCenter: true,
+          modal_image_url: "/image/executives/2024-2025/Anol Dey Hrithik.png",
+          profile_url: [
+            { platform: "facebook", url: "https://www.facebook.com/anol.dey.hrithik001" }
+          ],
+          post: "President",
+          dept: "Department of Publications",
+          group: 5,
+          roll: 12505028,
+          email: "anoldeyhrithik001@gmail.com",
+          phone: "+8801986521023"
+        },
+        {
+          name: "Aditya Sahariar Upal",
+          image_url: "https://raw.githubusercontent.com/nditc/nditc_mobile_app/main/images/executives/2024-2025/Aditya Sahariar Upal.jpg",
+          imageInCenter: true,
+          modal_image_url: "/image/executives/2024-2025/Aditya Sahariar Upal.png",
+          profile_url: [],
+          post: "Publication Secretary",
+          dept: "",
+          group: 17,
+          roll: 12517100,
+          email: "upal1418@gmail.com",
+          phone: "+8801774027807"
+        },
+        {
+          name: "Aldrin Dip Sarker",
+          image_url: "https://raw.githubusercontent.com/nditc/nditc_mobile_app/main/images/executives/2024-2025/Aldrin Dip Sarker.jpg",
+          imageInCenter: true,
+          modal_image_url: "/image/executives/2024-2025/Aldrin Dip Sarker.png",
+          profile_url: [
+            { platform: "facebook", url: "https://www.facebook.com/aldrin.dip.sarker/" },
+            { platform: "linkedin", url: "www.linkedin.com/in/aldrin-dip-sarker/" },
+            { platform: "instagram", url: "https://www.instagram.com/aldrinium/" }
+          ],
+          post: "President",
+          dept: "Department of Public Relations",
+          group: 15,
+          roll: 12515100,
+          email: "sarkerdip420@gmail.com",
+          phone: "+8801768142706"
+        },
+        {
+          name: "Md.Abdullah Zuham",
+          image_url: "https://raw.githubusercontent.com/nditc/nditc_mobile_app/main/images/executives/2024-2025/Md.Abdullah Zuham.jpg",
+          imageInCenter: true,
+          modal_image_url: "/image/executives/2024-2025/Md.Abdullah Zuham.png",
+          profile_url: [
+            { platform: "facebook", url: "https://www.facebook.com/share/1VhFkEDFJH/" }
+          ],
+          post: "Secretary",
+          dept: "Public Relations",
+          group: 65,
+          roll: 62565113,
+          email: "zuhamabdullah50@gmail.com",
+          phone: "+8801770997247"
+        },
+        {
+          name: "Tahsan Hossain",
+          image_url: "https://raw.githubusercontent.com/nditc/nditc_mobile_app/main/images/executives/2024-2025/Tahsan Hossain.jpg",
+          imageInCenter: true,
+          modal_image_url: "/image/executives/2024-2025/Tahsan Hossain.png",
+          profile_url: [
+            { platform: "facebook", url: "https://www.facebook.com/share/19MkupjQ58/" },
+            { platform: "linkedin", url: "https://www.linkedin.com/in/tahsan-hossain-553900326?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=android_app" },
+            { platform: "github", url: "https://github.com/northwind-13th" },
+            { platform: "instagram", url: "https://www.instagram.com/__.niloy___?igsh=OWR6b2htbHhreWFm" }
+          ],
+          post: "President",
+          dept: "Department of Quiz and Olympiad",
+          group: 9,
+          roll: 12509081,
+          email: "tahsanhossainniloy@gmail.com",
+          phone: "+8801842904719"
+        },
+        {
+          name: "Mohammad Foisal",
+          image_url: "https://raw.githubusercontent.com/nditc/nditc_mobile_app/main/images/executives/2024-2025/Mohammad Foisal.jpg",
+          imageInCenter: true,
+          modal_image_url: "/image/executives/2024-2025/Mohammad Foisal.png",
+          profile_url: [
+            { platform: "facebook", url: "https://www.facebook.com/md.foisal.1301" },
+            { platform: "github", url: "https://github.com/Foisal1301" },
+            { platform: "instagram", url: "https://www.instagram.com/foisal1301/" }
+          ],
+          post: "Secretary",
+          dept: "Department of Quiz & Olympiad",
+          group: 5,
+          roll: 12505055,
+          email: "abbasnurul805@gmail.com",
+          phone: "+8801991946612"
+        },
+        {
+          name: "Arko Chakrovortty",
+          image_url: "https://raw.githubusercontent.com/nditc/nditc_mobile_app/main/images/executives/2024-2025/Arko Chakrovortty.jpg",
+          imageInCenter: true,
+          modal_image_url: "/image/executives/2024-2025/Arko Chakrovortty.png",
+          profile_url: [
+            { platform: "facebook", url: "https://www.facebook.com/I.Want.To.Be.A.Monke" },
+            { platform: "linkedin", url: "https://www.linkedin.com/in/arko-chakrovortty-b55307333/" },
+            { platform: "github", url: "https://github.com/IWantToBeAMonke" }
+          ],
+          post: "President",
+          dept: "Department of Research & Development",
+          group: 9,
+          roll: 12509062,
+          email: "arkochakrovortty@gmail.com",
+          phone: "+8801719027495"
+        },
+        {
+          name: "Chowdhury Mohammad Minhatullah",
+          image_url: "https://raw.githubusercontent.com/nditc/nditc_mobile_app/main/images/executives/2024-2025/Chowdhury Mohammad Minhatullah.jpg",
+          imageInCenter: true,
+          modal_image_url: "/image/executives/2024-2025/Chowdhury Mohammad Minhatullah.png",
+          profile_url: [],
+          post: "President",
+          dept: "Department of Robotics & AI",
+          group: 17,
+          roll: 12517006,
+          email: "ifazchowdhury123@gmail.com",
+          phone: "+8801847133391"
+        },
+        {
+          name: "HRM Rafsan Amin",
+          image_url: "https://raw.githubusercontent.com/nditc/nditc_mobile_app/main/images/executives/2024-2025/HRM Rafsan Amin.jpg",
+          imageInCenter: true,
+          modal_image_url: "/image/executives/2024-2025/HRM Rafsan Amin.png",
+          profile_url: [
+            { platform: "facebook", url: "https://www.facebook.com/hrm.rafsan.amin/" },
+            { platform: "linkedin", url: "https://www.linkedin.com/in/hrm-rafsan-amin-25314a2bb/" },
+            { platform: "github", url: "https://github.com/RafsanAmin/" },
+            { platform: "instagram", url: "https://www.instagram.com/raf_coder/" }
+          ],
+          post: "President",
+          dept: "Web and App Development",
+          group: 5,
+          roll: 12505033,
+          email: "rafsanamin2020@gmail.com",
+          phone: "+8801713753930"
+        },
+        {
+          name: "Mansifur Rahman Rafsan",
+          image_url: "https://raw.githubusercontent.com/nditc/nditc_mobile_app/main/images/executives/2024-2025/Mansifur Rahman Rafsan.jpg",
+          imageInCenter: true,
+          modal_image_url: "/image/executives/2024-2025/Mansifur Rahman Rafsan.png",
+          profile_url: [
+            { platform: "facebook", url: "https://www.facebook.com/M.Rafsan06" },
+            { platform: "linkedin", url: "https://www.linkedin.com/in/mansifur-rahman-rafsan-544670361/" }
+          ],
+          post: "Secretary",
+          dept: "Dept. of Web & App Dev.",
+          group: 15,
+          roll: 12515026,
+          email: "mansifurrahmanr.06@gmail.com",
+          phone: "+8801882602018"
+        },
+        {
+          name: "Abid Hossen",
+          image_url: "https://raw.githubusercontent.com/nditc/nditc_mobile_app/main/images/executives/2024-2025/Abid Hossen.jpg",
+          imageInCenter: true,
+          modal_image_url: "/image/executives/2024-2025/Abid Hossen.png",
+          profile_url: [
+            { platform: "facebook", url: "https://www.facebook.com/abidhossen4321/" },
+            { platform: "linkedin", url: "https://www.linkedin.com/in/abid-hossen/" },
+            { platform: "github", url: "https://github.com/abid-hossen/" },
+            { platform: "instagram", url: "https://www.instagram.com/abidhossen321/" },
+            { platform: "twitter", url: "https://x.com/abidhossen4321/" }
+          ],
+          post: "Treasurer",
+          dept: "",
+          group: 62,
+          roll: 62562081,
+          email: "md.abidhossen4321@gmail.com",
+          phone: "+8801739368060"
+        },
+        {
+          name: "MD HASIN HASNAT",
+          image_url: "https://raw.githubusercontent.com/nditc/nditc_mobile_app/main/images/executives/2024-2025/MD HASIN HASNAT.jpg",
+          imageInCenter: true,
+          modal_image_url: "/image/executives/2024-2025/MD HASIN HASNAT.png",
+          profile_url: [
+            { platform: "facebook", url: "www.facebook.com/hasin.hasnat.3" },
+            { platform: "linkedin", url: "https://bd.linkedin.com/in/the-hasn-t-951957284" },
+            { platform: "instagram", url: "www.instagram.com/hasin.hasnat.3" },
+            { platform: "twitter", url: "https://x.com/Hasnat74072413" }
+          ],
+          post: "Executive Member",
+          dept: "",
+          group: 10,
+          roll: 12510078,
+          email: "hasinhasnat7@gmail.com",
+          phone: "+8801580358302"
+        }
+
+      ],
+    },
+    {
       session: "2023-2024",
       hasExtraDetails: true,
       members: [
