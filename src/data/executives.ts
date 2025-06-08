@@ -109,6 +109,21 @@ const db: dbType = {
           phone: "+8801790390422"
         },
         {
+          name: "Shuvojyoti Mondal",
+          image_url: "https://raw.githubusercontent.com/nditc/nditc_mobile_app/main/images/executives/2024-2025/Shuvojyoti Mondal.jpg",
+          imageInCenter: true,
+          modal_image_url: "/image/executives/2024-2025/Shuvojyoti Mondal.png",
+          profile_url: [
+            { platform: "facebook", url: "https://www.facebook.com/shuvojyoti.mondal.73" },
+          ],
+          post: "Secretary",
+          dept: "Department of Archive, Workshop & Seminar",
+          group: 12,
+          roll: 12512038,
+          email: "noemailfound@gmail.com",
+          phone: "+8801111111111"
+        },
+        {
           name: "Muttaqi Mahmood Choudhury",
           image_url: "https://raw.githubusercontent.com/nditc/nditc_mobile_app/main/images/executives/2024-2025/Muttaqi Mahmood Choudhury.jpg",
           imageInCenter: true,
@@ -149,8 +164,8 @@ const db: dbType = {
             { platform: "instagram", url: "https://www.instagram.com/_samin_4069/" },
             { platform: "twitter", url: "https://x.com/Samin_12504069?t=oNgBA4Q5vPDd1QVA4eREeg&s=09" }
           ],
-          post: "Photography & Videography",
-          dept: "",
+          post: "President",
+          dept: "Department of Photography & Videography",
           group: 4,
           roll: 12504069,
           email: "saminyasar705@gmail.com",
@@ -165,7 +180,7 @@ const db: dbType = {
             { platform: "facebook", url: "https://www.facebook.com/share/1BzBchv5VH/?mibextid=wwXIfr" }
           ],
           post: "Secretary",
-          dept: "",
+          dept: "Department of Photography & Videography",
           group: 1,
           roll: 12501040,
           email: "raadsharar833@gmail.com",
@@ -177,8 +192,8 @@ const db: dbType = {
           imageInCenter: true,
           modal_image_url: "/image/executives/2024-2025/Wali E Zaman.png",
           profile_url: [],
-          post: "Programming President",
-          dept: "",
+          post: "President",
+          dept: "Department of Programming",
           group: 7,
           roll: 12507091,
           email: "waliezaman208@gmail.com",
@@ -220,8 +235,8 @@ const db: dbType = {
           imageInCenter: true,
           modal_image_url: "/image/executives/2024-2025/Aditya Sahariar Upal.png",
           profile_url: [],
-          post: "Publication Secretary",
-          dept: "",
+          post: "Secretary",
+          dept: "Department of Publications",
           group: 17,
           roll: 12517100,
           email: "upal1418@gmail.com",
@@ -253,7 +268,7 @@ const db: dbType = {
             { platform: "facebook", url: "https://www.facebook.com/share/1VhFkEDFJH/" }
           ],
           post: "Secretary",
-          dept: "Public Relations",
+          dept: "Department of Public Relations",
           group: 65,
           roll: 62565113,
           email: "zuhamabdullah50@gmail.com",
@@ -336,7 +351,7 @@ const db: dbType = {
             { platform: "instagram", url: "https://www.instagram.com/raf_coder/" }
           ],
           post: "President",
-          dept: "Web and App Development",
+          dept: "Department of Web and App Development",
           group: 5,
           roll: 12505033,
           email: "rafsanamin2020@gmail.com",
@@ -352,7 +367,7 @@ const db: dbType = {
             { platform: "linkedin", url: "https://www.linkedin.com/in/mansifur-rahman-rafsan-544670361/" }
           ],
           post: "Secretary",
-          dept: "Dept. of Web & App Dev.",
+          dept: "Department of Web and App Development",
           group: 15,
           roll: 12515026,
           email: "mansifurrahmanr.06@gmail.com",
@@ -379,7 +394,7 @@ const db: dbType = {
         },
         {
           name: "MD HASIN HASNAT",
-          image_url: "https://raw.githubusercontent.com/nditc/nditc_mobile_app/main/images/executives/2024-2025/MD HASIN HASNAT.jpg",
+          image_url: "https://raw.githubusercontent.com/nditc/nditc_mobile_app/main/images/executives/2024-2025/Md Hasin Hasnat.jpg",
           imageInCenter: true,
           modal_image_url: "/image/executives/2024-2025/MD HASIN HASNAT.png",
           profile_url: [
@@ -394,7 +409,20 @@ const db: dbType = {
           roll: 12510078,
           email: "hasinhasnat7@gmail.com",
           phone: "+8801580358302"
-        }
+        },
+        {
+          name: "Arunavo Niloy",
+          image_url: "https://raw.githubusercontent.com/nditc/nditc_mobile_app/main/images/executives/2024-2025/Arunavo Niloy.jpg",
+          imageInCenter: true,
+          modal_image_url: "/image/executives/2024-2025/Arunavo Niloy.png",
+          profile_url: [],
+          post: "Executive Member",
+          dept: "",
+          group: 0,
+          roll: 12500000,
+          email: "emailnotfound@gmail.com",
+          phone: "+8801111111111"
+        },
 
       ],
     },
