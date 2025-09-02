@@ -35,7 +35,7 @@ const PasswordResetPage = () => {
     try {
       await sendPasswordResetEmail(auth, email);
       await signOut(auth);
-      console.log(auth, email)
+      
       toast.success(
         "Password reset link sent to your email. Please reset your password and login again."
       );
@@ -93,7 +93,7 @@ const PasswordResetPage = () => {
               name="email"
               label="Email Address"
               type="email"
-
+              
             />
             
             <div className="w-full justify-self-end md:w-auto">
