@@ -77,6 +77,7 @@ const NavLinkCont = ({
         <ul className="Inter container mt-4 flex flex-col gap-1 rounded-lg border border-gray-100 bg-gray-50 p-4 font-medium lg:mt-0 lg:flex-row lg:gap-0 lg:space-x-8 lg:border-0 lg:bg-white lg:p-0 rtl:space-x-reverse">
           <NavLink href="/">Home</NavLink>
           <NavLink href="/about">About</NavLink>
+          <NavLink href="/leaderboard">Leaderboard</NavLink>
 
           <Submenu
             showOptions={showOptions}

@@ -23,6 +23,7 @@
     "@nextui-org/system": "^2.2.5",
     "@nextui-org/theme": "^2.2.9",
     "browser-image-compression": "^2.0.2",
+    "cloudinary": "^2.7.0",
     "express": "^4.19.2",
     "firebase": "^10.10.0",
     "firebase-admin": "^12.2.0",

@@ -93,7 +93,7 @@ const PasswordResetPage = () => {
               name="email"
               label="Email Address"
               type="email"
-              required
+              
             />
             
             <div className="w-full justify-self-end md:w-auto">
