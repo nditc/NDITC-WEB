@@ -1,5 +1,4 @@
-import React, { Children, useEffect } from "react";
-import { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { usePathname, useSearchParams } from "next/navigation";
 import Submenu from "./SubMenu";
 import Link from "next/link";
@@ -7,9 +6,11 @@ import Link from "next/link";
 const NavLink = ({
   href,
   children,
+  extraClass = "",
 }: {
   href: string;
   children: React.ReactNode;
+  extraClass?: string;
 }) => {
   const Route = usePathname();
 
@@ -18,11 +19,11 @@ const NavLink = ({
       <Link
         href={href}
         className={
-          "block rounded px-3 py-2 text-gray-900 lg:p-0 lg:hover:bg-transparent lg:hover:text-blue-500" +
-          " " +
+          "block rounded px-3 py-2 text-gray-900 lg:p-0 lg:hover:bg-transparent lg:hover:text-blue-500 " +
           (Route === href
-            ? "bg-blue-600 text-white hover:bg-blue-700 lg:bg-transparent lg:text-blue-500"
-            : "hover:bg-gray-200 lg:bg-transparent lg:text-black")
+            ? "bg-blue-600 text-white hover:bg-blue-700 lg:bg-transparent lg:text-blue-500 "
+            : "hover:bg-gray-200 lg:bg-transparent lg:text-black ") +
+          extraClass
         }
         aria-current="page"
       >
@@ -57,6 +58,9 @@ const NavLinkCont = ({
     };
   }, [Route, Params, setShowOptions]);
 
+  // Check if user is in /club or /club/anyroute
+  const inClubPage = Route.startsWith("/club");
+
   return (
     <>
       <div
@@ -76,10 +80,31 @@ const NavLinkCont = ({
       >
         <ul className="Inter container mt-4 flex flex-col gap-1 rounded-lg border border-gray-100 bg-gray-50 p-4 font-medium lg:mt-0 lg:flex-row lg:gap-0 lg:space-x-8 lg:border-0 lg:bg-white lg:p-0 rtl:space-x-reverse">
           <NavLink href="/">Home</NavLink>
-          <NavLink href="/about">About</NavLink>
-          <NavLink href="/leaderboard">Leaderboard</NavLink>
 
-          <Submenu
+          {/* Conditionally show Club or Leaderboard + Events */}
+          {!inClubPage ? (
+            <NavLink
+              href="/club"
+              extraClass={
+                Route === "/" // highlight on home page
+                  ? "bg-blue-500 text-white font-semibold rounded-md px-4 py-2"
+                  : ""
+              }
+            >
+              Club
+            </NavLink>
+          ) : (
+            <>
+              <NavLink href="/club/leaderboard">Leaderboard</NavLink>
+              <NavLink href="/club/events">Events</NavLink>
+            </>
+          )}
+
+          <NavLink href="/about">About</NavLink>
+
+{
+  !inClubPage && <>
+            <Submenu
             showOptions={showOptions}
             windowWidth={windowWidth}
             menuItems={[
@@ -104,24 +129,15 @@ const NavLinkCont = ({
           >
             Activities
           </Submenu>
+
           <NavLink href="/executive">Executives</NavLink>
+          </> 
+}
           <NavLink href="/#contact">Contact</NavLink>
 
           {windowWidth <= 1024 && (
             <NavLink href="/developer">Developers</NavLink>
           )}
-          {/* 
-            <li>
-              <Link
-                onClick={() => {
-                  setShowOptions(false);
-                }}
-                href="/club"
-                className="block rounded bg-blue-500 px-3 py-2 text-white hover:bg-gray-200 lg:bg-transparent lg:p-0 lg:text-primary-500 lg:hover:bg-transparent lg:hover:text-blue-500"
-              >
-                Club
-              </Link>
-            </li> */}
         </ul>
       </div>
     </>
