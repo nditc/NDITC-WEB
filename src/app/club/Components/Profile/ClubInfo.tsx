@@ -146,7 +146,7 @@ const ClubInfo = ({
                 Warning:
               </b>
               You can only connect if you are a member of NDITC and submitted
-              your membership form in college. Batch '26 can't connect yet cause
+              your membership form in college. Batch '27 can't connect yet cause
               we don't have your form data yet. So, keep the Member Checkmark
               unticked
             </p>
