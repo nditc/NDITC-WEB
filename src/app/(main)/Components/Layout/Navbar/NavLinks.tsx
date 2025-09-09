@@ -2,6 +2,7 @@ import React, { useEffect, useState } from "react";
 import { usePathname, useSearchParams } from "next/navigation";
 import Submenu from "./SubMenu";
 import Link from "next/link";
+import Loginbtn from "./Loginbtn";
 
 const NavLink = ({
   href,
@@ -58,7 +59,6 @@ const NavLinkCont = ({
     };
   }, [Route, Params, setShowOptions]);
 
-  // Check if user is in /club or /club/anyroute
   const inClubPage = Route.startsWith("/club");
 
   return (
@@ -67,15 +67,13 @@ const NavLinkCont = ({
         style={{
           transformOrigin: "top",
         }}
-        className={`z-30 w-screen shrink-0 items-center justify-between bg-white transition lg:order-1 lg:flex lg:w-auto ${
-          showOptions || windowWidth >= 1024
+        className={`z-30 w-screen shrink-0 items-center justify-between bg-white transition lg:order-1 lg:flex lg:w-auto ${showOptions || windowWidth >= 1024
             ? "scale-y-100"
             : "pointer-events-none scale-y-0"
-        } ${
-          windowWidth < 1024
+          } ${windowWidth < 1024
             ? "fixed left-0 top-[72px] border-b border-gray-200 pb-5"
             : ""
-        }`}
+          }`}
         id="navbar-sticky"
       >
         <ul className="Inter container mt-4 flex flex-col gap-1 rounded-lg border border-gray-100 bg-gray-50 p-4 font-medium lg:mt-0 lg:flex-row lg:gap-0 lg:space-x-8 lg:border-0 lg:bg-white lg:p-0 rtl:space-x-reverse">
@@ -83,16 +81,19 @@ const NavLinkCont = ({
 
           {/* Conditionally show Club or Leaderboard + Events */}
           {!inClubPage ? (
-            <NavLink
-              href="/club"
-              extraClass={
-                Route === "/" // highlight on home page
-                  ? "bg-blue-500 text-white font-semibold rounded-md px-4 py-2"
-                  : ""
-              }
-            >
-              Club
-            </NavLink>
+            <>
+              <NavLink
+                href="/club"
+                extraClass={
+                  Route === "/" // highlight on home page
+                    ? "bg-blue-500 text-white font-semibold rounded-md px-4 py-2"
+                    : ""
+                }
+              >
+                Club
+              </NavLink>
+        
+            </>
           ) : (
             <>
               <NavLink href="/club/leaderboard">Leaderboard</NavLink>
@@ -102,43 +103,47 @@ const NavLinkCont = ({
 
           <NavLink href="/about">About</NavLink>
 
-{
-  !inClubPage && <>
-            <Submenu
-            showOptions={showOptions}
-            windowWidth={windowWidth}
-            menuItems={[
-              {
-                href: "/activities?type=event&scroll=true",
-                name: "Events",
-              },
-              {
-                href: "/activities?type=workshop&scroll=true",
-                name: "Workshops",
-              },
-              {
-                href: "/activities?type=publication&scroll=true",
-                name: "Publications",
-              },
-              {
-                href: "/activities?type=projects&scroll=true",
-                name: "Projects",
-              },
-            ]}
-            href="/activities"
-          >
-            Activities
-          </Submenu>
+          {
+            !inClubPage && <>
+              <Submenu
+                showOptions={showOptions}
+                windowWidth={windowWidth}
+                menuItems={[
+                  {
+                    href: "/activities?type=event&scroll=true",
+                    name: "Events",
+                  },
+                  {
+                    href: "/activities?type=workshop&scroll=true",
+                    name: "Workshops",
+                  },
+                  {
+                    href: "/activities?type=publication&scroll=true",
+                    name: "Publications",
+                  },
+                  {
+                    href: "/activities?type=projects&scroll=true",
+                    name: "Projects",
+                  },
+                ]}
+                href="/activities"
+              >
+                Activities
+              </Submenu>
 
-          <NavLink href="/executive">Executives</NavLink>
-          </> 
-}
+              <NavLink href="/executive">Executives</NavLink>
+            </>
+          }
           <NavLink href="/#contact">Contact</NavLink>
 
           {windowWidth <= 1024 && (
             <NavLink href="/developer">Developers</NavLink>
           )}
+
         </ul>
+        {
+          !inClubPage &&   <Loginbtn />
+        }
       </div>
     </>
   );

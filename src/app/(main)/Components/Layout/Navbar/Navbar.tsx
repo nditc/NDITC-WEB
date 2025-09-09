@@ -9,6 +9,7 @@ import NavLinks from "./NavLinks";
 import AppnLogin from "./App&Login";
 import Logo from "./Logo";
 import ToggleButton from "./ToggleButton";
+import Loginbtn from "./Loginbtn";
 
 const Navbar = () => {
   const [showOptions, setShowOptions] = useState(false);
@@ -62,6 +63,7 @@ const Navbar = () => {
           showOptions={showOptions}
         />
         <AppnLogin />
+        
         <ToggleButton
           setShowOptions={(s) => setShowOptions(s)}
           showOptions={showOptions}
