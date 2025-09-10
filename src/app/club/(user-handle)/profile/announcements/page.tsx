@@ -8,7 +8,7 @@ const Page = () => {
   const { userData } = useUserDataContext();
   return (
     <div>
-      {userData?.ndc_id ? <Announcements club /> : null}
+      {userData?.ndc_id ? <Announcements club={true} /> : null}
       <Announcements />
     </div>
   );

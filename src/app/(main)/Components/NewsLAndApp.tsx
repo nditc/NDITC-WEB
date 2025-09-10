@@ -55,8 +55,7 @@ const NewsLAndApp = () => {
               <source
                 media="(max-width: 1200px)"
                 srcSet="/image/newsl_and_app/code_compass.png"
-              />
-              <img src="" alt="" id="cdcmps" />
+              /> 
             </picture>
           </div>
           <div id="smbl_div">
