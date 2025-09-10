@@ -2,7 +2,7 @@ import React, { useEffect, useState } from "react";
 import { usePathname, useSearchParams } from "next/navigation";
 import Submenu from "./SubMenu";
 import Link from "next/link";
-import Loginbtn from "./Loginbtn";
+import FancyLink from "./FancyLink";
 
 const NavLink = ({
   href,
@@ -68,8 +68,8 @@ const NavLinkCont = ({
           transformOrigin: "top",
         }}
         className={`z-30 w-screen shrink-0 items-center justify-between bg-white transition lg:order-1 lg:flex lg:w-auto ${showOptions || windowWidth >= 1024
-            ? "scale-y-100"
-            : "pointer-events-none scale-y-0"
+          ? "scale-y-100"
+          : "pointer-events-none scale-y-0"
           } ${windowWidth < 1024
             ? "fixed left-0 top-[72px] border-b border-gray-200 pb-5"
             : ""
@@ -80,21 +80,7 @@ const NavLinkCont = ({
           <NavLink href="/">Home</NavLink>
 
           {/* Conditionally show Club or Leaderboard + Events */}
-          {!inClubPage ? (
-            <>
-              <NavLink
-                href="/club"
-                extraClass={
-                  Route === "/" // highlight on home page
-                    ? "bg-blue-500 text-white font-semibold rounded-md px-4 py-2"
-                    : ""
-                }
-              >
-                Club
-              </NavLink>
-        
-            </>
-          ) : (
+          {inClubPage && (
             <>
               <NavLink href="/club/leaderboard">Leaderboard</NavLink>
               <NavLink href="/club/events">Events</NavLink>
@@ -141,9 +127,14 @@ const NavLinkCont = ({
           )}
 
         </ul>
-        {
-          !inClubPage &&   <Loginbtn />
-        }
+        <div className="ml-0 lg:ml-8 flex ">
+
+          {
+            !inClubPage && <> <FancyLink text="club"></FancyLink> </>
+          }
+         
+        </div>
+         
       </div>
     </>
   );
