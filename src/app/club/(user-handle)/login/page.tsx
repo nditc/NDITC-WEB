@@ -12,6 +12,7 @@ import Image from "next/image";
 import { FirebaseError } from "firebase/app";
 import { useAuthContext } from "@/app/_context/AuthContextProvider";
 import { collection, query, where, getDocs } from "firebase/firestore";
+import { CiWarning } from "react-icons/ci";
 
 const LoginPage = () => {
   const [formData, setFormData] = useState({
@@ -126,6 +127,18 @@ const LoginPage = () => {
           <h1 className="text-4xl">
             PARTICIPANT <span className="text-primary">Login</span>
           </h1>
+          {/** Batch 26 Info Section */}
+          <div className="rounded-xl bg-blue-100 p-5 text-blue-950">
+            <p className="flex items-center gap-1 font-bold">
+              <CiWarning className="text-blue-700" />
+              Important Info:
+            </p>
+            <p>
+              Due to technical reasons, all <span className="font-semibold">Batch '26 </span> 
+              students are requested to re-sign up using this registration form. 
+              Please make sure to use your correct information while registering.
+            </p>
+          </div>
           
           <div className="flex w-full flex-col gap-5">
             <Field

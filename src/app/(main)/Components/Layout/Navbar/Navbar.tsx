@@ -9,6 +9,8 @@ import NavLinks from "./NavLinks";
 import AppnLogin from "./App&Login";
 import Logo from "./Logo";
 import ToggleButton from "./ToggleButton";
+import Loginbtn from "./FancyLink";
+import FancyLink from "./FancyLink";
 
 const Navbar = () => {
   const [showOptions, setShowOptions] = useState(false);
@@ -17,7 +19,7 @@ const Navbar = () => {
   const navRef = useRef<HTMLElement>(null);
 
   const [deferredPrompt, setDeferredPrompt] = useState<any>(null);
-
+  const inClubPage = Route.startsWith("/club");
   useEffect(() => {
     const stateHandler = () => {
       setShowOptions(false);
@@ -61,11 +63,11 @@ const Navbar = () => {
           setShowOptions={(s) => setShowOptions(s)}
           showOptions={showOptions}
         />
-        <AppnLogin />
-        <ToggleButton
-          setShowOptions={(s) => setShowOptions(s)}
-          showOptions={showOptions}
-        />
+
+
+        {
+          !inClubPage ? <AppnLogin /> :   <FancyLink text="login" />
+        }
       </div>
     </nav>
   );

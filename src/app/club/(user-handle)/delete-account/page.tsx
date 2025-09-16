@@ -53,7 +53,6 @@ const Page = () => {
     setLoading(true);
 
     try {
-      // Re-authenticate user
       const userCredential = await signInWithEmailAndPassword(
         auth, 
         user.email, 
@@ -62,7 +61,6 @@ const Page = () => {
       
       const currentUser = userCredential.user;
       
-      // Delete user data
       await Promise.all([
         deleteDoc(doc(db, "participants", currentUser.uid)),
         deleteObject(ref(pfp, `pfp/${currentUser.uid}`)).catch(() => {}), // Ignore if no profile picture
