@@ -169,7 +169,7 @@ const Page = () => {
             </p>
           </div>
 
-          <div className="my-2 flex items-center gap-4">
+          {/* <div className="my-2 flex items-center gap-4">
             <div className="flex w-full gap-1 rounded-xl border border-gray-200 p-1 text-small">
               <button
                 type="button"
@@ -192,7 +192,7 @@ const Page = () => {
                 Non-Member
               </button>
             </div>
-          </div>
+          </div> */}
 
           {isNDCStudent ? (
             <MemberRegistration
