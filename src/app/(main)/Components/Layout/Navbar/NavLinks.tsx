@@ -83,7 +83,7 @@ const NavLinkCont = ({
           {inClubPage && (
             <>
               <NavLink href="/club/leaderboard">Leaderboard</NavLink>
-              <NavLink href="/club/events">Events</NavLink>
+              <NavLink href="/activities?type=event&scroll=true">Events</NavLink>
             </>
           )}
 
