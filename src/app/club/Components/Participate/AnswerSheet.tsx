@@ -116,7 +116,7 @@ const AnswerSheet = ({
         setTotalMarks(res.totalMarks);
         onOpen();
         localStorage.removeItem(KEY);
-        //setSubmitClicked(false);
+        // setSubmitClicked(false);
       })
       .catch(() => toast.error("Submission Error"));
   };
@@ -208,21 +208,12 @@ const AnswerSheet = ({
                           {examMarks}
                         </span>
                       ) : (
-                        <span>The Result will be Published Later</span>
+                        <span>
+                          Submission Successfull. The Result will be Published
+                          Later
+                        </span>
                       )}
                     </Chip>
-
-                    {publicQuiz && (
-                      <Chip
-                        classNames={{
-                          base: "bg-zinc-200/60",
-                          content: "text-black/90 text-small font-semibold",
-                        }}
-                      >
-                        Season's Total Marks:{" "}
-                        <span className="text-primary">{totalMarks}</span>
-                      </Chip>
-                    )}
 
                     <Button
                       className="w-full border bg-primary text-white hover:bg-primary_dark"
@@ -230,7 +221,7 @@ const AnswerSheet = ({
                       onPress={() => {
                         //setSubmitClicked(false);
                         onClose();
-                        router.push("/club/events/nditc/all");
+                        router.push("/club/profile/events/nditc/all");
                       }}
                     >
                       Got It!
