@@ -22,8 +22,8 @@ const NavLink = ({
         className={
           "block rounded px-3 py-2 text-gray-900 lg:p-0 lg:hover:bg-transparent lg:hover:text-blue-500 " +
           (Route === href
-            ? "bg-blue-600 text-white hover:bg-blue-700 lg:bg-transparent lg:text-blue-500 "
-            : "hover:bg-gray-200 lg:bg-transparent lg:text-black ") +
+            ? "bg-blue-600 text-white hover:bg-blue-700 lg:bg-transparent lg:text-blue-500"
+            : "hover:bg-gray-200 lg:bg-transparent lg:text-black") +
           extraClass
         }
         aria-current="page"
@@ -67,13 +67,15 @@ const NavLinkCont = ({
         style={{
           transformOrigin: "top",
         }}
-        className={`z-30 w-screen shrink-0 items-center justify-between bg-white transition lg:order-1 lg:flex lg:w-auto ${showOptions || windowWidth >= 1024
-          ? "scale-y-100"
-          : "pointer-events-none scale-y-0"
-          } ${windowWidth < 1024
+        className={`z-30 w-screen shrink-0 items-center justify-between bg-white transition lg:order-1 lg:flex lg:w-auto ${
+          showOptions || windowWidth >= 1024
+            ? "scale-y-100"
+            : "pointer-events-none scale-y-0"
+        } ${
+          windowWidth < 1024
             ? "fixed left-0 top-[72px] border-b border-gray-200 pb-5"
             : ""
-          }`}
+        }`}
         id="navbar-sticky"
       >
         <ul className="Inter container mt-4 flex flex-col gap-1 rounded-lg border border-gray-100 bg-gray-50 p-4 font-medium lg:mt-0 lg:flex-row lg:gap-0 lg:space-x-8 lg:border-0 lg:bg-white lg:p-0 rtl:space-x-reverse">
@@ -82,15 +84,15 @@ const NavLinkCont = ({
           {/* Conditionally show Club or Leaderboard + Events */}
           {inClubPage && (
             <>
-              <NavLink href="/club/leaderboard">Leaderboard</NavLink>
-              <NavLink href="/activities?type=event&scroll=true">Events</NavLink>
+              {/* <NavLink href="/club/leaderboard">Leaderboard</NavLink> */}
+              <NavLink href="/club/events">Events</NavLink>
             </>
           )}
 
           <NavLink href="/about">About</NavLink>
 
-          {
-            !inClubPage && <>
+          {!inClubPage && (
+            <>
               <Submenu
                 showOptions={showOptions}
                 windowWidth={windowWidth}
@@ -119,22 +121,21 @@ const NavLinkCont = ({
 
               <NavLink href="/executive">Executives</NavLink>
             </>
-          }
+          )}
           <NavLink href="/#contact">Contact</NavLink>
 
           {windowWidth <= 1024 && (
             <NavLink href="/developer">Developers</NavLink>
           )}
-
         </ul>
-        <div className="ml-0 lg:ml-8 flex ">
-
-          {
-            !inClubPage && <> <FancyLink text="club"></FancyLink> </>
-          }
-         
+        <div className="ml-0 flex lg:ml-8">
+          {!inClubPage && (
+            <>
+              {" "}
+              <FancyLink text="club"></FancyLink>{" "}
+            </>
+          )}
         </div>
-         
       </div>
     </>
   );

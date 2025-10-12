@@ -3,7 +3,7 @@ import React from "react";
 import Link from "next/link";
 import { useAuthContext } from "@/app/_context/AuthContextProvider";
 
-const FancyLink = ({ text }) => {
+const FancyLink = ({ text }: {text:string}) => {
 
   const { userAuth, loading: userLoading } = useAuthContext();
 

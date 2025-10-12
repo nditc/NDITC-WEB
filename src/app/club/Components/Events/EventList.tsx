@@ -14,8 +14,10 @@ const EventList = ({
         return (
           <EventCard
             title={e.eventName}
-            date={new Timestamp(e.date._seconds, e.date._nanoseconds)}
-            endDate={new Timestamp(e.enddate._seconds, e.enddate._nanoseconds)}
+            date={new Timestamp(e.date?._seconds, e.date?._nanoseconds)}
+            endDate={
+              new Timestamp(e.enddate?._seconds, e.enddate?._nanoseconds)
+            }
             ongoingForParticipate={participate || false}
             image={e.imageURL}
             desc={e.description}
