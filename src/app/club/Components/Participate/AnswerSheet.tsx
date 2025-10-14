@@ -197,23 +197,22 @@ const AnswerSheet = ({
                   <CardFooter className="flex-col items-center justify-center gap-3 pt-0">
                     <Chip
                       classNames={{
-                        base: "bg-zinc-200/60",
-                        content: "text-black/90 text-small font-semibold",
+                        base: "bg-zinc-200/60 px-3 py-2 max-w-[90vw] sm:max-w-none whitespace-normal text-center",
+                        content: "text-black/90 text-sm font-semibold",
                       }}
                     >
                       {showResult ? (
                         <span>
-                          Result:{" "}
-                          <span className="text-primary">{resultMarks}</span> /{" "}
-                          {examMarks}
+                          Result: <span className="text-primary">{resultMarks}</span> / {examMarks}
                         </span>
                       ) : (
                         <span>
-                          Submission Successfull. The Result will be Published
-                          Later
+                          Submission Successful. The Result will be Published Later
                         </span>
                       )}
                     </Chip>
+
+
 
                     <Button
                       className="w-full border bg-primary text-white hover:bg-primary_dark"
