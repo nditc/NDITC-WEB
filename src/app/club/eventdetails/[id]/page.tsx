@@ -76,7 +76,11 @@ const page = async (props: { params: Promise<ParamType> }) => {
                   intra_club={data?.intra}
                   intra_college={data?.intraCollege}
                   publicQuiz={data?.public}
+                  isExternal={!!data?.isExternal}
+                  extrernalLink={data?.externalLink || ""}
                 />
+
+
               ) : (
                 <Eligibility
                   intra_club={data?.intra}
