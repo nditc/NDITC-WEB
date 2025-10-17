@@ -22,11 +22,10 @@ import { LiaTimesSolid } from "react-icons/lia";
 import { getDownloadURL, ref, uploadBytes } from "firebase/storage";
 import { useRouter } from "next/navigation";
 import AddQuestions from "@/app/club/Components/Admin/AddQuestions";
-import { Checkbox, DatePicker, Radio, RadioGroup } from "@nextui-org/react";
+import { Checkbox, DatePicker, Radio, RadioGroup, Input } from "@nextui-org/react";
 import {
   now,
   getLocalTimeZone,
-  ZonedDateTime,
   parseAbsoluteToLocal,
 } from "@internationalized/date";
 import { timeValue } from "@/app/club/Components/Time";
@@ -43,13 +42,10 @@ const Page = (props: { params: Promise<{ eventID: string }> }) => {
   const [eventName, setEventName] = useState("");
   const [category, setCategory] = useState("");
   const [eventUID, setEventUID] = useState("");
-
   const [showResult, setShowResult] = useState(true);
-
   const [intra, setIntra] = useState(false);
   const [intraCollege, setIntraCollege] = useState(false);
   const [publicQuiz, setPublicQuiz] = useState(true);
-
   const [selectedEventType, setSelectedEventType] = useState("public");
 
   useEffect(() => {
@@ -86,8 +82,11 @@ const Page = (props: { params: Promise<{ eventID: string }> }) => {
   );
   const [description, setDescription] = useState("");
 
-  //---------------Questions---------------
+  // External event toggle
+  const [isExternal, setIsExternal] = useState(false);
+  const [externalLink, setExternalLink] = useState("");
 
+  //---------------Questions---------------
   const [questions, setQuestions] = useState<any[]>([]);
   const [answers, setAnswers] = useState<any[]>([]);
 
@@ -97,7 +96,6 @@ const Page = (props: { params: Promise<{ eventID: string }> }) => {
   };
 
   const [loading, setLoading] = useState<boolean>(false);
-
   const router = useRouter();
 
   useEffect(() => {
@@ -144,6 +142,8 @@ const Page = (props: { params: Promise<{ eventID: string }> }) => {
           setShowResult(event.data().showResult);
           setQuestions(event.data().questions);
           setCategory(event.data().category);
+          setIsExternal(event.data().isExternal || false);
+          setExternalLink(event.data().externalLink || "");
 
           const ans = getDoc(doc(db, "answers", params.eventID)).then((ans) => {
             if (ans.exists()) {
@@ -159,6 +159,41 @@ const Page = (props: { params: Promise<{ eventID: string }> }) => {
     }
   }, [params.eventID, user]);
 
+  const saveEventToDB = async (url?: string) => {
+    const payload: any = {
+      eventName: eventName,
+      addTime: addTime || serverTimestamp(),
+      date: date.toDate(),
+      enddate: endDate.toDate(),
+      imageURL: url || imageURL,
+      description: description,
+      public: publicQuiz,
+      intraCollege: intraCollege,
+      intra: intra,
+      showResult: showResult,
+      category,
+      isExternal,
+      externalLink,
+    };
+
+    if (!isExternal) {
+      payload.questions = questions;
+    }
+
+    await setDoc(doc(db, "events", eventUID), payload);
+
+    if (!isExternal) {
+      await setDoc(doc(db, "answers", eventUID), {
+        public: publicQuiz,
+        intraCollege: intraCollege,
+        intra: intra,
+        answers: answers,
+        date: date.toDate(),
+        enddate: endDate.toDate(),
+      });
+    }
+  };
+
   const handleSubmit = async (event: any) => {
     event.preventDefault();
 
@@ -167,7 +202,7 @@ const Page = (props: { params: Promise<{ eventID: string }> }) => {
       return;
     }
 
-    if (questions.length == 0) {
+    if (!isExternal && questions.length == 0) {
       toast.error("At least one question must be added");
       return;
     }
@@ -184,66 +219,16 @@ const Page = (props: { params: Promise<{ eventID: string }> }) => {
         const storeRef = ref(pfp, "ep/" + eventUID);
         uploadBytes(storeRef, newImage[0]).then(async (snapshot) => {
           const url = await getDownloadURL(storeRef);
-          setDoc(doc(db, "events", eventUID), {
-            eventName: eventName,
-            addTime: serverTimestamp(),
-            date: date.toDate(),
-            enddate: endDate.toDate(),
-            imageURL: url,
-            description: description,
-            public: publicQuiz,
-            intraCollege: intraCollege,
-            intra: intra,
-            showResult: showResult,
-            questions: questions,
-            category,
-          })
-            .then(() => {
-              setDoc(doc(db, "answers", eventUID), {
-                public: publicQuiz,
-                intraCollege: intraCollege,
-                intra: intra,
-                answers: answers,
-                date: date.toDate(),
-                enddate: endDate.toDate(),
-              });
-            })
-            .then(() => {
-              toast.success("Successfully Event Added");
-              setLoading(false);
-              goToAdminPanel();
-            });
+          await saveEventToDB(url);
+          toast.success("Successfully Event Added");
+          setLoading(false);
+          goToAdminPanel();
         });
       } else {
-        setDoc(doc(db, "events", eventUID), {
-          eventName: eventName,
-          addTime: serverTimestamp(),
-          date: date.toDate(),
-          enddate: endDate.toDate(),
-          imageURL: imageURL,
-          description: description,
-          public: publicQuiz,
-          intraCollege: intraCollege,
-          intra: intra,
-          showResult: showResult,
-          questions: questions,
-          category,
-        })
-          .then(() => {
-            setDoc(doc(db, "answers", eventUID), {
-              public: publicQuiz,
-              intraCollege: intraCollege,
-              intra: intra,
-              answers: answers,
-              date: date.toDate(),
-              enddate: endDate.toDate(),
-            });
-          })
-          .then(() => {
-            toast.success("Successfully Event Added");
-            setLoading(false);
-            goToAdminPanel();
-          });
+        await saveEventToDB();
+        toast.success("Successfully Event Added");
+        setLoading(false);
+        goToAdminPanel();
       }
     }
   };
@@ -254,41 +239,16 @@ const Page = (props: { params: Promise<{ eventID: string }> }) => {
       toast.error("Date not specified");
       return;
     }
-    if (questions.length == 0) {
+    if (!isExternal && questions.length == 0) {
       toast.error("At least one question must be added");
       return;
     }
     setLoading(true);
 
-    setDoc(doc(db, "events", eventUID), {
-      eventName: eventName,
-      addTime: addTime,
-      date: date.toDate(),
-      enddate: endDate.toDate(),
-      imageURL: imageURL,
-      description: description,
-      public: publicQuiz,
-      intraCollege: intraCollege,
-      intra: intra,
-      showResult: showResult,
-      questions: questions,
-      category,
-    })
-      .then(() => {
-        setDoc(doc(db, "answers", eventUID), {
-          public: publicQuiz,
-          intraCollege: intraCollege,
-          intra: intra,
-          answers: answers,
-          date: date.toDate(),
-          enddate: endDate.toDate(),
-        });
-      })
-      .then(() => {
-        toast.success("Successfully Event Updated");
-        setLoading(false);
-        goToAdminPanel();
-      });
+    await saveEventToDB();
+    toast.success("Successfully Event Updated");
+    setLoading(false);
+    goToAdminPanel();
   };
 
   const save = async (event: any) => {
@@ -301,30 +261,14 @@ const Page = (props: { params: Promise<{ eventID: string }> }) => {
     );
     toast.info("Saved questions and answers.");
   };
-
-  // useEffect(() => {
-  //   const t = setInterval(() => {
-  //     if (params.eventID !== "new") {
-  //       localStorage.setItem(
-  //         `event.${eventUID}`,
-  //         JSON.stringify({
-  //           questions,
-  //           answers,
-  //         }),
-  //       );
-  //     }
-  //   }, 1000 * 30);
-
-  //   return () => {
-  //     clearInterval(t);
-  //   };
-  // }, [questions, answers, eventUID, params.eventID]);
+ 
   const loadLocal = async () => {
     const local = JSON.parse(localStorage.getItem(`event.${eventUID}`) || "{}");
     console.dir(local);
     setData(local?.questions, local?.answers);
     toast.info("Loaded local questions and answers.");
   };
+
   const [notfound, setNotfound] = useState(false);
 
   const [changeImage, setChangeImage] = useState<boolean>();
@@ -333,13 +277,11 @@ const Page = (props: { params: Promise<{ eventID: string }> }) => {
   const FileRef = useRef<HTMLInputElement>(null);
 
   //---------Navigation--------
-
   const goToAdminPanel = () => {
     router.push("/club/admin/events");
   };
 
   //-----------Delete Event------------
-
   const [deleteModalOpen, setDeleteModalOpen] = useState(false);
 
   const deleteWarning = (e: any) => {
@@ -375,6 +317,26 @@ const Page = (props: { params: Promise<{ eventID: string }> }) => {
               {params.eventID == "new" ? "Add New" : "Edit"}
               <span className="text-primary"> Event</span>
             </h1>
+
+            {/* External event checkbox */}
+            <Checkbox
+              size="lg"
+              isSelected={isExternal}
+              onValueChange={setIsExternal}
+            >
+              This event will happen on an external site (like a programming contest)
+            </Checkbox>
+
+            {isExternal && (
+              <Input
+                type="url"
+                label="External Event Link"
+                placeholder="https://example.com/contest"
+                value={externalLink}
+                onChange={(e) => setExternalLink(e.target.value)}
+                isRequired
+              />
+            )}
 
             <div className="flex h-fit w-full items-center justify-center md:w-fit">
               {params.eventID == "new" ? (
@@ -576,42 +538,46 @@ const Page = (props: { params: Promise<{ eventID: string }> }) => {
                 />
               </div>
 
-              <RadioGroup
-                value={selectedEventType}
-                onValueChange={setSelectedEventType}
-                label="Select the Event Type"
-                color="primary"
-              >
-                <Radio
-                  value="public"
-                  description="Seasonal Event. Anyone can participate"
+              {!isExternal && (
+                <RadioGroup
+                  value={selectedEventType}
+                  onValueChange={setSelectedEventType}
+                  label="Select the Event Type"
+                  color="primary"
                 >
-                  Open-For-All
-                </Radio>
-                <Radio
-                  value="intra_college"
-                  description="Quiz for all NDC Students"
-                >
-                  Intra College
-                </Radio>
-                <Radio
-                  value="intra_club"
-                  description="Quiz only for all NDITC Members"
-                >
-                  Intra Club
-                </Radio>
-              </RadioGroup>
+                  <Radio
+                    value="public"
+                    description="Seasonal Event. Anyone can participate"
+                  >
+                    Open-For-All
+                  </Radio>
+                  <Radio
+                    value="intra_college"
+                    description="Quiz for all NDC Students"
+                  >
+                    Intra College
+                  </Radio>
+                  <Radio
+                    value="intra_club"
+                    description="Quiz only for all NDITC Members"
+                  >
+                    Intra Club
+                  </Radio>
+                </RadioGroup>
+              )}
             </div>
 
-            <div className="flex flex-col gap-2">
-              <Checkbox
-                size="lg"
-                isSelected={showResult}
-                onValueChange={setShowResult}
-              >
-                Show Result To User After Submission ?
-              </Checkbox>
-            </div>
+            {!isExternal && (
+              <div className="flex flex-col gap-2">
+                <Checkbox
+                  size="lg"
+                  isSelected={showResult}
+                  onValueChange={setShowResult}
+                >
+                  Show Result To User After Submission ?
+                </Checkbox>
+              </div>
+            )}
 
             <div className="flex flex-col gap-1">
               <label
@@ -630,13 +596,15 @@ const Page = (props: { params: Promise<{ eventID: string }> }) => {
               />
             </div>
 
-            <AddQuestions
-              questionsData={questions}
-              answersData={answers}
-              setData={setData}
-              setQues={(s) => setQuestions(s)}
-              setAns={(s) => setAnswers(s)}
-            />
+            {!isExternal && (
+              <AddQuestions
+                questionsData={questions}
+                answersData={answers}
+                setData={setData}
+                setQues={(s) => setQuestions(s)}
+                setAns={(s) => setAnswers(s)}
+              />
+            )}
 
             <Modal state={deleteModalOpen}>
               {deleteModalOpen ? (
@@ -681,7 +649,7 @@ const Page = (props: { params: Promise<{ eventID: string }> }) => {
             </InfoBox>
             <div className="flex flex-col items-stretch justify-between gap-5 lg:flex-row">
               <div className="flex h-full w-full py-3 md:w-auto md:py-0">
-                {params.eventID != "new" && (
+                {params.eventID != "new" && !isExternal && (
                   <Link
                     href={`/club/admin/rankers/${publicQuiz ? "public" : eventUID}`}
                     style={{
@@ -718,36 +686,40 @@ const Page = (props: { params: Promise<{ eventID: string }> }) => {
                       </button>
                     </div>
 
-                    <div className="w-full justify-self-end py-3 md:w-auto md:py-0">
-                      <button
-                        style={{
-                          pointerEvents: loading ? "none" : "auto",
-                          opacity: loading ? "0.65" : "1",
-                        }}
-                        className="w-full rounded-xl bg-primary px-8 py-2 text-lg text-white transition-all hover:bg-secondary_light hover:text-primary"
-                        onClick={save}
-                        type="button"
-                      >
-                        <div className="flex items-center justify-center gap-3">
-                          Save Local
+                    {!isExternal && (
+                      <>
+                        <div className="w-full justify-self-end py-3 md:w-auto md:py-0">
+                          <button
+                            style={{
+                              pointerEvents: loading ? "none" : "auto",
+                              opacity: loading ? "0.65" : "1",
+                            }}
+                            className="w-full rounded-xl bg-primary px-8 py-2 text-lg text-white transition-all hover:bg-secondary_light hover:text-primary"
+                            onClick={save}
+                            type="button"
+                          >
+                            <div className="flex items-center justify-center gap-3">
+                              Save Local
+                            </div>
+                          </button>
                         </div>
-                      </button>
-                    </div>
-                    <div className="w-full justify-self-end py-3 md:w-auto md:py-0">
-                      <button
-                        style={{
-                          pointerEvents: loading ? "none" : "auto",
-                          opacity: loading ? "0.65" : "1",
-                        }}
-                        className="w-full rounded-xl bg-primary px-8 py-2 text-lg text-white transition-all hover:bg-secondary_light hover:text-primary"
-                        onClick={loadLocal}
-                        type="button"
-                      >
-                        <div className="flex items-center justify-center gap-3">
-                          Load Backup
+                        <div className="w-full justify-self-end py-3 md:w-auto md:py-0">
+                          <button
+                            style={{
+                              pointerEvents: loading ? "none" : "auto",
+                              opacity: loading ? "0.65" : "1",
+                            }}
+                            className="w-full rounded-xl bg-primary px-8 py-2 text-lg text-white transition-all hover:bg-secondary_light hover:text-primary"
+                            onClick={loadLocal}
+                            type="button"
+                          >
+                            <div className="flex items-center justify-center gap-3">
+                              Load Backup
+                            </div>
+                          </button>
                         </div>
-                      </button>
-                    </div>
+                      </>
+                    )}
                   </>
                 )}
 

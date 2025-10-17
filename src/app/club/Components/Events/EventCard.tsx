@@ -21,6 +21,8 @@ const EventCard = ({
   id,
   category,
   participated,
+  isExternal,
+  externalLink
 }: {
   title: string;
   date: any;
@@ -31,6 +33,8 @@ const EventCard = ({
   id: string;
   category: string;
   participated: boolean;
+  isExternal: boolean;
+  externalLink: string;
 }) => {
   const now = Timestamp.now();
 
@@ -101,7 +105,7 @@ const EventCard = ({
           </p>
         </div>
         <div>
-          {ongoingForParticipate && <PartcipateButton id={id} />}
+          {ongoingForParticipate && <PartcipateButton isExternal={isExternal} externalLink={externalLink} id={id} />}
           {!ongoingForParticipate && (
             <Link
               href={`/club/eventdetails/${id}`}
