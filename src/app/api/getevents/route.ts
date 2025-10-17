@@ -63,6 +63,8 @@ export async function POST(req: NextRequest) {
       imageURL: e.data().imageURL,
       description: e.data().description,
       category: e.data().category,
+      externalLink: e.data().externalLink,
+      isExternal: e.data().isExternal
     }))
     .filter((e) => {
       if (userParticipated) {
@@ -79,19 +81,22 @@ export async function POST(req: NextRequest) {
     .limit(5)
     .get();
 
-  const eventList: any[] = collectionSnapshot.docs.map((e: any) => ({
-    id: encrypt(e.id),
-    eventName: e.data().eventName,
-    date: e.data().date,
-    enddate: e.data().enddate,
-    imageURL: e.data().imageURL,
-    description: e.data().description,
-    category: e.data().category,
+  const eventList: any[] = collectionSnapshot.docs
+    .map((e: any) => ({
+      id: encrypt(e.id),
+      eventName: e.data().eventName,
+      date: e.data().date,
+      enddate: e.data().enddate,
+      imageURL: e.data().imageURL,
+      description: e.data().description,
+      category: e.data().category,
+      externalLink: e.data().externalLink,
+      isExternal: e.data().isExternal,
     participated:
-      userParticipated && Array.isArray(userParticipated)
-        ? userParticipated.includes(e.id)
-        : false,
-  }));
+        userParticipated && Array.isArray(userParticipated)
+          ? userParticipated.includes(e.id)
+          : false,
+    }));
 
   return NextResponse.json({
     ongoingList: ongoingList,
