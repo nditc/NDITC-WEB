@@ -7,9 +7,8 @@ import { createCipheriv } from "crypto";
 const page = async () => {
   await initAdmin();
 
-  const encryption_key = "kjfofvdhjHjgrmgherTtyLJfVbshJbvQ";  
-  const initialization_vector = "X05IGQ5qdBnIqAWD";  
-
+  const encryption_key = "kjfofvdhjHjgrmgherTtyLJfVbshJbvQ"; 
+  const initialization_vector = "X05IGQ5qdBnIqAWD"; 
   function encrypt(text: string) {
     const cipher = createCipheriv(
       "aes-256-cbc",
@@ -20,27 +19,13 @@ const page = async () => {
     crypted += cipher.final("hex");
     return crypted;
   }
- 
-  function convertToBangladeshTime(utcDate: any) {
-    if (!utcDate) return null;
-    if (utcDate instanceof Timestamp) {
-      const date = utcDate.toDate();
-      return new Date(date.getTime() + (6 * 60 * 60 * 1000));
-    }
-     
-    if (utcDate instanceof Date) {
-      return new Date(utcDate.getTime() + (6 * 60 * 60 * 1000));
-    }
-    const date = new Date(utcDate);
-    if (!isNaN(date.getTime())) {
-      return new Date(date.getTime() + (6 * 60 * 60 * 1000));
-    }
-    
-    return null;
+   function convertTimestampToBangladeshTime(timestamp: Timestamp): Timestamp {
+    if (!timestamp) return timestamp;
+    const utcDate = timestamp.toDate();
+    const bdDate = new Date(utcDate.getTime() + (6 * 60 * 60 * 1000));
+    return Timestamp.fromDate(bdDate);
   }
-
   const firestore = getFirestore();
-
   const collectionSnapshot = await firestore
     .collection("events")
     .orderBy("date", "desc")
@@ -52,8 +37,8 @@ const page = async () => {
     return {
       id: encrypt(e.id),
       ...data,
-      date: convertToBangladeshTime(data.date),
-      endDate: convertToBangladeshTime(data.endDate),
+      date: convertTimestampToBangladeshTime(data.date),
+      enddate: convertTimestampToBangladeshTime(data.enddate),
     };
   });
 
