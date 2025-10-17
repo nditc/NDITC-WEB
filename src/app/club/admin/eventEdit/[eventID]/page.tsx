@@ -10,7 +10,7 @@ import {
   serverTimestamp,
   setDoc,
 } from "firebase/firestore";
-import { useState, useEffect, useRef, use } from "react";
+import { useState, useEffect, useReducer, useRef, use } from "react";
 import { useAuthState } from "react-firebase-hooks/auth";
 import { CgSpinner } from "react-icons/cg";
 import { RiDeleteBin6Line } from "react-icons/ri";
@@ -71,11 +71,27 @@ const Page = (props: { params: Promise<{ eventID: string }> }) => {
   const [loading, setLoading] = useState(false);
   const router = useRouter();
   const [notfound, setNotfound] = useState(false);
-  const [changeImage, setChangeImage] = useState(false);
-  const [newImage, setNewImage] = useState<FileList | null>(null);
+
+  // Image handling
+  const [changeImage, setChangeImage] = useState<boolean>(false);
+  const [newImage, setNewImage] = useState<FileList | null>();
   const FileRef = useRef<HTMLInputElement>(null);
 
-  // Auth check
+  const handleImageChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+    if (!e.target.files) return;
+    const file = e.target.files[0];
+    if (!fileValidator(file)) return;
+    setNewImage(e.target.files);
+    setChangeImage(true);
+  };
+
+  const removeImage = () => {
+    setNewImage(null);
+    setChangeImage(false);
+    if (FileRef.current) FileRef.current.value = "";
+  };
+
+  // Auth check and load event
   useEffect(() => {
     if (user && user.email) {
       fetch("/api/admin", {
@@ -115,8 +131,12 @@ const Page = (props: { params: Promise<{ eventID: string }> }) => {
           setIsExternal(data.isExternal || false);
           setExternalLink(data.externalLink || "");
 
-          let time = parseAbsoluteToLocal(timeValue(data.date).time.toISOString());
-          let endTime = parseAbsoluteToLocal(timeValue(data.enddate).time.toISOString());
+          let time = parseAbsoluteToLocal(
+            timeValue(data.date).time.toISOString()
+          );
+          let endTime = parseAbsoluteToLocal(
+            timeValue(data.enddate).time.toISOString()
+          );
           setDate(time);
           setEndDate(endTime);
 
@@ -133,7 +153,7 @@ const Page = (props: { params: Promise<{ eventID: string }> }) => {
     }
   }, [params.eventID, user]);
 
-  // Save or update to Firestore
+  // Submit / Update
   const saveEventToDB = async (url?: string) => {
     const payload: any = {
       eventName,
@@ -151,9 +171,7 @@ const Page = (props: { params: Promise<{ eventID: string }> }) => {
       externalLink,
     };
 
-    if (!isExternal) {
-      payload.questions = questions;
-    }
+    if (!isExternal) payload.questions = questions;
 
     await setDoc(doc(db, "events", eventUID), payload);
 
@@ -169,7 +187,6 @@ const Page = (props: { params: Promise<{ eventID: string }> }) => {
     }
   };
 
-  // Submit new event
   const handleSubmit = async (e: any) => {
     e.preventDefault();
     if (!date) return toast.error("Date not specified");
@@ -202,7 +219,6 @@ const Page = (props: { params: Promise<{ eventID: string }> }) => {
     }
   };
 
-  // Update existing event
   const handleUpdate = async (e: any) => {
     e.preventDefault();
     if (!date) return toast.error("Date not specified");
@@ -210,15 +226,13 @@ const Page = (props: { params: Promise<{ eventID: string }> }) => {
       return toast.error("At least one question must be added");
 
     setLoading(true);
-
-    if (changeImage && newImage) {
+    if (newImage) {
       const storeRef = ref(pfp, "ep/" + eventUID);
       uploadBytes(storeRef, newImage[0]).then(async () => {
         const url = await getDownloadURL(storeRef);
         await saveEventToDB(url);
         toast.success("Event Updated");
         setLoading(false);
-        setChangeImage(false);
         router.push("/club/admin/events");
       });
     } else {
@@ -229,7 +243,6 @@ const Page = (props: { params: Promise<{ eventID: string }> }) => {
     }
   };
 
-  // Delete event
   const deleteEvent = async (e: any) => {
     e.preventDefault();
     setLoading(true);
@@ -238,13 +251,6 @@ const Page = (props: { params: Promise<{ eventID: string }> }) => {
     toast.warning("Event Deleted");
     setLoading(false);
     router.push("/club/admin/events");
-  };
-
-  // Handle file selection
-  const handleFileSelect = (e: any) => {
-    const file = e.target.files;
-    if (!fileValidator(file, 2)) return;
-    setNewImage(file);
   };
 
   return (
@@ -259,58 +265,6 @@ const Page = (props: { params: Promise<{ eventID: string }> }) => {
               {params.eventID === "new" ? "Add New" : "Edit"}{" "}
               <span className="text-primary">Event</span>
             </h1>
-
-            {/* Image Section */}
-            <div>
-              <EventPicture
-                imageURL={imageURL}
-                FileRef={FileRef}
-                setChangeImage={setChangeImage}
-              />
-              <button
-                type="button"
-                className="mt-2 rounded-lg border border-primary px-4 py-2 text-primary hover:bg-primary hover:text-white transition-all"
-                onClick={() => setChangeImage(true)}
-              >
-                Edit Image
-              </button>
-            </div>
-
-            {/* Image Edit Modal */}
-            {changeImage && (
-              <Modal close={() => setChangeImage(false)}>
-                <div className="flex flex-col gap-3">
-                  <div className="flex justify-between items-center mb-3">
-                    <h2 className="text-xl font-semibold">Change Event Image</h2>
-                    <button onClick={() => setChangeImage(false)}>
-                      <LiaTimesSolid className="text-2xl" />
-                    </button>
-                  </div>
-                  <input
-                    ref={FileRef}
-                    onChange={handleFileSelect}
-                    type="file"
-                    accept="image/*"
-                    className="rounded-lg border border-gray-300 p-3"
-                  />
-                  {newImage && (
-                    <p className="text-sm text-gray-500">
-                      Selected: {newImage[0].name}
-                    </p>
-                  )}
-                  <button
-                    type="button"
-                    className="rounded-lg bg-primary px-6 py-2 text-white"
-                    onClick={() => {
-                      if (!newImage) return toast.error("No image selected");
-                      setChangeImage(false);
-                    }}
-                  >
-                    Done
-                  </button>
-                </div>
-              </Modal>
-            )}
 
             {/* External event checkbox */}
             <Checkbox
@@ -377,6 +331,16 @@ const Page = (props: { params: Promise<{ eventID: string }> }) => {
               value={description}
               placeholder="Event Description"
               required
+            />
+
+            {/* Image handling section */}
+            <EventPicture
+              imageURL={imageURL}
+              newImage={newImage}
+              changeImage={changeImage}
+              FileRef={FileRef}
+              handleImageChange={handleImageChange}
+              removeImage={removeImage}
             />
 
             {/* Only show quiz-related settings if not external */}
