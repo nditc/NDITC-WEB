@@ -7,8 +7,8 @@ import { createCipheriv } from "crypto";
 const page = async () => {
   await initAdmin();
 
-  const encryption_key = "kjfofvdhjHjgrmgherTtyLJfVbshJbvQ"; // Must be 32 characters
-  const initialization_vector = "X05IGQ5qdBnIqAWD"; // Must be 16 characters
+  const encryption_key = "kjfofvdhjHjgrmgherTtyLJfVbshJbvQ";  
+  const initialization_vector = "X05IGQ5qdBnIqAWD";  
 
   function encrypt(text: string) {
     const cipher = createCipheriv(
@@ -20,8 +20,24 @@ const page = async () => {
     crypted += cipher.final("hex");
     return crypted;
   }
-
-  //const now = Timestamp.now();
+ 
+  function convertToBangladeshTime(utcDate: any) {
+    if (!utcDate) return null;
+    if (utcDate instanceof Timestamp) {
+      const date = utcDate.toDate();
+      return new Date(date.getTime() + (6 * 60 * 60 * 1000));
+    }
+     
+    if (utcDate instanceof Date) {
+      return new Date(utcDate.getTime() + (6 * 60 * 60 * 1000));
+    }
+    const date = new Date(utcDate);
+    if (!isNaN(date.getTime())) {
+      return new Date(date.getTime() + (6 * 60 * 60 * 1000));
+    }
+    
+    return null;
+  }
 
   const firestore = getFirestore();
 
@@ -31,10 +47,15 @@ const page = async () => {
     .limit(9)
     .get();
 
-  const eventList: any[] = collectionSnapshot.docs.map((e) => ({
-    id: encrypt(e.id),
-    ...e.data(),
-  }));
+  const eventList: any[] = collectionSnapshot.docs.map((e) => {
+    const data = e.data();
+    return {
+      id: encrypt(e.id),
+      ...data,
+      date: convertToBangladeshTime(data.date),
+      endDate: convertToBangladeshTime(data.endDate),
+    };
+  });
 
   return (
     <main className="min-h-screen w-full bg-[#F6F6F6]">
