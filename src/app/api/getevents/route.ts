@@ -87,6 +87,8 @@ export async function POST(req: NextRequest) {
     imageURL: e.data().imageURL,
     description: e.data().description,
     category: e.data().category,
+    isExternal: e.data().isExternal,
+    externalLink: e.data().externalLink,
     participated:
       userParticipated && Array.isArray(userParticipated)
         ? userParticipated.includes(e.id)

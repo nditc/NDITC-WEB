@@ -25,6 +25,8 @@ const EventList = ({
             key={i}
             category={e.category}
             participated={e.participated}
+            isExternal={e.isExternal}
+            externalLink={e.externalLink}
           />
         );
       })}
