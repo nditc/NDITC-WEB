@@ -10,7 +10,7 @@ import {
   serverTimestamp,
   setDoc,
 } from "firebase/firestore";
-import { useState, useEffect, useReducer, useRef, use } from "react";
+import { useState, useEffect, useRef, use } from "react";
 import { useAuthState } from "react-firebase-hooks/auth";
 import { CgSpinner } from "react-icons/cg";
 import { RiDeleteBin6Line } from "react-icons/ri";
@@ -71,8 +71,8 @@ const Page = (props: { params: Promise<{ eventID: string }> }) => {
   const [loading, setLoading] = useState(false);
   const router = useRouter();
   const [notfound, setNotfound] = useState(false);
-  const [changeImage, setChangeImage] = useState<boolean>();
-  const [newImage, setNewImage] = useState<FileList | null>();
+  const [changeImage, setChangeImage] = useState<boolean>(false);
+  const [newImage, setNewImage] = useState<FileList | null>(null);
   const FileRef = useRef<HTMLInputElement>(null);
 
   // Auth check
@@ -208,10 +208,23 @@ const Page = (props: { params: Promise<{ eventID: string }> }) => {
       return toast.error("At least one question must be added");
 
     setLoading(true);
-    await saveEventToDB();
-    toast.success("Event Updated");
-    setLoading(false);
-    router.push("/club/admin/events");
+
+    // Handle image update if selected
+    if (changeImage && newImage) {
+      const storeRef = ref(pfp, "ep/" + eventUID);
+      uploadBytes(storeRef, newImage[0]).then(async () => {
+        const url = await getDownloadURL(storeRef);
+        await saveEventToDB(url);
+        toast.success("Event Updated with new image");
+        setLoading(false);
+        router.push("/club/admin/events");
+      });
+    } else {
+      await saveEventToDB();
+      toast.success("Event Updated");
+      setLoading(false);
+      router.push("/club/admin/events");
+    }
   };
 
   const deleteEvent = async (e: any) => {
@@ -236,6 +249,45 @@ const Page = (props: { params: Promise<{ eventID: string }> }) => {
               {params.eventID === "new" ? "Add New" : "Edit"}{" "}
               <span className="text-primary">Event</span>
             </h1>
+
+            {/* Image Edit Section */}
+            <div className="space-y-3">
+              <p className="font-semibold">Event Image</p>
+              <div className="flex flex-col sm:flex-row items-center gap-4">
+                <img
+                  src={imageURL}
+                  alt="Event"
+                  className="h-40 w-40 rounded-xl border object-cover"
+                />
+                <div className="flex flex-col gap-3">
+                  <button
+                    type="button"
+                    onClick={() => FileRef.current?.click()}
+                    className="rounded-xl bg-primary px-6 py-2 text-white"
+                  >
+                    Change Image
+                  </button>
+                  {newImage && (
+                    <p className="text-sm text-gray-600">
+                      Selected: {newImage[0]?.name}
+                    </p>
+                  )}
+                  <input
+                    type="file"
+                    accept="image/*"
+                    hidden
+                    ref={FileRef}
+                    onChange={(e) => {
+                      if (!e.target.files) return;
+                      const check = fileValidator(e.target.files[0]);
+                      if (!check.valid) return toast.error(check.msg);
+                      setNewImage(e.target.files);
+                      setChangeImage(true);
+                    }}
+                  />
+                </div>
+              </div>
+            </div>
 
             {/* External event checkbox */}
             <Checkbox
