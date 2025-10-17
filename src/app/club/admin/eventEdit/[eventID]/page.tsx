@@ -262,6 +262,14 @@ const Page = (props: { params: Promise<{ eventID: string }> }) => {
     toast.info("Saved questions and answers.");
   };
 
+  // Add the missing loadLocal function
+  const loadLocal = async () => {
+    const local = JSON.parse(localStorage.getItem(`event.${eventUID}`) || "{}");
+    console.dir(local);
+    setData(local?.questions, local?.answers);
+    toast.info("Loaded local questions and answers.");
+  };
+
   const [notfound, setNotfound] = useState(false);
 
   const [changeImage, setChangeImage] = useState<boolean>();
