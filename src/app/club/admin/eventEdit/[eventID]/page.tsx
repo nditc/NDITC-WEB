@@ -261,8 +261,7 @@ const Page = (props: { params: Promise<{ eventID: string }> }) => {
     );
     toast.info("Saved questions and answers.");
   };
-
-  // Add the missing loadLocal function
+ 
   const loadLocal = async () => {
     const local = JSON.parse(localStorage.getItem(`event.${eventUID}`) || "{}");
     console.dir(local);
