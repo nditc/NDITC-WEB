@@ -31,6 +31,13 @@ const page = async (props: { params: Promise<ParamType> }) => {
     return dec;
   }
 
+  function convertToBangladeshTime(timestamp: Timestamp): Timestamp {
+    if (!timestamp) return timestamp;
+
+    const utcDate = timestamp.toDate();
+    const bdDate = new Date(utcDate.getTime() + (6 * 60 * 60 * 1000)); 
+    return Timestamp.fromDate(bdDate);
+  }
   const firestore = getFirestore();
 
   const dataDoc = await firestore
@@ -44,13 +51,11 @@ const page = async (props: { params: Promise<ParamType> }) => {
 
   const title = data?.eventName;
 
-  const DateData = timeValue(data?.date);
+  const DateData = timeValue(convertToBangladeshTime(data?.date));
 
-  const now = Timestamp.now();
-
-  const timeUp = now > data?.enddate;
-  const notTime = now < data?.date;
-
+ const bdNow = Timestamp.fromDate(new Date(Date.now() + (6 * 60 * 60 * 1000))); // Current BD time
+const timeUp = bdNow > convertToBangladeshTime(data?.enddate);
+const notTime = bdNow < convertToBangladeshTime(data?.date);
   return (
     <div className="w-screen bg-[#F6F6F6]">
       <div className="container relative flex flex-col items-center gap-10 bg-transparent py-10 pt-[81px]">
