@@ -1,7 +1,10 @@
+"use client";
+
 import Image from "next/image";
 import SnapScroller from "../SnapScroller";
 import { Button } from "@nextui-org/react";
 import Link from "next/link";
+import { useEffect, useState, useRef } from "react";
 
 interface Props {
   title: string;
@@ -74,6 +77,49 @@ const HashtechPost = async ({ title, desc, redirectUrl }: Props) => {
   }
 };
 
+// Responsive Facebook Video Component
+const ResponsiveFacebookVideo = () => {
+  const containerRef = useRef<HTMLDivElement>(null);
+  const [iframeSrc, setIframeSrc] = useState(
+    "https://www.facebook.com/plugins/video.php?height=476&href=https%3A%2F%2Fweb.facebook.com%2Freel%2F516490874347622%2F&show_text=false&width=500&height=400&t=0",
+  );
+  const [iframeHeight, setIframeHeight] = useState(400);
+
+  useEffect(() => {
+    const updateDimensions = () => {
+      if (containerRef.current) {
+        const width = containerRef.current.offsetWidth;
+        // Maintain 5:4 aspect ratio (matching original 500:400), but cap at reasonable sizes
+        const height = Math.min(Math.round((width * 4) / 5), 600);
+        const clampedWidth = Math.min(width, 500);
+
+        setIframeHeight(height);
+        setIframeSrc(
+          `https://www.facebook.com/plugins/video.php?height=${height}&href=https%3A%2F%2Fweb.facebook.com%2Freel%2F516490874347622%2F&show_text=false&width=${clampedWidth}&height=${height}&t=0`,
+        );
+      }
+    };
+
+    updateDimensions();
+    window.addEventListener("resize", updateDimensions);
+    return () => window.removeEventListener("resize", updateDimensions);
+  }, []);
+
+  return (
+    <div ref={containerRef} className="w-full">
+      <iframe
+        src={iframeSrc}
+        height={iframeHeight}
+        width="100%"
+        style={{ border: "none", overflow: "hidden" }}
+        allowFullScreen={true}
+        allow="autoplay; clipboard-write; encrypted-media; picture-in-picture; web-share"
+        className="w-full"
+      ></iframe>
+    </div>
+  );
+};
+
 // Container Section
 
 const HashtechPosts = () => {
@@ -89,13 +135,13 @@ const HashtechPosts = () => {
             alt=""
           />
         </div>
-        <div className="flex h-fit w-[500px] flex-col items-center overflow-clip rounded-xl border border-gray-500 bg-white/10 backdrop-blur-md">
-          <div className="flex select-none flex-row gap-10 bg-inherit p-5">
-            <div className="flex flex-col">
-              <span className="Bebas text-2xl font-light leading-tight text-white">
+        <div className="flex h-fit w-full max-w-[500px] flex-col items-center overflow-clip rounded-xl border border-gray-500 bg-white/10 backdrop-blur-md sm:max-w-[500px]">
+          <div className="flex w-full select-none flex-col gap-4 bg-inherit p-4 sm:flex-row sm:gap-6 sm:p-5">
+            <div className="flex flex-1 flex-col">
+              <span className="Bebas text-xl font-light leading-tight text-white sm:text-2xl">
                 Quantum Computer
               </span>
-              <p className="break-words text-sm leading-tight text-gray-300">
+              <p className="break-words text-xs leading-tight text-gray-300 sm:text-sm">
                 A non-profit production by NDITC Hashtech Team.
               </p>
             </div>
@@ -103,19 +149,12 @@ const HashtechPosts = () => {
             <Link
               target="_blank"
               href={"https://web.facebook.com/reel/516490874347622"}
-              className="Bebas relative mt-2 flex h-fit w-36 items-center justify-center rounded-lg border border-gray-600 bg-white/10 px-7 py-2 font-Bebas text-lg font-medium text-white shadow-2xl transition-all hover:bg-blue-500 hover:text-white hover:shadow-blue-500"
+              className="Bebas relative flex h-fit w-full items-center justify-center rounded-lg border border-gray-600 bg-white/10 px-5 py-2 font-Bebas text-base font-medium text-white shadow-2xl transition-all hover:bg-blue-500 hover:text-white hover:shadow-blue-500 sm:w-36 sm:px-7 sm:text-lg"
             >
               <span className="relative z-10">LEARN MORE</span>
             </Link>
           </div>
-          <iframe
-            src="https://www.facebook.com/plugins/video.php?height=476&href=https%3A%2F%2Fweb.facebook.com%2Freel%2F516490874347622%2F&show_text=false&width=500&height=400&t=0"
-            height="400"
-            width="100%"
-            style={{ border: "none", overflow: "hidden" }}
-            allowFullScreen={true}
-            allow="autoplay; clipboard-write; encrypted-media; picture-in-picture; web-share"
-          ></iframe>
+          <ResponsiveFacebookVideo />
         </div>
         {/* <SnapScroller baseSize={475} gap={16} duration={2500}>
           <HashtechPost
