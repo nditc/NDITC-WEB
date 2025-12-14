@@ -1,5 +1,7 @@
 import Image from "next/image";
 import SnapScroller from "../SnapScroller";
+import { Button } from "@nextui-org/react";
+import Link from "next/link";
 
 interface Props {
   title: string;
@@ -78,16 +80,44 @@ const HashtechPosts = () => {
   return (
     <section className="relative my-auto w-screen bg-[url(/image/hashtech_bg.png)] bg-cover bg-bottom bg-no-repeat">
       {/* <img className="w-full absolute left-0 top-0" src="/image/hashtech_bg.png" alt="" /> */}
-      <section className="container my-auto flex flex-col items-center">
-        <div className="z-10 mt-8 flex flex-col items-center self-center text-white md:flex-row md:gap-2">
+      <section className="container my-auto flex flex-col items-center gap-4 py-8">
+        <div className="z-10 flex flex-col items-center self-center text-white md:flex-row md:gap-2">
           <h1 className="text-[2.55rem] md:text-5xl">CHECK OUT OUR</h1>
           <img
-            className="ml-2 h-16 md:h-[6.5rem]"
+            className="ml-2 h-20 md:h-[5rem]"
             src="/image/hashtech_logo.png"
             alt=""
           />
         </div>
-        <SnapScroller baseSize={475} gap={16} duration={2500}>
+        <div className="flex h-fit w-[500px] flex-col items-center overflow-clip rounded-xl border border-gray-500 bg-white/10 backdrop-blur-md">
+          <div className="flex select-none flex-row gap-10 bg-inherit p-5">
+            <div className="flex flex-col">
+              <span className="Bebas text-2xl font-light leading-tight text-white">
+                Quantum Computer
+              </span>
+              <p className="break-words text-sm leading-tight text-gray-300">
+                A non-profit production by NDITC Hashtech Team.
+              </p>
+            </div>
+
+            <Link
+              target="_blank"
+              href={"https://web.facebook.com/reel/516490874347622"}
+              className="Bebas relative mt-2 flex h-fit w-36 items-center justify-center rounded-lg border border-gray-600 bg-white/10 px-7 py-2 font-Bebas text-lg font-medium text-white shadow-2xl transition-all hover:bg-blue-500 hover:text-white hover:shadow-blue-500"
+            >
+              <span className="relative z-10">LEARN MORE</span>
+            </Link>
+          </div>
+          <iframe
+            src="https://www.facebook.com/plugins/video.php?height=476&href=https%3A%2F%2Fweb.facebook.com%2Freel%2F516490874347622%2F&show_text=false&width=500&height=400&t=0"
+            height="400"
+            width="100%"
+            style={{ border: "none", overflow: "hidden" }}
+            allowFullScreen={true}
+            allow="autoplay; clipboard-write; encrypted-media; picture-in-picture; web-share"
+          ></iframe>
+        </div>
+        {/* <SnapScroller baseSize={475} gap={16} duration={2500}>
           <HashtechPost
             title="Nano Robotics"
             desc="Nanorobotics designs and controls ultra-small robots at the nanoscale for tasks such as delivering medication to specific cells or precisely handling materials."
@@ -116,7 +146,7 @@ Benefits of Li-Fi :"
             desc="Quantum computing is a revolutionary technology that utilizes quantum mechanics principles to process information"
             redirectUrl="https://www.facebook.com/photo?fbid=1037396531111878&set=a.762348471950020"
           />
-        </SnapScroller>
+        </SnapScroller> */}
       </section>
     </section>
   );
