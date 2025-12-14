@@ -1,15 +1,12 @@
 "use client";
 
 import { useEffect, useRef, useState } from "react";
-import Hover from "./SubMenu";
-import Link from "next/link";
 import { usePathname, useSearchParams } from "next/navigation";
 
 import NavLinks from "./NavLinks";
 import AppnLogin from "./App&Login";
 import Logo from "./Logo";
 import ToggleButton from "./ToggleButton";
-import Loginbtn from "./FancyLink";
 import FancyLink from "./FancyLink";
 
 const Navbar = () => {
@@ -42,6 +39,7 @@ const Navbar = () => {
     window.addEventListener("beforeinstallprompt", install);
     return () => {
       window.removeEventListener("hashchange", stateHandler);
+      document.removeEventListener("mousedown", handleClickOutside);
       window.removeEventListener("beforeinstallprompt", install);
     };
   }, [Route, Params]);
@@ -53,21 +51,20 @@ const Navbar = () => {
         "fixed start-0 top-0 z-50 w-full max-w-[100vw] border border-gray-200 bg-white " +
         (showOptions ? "border-transparent" : "")
       }
-      onClick={() => {
-        setShowOptions(false);
-      }}
     >
       <div className="container relative mx-auto flex flex-wrap items-center justify-between px-1 py-4">
         <Logo />
+
         <NavLinks
           setShowOptions={(s) => setShowOptions(s)}
           showOptions={showOptions}
         />
+        <ToggleButton
+          showOptions={showOptions}
+          setShowOptions={setShowOptions}
+        />
 
-
-        {
-          !inClubPage ? <AppnLogin /> :   <FancyLink text="login" />
-        }
+        {!inClubPage ? <AppnLogin /> : <FancyLink text="login" />}
       </div>
     </nav>
   );
