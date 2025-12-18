@@ -67,7 +67,7 @@ const NavLinkCont = ({
         style={{
           transformOrigin: "top",
         }}
-        className={`z-30 w-screen shrink-0 items-center justify-between bg-white transition lg:order-1 lg:flex lg:w-auto ${
+        className={`z-30 w-screen shrink-0 items-center justify-between space-y-4 bg-white transition lg:order-1 lg:flex lg:w-auto lg:space-y-0 ${
           showOptions || windowWidth >= 1024
             ? "scale-y-100"
             : "pointer-events-none scale-y-0"
@@ -128,14 +128,16 @@ const NavLinkCont = ({
             <NavLink href="/developer">Developers</NavLink>
           )}
         </ul>
-        <div className="ml-0 flex lg:ml-8">
-          {!inClubPage && (
-            <>
-              {" "}
-              <FancyLink text="club"></FancyLink>{" "}
-            </>
-          )}
-        </div>
+        {!inClubPage && windowWidth < 1024 && (
+          <div className="container">
+            <FancyLink text="club"></FancyLink>
+          </div>
+        )}
+        {!inClubPage && windowWidth >= 1024 && (
+          <div className="lg:ml-6">
+            <FancyLink text="club"></FancyLink>
+          </div>
+        )}
       </div>
     </>
   );
