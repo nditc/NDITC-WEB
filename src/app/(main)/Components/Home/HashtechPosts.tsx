@@ -91,7 +91,7 @@ const ResponsiveFacebookVideo = () => {
         const width = containerRef.current.offsetWidth;
         // Maintain 5:4 aspect ratio (matching original 500:400), but cap at reasonable sizes
         const height = Math.min(Math.round((width * 4) / 5), 600);
-        const clampedWidth = Math.min(width, 500);
+        const clampedWidth = Math.min(width, 550);
 
         setIframeHeight(height);
         setIframeSrc(
@@ -135,7 +135,7 @@ const HashtechPosts = () => {
             alt=""
           />
         </div>
-        <div className="flex h-fit w-full max-w-[500px] flex-col items-center overflow-clip rounded-xl border border-gray-500 bg-white/10 backdrop-blur-md sm:max-w-[500px]">
+        <div className="flex h-fit w-full max-w-[550px] flex-col items-center overflow-clip rounded-xl border border-gray-500 bg-white/10 shadow-lg shadow-black/50 backdrop-blur-md sm:max-w-[550px]">
           <div className="flex w-full select-none flex-col gap-4 bg-inherit p-4 sm:flex-row sm:gap-6 sm:p-5">
             <div className="flex flex-1 flex-col">
               <span className="Bebas text-xl font-light leading-tight text-white sm:text-2xl">
