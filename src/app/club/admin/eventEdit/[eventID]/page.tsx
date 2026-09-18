@@ -2,7 +2,7 @@
 
 import EventPicture from "@/app/club/Components/Admin/EventPicture";
 import NotFound from "@/app/not-found";
-import { auth, db, pfp } from "@/config/firebase";
+import { auth, db } from "@/config/firebase";
 import {
   deleteDoc,
   doc,
@@ -19,7 +19,7 @@ import Image from "next/image";
 import Modal from "@/app/club/Components/Modal";
 import fileValidator from "@/util/fileValidator";
 import { LiaTimesSolid } from "react-icons/lia";
-import { getDownloadURL, ref, uploadBytes } from "firebase/storage";
+import uploadImage from "@/util/uploadImage";
 import { useRouter } from "next/navigation";
 import AddQuestions from "@/app/club/Components/Admin/AddQuestions";
 import { Checkbox, DatePicker, Radio, RadioGroup, Input } from "@nextui-org/react";
@@ -216,14 +216,19 @@ const Page = (props: { params: Promise<{ eventID: string }> }) => {
       setLoading(false);
     } else {
       if (newImage) {
-        const storeRef = ref(pfp, "ep/" + eventUID);
-        uploadBytes(storeRef, newImage[0]).then(async (snapshot) => {
-          const url = await getDownloadURL(storeRef);
-          await saveEventToDB(url);
-          toast.success("Successfully Event Added");
-          setLoading(false);
-          goToAdminPanel();
-        });
+        uploadImage(newImage[0], "events")
+          .then(async (url) => {
+            await saveEventToDB(url);
+            toast.success("Successfully Event Added");
+            setLoading(false);
+            goToAdminPanel();
+          })
+          .catch((error: unknown) => {
+            toast.error(
+              error instanceof Error ? error.message : "Failed to upload image",
+            );
+            setLoading(false);
+          });
       } else {
         await saveEventToDB();
         toast.success("Successfully Event Added");
