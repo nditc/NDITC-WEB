@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import { Inter, Manrope } from "next/font/google";
 import Link from "next/link";
 import { notFound } from "next/navigation";
 import Markdown from "react-markdown";
@@ -6,6 +7,9 @@ import remarkGfm from "remark-gfm";
 import { getPublishedPostBySlug, PostData } from "@/util/posts";
 
 type ParamType = { slug: string };
+
+const inter = Inter({ subsets: ["latin"], display: "swap" });
+const manrope = Manrope({ subsets: ["latin"], display: "swap" });
 
 export async function generateMetadata({
   params,
@@ -72,8 +76,7 @@ const BlogPost = async ({ params }: { params: Promise<ParamType> }) => {
     notFound();
   }
 
-  const siteUrl =
-    process.env.NEXT_PUBLIC_SITE_URL || "https://nditc.net";
+  const siteUrl = process.env.NEXT_PUBLIC_SITE_URL || "https://nditc.net";
   const jsonLd = {
     "@context": "https://schema.org",
     "@type": "BlogPosting",
@@ -94,7 +97,7 @@ const BlogPost = async ({ params }: { params: Promise<ParamType> }) => {
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
       />
-      <article className="mx-auto w-full max-w-3xl px-4">
+      <article className={`${inter.className} mx-auto w-full max-w-5xl px-4`}>
         {/* Breadcrumb */}
         <nav className="mb-6 text-sm text-gray-500">
           <Link href="/" className="hover:text-blue-600">
@@ -120,12 +123,16 @@ const BlogPost = async ({ params }: { params: Promise<ParamType> }) => {
           </div>
         )}
 
-        <h1 className="text-3xl font-bold leading-tight text-gray-900 md:text-5xl">
+        <h1
+          className={`${manrope.className} text-3xl font-bold leading-tight tracking-tighter text-gray-900 md:text-5xl`}
+        >
           {post.title}
         </h1>
 
         {post.excerpt && (
-          <p className="mt-4 text-lg leading-relaxed text-gray-600">
+          <p
+            className={`${inter.className} mt-4 text-lg leading-relaxed text-gray-600`}
+          >
             {post.excerpt}
           </p>
         )}
@@ -147,8 +154,56 @@ const BlogPost = async ({ params }: { params: Promise<ParamType> }) => {
           />
         )}
 
-        <div className="markdown mb-10 mt-8 min-h-[30vh] text-left font-Nunito text-lg">
-          <Markdown remarkPlugins={[remarkGfm]}>{post.content || ""}</Markdown>
+        <div className="markdown mb-10 mt-8 min-h-[30vh] text-left text-lg normal-case">
+          <Markdown
+            remarkPlugins={[remarkGfm]}
+            components={{
+              h1: ({ node, ...props }) => (
+                <h1
+                  {...props}
+                  className={`${manrope.className} mb-6 mt-10 text-3xl font-extrabold leading-tight tracking-tight text-gray-900 md:text-4xl`}
+                />
+              ),
+              h2: ({ node, ...props }) => (
+                <h2
+                  {...props}
+                  className={`${manrope.className} mb-4 mt-8 text-2xl font-bold leading-tight tracking-tight text-gray-900 md:text-3xl`}
+                />
+              ),
+              h3: ({ node, ...props }) => (
+                <h3
+                  {...props}
+                  className={`${manrope.className} mb-3 mt-6 text-xl font-bold leading-tight tracking-tight text-gray-900 md:text-2xl`}
+                />
+              ),
+              h4: ({ node, ...props }) => (
+                <h4
+                  {...props}
+                  className={`${manrope.className} mb-2 mt-5 text-lg font-bold leading-tight tracking-tight text-gray-900 md:text-xl`}
+                />
+              ),
+              h5: ({ node, ...props }) => (
+                <h5
+                  {...props}
+                  className={`${manrope.className} mb-2 mt-4 text-base font-bold leading-tight tracking-tight text-gray-900 md:text-lg`}
+                />
+              ),
+              h6: ({ node, ...props }) => (
+                <h6
+                  {...props}
+                  className={`${manrope.className} mb-2 mt-4 text-sm font-bold uppercase leading-tight tracking-tight text-gray-700 md:text-base`}
+                />
+              ),
+              p: ({ node, ...props }) => (
+                <p
+                  {...props}
+                  className={`${inter.className} mb-4 leading-relaxed text-gray-800`}
+                />
+              ),
+            }}
+          >
+            {post.content || ""}
+          </Markdown>
         </div>
       </article>
     </div>
