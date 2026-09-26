@@ -13,7 +13,7 @@ function formatDate(timestamp: number): string {
 const LatestBlogs = async () => {
   let posts: PostData[] = [];
   try {
-    posts = (await getPublishedPosts()).slice(0, 3);
+    posts = (await getPublishedPosts(1, 3)).items;
   } catch (err) {
     console.error("Error fetching latest blog posts:", err);
   }

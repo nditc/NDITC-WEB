@@ -3,6 +3,10 @@ import Link from "next/link";
 import { LuPenLine } from "react-icons/lu";
 import { getPublishedPosts, PostData } from "@/util/posts";
 
+type BlogProps = {
+  searchParams: Promise<{ page?: string }>;
+};
+
 export const metadata: Metadata = {
   title: "Blog | NDITC",
   description:
@@ -18,12 +22,20 @@ function formatDate(timestamp: number): string {
   });
 }
 
-const Blog = async () => {
+const Blog = async ({ searchParams }: BlogProps) => {
   let posts: PostData[] = [];
+  let currentPage = 1;
+  let hasPrevious = false;
+  let hasNext = false;
   let error: string | null = null;
 
   try {
-    posts = await getPublishedPosts();
+    const params = await searchParams;
+    currentPage = Math.max(Number(params.page ?? "1") || 1, 1);
+    const result = await getPublishedPosts(currentPage, 10);
+    posts = result.items;
+    hasPrevious = result.has_previous;
+    hasNext = result.has_next;
   } catch (err) {
     console.error("Error fetching blog posts:", err);
     error = "general";
@@ -108,6 +120,32 @@ const Blog = async () => {
                 </div>
               </Link>
             ))}
+
+          {!error && posts.length > 0 && (hasPrevious || hasNext) && (
+            <nav className="flex items-center gap-4" aria-label="Blog pagination">
+              {hasPrevious ? (
+                <Link
+                  href={`/blog?page=${currentPage - 1}`}
+                  className="rounded-xl bg-primary px-5 py-2.5 text-sm font-medium text-white transition-colors hover:bg-secondary_light hover:text-primary"
+                >
+                  Previous
+                </Link>
+              ) : (
+                <span className="px-5 py-2.5 text-sm text-gray-400">Previous</span>
+              )}
+              <span className="text-sm text-gray-500">Page {currentPage}</span>
+              {hasNext ? (
+                <Link
+                  href={`/blog?page=${currentPage + 1}`}
+                  className="rounded-xl bg-primary px-5 py-2.5 text-sm font-medium text-white transition-colors hover:bg-secondary_light hover:text-primary"
+                >
+                  Next
+                </Link>
+              ) : (
+                <span className="px-5 py-2.5 text-sm text-gray-400">Next</span>
+              )}
+            </nav>
+          )}
         </div>
       </div>
     </div>

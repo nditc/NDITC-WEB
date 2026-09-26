@@ -17,11 +17,30 @@ export interface PostData {
   meta_description: string | null;
 }
 
+export interface PaginatedPosts {
+  items: PostData[];
+  page: number;
+  page_size: number;
+  total: number;
+  pages: number;
+  has_next: boolean;
+  has_previous: boolean;
+}
+
 const BASE_URL =
   process.env.NEXT_PUBLIC_API_BASE_URL || "https://nditc.pythonanywhere.com";
 
-export async function getPublishedPosts(): Promise<PostData[]> {
-  const res = await fetch(`${BASE_URL}/api/v1/posts/?published=true`, {
+export async function getPublishedPosts(
+  page = 1,
+  pageSize = 10
+): Promise<PaginatedPosts> {
+  const params = new URLSearchParams({
+    published: "true",
+    page: String(page),
+    page_size: String(pageSize),
+  });
+
+  const res = await fetch(`${BASE_URL}/api/v1/posts/?${params}`, {
     cache: "no-store",
   });
   if (!res.ok) {

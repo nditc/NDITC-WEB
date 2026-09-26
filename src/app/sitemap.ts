@@ -16,8 +16,8 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
 
   let posts: MetadataRoute.Sitemap = [];
   try {
-    const published = await getPublishedPosts();
-    posts = published.map((post) => ({
+    const published = await getPublishedPosts(1, 50);
+    posts = published.items.map((post) => ({
       url: `${SITE_URL}/blog/${post.slug}`,
       lastModified: post.timestamp
         ? new Date(post.timestamp * 1000)
