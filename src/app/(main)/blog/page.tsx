@@ -32,12 +32,12 @@ const Blog = async () => {
   return (
     <div className="min-h-screen overflow-x-hidden bg-[#F6F6F6] pb-10 pt-32">
       {/* Header */}
-      <div className="container flex w-screen items-center justify-center gap-3 md:justify-start">
-        <div className="grid h-16 w-16 place-items-center rounded-full bg-white shadow-[010px_20px_15px_10px_#00000024]">
-          <LuPenLine className="h-12 w-12 text-gray-800 transition-all hover:rotate-12" />
+      <div className="container flex w-screen items-center justify-center gap-3.5 md:justify-start">
+        <div className="grid h-11 w-11 shrink-0 place-items-center rounded-full bg-white shadow-md">
+          <LuPenLine className="h-6 w-6 text-gray-800 transition-all hover:rotate-12" />
         </div>
-        <h1 className="text-4xl xsm:text-5xl md:text-6xl">THE</h1>
-        <h1 className="text-4xl text-blue-500 xsm:text-5xl md:text-6xl">
+        <h1 className="text-[2.5rem] leading-none md:text-5xl">THE</h1>
+        <h1 className="text-[2.5rem] leading-none text-blue-500 md:text-5xl">
           BLOG
         </h1>
       </div>
@@ -67,17 +67,17 @@ const Blog = async () => {
               <Link
                 href={`/blog/${post.slug}`}
                 key={post.id}
-                className="group flex w-full max-w-3xl flex-col gap-4 rounded-2xl bg-white p-5 shadow-md transition-all hover:-translate-y-0.5 hover:shadow-lg sm:flex-row"
+                className="group flex w-full max-w-5xl flex-col gap-5 rounded-2xl bg-white p-6 shadow-md transition-all hover:-translate-y-0.5 hover:shadow-lg sm:flex-row sm:items-center"
               >
                 {post.cover_image_url && (
                   /* eslint-disable-next-line @next/next/no-img-element */
                   <img
                     src={post.cover_image_url}
                     alt={post.title}
-                    className="h-44 w-full rounded-xl object-cover sm:w-56"
+                    className="h-48 w-full shrink-0 rounded-xl object-cover sm:h-44 sm:w-64 md:w-72 lg:w-80"
                   />
                 )}
-                <div className="flex flex-1 flex-col justify-between gap-2">
+                <div className="flex flex-1 flex-col justify-between gap-3">
                   <div>
                     <div className="flex flex-wrap items-center gap-2">
                       {post.tags?.map((tag) => (
@@ -89,16 +89,16 @@ const Blog = async () => {
                         </span>
                       ))}
                     </div>
-                    <h2 className="mt-1.5 text-2xl font-semibold text-gray-900 transition-colors group-hover:text-blue-600">
+                    <h2 className="mt-2 font-sans text-xl font-bold leading-snug tracking-normal text-gray-900 transition-colors group-hover:text-blue-600 sm:text-2xl">
                       {post.title}
                     </h2>
                     {post.excerpt && (
-                      <p className="mt-1 line-clamp-2 text-sm text-gray-600">
+                      <p className="mt-1.5 line-clamp-2 text-sm leading-relaxed text-gray-600">
                         {post.excerpt}
                       </p>
                     )}
                   </div>
-                  <div className="flex items-center gap-2 text-xs text-gray-400">
+                  <div className="flex items-center gap-2 text-xs text-gray-400 pt-1">
                     {post.author && <span>By {post.author}</span>}
                     {post.author && <span>•</span>}
                     <time dateTime={new Date(post.timestamp * 1000).toISOString()}>
