@@ -17,6 +17,17 @@ Welcome to NDITC’s official website repository. This platform is dedicated to 
 |  React.js 18   |     |          |
 | Tailwind.css 3 |     |          |
 
+## Documentation
+
+Full technical documentation lives in the [`docs/`](docs/) folder and is complete as of now, covering:
+
+- [Getting Started](docs/getting-started.md)
+- [Dependencies](docs/dependencies.md)
+- [Architecture](docs/architecture/overview.md) (overview, app router, state management, API routes)
+- [Features](docs/features/authentication.md) (authentication, club portal, quiz & events, content)
+- [Configuration](docs/configuration/environment.md) (environment variables)
+- [Deployment](docs/deployment.md)
+
 ## Any Issues?
 
 Please contact to info.nditc.official@gmail.com or open an issue if you find any bugs and issues. We would be very grateful to you.

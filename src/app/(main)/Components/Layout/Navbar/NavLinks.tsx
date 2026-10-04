@@ -122,6 +122,7 @@ const NavLinkCont = ({
               <NavLink href="/executive">Executives</NavLink>
             </>
           )}
+          <NavLink href="/blog">Blog</NavLink>
           <NavLink href="/#contact">Contact</NavLink>
 
           {windowWidth <= 1024 && (

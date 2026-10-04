@@ -3,12 +3,12 @@ import Image from "next/image";
 import { useRef, useState } from "react";
 import Modal from "@/app/club/Components/Modal";
 import { CgSpinner } from "react-icons/cg";
-import { getDownloadURL, ref, uploadBytes } from "firebase/storage";
-import { auth, db, pfp } from "@/config/firebase";
+import { db } from "@/config/firebase";
 import { LiaTimesSolid } from "react-icons/lia";
 import { toast } from "react-toastify";
 import fileValidator from "@/util/fileValidator";
 import { doc, updateDoc } from "firebase/firestore";
+import uploadImage from "@/util/uploadImage";
 
 const EventPicture = ({
   imageUrl,
@@ -24,29 +24,27 @@ const EventPicture = ({
   const [loading, setLoading] = useState<boolean>(false);
 
   const FileRef = useRef<HTMLInputElement>(null);
-  const changeEp = () => {
-    if (newImage) {
-      setLoading(true);
-      const storeRef = ref(pfp, "ep/" + eventID);
-      uploadBytes(storeRef, newImage[0])
-        .then(async (snapshot) => {
-          const url = await getDownloadURL(storeRef);
-          await updateDoc(doc(db, "events", eventID), { imageURL: url });
-          setImage(url);
-          setLoading(false);
-          setNewImage(null);
-          setChangeImage(false);
-          toast.success("Photo Updated!");
-        })
-        .catch((error) => {
-          console.dir(error);
-
-          toast.error(error.message.replaceAll("Firebase: ", ""));
-
-          setLoading(false);
-        });
-    } else {
+  const changeEp = async () => {
+    if (!newImage) {
       toast.error("Something Happenned");
+      return;
+    }
+
+    setLoading(true);
+    try {
+      const url = await uploadImage(newImage[0], "events");
+      await updateDoc(doc(db, "events", eventID), { imageURL: url });
+      setImage(url);
+      setNewImage(null);
+      setChangeImage(false);
+      toast.success("Photo Updated!");
+    } catch (error: unknown) {
+      console.dir(error);
+      const message =
+        error instanceof Error ? error.message : "Failed to upload image";
+      toast.error(message);
+    } finally {
+      setLoading(false);
     }
   };
   return (

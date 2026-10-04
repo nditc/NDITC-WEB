@@ -40,6 +40,386 @@ const db: dbType = {
   ],
   sessions: [
     {
+      "session": "2025-2026",
+      "hasExtraDetails": true,
+      "members": [
+        {
+          "name": "Luran Meahda Ramiz Rafin",
+          "image_url": "https://raw.githubusercontent.com/nditc/nditc_mobile_app/main/images/executives/2025-2026/Luran_1.jpg",
+          "imageInCenter": true,
+          "modal_image_url": "/image/executives/2025-2026/Luran admin presi-01.png",
+          "profile_url": [
+            { "platform": "facebook", "url": "https://www.facebook.com/luran.meahda.ramiz" }
+          ],
+          "post": "President",
+          "dept": "Department of Administration",
+          "group": 1,
+          "roll": 12601020,
+          "email": "lightofeducation999@gmail.com",
+          "phone": "+8801552428308"
+        },
+        {
+          "name": "Adrito Das",
+          "image_url": "https://raw.githubusercontent.com/nditc/nditc_mobile_app/main/images/executives/2025-2026/Adrito_1.jpg",
+          "imageInCenter": true,
+          "modal_image_url": "/image/executives/2025-2026/Das.png",
+          "profile_url": [
+            { "platform": "facebook", "url": "https://www.facebook.com/adrito.das.374491" }
+          ],
+          "post": "Vice President",
+          "dept": "Department of Administration",
+          "group": 1,
+          "roll": 12601012,
+          "email": "dasjhumma@gmail.com",
+          "phone": "+8801534538327"
+        },
+        {
+          "name": "MD. Samir Hossain",
+          "image_url": "https://raw.githubusercontent.com/nditc/nditc_mobile_app/main/images/executives/2025-2026/Samir_1.jpg",
+          "imageInCenter": true,
+          "modal_image_url": "/image/executives/2025-2026/Samir.png",
+          "profile_url": [
+            { "platform": "facebook", "url": "https://www.facebook.com/samir.shanto.568" }
+          ],
+          "post": "Secretary",
+          "dept": "Department of Administration",
+          "group": 16,
+          "roll": 12616047,
+          "email": "furyxpice@gmail.com",
+          "phone": "+8801891766209"
+        },
+        {
+          "name": "Md Ikramul Hassan Fardin",
+          "image_url": "https://raw.githubusercontent.com/nditc/nditc_mobile_app/main/images/executives/2025-2026/Ikramul_1.jpg",
+          "imageInCenter": true,
+          "modal_image_url": "/image/executives/2025-2026/Ikramul.png",
+          "profile_url": [
+            { "platform": "facebook", "url": "https://www.facebook.com/fardin.fayaz.33" }
+          ],
+          "post": "President",
+          "dept": "Department of Archive, Workshop & Seminar",
+          "group": 61,
+          "roll": 62661030,
+          "email": "fardinfayaz13@gmail.com",
+          "phone": "+8801715313114"
+        },
+        {
+          "name": "Azmain Saif",
+          "image_url": "https://raw.githubusercontent.com/nditc/nditc_mobile_app/main/images/executives/2025-2026/Saif_1.jpg",
+          "imageInCenter": true,
+          "modal_image_url": "/image/executives/2025-2026/Saif.png",
+          "profile_url": [
+            { "platform": "facebook", "url": "https://www.facebook.com/share/16HTQVyqKR/" },
+            { "platform": "instagram", "url": "https://www.instagram.com/azm_sa_26?igsh=Z2g5OXF6bDNrMXc4" }
+          ],
+          "post": "Vice President",
+          "dept": "Department of Archive, Workshop & Seminar",
+          "group": 15,
+          "roll": 12615091,
+          "email": "saifazmain08@gmail.com",
+          "phone": "+8801876679065"
+        },
+        {
+          "name": "Abu Hasan Swachha",
+          "image_url": "https://raw.githubusercontent.com/nditc/nditc_mobile_app/main/images/executives/2025-2026/Swachha_1.jpg",
+          "imageInCenter": true,
+          "modal_image_url": "/image/executives/2025-2026/Swaccha.png",
+          "profile_url": [
+            { "platform": "facebook", "url": "https://www.facebook.com/swachhahassan" }
+          ],
+          "post": "Secretary",
+          "dept": "Department of Archive, Workshop & Seminar",
+          "group": 15,
+          "roll": 12615012,
+          "email": "hosnearaparvin91@gmail.com",
+          "phone": "+8801552462070"
+        },
+        {
+          "name": "Md. Fuad Hassan",
+          "image_url": "https://raw.githubusercontent.com/nditc/nditc_mobile_app/main/images/executives/2025-2026/Fuad_1.png",
+          "imageInCenter": true,
+          "modal_image_url": "/image/executives/2025-2026/Fuad.png",
+          "profile_url": [
+            { "platform": "facebook", "url": "https://www.facebook.com/fuad.hassan.rafi.2024" },
+            { "platform": "instagram", "url": "https://www.instagram.com/rafiiii_10/" },
+            { "platform": "linkedin", "url": "www.linkedin.com/in/fuadhassan12" },
+            { "platform": "github", "url": "https://github.com/hunterfuad036" }
+          ],
+          "post": "President",
+          "dept": "Department of Publications",
+          "group": 16,
+          "roll": 12616036,
+          "email": "hassanfuad12@gmail.com",
+          "phone": "+8801759361704"
+        },
+        {
+          "name": "Sejan Mahamud Setab",
+          "image_url": "https://raw.githubusercontent.com/nditc/nditc_mobile_app/main/images/executives/2025-2026/Copy of Setab publications vice presi-01.jpg",
+          "imageInCenter": true,
+          "modal_image_url": "/image/executives/2025-2026/Setab.png",
+          "profile_url": [
+            { "platform": "facebook", "url": "https://www.facebook.com/profile.php?id=100076965437575" }
+          ],
+          "post": "Vice President",
+          "dept": "Department of Publications",
+          "group": 4,
+          "roll": 12604038,
+          "email": "setabxyz@gmail.com",
+          "phone": "+8801612608819"
+        },
+        {
+          "name": "Murad Ahamed (Adnan)",
+          "image_url": "https://raw.githubusercontent.com/nditc/nditc_mobile_app/main/images/executives/2025-2026/ADNAN_1.jpg",
+          "imageInCenter": true,
+          "modal_image_url": "/image/executives/2025-2026/Adnan publications sec-01.png",
+          "profile_url": [
+            { "platform": "facebook", "url": "https://www.facebook.com/share/18vZgdRvmt/" },
+            { "platform": "instagram", "url": "https://www.instagram.com/adnan.czz" }
+          ],
+          "post": "Secretary",
+          "dept": "Department of Publications",
+          "group": 65,
+          "roll": 62665100,
+          "email": "adnanahmed.contact@gmail.com",
+          "phone": "+8801987758952"
+        },
+        {
+          "name": "Masnoon Haider Chaudhury",
+          "image_url": "https://raw.githubusercontent.com/nditc/nditc_mobile_app/main/images/executives/2025-2026/Masnoon_1.png",
+          "imageInCenter": true,
+          "modal_image_url": "/image/executives/2025-2026/Masnoon.png",
+          "profile_url": [
+            { "platform": "facebook", "url": "https://www.facebook.com/masnoon.haider.2024" }
+          ],
+          "post": "Secretary",
+          "dept": "Department of VFX",
+          "group": 15,
+          "roll": 12615017,
+          "email": "masnoonhaider2332@gmail.com",
+          "phone": "+8801730730207"
+        },
+        {
+          "name": "MD.Aliful Islam Rifat",
+          "image_url": "https://raw.githubusercontent.com/nditc/nditc_mobile_app/main/images/executives/2025-2026/Rifat_1.jpg",
+          "imageInCenter": true,
+          "modal_image_url": "/image/executives/2025-2026/Rifat.png",
+          "profile_url": [
+            { "platform": "facebook", "url": "https://www.facebook.com/aliful.islam.rifat.2025" }
+          ],
+          "post": "President",
+          "dept": "Department of Logistics & Public Relations",
+          "group": 4,
+          "roll": 12604053,
+          "email": "alifulrifat680@gmail.com",
+          "phone": "+8801603969726"
+        },
+        {
+          "name": "Md. Wadud Hossain",
+          "image_url": "https://raw.githubusercontent.com/nditc/nditc_mobile_app/main/images/executives/2025-2026/Wadud_1.png",
+          "imageInCenter": true,
+          "modal_image_url": "/image/executives/2025-2026/Wadud.png",
+          "profile_url": [
+            { "platform": "facebook", "url": "https://www.facebook.com/md.wadudhossain.12" },
+            { "platform": "instagram", "url": "https://www.instagram.com/mdwadud12/" }
+          ],
+          "post": "Secretary",
+          "dept": "Department of Logistics & Public Relations",
+          "group": 6,
+          "roll": 12606098,
+          "email": "wadud68pabna@gmail.com",
+          "phone": "+8801733843408"
+        },
+        {
+          "name": "Sharfaraj Khan Shafi",
+          "image_url": "https://raw.githubusercontent.com/nditc/nditc_mobile_app/main/images/executives/2025-2026/Shafi_1.jpg",
+          "imageInCenter": true,
+          "modal_image_url": "/image/executives/2025-2026/Shafi.png",
+          "profile_url": [
+            { "platform": "facebook", "url": "https://www.facebook.com/share/18kH2JfVHB/" }
+          ],
+          "post": "President",
+          "dept": "Department of Robotics & AI",
+          "group": 16,
+          "roll": 12616053,
+          "email": "sharfarajkhan2007@gmail.com",
+          "phone": "+8801750339900"
+        },
+        {
+          "name": "Misbah Uddin Inan",
+          "image_url": "https://raw.githubusercontent.com/nditc/nditc_mobile_app/main/images/executives/2025-2026/Inan_1.png",
+          "imageInCenter": true,
+          "modal_image_url": "/image/executives/2025-2026/Inan.png",
+          "profile_url": [
+            { "platform": "facebook", "url": "https://www.facebook.com/zaimajahin.wara" },
+            { "platform": "instagram", "url": "https://www.instagram.com/inan_404/" }
+          ],
+          "post": "President",
+          "dept": "Department of Research & Development",
+          "group": 15,
+          "roll": 12615042,
+          "email": "misbahinan@gmail.com",
+          "phone": "+8801790547964"
+        },
+        {
+          "name": "Shafin Junayen",
+          "image_url": "https://raw.githubusercontent.com/nditc/nditc_mobile_app/main/images/executives/2025-2026/Shafin_1.jpg",
+          "imageInCenter": true,
+          "modal_image_url": "/image/executives/2025-2026/Shafin.png",
+          "profile_url": [
+            { "platform": "facebook", "url": "https://www.facebook.com/shafin.junayen" }
+          ],
+          "post": "President",
+          "dept": "Department of Academics",
+          "group": 15,
+          "roll": 12615052,
+          "email": "shafinjunayen8476@gmail.com",
+          "phone": "+8801677685748"
+        },
+        {
+          "name": "Syed Obidul Muntasir",
+          "image_url": "https://raw.githubusercontent.com/nditc/nditc_mobile_app/main/images/executives/2025-2026/Muntasir_1.jpg",
+          "imageInCenter": true,
+          "modal_image_url": "/image/executives/2025-2026/Muntasir.png",
+          "profile_url": [
+            { "platform": "facebook", "url": "https://www.facebook.com/syedmuntasir1453/" },
+            { "platform": "instagram", "url": "https://www.instagram.com/syedmuntasir07/" }
+          ],
+          "post": "Secretary",
+          "dept": "Department of Academics",
+          "group": 8,
+          "roll": 12608069,
+          "email": "syedmuntasir07@gmail.com",
+          "phone": "+8801704355212"
+        },
+        {
+          "name": "Arnab Barua",
+          "image_url": "https://raw.githubusercontent.com/nditc/nditc_mobile_app/main/images/executives/2025-2026/Arnab_1.png",
+          "imageInCenter": true,
+          "modal_image_url": "/image/executives/2025-2026/Barua.png",
+          "profile_url": [
+            { "platform": "facebook", "url": "https://www.facebook.com/arnab.barua.2025" }
+          ],
+          "post": "President",
+          "dept": "Department of Web & App Development",
+          "group": 15,
+          "roll": 12615002,
+          "email": "arnabxarnab06@gmail.com",
+          "phone": "+8801305619618"
+        },
+        {
+          "name": "Faridin Islam",
+          "image_url": "https://raw.githubusercontent.com/nditc/nditc_mobile_app/main/images/executives/2025-2026/Faridin_1.jpg",
+          "imageInCenter": true,
+          "modal_image_url": "/image/executives/2025-2026/Faridin.png",
+          "profile_url": [
+            { "platform": "facebook", "url": "https://www.facebook.com/based.glasses" },
+            { "platform": "instagram", "url": "https://www.instagram.com/faridin.iz" },
+            { "platform": "github", "url": "https://github.com/xonsium" }
+          ],
+          "post": "Secretary",
+          "dept": "Department of Web & App Development",
+          "group": 7,
+          "roll": 12607088,
+          "email": "faridin05saif@gmail.com",
+          "phone": "+8801794332733"
+        },
+        {
+          "name": "Tajrif Hasan Rafid",
+          "image_url": "https://raw.githubusercontent.com/nditc/nditc_mobile_app/main/images/executives/2025-2026/Tajrif_1.jpg",
+          "imageInCenter": true,
+          "modal_image_url": "/image/executives/2025-2026/Tajrif.png",
+          "profile_url": [
+            { "platform": "facebook", "url": "https://www.facebook.com/tajrif.hasan.2025" }
+          ],
+          "post": "President",
+          "dept": "Department of Programming",
+          "group": 15,
+          "roll": 12615066,
+          "email": "tajrifhasan14@gmail.com",
+          "phone": "N/A"
+        },
+        {
+          "name": "Mahbubur Rahman Lin",
+          "image_url": "https://raw.githubusercontent.com/nditc/nditc_mobile_app/main/images/executives/2025-2026/Lin_1.png",
+          "imageInCenter": true,
+          "modal_image_url": "/image/executives/2025-2026/Lin.png",
+          "profile_url": [
+            { "platform": "facebook", "url": "https://www.facebook.com/100070915988773" }
+          ],
+          "post": "President",
+          "dept": "Department of Photography & Videography",
+          "group": 13,
+          "roll": 12613068,
+          "email": "N/A",
+          "phone": "+8801718665264"
+        },
+        {
+          "name": "Pinak Ranjan Roy",
+          "image_url": "https://raw.githubusercontent.com/nditc/nditc_mobile_app/main/images/executives/2025-2026/Pinak.jpg",
+          "imageInCenter": true,
+          "modal_image_url": "/image/executives/2025-2026/Pinak.png",
+          "profile_url": [
+            { "platform": "facebook", "url": "https://www.facebook.com/priyangshu.roy.priyang" }
+          ],
+          "post": "Vice President",
+          "dept": "Department of Photography & Videography",
+          "group": 43,
+          "roll": 42643069,
+          "email": "pinak303716@gmail.com",
+          "phone": "+8801304543616"
+        },
+        {
+          "name": "Hamidur Rahman Joy",
+          "image_url": "https://raw.githubusercontent.com/nditc/nditc_mobile_app/main/images/executives/2025-2026/Hamidur_1.JPG",
+          "imageInCenter": true,
+          "modal_image_url": "/image/executives/2025-2026/Hamid.png",
+          "profile_url": [
+            { "platform": "facebook", "url": "https://www.facebook.com/hamid.rahman.776758" },
+            { "platform": "instagram", "url": "https://www.instagram.com/hamid.rahman.776758?igsh=MjVsaDN3c2R5M2Ro" }
+          ],
+          "post": "Treasurer",
+          "dept": "",
+          "group": 65,
+          "roll": 62665058,
+          "email": "hamidurrahomanjoy@gmail.com",
+          "phone": "+8801716558511"
+        },
+        {
+          "name": "Md. Shiam Rahman",
+          "image_url": "https://raw.githubusercontent.com/nditc/nditc_mobile_app/main/images/executives/2025-2026/Copy of Shiam executive-01.jpg",
+          "imageInCenter": true,
+          "modal_image_url": "/image/executives/2025-2026/Shiam.png",
+          "profile_url": [
+            { "platform": "facebook", "url": "https://www.facebook.com/mdshiam.rahman.7" },
+            { "platform": "instagram", "url": "https://www.instagram.com/just_me_siyam?igsh=MTNncjg3Zm5tNmVueA==" }
+          ],
+          "post": "Executive Member",
+          "dept": "",
+          "group": 61,
+          "roll": 62661093,
+          "email": "rahmansiyam041@gmail.com",
+          "phone": "+8801606830769"
+        },
+        {
+          "name": "Zulfik Amin Zarif",
+          "image_url": "https://raw.githubusercontent.com/nditc/nditc_mobile_app/main/images/executives/2025-2026/Zarif_1.jpg",
+          "imageInCenter": true,
+          "modal_image_url": "/image/executives/2025-2026/Zulfik.png",
+          "profile_url": [
+            { "platform": "facebook", "url": "https://www.facebook.com/zarif.zarif.01719303213" },
+            { "platform": "instagram", "url": "https://www.instagram.com/md_zulfik_amin_zarif?igsh=OW4yeGxpd2g5eWpl" },
+            { "platform": "twitter", "url": "https://x.com/ZulfikAminZarif" }
+          ],
+          "post": "Executive Member",
+          "dept": "",
+          "group": 7,
+          "roll": 12607020,
+          "email": "zarif01719@gmail.com",
+          "phone": "+8801849415131"
+        }
+      ]
+    },
+    {
       session: "2024-2025",
       hasExtraDetails: true,
       members: [
@@ -655,7 +1035,7 @@ const db: dbType = {
           profile_url: [
             {
               platform: "facebook",
-              url: "https://www.facebook.com/kt.prodhan/",
+              url: "https://www.facebook.com/nafeprodhan/",
             },
             { platform: "web", url: "https://portfolio-of-nafe.web.app/" },
           ],
@@ -663,8 +1043,8 @@ const db: dbType = {
           dept: "Web & App Development",
           group: 6,
           roll: 12406106,
-          email: "ktprodhan@gmail.com",
-          phone: "+88 01818993307",
+          email: "nafeprodhan@gmail.com",
+          phone: "+88 01887433971",
         },
 
         {

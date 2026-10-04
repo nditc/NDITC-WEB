@@ -72,7 +72,7 @@ const x: devData = {
       image_url: "/image/Developers/Nafe.png",
       modal_image_url: "/image/Developers/tr-Nafe.png",
       profile_url: [
-        { platform: "facebook", url: "https://www.facebook.com/kt.prodhan" },
+        { platform: "facebook", url: "https://www.facebook.com/nafeprodhan/" },
         {
           platform: "github",
           url: "https://github.com/Nafe-Ibne-Dalower ",
@@ -86,7 +86,7 @@ const x: devData = {
       dept: "Web & App Development",
       group: 6,
       roll: 12406106,
-      email: "ktprodhan@gmail.com",
+      email: "nafeprodhan@gmail.com",
     },
     {
       name: "Adib Adnan Hoque",

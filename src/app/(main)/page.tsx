@@ -8,6 +8,7 @@ import Departments from "./Components/Home/Departments";
 import WhyNditc from "./Components/Home/WhyNditc";
 import Upcoming from "./activities/_components/Upcoming";
 import UpcomingEvents from "./activities/_components/UpcomingEvents";
+import LatestBlogs from "./Components/Home/LatestBlogs";
 
 export default function Home() {
   return (
@@ -19,6 +20,7 @@ export default function Home() {
         <UpcomingEvents />
       </div>
       <ActivityCards />
+      <LatestBlogs />
       {/* <FAQ /> */}
       <WhyNditc />
       <CodeCompass />
