@@ -18,6 +18,7 @@ interface questionInterface {
   option3: string;
   point: number;
   index: number;
+  originalIndex?: number;
   setAnswerData: (option: number, answer: string, index: number) => void;
   selectedOption: number;
   givenAnswer: string;
@@ -28,6 +29,7 @@ const Question = ({
   point,
   question,
   index,
+  originalIndex,
   option0,
   option1,
   option2,
@@ -38,6 +40,8 @@ const Question = ({
 }: questionInterface) => {
   const [selectedVal, setSelectedVal] = useState(selectedOption);
   const [savedOnce, setSavedOnce] = useState(false);
+
+  const targetIndex = originalIndex !== undefined ? originalIndex : index;
 
   const options = [option0, option1, option2, option3];
   const optionsArr = ["A", "B", "C", "D"];
@@ -75,7 +79,7 @@ const Question = ({
   }, []);
 
   return (
-    <div className="flex w-full flex-col rounded-xl bg-white p-5">
+    <div className="flex w-full flex-col rounded-xl bg-white p-5 select-none">
       <div className="flex max-w-full items-center justify-between overflow-x-auto pb-3 text-base md:text-lg">
         <div className="flex flex-col items-start gap-2 font-medium leading-[1.3] sm:flex-row">
           <p className="Inter grid h-9 w-9 shrink-0 place-items-center rounded-full bg-primary text-white">
@@ -103,7 +107,7 @@ const Question = ({
                 selected={selectedVal}
                 index={i}
                 setSelected={(i) => {
-                  setAnswerData(i, answer, index);
+                  setAnswerData(i, answer, targetIndex);
                 }}
                 key={i}
               />
@@ -120,6 +124,12 @@ const Question = ({
               className="h-16 rounded-xl border border-gray-300 px-5 py-3 focus:border-primary focus:outline-none"
               onChange={(e) => {
                 setAnswer(e.target.value);
+              }}
+              onPaste={(e) => {
+                e.preventDefault();
+                toast.warning("Pasting is disabled during the exam!", {
+                  toastId: "no-paste-input",
+                });
               }}
               value={answer}
               name="answer"
@@ -138,7 +148,7 @@ const Question = ({
               <button
                 className="mt-3 rounded-xl bg-primary px-5 py-3 text-white transition hover:opacity-85 active:scale-95"
                 onClick={() => {
-                  setAnswerData(selectedVal, answer, index);
+                  setAnswerData(selectedVal, answer, targetIndex);
                   toast.info("Saved Response!");
                   setSavedOnce(true);
                 }}

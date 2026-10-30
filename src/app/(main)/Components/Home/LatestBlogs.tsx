@@ -22,12 +22,12 @@ const LatestBlogs = async () => {
 
   return (
     <section className="mt-16 w-full">
-      <div className="flex w-screen items-center justify-center gap-3 md:justify-start">
-        <div className="grid h-16 w-16 place-items-center rounded-full bg-white shadow-[010px_20px_15px_10px_#00000024]">
-          <LuPenLine className="h-12 w-12 text-gray-800 transition-all hover:rotate-12" />
+      <div className="flex w-screen items-center justify-center gap-3.5 md:justify-start">
+        <div className="grid h-11 w-11 shrink-0 place-items-center rounded-full bg-white shadow-md">
+          <LuPenLine className="h-6 w-6 text-gray-800 transition-all hover:rotate-12" />
         </div>
-        <h1 className="text-4xl xsm:text-5xl md:text-6xl">LATEST</h1>
-        <h1 className="text-4xl text-blue-500 xsm:text-5xl md:text-6xl">
+        <h1 className="text-[2.5rem] leading-none md:text-5xl">LATEST</h1>
+        <h1 className="text-[2.5rem] leading-none text-blue-500 md:text-5xl">
           BLOGS
         </h1>
       </div>
@@ -57,7 +57,7 @@ const LatestBlogs = async () => {
                 </span>
               ))}
             </div>
-            <h2 className="mt-1.5 text-xl font-semibold text-gray-900 transition-colors group-hover:text-blue-600">
+            <h2 className="mt-2 font-sans text-xl font-bold leading-snug tracking-normal text-gray-900 transition-colors group-hover:text-blue-600">
               {post.title}
             </h2>
             {post.excerpt && (

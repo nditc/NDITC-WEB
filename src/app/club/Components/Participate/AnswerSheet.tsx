@@ -32,6 +32,10 @@ interface Questions {
   point: number;
 }
 
+interface QuestionWithIndex extends Questions {
+  originalIndex: number;
+}
+
 interface answerInterface {
   option: number;
   answer: string;
@@ -73,10 +77,63 @@ const AnswerSheet = ({
   showResult: boolean;
 }) => {
   const KEY = `event_answer_${id}`;
+  const ORDER_KEY = `event_questions_order_${id}`;
+  const TAB_KEY = `event_tab_change_${id}`;
+
   const INIT = Array(questions.length).fill({ option: 5, answer: "" });
   const [answers, setAnswers] = useState<answerInterface[]>(INIT);
 
   const { isOpen, onOpen, onOpenChange } = useDisclosure();
+  const {
+    isOpen: isWarningOpen,
+    onOpen: onWarningOpen,
+    onOpenChange: onWarningOpenChange,
+  } = useDisclosure();
+  const {
+    isOpen: isExpelledOpen,
+    onOpen: onExpelledOpen,
+    onOpenChange: onExpelledOpenChange,
+  } = useDisclosure();
+
+  const [shuffledQuestions, setShuffledQuestions] = useState<QuestionWithIndex[]>([]);
+
+  useEffect(() => {
+    if (!questions || questions.length === 0) return;
+
+    const indexedQuestions: QuestionWithIndex[] = questions.map((q, i) => ({
+      ...q,
+      originalIndex: i,
+    }));
+
+    const savedOrder = localStorage.getItem(ORDER_KEY);
+    if (savedOrder) {
+      try {
+        const orderArray: number[] = JSON.parse(savedOrder);
+        const restored = orderArray
+          .map((origIdx) => indexedQuestions.find((q) => q.originalIndex === origIdx))
+          .filter((q): q is QuestionWithIndex => q !== undefined);
+
+        if (restored.length === questions.length) {
+          setShuffledQuestions(restored);
+          return;
+        }
+      } catch {
+        // Fallback to fresh shuffle if parsing fails
+      }
+    }
+
+    const shuffled = [...indexedQuestions];
+    for (let i = shuffled.length - 1; i > 0; i--) {
+      const j = Math.floor(Math.random() * (i + 1));
+      [shuffled[i], shuffled[j]] = [shuffled[j], shuffled[i]];
+    }
+
+    localStorage.setItem(
+      ORDER_KEY,
+      JSON.stringify(shuffled.map((q) => q.originalIndex)),
+    );
+    setShuffledQuestions(shuffled);
+  }, [questions, ORDER_KEY]);
 
   const setAnswerData = (
     chosenOption: number,
@@ -116,7 +173,8 @@ const AnswerSheet = ({
         setTotalMarks(res.totalMarks);
         onOpen();
         localStorage.removeItem(KEY);
-        // setSubmitClicked(false);
+        localStorage.removeItem(ORDER_KEY);
+        localStorage.removeItem(TAB_KEY);
       })
       .catch(() => toast.error("Submission Error"));
   };
@@ -136,6 +194,79 @@ const AnswerSheet = ({
       localStorage.setItem(KEY, JSON.stringify(answers));
     }
   }, [answers, loadedInit, KEY]);
+
+  // Copy - Paste & Right Click Prevention
+  useEffect(() => {
+    if (submitClicked) return;
+
+    const preventCopyPaste = (e: Event) => {
+      e.preventDefault();
+      toast.warning("Copying/Pasting is disabled during the exam!", {
+        toastId: "no-copy-paste",
+      });
+    };
+
+    const preventContextMenu = (e: MouseEvent) => {
+      e.preventDefault();
+      toast.warning("Right-clicking is disabled during the exam!", {
+        toastId: "no-context-menu",
+      });
+    };
+
+    const preventKeyboardShortcuts = (e: KeyboardEvent) => {
+      if (
+        (e.ctrlKey || e.metaKey) &&
+        ["c", "v", "x", "a", "C", "V", "X", "A"].includes(e.key)
+      ) {
+        e.preventDefault();
+        toast.warning("Copy/Paste shortcuts are disabled during the exam!", {
+          toastId: "no-shortcut",
+        });
+      }
+    };
+
+    window.addEventListener("copy", preventCopyPaste);
+    window.addEventListener("paste", preventCopyPaste);
+    window.addEventListener("cut", preventCopyPaste);
+    window.addEventListener("contextmenu", preventContextMenu);
+    window.addEventListener("keydown", preventKeyboardShortcuts);
+
+    return () => {
+      window.removeEventListener("copy", preventCopyPaste);
+      window.removeEventListener("paste", preventCopyPaste);
+      window.removeEventListener("cut", preventCopyPaste);
+      window.removeEventListener("contextmenu", preventContextMenu);
+      window.removeEventListener("keydown", preventKeyboardShortcuts);
+    };
+  }, [submitClicked]);
+
+  // Tab Change Prevention
+  useEffect(() => {
+    if (submitClicked) return;
+
+    const handleVisibilityChange = () => {
+      if (document.hidden && !submitClicked) {
+        const currentCount = parseInt(
+          localStorage.getItem(TAB_KEY) || "0",
+          10,
+        );
+        const newCount = currentCount + 1;
+        localStorage.setItem(TAB_KEY, newCount.toString());
+
+        if (newCount === 1) {
+          onWarningOpen();
+        } else if (newCount >= 2) {
+          onExpelledOpen();
+          SubmitFunc();
+        }
+      }
+    };
+
+    document.addEventListener("visibilitychange", handleVisibilityChange);
+    return () => {
+      document.removeEventListener("visibilitychange", handleVisibilityChange);
+    };
+  }, [submitClicked, TAB_KEY, onWarningOpen, onExpelledOpen]);
 
   const router = useRouter();
 
@@ -167,6 +298,7 @@ const AnswerSheet = ({
           </div>
         </div>
 
+        {/* Exam Result Modal */}
         <Modal
           isOpen={isOpen}
           onOpenChange={onOpenChange}
@@ -212,13 +344,10 @@ const AnswerSheet = ({
                       )}
                     </Chip>
 
-
-
                     <Button
                       className="w-full border bg-primary text-white hover:bg-primary_dark"
                       color="primary"
                       onPress={() => {
-                        //setSubmitClicked(false);
                         onClose();
                         router.push("/club/profile/events/nditc/all");
                       }}
@@ -232,12 +361,83 @@ const AnswerSheet = ({
           </ModalContent>
         </Modal>
 
+        {/* 1st Tab Change Warning Modal */}
+        <Modal
+          isOpen={isWarningOpen}
+          onOpenChange={onWarningOpenChange}
+          isDismissable={false}
+          isKeyboardDismissDisabled={true}
+        >
+          <ModalContent>
+            {(onClose) => (
+              <Card className="h-full w-full border-none bg-white p-4">
+                <CardBody className="items-center justify-center text-center gap-3">
+                  <CiWarning className="text-6xl text-amber-500 animate-bounce" />
+                  <h4 className="text-2xl font-bold text-gray-800">
+                    Warning: Tab Change Detected!
+                  </h4>
+                  <p className="text-base text-gray-600 font-medium">
+                    NDITC does not allow tab change during exams, If you change Tab once more, you will be expelled
+                  </p>
+                </CardBody>
+                <CardFooter className="flex justify-center pt-2">
+                  <Button
+                    className="w-full bg-amber-500 text-white font-semibold hover:bg-amber-600"
+                    onPress={onClose}
+                  >
+                    I Understand
+                  </Button>
+                </CardFooter>
+              </Card>
+            )}
+          </ModalContent>
+        </Modal>
+
+        {/* 2nd Tab Change Expulsion Modal */}
+        <Modal
+          isOpen={isExpelledOpen}
+          onOpenChange={onExpelledOpenChange}
+          isDismissable={false}
+          isKeyboardDismissDisabled={true}
+        >
+          <ModalContent>
+            {(onClose) => (
+              <Card className="h-full w-full border-none bg-white p-4">
+                <CardBody className="items-center justify-center text-center gap-3">
+                  <CiWarning className="text-6xl text-red-600" />
+                  <h4 className="text-2xl font-bold text-red-600">
+                    Expelled from Exam!
+                  </h4>
+                  <p className="text-base text-gray-700 font-medium">
+                    You have been expelled from this exam due to multiple tab changes. Your answers up to this point have been automatically submitted.
+                  </p>
+                </CardBody>
+                <CardFooter className="flex justify-center pt-2">
+                  <Button
+                    className="w-full bg-red-600 text-white font-semibold hover:bg-red-700"
+                    onPress={() => {
+                      onClose();
+                      router.push("/club/profile/events/nditc/all");
+                    }}
+                  >
+                    Return to Portal
+                  </Button>
+                </CardFooter>
+              </Card>
+            )}
+          </ModalContent>
+        </Modal>
+
         <h3 className="Inter mb-2 mt-8 text-center text-3xl font-bold opacity-50">
           Questions
         </h3>
 
         <div className="mt-3 grid grid-cols-1 gap-4">
-          {questions.map((e, i) => {
+          {(shuffledQuestions.length > 0
+            ? shuffledQuestions
+            : questions.map((q, i) => ({ ...q, originalIndex: i }))
+          ).map((e: QuestionWithIndex, i: number) => {
+            const origIdx = e.originalIndex;
             return (
               <Question
                 mcq={e.mcq}
@@ -248,10 +448,11 @@ const AnswerSheet = ({
                 option3={e.option3}
                 point={e.point}
                 index={i}
+                originalIndex={origIdx}
                 setAnswerData={setAnswerData}
-                selectedOption={answers[i].option}
-                givenAnswer={answers[i].answer}
-                key={i}
+                selectedOption={answers[origIdx]?.option ?? 5}
+                givenAnswer={answers[origIdx]?.answer ?? ""}
+                key={origIdx}
               />
             );
           })}
